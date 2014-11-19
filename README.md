@@ -2,11 +2,18 @@ Projeto PHP-BR
 ========================
 
 Este projeto tem como objetivo o desenvolvimento
-de um portal para a comunidade php no Brasil.
+de um portal para a comunidade PHP no Brasil.
 
 ```
 irc.freenode.net
-##php-br
+   _   _      _   _    _______           _______         ______   _______
+  ( ) ( )    ( ) ( )  (  ____ )|\     /|(  ____ )       (  ___ \ (  ____ )
+ _| |_| |_  _| |_| |_ | (    )|| )   ( || (    )|       | (   ) )| (    )|
+(_   _   _)(_   _   _)| (____)|| (___) || (____)| _____ | (__/ / | (____)|
+ _| (_) |_  _| (_) |_ |  _____)|  ___  ||  _____)(_____)|  __ (  |     __)
+(_   _   _)(_   _   _)| (      | (   ) || (             | (  \ \ | (\ (
+  | | | |    | | | |  | )      | )   ( || )             | )___) )| ) \ \__
+  (_) (_)    (_) (_)  |/       |/     \||/              |/ \___/ |/   \__/
 ```
 
 1) Instalacao
@@ -24,19 +31,3 @@ Colaboradores
   * Rodolfo Bandeira;
 
 ----------------------------------
-
-Enjoy!
-
-[1]:  http://symfony.com/doc/2.5/book/installation.html
-[2]:  http://getcomposer.org/
-[3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.5/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.5/index.html
-[6]:  http://symfony.com/doc/2.5/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.5/book/doctrine.html
-[8]:  http://symfony.com/doc/2.5/book/templating.html
-[9]:  http://symfony.com/doc/2.5/book/security.html
-[10]: http://symfony.com/doc/2.5/cookbook/email.html
-[11]: http://symfony.com/doc/2.5/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.5/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.5/bundles/SensioGeneratorBundle/index.html
