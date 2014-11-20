@@ -30,4 +30,6 @@ Colaboradores
 
   * Rodolfo Bandeira;
 
+  * Gabriel Novaes;
+
 ----------------------------------
