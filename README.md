@@ -18,7 +18,7 @@ irc.freenode.net
   (_) (_)    (_) (_)  |/       |/     \||/              |/ \___/ |/   \__/
 ```
 
-1) Instalacao
+1) Instalação:
 ----------------------------------
 
 Se você estiver em uma máquina rodando UBUNTU:
@@ -33,18 +33,17 @@ Edite seu arquivo de configuração do Apache:
 
     sudo vim /etc/apache2/sites-available/000-default.conf
 
-<VirtualHost *:80>
-	ServerAdmin webmaster@localhost
-	DocumentRoot /var/www/html/php-br/web
+    <VirtualHost *:80>
+    	ServerAdmin webmaster@localhost
+    	DocumentRoot /var/www/html/php-br/web
     <Directory /var/www/html/php-br/web>
-        # enable the .htaccess rewrites
         AllowOverride All
         Order allow,deny
         Allow from All
     </Directory>
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+    	ErrorLog ${APACHE_LOG_DIR}/error.log
+    	CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
 
     sudo service apache2 restart
 
@@ -63,9 +62,9 @@ Edite seu arquivo de configuração do Apache:
 Colaboradores:
 ----------------------------------
 
-  * Rodrigo Z Arthuso;  IRC NICK: rodd
+  * Rodrigo Z Arthuso;  IRC NICK: **rodd**
 
-  * Rodolfo Bandeira;  IRC NICK: ule
+  * Rodolfo Bandeira;  IRC NICK: **ule**
 
   * Gabriel Novaes;
 
