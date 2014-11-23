@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Phpbr\Bundle\UserBundle\PhpbrUserBundle(),
 	    new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Phpbr\Bundle\AppBundle\PhpbrAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
