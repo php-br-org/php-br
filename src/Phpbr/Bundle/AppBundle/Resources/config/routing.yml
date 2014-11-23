@@ -1,0 +1,3 @@
+phpbr_app_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PhpbrAppBundle:Default:index }

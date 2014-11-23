@@ -1,3 +1,7 @@
+phpbr_app:
+    resource: "@PhpbrAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pagina_inicial:
     pattern:    /
     defaults:   { _controller: FOSUserBundle:Security:login }
