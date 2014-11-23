@@ -57,7 +57,25 @@ Edite seu arquivo de configuração do Apache:
 
     php composer.phar install 
 
+
+2) Front-end
+----------------------------------
+Necessario: NodeJS + NPM
+
+Instale bower e grunt-cli em sua maquina:
     
+    npm install -g bower grunt-cli
+
+Para compilar os arquivos de estilo e JS:
+
+    cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+    grunt build
+
+Para compilar automaticamente ao salvar:
+
+    cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+    grunt watch
+
 
 Colaboradores:
 ----------------------------------
