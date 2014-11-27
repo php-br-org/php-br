@@ -53,10 +53,6 @@ Edite seu arquivo de configuração do Apache:
 
     ./install.sh
 
-    curl -s http://getcomposer.org/installer | php
-
-    php composer.phar install 
-
 
 2) Front-end
 ----------------------------------
