@@ -84,6 +84,6 @@ Colaboradores:
 
   * Rodolfo Bandeira;  IRC NICK: **ule**
 
-  * Gabriel Novaes;
+  * Gabriel Novaes; IRC NICK: **codeman**
 
 ----------------------------------
