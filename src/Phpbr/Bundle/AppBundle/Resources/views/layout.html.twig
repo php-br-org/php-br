@@ -1,5 +1,12 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
+{% block conteudo %}
 	{{ block('fos_user_content') }}
 {% endblock %}
+
+{% block patrocinio1 %}
+    <p><img src="http://placehold.it/300x440&text=Patrocinador 1"/></p>
+{%endblock %}
+{% block patrocinio2 %}
+    <p><img src="http://placehold.it/300x440&text=Patrocinador 2"/></p>
+{%endblock %}

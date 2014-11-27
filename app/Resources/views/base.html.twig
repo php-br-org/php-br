@@ -2,66 +2,71 @@
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Foundation Template | Feed</title>
-<meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more."/>
-<meta name="author" content="ZURB, inc. ZURB network also includes zurb.com"/>
-<meta name="copyright" content="ZURB, inc. Copyright (c) 2014"/>
-<link rel="stylesheet" href="../assets/css/templates/foundation.css"/>
-<script src="../assets/js/modernizr.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}##php-br | irc.freenode.net{% endblock %}</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="php-br"/>
+    <meta name="copyright" content="php-br"/>
+
+{% stylesheets '@PhpbrAppBundle/Resources/public/assets/bower_components/foundation/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{% javascripts '@PhpbrAppBundle/Resources/public/assets/bower_components/foundation/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+    
 </head>
 <body>
  
- <div class="row">
- <div class="large-12 columns">
- <div class="panel">
- <h1>Feed Template</h1>
- </div>
- </div>
- </div>
+<div class="row">
+    <div class="large-12 columns">
+        <div class="panel">
+        {% block logo %}
+            <h1>##php-br</h1>
+            <h5>irc.freenode.net</h5>
+        {% endblock %}
+        </div>
+    </div>
+</div>
   
-  <div class="row">
-   
-    
+<div class="row">
     <div class="large-3 columns ">
-    <div class="panel">
-    <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-    <h5><a href="#">Your Name</a></h5>
-    <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-    <section class="section">
-    <h5 class="title"><a href="#">Section 1</a></h5>
-    </section>
-    <section class="section">
-    <h5 class="title"><a href="#">Section 2</a></h5>
-    </section>
-    <section class="section">
-    <h5 class="title"><a href="#">Section 3</a></h5>
-    </section>
-    <section class="section">
-    <h5 class="title"><a href="#">Section 4</a></h5>
-    </section>
-    <section class="section">
-    <h5 class="title"><a href="#">Section 5</a></h5>
-    </section>
-    <section class="section">
-    <h5 class="title"><a href="#">Section 6</a></h5>
-    </section>
-    </div>
-    </div>
+        <div class="panel">
+        {% block menu_inicial %}
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+                <section class="section">
+                    <h5 class="title"><a href="#">Php-Doc</a></h5>
+                </section>
+                <section class="section">
+                    <h5 class="title"><a href="#">Frameworks</a></h5>
+                </section>
+                <section class="section">
+                    <h5 class="title"><a href="#">Banco de Dados</a></h5>
+                </section>
+                <section class="section">
+                    <h5 class="title"><a href="#">API</a></h5>
+                </section>
+                <section class="section">
+                    <h5 class="title"><a href="#">Performance</a></h5>
+                </section>
+            </div>
+        {% endblock %}    
+        </div>
     </div>
      
       
-      <div class="large-6 columns">
-       
-       <div class="row">
-       <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-       <div class="large-10 columns">
-       <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-       <ul class="inline-list">
-       <li><a href="">Reply</a></li>
-       <li><a href="">Share</a></li>
-       </ul>
+    <div class="large-6 columns">
+    {% block conteudo %}
+        <div class="row">
+        <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+        <div class="large-10 columns">
+        <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+        <ul class="inline-list">
+        <li><a href="">Reply</a></li>
+        <li><a href="">Share</a></li>
+        </ul>
        <h6>2 Comments</h6>
        <div class="row">
        <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
@@ -89,8 +94,8 @@
           
           <hr/>
            
-           <div class="row">
-           <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+       <div class="row">
+        <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
            <div class="large-10 columns">
            <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
            <ul class="inline-list">
@@ -104,53 +109,42 @@
            </div>
            </div>
            </div>
-            
-            </div>
-             
-              
-              <aside class="large-3 columns hide-for-small">
-              <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
-              <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
-              </aside>
-              </div>
-               
-               <footer class="row">
-               <div class="large-12 columns">
-               <hr/>
-               <div class="row">
-               <div class="large-5 columns">
-               <p>&copy; Copyright no one at all. Go to town.</p>
-               </div>
-               <div class="large-7 columns">
-               <ul class="inline-list right">
-               <li><a href="#">Section 1</a></li>
-               <li><a href="#">Section 2</a></li>
-               <li><a href="#">Section 3</a></li>
-               <li><a href="#">Section 4</a></li>
-               <li><a href="#">Section 5</a></li>
-               <li><a href="#">Section 6</a></li>
-               </ul>
-               </div>
-               </div>
-               </div>
-               </footer>
-               <script>
-                 document.write('<script src=js/vendor/' +
-                   ('__proto__' in {} ? 'zepto' : 'jquery') +
-                     '.js><\/script>')
-                   </script>
-                   <script src="../../assets/js/jquery.js"></script>
-                   <script src="js/foundation.min.js"></script>
-                   <script>
-                       $(document).foundation();
-                         </script>
-                         <script src="../assets/js/templates/jquery.js"></script>
-                         <script src="../assets/js/templates/foundation.js"></script>
-                         <script>
-                               $(document).foundation();
 
-                                     var doc = document.documentElement;
-                                           doc.setAttribute('data-useragent', navigator.userAgent);
-                                               </script>
-                                               </body>
-                                               </html>
+    {% endblock %}        
+    </div>         
+              
+    <aside class="large-3 columns hide-for-small">
+        {% block patrocinio1 %}
+        <p><img src="http://placehold.it/300x440&text=[ad]"/></p>  
+        {% endblock %}
+
+        {% block patrocinio2 %}
+        <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
+        {% endblock %}
+    </aside>
+
+</div>
+
+               
+<footer class="row">
+{% block rodape %}
+    <div class="large-12 columns">
+    <hr/>
+        <div class="row">
+            <div class="large-5 columns">
+                <p>&copy; Copyright ##php-br | irc.freenode.net</p>
+            </div>
+            <div class="large-7 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Webchat</a></li>
+                    <li><a href="#">Colabore</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</footer>
+</body>
+</html>

@@ -5,6 +5,7 @@ imports:
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }
+    translator:     { fallback: pt_BR }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -15,7 +16,8 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
+    # default_locale:  "%locale%"
+    default_locale:  pt_BR
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
