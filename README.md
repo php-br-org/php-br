@@ -60,7 +60,15 @@ Edite seu arquivo de configuração do Apache:
 
 2) Front-end
 ----------------------------------
-Necessario: NodeJS + NPM
+Necessario: NodeJS + NPM. 
+
+    apt-get install nodejs-legacy
+
+Se voce instalou o node ao inves do nodejs-legacy, remova e instale novamente com os seguintes comandos:
+
+    apt-get remove node
+    apt-get autoremove
+    apt-get install nodejs-legacy
 
 Instale bower e grunt-cli em sua maquina:
     
@@ -69,7 +77,15 @@ Instale bower e grunt-cli em sua maquina:
 Para compilar os arquivos de estilo e JS:
 
     cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+    npm install && bower install --allow-root
     grunt build
+
+Você verá na tela:
+
+    Running "sass:dist" (sass) task
+    File "css/app.css" created.
+
+    Done, without errors
 
 Para compilar automaticamente ao salvar:
 
