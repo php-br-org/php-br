@@ -1,149 +1,38 @@
-<!doctype html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{% block title %}##php-br | irc.freenode.net{% endblock %}</title>
-    <meta name="description" content=""/>
-    <meta name="author" content="php-br"/>
-    <meta name="copyright" content="php-br"/>
+{% set userLocale = app.request.locale %}
 
-    {% stylesheets '@PhpbrAppBundle/Resources/public/assets/css/*' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-</head>
-<body>
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="panel">
-            {% block logo %}
-                <h1>##php-br</h1>
-                <h5>irc.freenode.net</h5>
-            {% endblock %}
-            </div>
-        </div>
-    </div>
-  
-    <div class="row">
-        <div class="large-3 columns ">
-            <div class="panel">
-            {% block menu_inicial %}
-                <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-                    <section class="section">
-                        <h5 class="title"><a href="#">Php-Doc</a></h5>
-                    </section>
-                    <section class="section">
-                        <h5 class="title"><a href="#">Frameworks</a></h5>
-                    </section>
-                    <section class="section">
-                        <h5 class="title"><a href="#">Banco de Dados</a></h5>
-                    </section>
-                    <section class="section">
-                        <h5 class="title"><a href="#">API</a></h5>
-                    </section>
-                    <section class="section">
-                        <h5 class="title"><a href="#">Performance</a></h5>
-                    </section>
-                </div>
-            {% endblock %}
-            </div>
-        </div>
-     
-      
-    <div class="large-6 columns">
-    {% block conteudo %}
-        <div class="row">
-        <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-        <div class="large-10 columns">
-        <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-        <ul class="inline-list">
-        <li><a href="">Reply</a></li>
-        <li><a href="">Share</a></li>
-        </ul>
-       <h6>2 Comments</h6>
-       <div class="row">
-       <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-       <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-       </div>
-       <div class="row">
-       <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-       <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-       </div>
-       </div>
-       </div>
-        
-        <hr/>
-         
-         <div class="row">
-         <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-         <div class="large-10 columns">
-         <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-         <ul class="inline-list">
-         <li><a href="">Reply</a></li>
-         <li><a href="">Share</a></li>
-         </ul>
-         </div>
-         </div>
-          
-          <hr/>
-           
-       <div class="row">
-        <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-           <div class="large-10 columns">
-           <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-           <ul class="inline-list">
-           <li><a href="">Reply</a></li>
-           <li><a href="">Share</a></li>
-           </ul>
-           <h6>2 Comments</h6>
-           <div class="row">
-           <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-           <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-           </div>
-           </div>
-           </div>
+<!DOCTYPE html>
+{% if userLocale == "pt_BR" %}
+<!--[if IE 8 ]>    <html class="lt-ie10" lang="pt_BR"> <![endif]-->
+<html lang="pt_BR">
+{% else  %}
+<!--[if IE 8 ]>    <html class="lt-ie10" lang="en"> <![endif]-->
+<html lang="en">
+{% endif %}
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="php-br"/>
+        <meta name="copyright" content="php-br"/>
+        {# <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('touch-icon-iphone.png') }}" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('apple-touch-icon-57x57.png') }}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('apple-touch-icon-144x144.png') }}" /> #}
+        <!--<link rel="canonical" href="http://mobility.costco.ca{{ app.request.getPathInfo() }}">-->
 
-    {% endblock %}        
-    </div>         
-              
-    <aside class="large-3 columns hide-for-small">
-        {% block patrocinio1 %}
-        <p><img src="http://placehold.it/300x440&text=[ad]"/></p>  
-        {% endblock %}
-
-        {% block patrocinio2 %}
-        <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
-        {% endblock %}
-    </aside>
-
-</div>
-
-               
-    <footer class="row">
-    {% block rodape %}
-        <div class="large-12 columns">
-        <hr/>
-            <div class="row">
-                <div class="large-5 columns">
-                    <p>&copy; Copyright ##php-br | irc.freenode.net</p>
-                </div>
-                <div class="large-7 columns">
-                    <ul class="inline-list right">
-                        <li><a href="#">Quem somos</a></li>
-                        <li><a href="#">Webchat</a></li>
-                        <li><a href="#">Colabore</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    {% endblock %}
-    </footer>
-
-{% javascripts '@PhpbrAppBundle/Resources/public/assets/js/*' %}
-<script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-
-</body>
+        {% block twitter %}{% endblock %}
+        {% block facebook %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+        {% block extraMeta %}{% endblock %}
+        {% block headscripts %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
 </html>

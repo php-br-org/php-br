@@ -33,8 +33,8 @@ vagrantfile-local:
                     - '--parser future'
         synced_folder:
             qhaIhmGnQzC0:
-                owner: www-data
-                group: www-data
+                owner: vagrant
+                group: vagrant
                 source: ./
                 target: /var/www/php-br
                 sync_type: rsync
