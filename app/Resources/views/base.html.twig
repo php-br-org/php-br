@@ -4,57 +4,51 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>{% block title %}##php-br | irc.freenode.net{% endblock %}</title>
+    <title>{% block title %}##php-br | irc.freenode.net{% endblock %}</title>
     <meta name="description" content=""/>
     <meta name="author" content="php-br"/>
     <meta name="copyright" content="php-br"/>
 
-{% stylesheets '@PhpbrAppBundle/Resources/public/assets/bower_components/foundation/css/*' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
-
-{% javascripts '@PhpbrAppBundle/Resources/public/assets/bower_components/foundation/js/*' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-    
+    {% stylesheets '@PhpbrAppBundle/Resources/public/assets/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 </head>
 <body>
- 
-<div class="row">
-    <div class="large-12 columns">
-        <div class="panel">
-        {% block logo %}
-            <h1>##php-br</h1>
-            <h5>irc.freenode.net</h5>
-        {% endblock %}
-        </div>
-    </div>
-</div>
-  
-<div class="row">
-    <div class="large-3 columns ">
-        <div class="panel">
-        {% block menu_inicial %}
-            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-                <section class="section">
-                    <h5 class="title"><a href="#">Php-Doc</a></h5>
-                </section>
-                <section class="section">
-                    <h5 class="title"><a href="#">Frameworks</a></h5>
-                </section>
-                <section class="section">
-                    <h5 class="title"><a href="#">Banco de Dados</a></h5>
-                </section>
-                <section class="section">
-                    <h5 class="title"><a href="#">API</a></h5>
-                </section>
-                <section class="section">
-                    <h5 class="title"><a href="#">Performance</a></h5>
-                </section>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+            {% block logo %}
+                <h1>##php-br</h1>
+                <h5>irc.freenode.net</h5>
+            {% endblock %}
             </div>
-        {% endblock %}    
         </div>
     </div>
+  
+    <div class="row">
+        <div class="large-3 columns ">
+            <div class="panel">
+            {% block menu_inicial %}
+                <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+                    <section class="section">
+                        <h5 class="title"><a href="#">Php-Doc</a></h5>
+                    </section>
+                    <section class="section">
+                        <h5 class="title"><a href="#">Frameworks</a></h5>
+                    </section>
+                    <section class="section">
+                        <h5 class="title"><a href="#">Banco de Dados</a></h5>
+                    </section>
+                    <section class="section">
+                        <h5 class="title"><a href="#">API</a></h5>
+                    </section>
+                    <section class="section">
+                        <h5 class="title"><a href="#">Performance</a></h5>
+                    </section>
+                </div>
+            {% endblock %}
+            </div>
+        </div>
      
       
     <div class="large-6 columns">
@@ -126,25 +120,30 @@
 </div>
 
                
-<footer class="row">
-{% block rodape %}
-    <div class="large-12 columns">
-    <hr/>
-        <div class="row">
-            <div class="large-5 columns">
-                <p>&copy; Copyright ##php-br | irc.freenode.net</p>
-            </div>
-            <div class="large-7 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Quem somos</a></li>
-                    <li><a href="#">Webchat</a></li>
-                    <li><a href="#">Colabore</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
+    <footer class="row">
+    {% block rodape %}
+        <div class="large-12 columns">
+        <hr/>
+            <div class="row">
+                <div class="large-5 columns">
+                    <p>&copy; Copyright ##php-br | irc.freenode.net</p>
+                </div>
+                <div class="large-7 columns">
+                    <ul class="inline-list right">
+                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="#">Webchat</a></li>
+                        <li><a href="#">Colabore</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-{% endblock %}
-</footer>
+    {% endblock %}
+    </footer>
+
+{% javascripts '@PhpbrAppBundle/Resources/public/assets/js/*' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
 </body>
 </html>
