@@ -21,6 +21,27 @@ irc.freenode.net
 1) Instalação:
 ----------------------------------
 
+Instalacao por Vagrant:
+
+Necessario:
+
+- Virtualbox
+
+- Vagrant
+
+- rsync (se Windows)
+
+
+Va ate a raiz do projeto e execute:
+
+    vagrant up
+
+Uma vez a VM configurada, execute o seguinte comando para sincronizar os arquivos alterados entre sua maquina e a VM:
+
+    vagrant rsync-auto
+
+---
+
 Se você estiver em uma máquina rodando UBUNTU:
 
 Exemplo de config do apache:
@@ -70,7 +91,7 @@ Instale bower e grunt-cli em sua maquina:
     
     npm install -g bower grunt-cli
 
-Para compilar os arquivos de estilo e JS:
+Para compilar os arquivos de estilo e JS (A executar na sua maquina):
 
     cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
     npm install && bower install --allow-root
@@ -83,10 +104,26 @@ Você verá na tela:
 
     Done, without errors
 
-Para compilar automaticamente ao salvar:
+Para compilar automaticamente ao salvar (A executar na sua maquina):
 
     cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
     grunt watch
+
+
+3) Observacoes
+----------------------------------
+
+Para acessar a VM, execute o seguinte comando na raiz do projeto:
+
+    vagrant ssh
+
+Para limpar o cache da apliacao (a executar diretamente na VM):
+
+    vagrant ssh
+    cd /var/www/php-br
+    php app/console cache:clear
+    # ou
+    sudo rm -rf app/cache/*
 
 
 Colaboradores:
