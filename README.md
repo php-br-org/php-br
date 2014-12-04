@@ -24,15 +24,19 @@ irc.freenode.net
 Instalacao por Vagrant:
 
 Necessario:
+
 - Virtualbox
+
 - Vagrant
+
 - rsync (se Windows)
+
 
 Va ate a raiz do projeto e execute:
 
     vagrant up
 
-Uma vez a VM configurada, execute o seguinte comando na raiz do projeto para sincronizar os arquivos alterados entre sua maquina e a VM:
+Uma vez a VM configurada, execute o seguinte comando para sincronizar os arquivos alterados entre sua maquina e a VM:
 
     vagrant rsync-auto
 
@@ -109,7 +113,7 @@ Para compilar automaticamente ao salvar (A executar na sua maquina):
 3) Observacoes
 ----------------------------------
 
-Para acessar a VM, execute o seguinte comando na razi do projeto:
+Para acessar a VM, execute o seguinte comando na raiz do projeto:
 
     vagrant ssh
 
