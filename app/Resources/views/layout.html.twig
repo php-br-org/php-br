@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    ##php-br | irc.freenode.net
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets filter="cssrewrite"
+        '@PhpbrAppBundle/Resources/public/assets/css/*'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" media="screen" />
+    {% endstylesheets %}
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,600,700,300' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block headscripts %}
+    {% javascripts
+        'bundles/phpbrapp/assets/bower_components/modernizr/modernizr.js'
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    {% include "PhpbrAppBundle::_partials/header.html.twig" %}
+
+    <div id="content-wrapper">
+        <div class="row">
+            <div class="large-12 columns">
+                {% block content %}
+                    {% block fos_user_content %}{% endblock %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% include "PhpbrAppBundle::_partials/footer.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        'bundles/phpbrapp/assets/bower_components/jquery/dist/jquery.min.js'
+        'bundles/phpbrapp/assets/bower_components/foundation/js/foundation.min.js'
+        'bundles/phpbrapp/assets/js/app.js'
+        filter="?yui_js"
+    %}
+    <script src='{{ asset_url }}' type='text/javascript'></script>
+    {% endjavascripts %}
+{% endblock %}
