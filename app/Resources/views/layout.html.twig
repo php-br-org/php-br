@@ -25,15 +25,7 @@
 {% block body %}
     {% include "PhpbrAppBundle::_partials/header.html.twig" %}
 
-    <div id="content-wrapper">
-        <div class="row">
-            <div class="large-12 columns">
-                {% block content %}
-                    {% block fos_user_content %}{% endblock %}
-                {% endblock %}
-            </div>
-        </div>
-    </div>
+    {% include "PhpbrAppBundle::_partials/body.html.twig" %}
 
     {% include "PhpbrAppBundle::_partials/footer.html.twig" %}
 {% endblock %}

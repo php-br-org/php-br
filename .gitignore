@@ -23,8 +23,9 @@
 /vendor/
 
 # Assets and user uploads
-/web/bundles/
-/web/uploads/
+/web/bundles/*
+!/web/bundles/phpbrapp/assets/images
+/web/uploads/*
 
 # PHPUnit
 /app/phpunit.xml

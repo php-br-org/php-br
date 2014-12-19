@@ -14,4 +14,14 @@ echo "Instalando os pacotes do composer.json na pasta vendors..."
 php composer.phar install
 echo "Pasta vendors instalada!"
 
+echo "Instalando and Dump para Assets: "
+php app/console assets:install web
+php app/console assetic:dump web
+echo "ok!! "
+
+echo "Removendo cache..."
+rm -rf app/cache/*
+php app/console cache:clear -e prod 
+echo "ok!! "
+
 
