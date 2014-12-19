@@ -11,6 +11,9 @@ web_profiler:
     toolbar: "%debug_toolbar%"
     intercept_redirects: "%debug_redirects%"
 
+twig:
+    cache: false
+
 monolog:
     handlers:
         main:
