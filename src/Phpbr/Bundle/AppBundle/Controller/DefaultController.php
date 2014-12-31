@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('PhpbrAppBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function quemsomosAction()
+    {
+        return $this->render('PhpbrAppBundle::quemsomos.html.twig');
+    }
 }

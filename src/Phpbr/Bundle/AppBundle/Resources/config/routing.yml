@@ -1,3 +1,6 @@
 phpbr_app_homepage:
     path:     /hello/{name}
     defaults: { _controller: PhpbrAppBundle:Default:index }
+phpbr_app_quemsomos:
+    path:     /quem-somos
+    defaults: { _controller: PhpbrAppBundle:Default:quemsomos }
