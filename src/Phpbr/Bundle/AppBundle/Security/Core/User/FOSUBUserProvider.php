@@ -1,5 +1,6 @@
 <?php
-namespace Phpbr\Bundle\UserBundle\Security\Core\User;
+
+namespace Phpbr\Bundle\AppBundle\Security\Core\User;
 
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseClass;

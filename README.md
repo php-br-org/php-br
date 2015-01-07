@@ -84,7 +84,6 @@ Edite seu arquivo de configuração do Apache:
 
     ./install.sh
 
-
 2) Front-end
 ----------------------------------
 Necessario: NodeJS + NPM. 

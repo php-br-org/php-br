@@ -1,36 +1,38 @@
 <?php
-// src/Phpbr/Bundle/UserBundle/Entity/User.php
 
-namespace Phpbr\Bundle\UserBundle\Entity;
+namespace Phpbr\Bundle\AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass="Phpbr\Bundle\UserBundle\Repository\UserRepository")
- * @ORM\Table(name="lcl_user")
+ * User
  */
 class User extends BaseUser
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
      */
     protected $id;
 
-    /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    /**
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @var string
+     */
     protected $facebook_id;
 
-    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    /**
+     * @var string
+     */
     protected $facebook_access_token;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
-        // your own logic
     }
+
 
     /**
      * Get id
@@ -40,6 +42,29 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -58,7 +83,7 @@ class User extends BaseUser
     /**
      * Get facebook_id
      *
-     * @return string 
+     * @return string
      */
     public function getFacebookId()
     {
@@ -81,7 +106,7 @@ class User extends BaseUser
     /**
      * Get facebook_access_token
      *
-     * @return string 
+     * @return string
      */
     public function getFacebookAccessToken()
     {

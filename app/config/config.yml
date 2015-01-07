@@ -58,12 +58,6 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -78,9 +72,12 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    db_driver: orm
     firewall_name: main
-    user_class: Phpbr\Bundle\UserBundle\Entity\User
+    user_class: Phpbr\Bundle\AppBundle\Entity\User
+    registration:
+        form:
+            type: phpbr_user_registration
 
 hwi_oauth:
     #this is my custom user provider, created from FOSUBUserProvider - will manage the 

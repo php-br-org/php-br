@@ -24,4 +24,7 @@ rm -rf app/cache/*
 php app/console cache:clear -e prod 
 echo "ok!! "
 
-
+echo "Configurando BD..."
+#php app/console doctrine:database:create
+php app/console doctrine:schema:create
+echo "ok!!"

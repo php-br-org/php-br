@@ -1,0 +1,14 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     phpbr
+    database_user:     root
+    database_password: ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            DefinirUmTokenExclusivoParaProducaoEForaDeAcessoDoGitHub
+
+    debug_toolbar:          false
+    debug_redirects:        false
+    use_assetic_controller: false
