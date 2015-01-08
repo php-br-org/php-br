@@ -1,0 +1,6 @@
+phpbr_app_inicial:
+    path:     /
+    defaults: { _controller: PhpbrAppBundle:Default:inicial }
+phpbr_app_quemsomos:
+    path:     /quem-somos
+    defaults: { _controller: PhpbrAppBundle:Default:quemsomos }

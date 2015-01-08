@@ -10,10 +10,15 @@
             <section class="top-bar-section">
                 <ul class="right">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <li>
+                        <li class="has-dropdown">
                             <a href="{{ path('fos_user_profile_show') }}">
                                 {{ app.user.username }}
                             </a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="{{ path('fos_user_security_logout') }}">
