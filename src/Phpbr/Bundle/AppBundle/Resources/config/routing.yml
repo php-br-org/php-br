@@ -3,3 +3,7 @@ phpbr_app_main:
 
 phpbr_app_fos:
     resource: "@PhpbrAppBundle/Resources/config/routing/fos.yml"
+
+phpbr_app_artigo:
+    resource: "@PhpbrAppBundle/Resources/config/routing/artigo.yml"
+    prefix: /artigos/

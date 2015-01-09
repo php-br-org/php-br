@@ -21,3 +21,7 @@ Phpbr\Bundle\AppBundle\Entity\User:
             length: 255
             nullable: true
     lifecycleCallbacks: {  }
+    oneToMany:
+        artigos:
+            targetEntity: Artigo
+            mappedBy: artigo

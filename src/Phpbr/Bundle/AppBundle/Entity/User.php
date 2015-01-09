@@ -3,6 +3,7 @@
 namespace Phpbr\Bundle\AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -29,10 +30,17 @@ class User extends BaseUser
      */
     protected $facebook_access_token;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $artigos;
+
+
     public function __construct() {
+        $this->artigos = new ArrayCollection();
+
         parent::__construct();
     }
-
 
     /**
      * Get id
@@ -111,5 +119,38 @@ class User extends BaseUser
     public function getFacebookAccessToken()
     {
         return $this->facebook_access_token;
+    }
+
+    /**
+     * Add artigos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Artigo $artigos
+     * @return User
+     */
+    public function addArtigo(\Phpbr\Bundle\AppBundle\Entity\Artigo $artigos)
+    {
+        $this->artigos[] = $artigos;
+
+        return $this;
+    }
+
+    /**
+     * Remove artigos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Artigo $artigos
+     */
+    public function removeArtigo(\Phpbr\Bundle\AppBundle\Entity\Artigo $artigos)
+    {
+        $this->artigos->removeElement($artigos);
+    }
+
+    /**
+     * Get artigos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArtigos()
+    {
+        return $this->artigos;
     }
 }

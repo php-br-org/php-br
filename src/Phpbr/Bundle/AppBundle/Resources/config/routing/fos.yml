@@ -1,3 +1,11 @@
 fos_user_registration_register:
     path: /registro/
     defaults: { _controller: FOSUserBundle:Registration:register }
+
+fos_user_profile_show:
+    path: /perfil/
+    defaults: { _controller: FOSUserBundle:Profile:show }
+
+fos_user_profile_edit:
+    path: /perfil/editar
+    defaults: { _controller: FOSUserBundle:Profile:edit }

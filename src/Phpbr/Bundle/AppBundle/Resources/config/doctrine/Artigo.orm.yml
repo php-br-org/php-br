@@ -1,0 +1,46 @@
+Phpbr\Bundle\AppBundle\Entity\Artigo:
+    type: entity
+    table: artigo
+    repositoryClass: Phpbr\Bundle\AppBundle\Repository\ArtigoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: 255
+        resumo:
+            type: text
+            nullable: true
+        texto:
+            type: text
+        score:
+            type: integer
+        publicado:
+            type: boolean
+        dataPublicado:
+            type: datetime
+        dataAtualizado:
+            type: datetime
+            nullable: true
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - titulo
+    lifecycleCallbacks: {  }
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: artigos
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE

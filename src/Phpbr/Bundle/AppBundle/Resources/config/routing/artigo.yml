@@ -1,0 +1,7 @@
+novo_artigo:
+    path:     /novo
+    defaults: { _controller: PhpbrAppBundle:Artigo:novo }
+
+lista_artigos:
+    path:   /
+    defaults: { _controller: PhpbrAppBundle:Artigo:list }

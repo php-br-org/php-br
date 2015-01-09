@@ -1,0 +1,12 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>Novo Artigo</h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
