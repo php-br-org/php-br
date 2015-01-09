@@ -15,4 +15,14 @@ class DefaultController extends Controller
     {
         return $this->render('PhpbrAppBundle::inicial.html.twig');
     }
+
+    public function contatoAction()
+    {
+        return $this->render('PhpbrAppBundle::contato.html.twig');
+    }
+
+    public function colaboreAction()
+    {
+        return $this->render('PhpbrAppBundle::colabore.html.twig');
+    }
 }
