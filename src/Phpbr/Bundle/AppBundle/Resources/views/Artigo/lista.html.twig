@@ -3,15 +3,20 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3>Artigos</h3>
-
+            <h3>Artigos</h3> 
+            <p>
+                <a href="{{ path('novo_artigo') }}">Criar Artigo</a>
+            </p>
             {% if artigos|length %}
-                <table>
+                <table class="responsive">
+                    <thead>
                         <tr>
-                            <td>Titulo</td>
-                            <td>Publicado por</td>
-                            <td>Data</td>
+                            <th>Titulo</th>
+                            <th>Publicado por</th>
+                            <th>Data</th>
                         </tr>
+                    </thead>
+                    <tbody>
                     {% for artigo in artigos %}
                         <tr>
                             <td>
@@ -25,12 +30,10 @@
                             </td>
                         </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
             {% endif %}
 
-            <p>
-                <a href="{{ path('novo_artigo') }}">Criar artigo</a>
-            </p>
         </div>
     </div>
 {% endblock %}
