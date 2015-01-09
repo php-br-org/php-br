@@ -3,26 +3,22 @@
 namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
-    public function quemsomosAction()
-    {
-        return $this->render('PhpbrAppBundle::quemsomos.html.twig');
+
+    /**
+     * @param $page
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function pageAction($page) {
+        try {
+            return $this->render("PhpbrAppBundle:Default:{$page}.html.twig");
+        } catch (\InvalidArgumentException $e) {
+            throw new NotFoundHttpException;
+        }
     }
 
-    public function inicialAction()
-    {
-        return $this->render('PhpbrAppBundle::inicial.html.twig');
-    }
-
-    public function contatoAction()
-    {
-        return $this->render('PhpbrAppBundle::contato.html.twig');
-    }
-
-    public function colaboreAction()
-    {
-        return $this->render('PhpbrAppBundle::colabore.html.twig');
-    }
 }
