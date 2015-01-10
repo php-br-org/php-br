@@ -22,6 +22,11 @@ class Artigo
     /**
      * @var string
      */
+    private $tags;
+
+    /**
+     * @var string
+     */
     private $resumo;
 
     /**
@@ -98,6 +103,28 @@ class Artigo
     public function getTitulo()
     {
         return $this->titulo;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param string $tags
+     * @return Artigo
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 
     /**

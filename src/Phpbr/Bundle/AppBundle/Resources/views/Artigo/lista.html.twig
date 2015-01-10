@@ -20,7 +20,9 @@
                     {% for artigo in artigos %}
                         <tr>
                             <td>
-                                {{ artigo.titulo }}
+                                <a href="/artigos/ver/{{ artigo.id }}">
+                                    {{ artigo.titulo }}
+                                </a>
                             </td>
                             <td>
                                 {{ artigo.user.name }}

@@ -13,6 +13,7 @@ class ArtigoFormType extends AbstractType
             ->add('titulo', null, array('attr' => array('class' => ''), 'required' => true))
             ->add('resumo', 'textarea', array('attr' => array('class' => '', 'rows' => 5), 'required' => false))
             ->add('texto', 'textarea', array('attr' => array('class' => '', 'rows' => 20), 'required' => true))
+            ->add('tags', null, array('attr' => array('class' => ''), 'required' => false))
             ->add('publicado', null, array('attr' => array('class'=>'checkbox'), 'required' => false, 'label' => 'Visivel a todos?'))
             ->add('Publicar', 'submit')
         ;
