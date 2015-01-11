@@ -1,0 +1,30 @@
+url:
+    path:     /
+    defaults: { _controller: "PhpbrAppBundle:Url:index" }
+
+url_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhpbrAppBundle:Url:show" }
+
+url_new:
+    path:     /new
+    defaults: { _controller: "PhpbrAppBundle:Url:new" }
+
+url_create:
+    path:     /create
+    defaults: { _controller: "PhpbrAppBundle:Url:create" }
+    requirements: { _method: post }
+
+url_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhpbrAppBundle:Url:edit" }
+
+url_update:
+    path:     /{id}/update
+    defaults: { _controller: "PhpbrAppBundle:Url:update" }
+    requirements: { _method: post|put }
+
+url_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhpbrAppBundle:Url:delete" }
+    requirements: { _method: post|delete }

@@ -1,3 +1,7 @@
+phpbr_app_url:
+    resource: "@PhpbrAppBundle/Resources/config/routing/url.yml"
+    prefix:   /url
+
 phpbr_app_main:
     resource: "@PhpbrAppBundle/Resources/config/routing/main.yml"
 
