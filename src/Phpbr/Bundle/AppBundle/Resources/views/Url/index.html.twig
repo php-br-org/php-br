@@ -1,18 +1,18 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Url list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Url</th>
-                <th>Descricao</th>
-                <th>Createdat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+{% extends "::layout.html.twig" %}
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>url list</h1>
+                <table class="records_list" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>URL</th>
+                            <th>Descricao</th>
+                            <th>Createdat</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
@@ -42,4 +42,6 @@
             </a>
         </li>
     </ul>
+    </div>
+    </div>
     {% endblock %}

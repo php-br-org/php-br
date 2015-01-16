@@ -50,6 +50,11 @@ class Artigo
     private $publicado;
 
     /**
+     * @var boolean
+     */
+    private $aprovado;
+
+    /**
      * @var \DateTime
      */
     private $dataPublicado;
@@ -241,6 +246,31 @@ class Artigo
     {
         return $this->publicado;
     }
+
+
+    /**
+     * Set aprovado
+     *
+     * @param boolean $aprovado
+     * @return Artigo
+     */
+    public function setAprovado($aprovado)
+    {
+        $this->aprovado = $aprovado;
+
+        return $this;
+    }
+
+    /**
+     * Get aprovado
+     *
+     * @return boolean 
+     */
+    public function getAprovado()
+    {
+        return $this->aprovado;
+    }
+
 
     /**
      * Set dataPublicado
