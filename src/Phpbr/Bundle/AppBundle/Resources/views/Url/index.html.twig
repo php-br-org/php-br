@@ -1,47 +1,21 @@
 {% extends "::layout.html.twig" %}
 {% block content %}
-    <div class="row">
-        <div class="large-12 columns">
-            <h3>url list</h1>
-                <table class="records_list" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>URL</th>
-                            <th>Descricao</th>
-                            <th>Createdat</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('url_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.url }}</td>
-                <td>{{ entity.descricao }}</td>
-                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('url_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('url_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
+<div class="row">
+    <div class="large-12 columns">
+        <p>
             <a href="{{ path('url_new') }}">
                 Create a new entry
             </a>
-        </li>
-    </ul>
+        </p>
+        <hr />
+
+    {% for entity in entities|reverse %}
+        {{ entity.createdAt|date('d/m/Y - H:i') }} - 
+        <a href='http://url.php-br.org/{{ entity.id }}'>{{ entity.descricao }}</a>
+        <a href="{{ path('url_edit', { 'id': entity.id }) }}"> - Editar</a>
+        <br />
+    {% endfor %}
+
     </div>
-    </div>
-    {% endblock %}
+</div>
+{% endblock %}

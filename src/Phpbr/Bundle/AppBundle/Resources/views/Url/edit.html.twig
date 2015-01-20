@@ -1,16 +1,19 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Url edit</h1>
-
+{% extends "::layout.html.twig" %}
+{% block content %}
+<div class="row">
+    <div class="large-12 columns">
+        <p>
     {{ form(edit_form) }}
 
         <ul class="record_actions">
-    <li>
+    <p>
         <a href="{{ path('url') }}">
             Back to the list
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    </p>
+    <p>
+        {{ form(delete_form) }}
+    </p>
+    </div>
+</div>
 {% endblock %}
