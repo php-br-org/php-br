@@ -75,6 +75,7 @@ class Artigo
         $this->dataPublicado = new \DateTime();
         $this->publicado = false;
         $this->score = 0;
+        $this->publicado = false;
     }
 
     /**

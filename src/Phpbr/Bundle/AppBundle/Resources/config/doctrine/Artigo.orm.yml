@@ -19,6 +19,12 @@ Phpbr\Bundle\AppBundle\Entity\Artigo:
             type: text
         score:
             type: integer
+        aprovado:
+            type: boolean
+        tags:
+            type: string
+            length: 255
+            nullable: true
         publicado:
             type: boolean
         dataPublicado:
