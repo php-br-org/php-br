@@ -4,6 +4,8 @@ namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use Phpbr\Bundle\AppBundle\Form\Type\ArtigoFormType;
 
@@ -47,6 +49,15 @@ class ArtigoController extends Controller
         return $this->render('PhpbrAppBundle:Artigo:novo.html.twig', array(
             'form' => $form->createView()
         ));
+    }
+
+    /**
+     * @param Artigo $artigo
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function lerAction(Artigo $artigo) {
+        return $this->render('PhpbrAppBundle:Artigo:ler.html.twig', compact('artigo'));
     }
 
 }

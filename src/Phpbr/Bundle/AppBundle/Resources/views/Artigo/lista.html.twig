@@ -20,7 +20,7 @@
                     {% for artigo in artigos %}
                         <tr>
                             <td>
-                                <a href="/artigos/ver/{{ artigo.id }}">
+                                <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
                                     {{ artigo.titulo }}
                                 </a>
                             </td>

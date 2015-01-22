@@ -5,3 +5,7 @@ novo_artigo:
 lista_artigos:
     path:   /
     defaults: { _controller: PhpbrAppBundle:Artigo:list }
+
+ler_artigo:
+    path: /ler/{slug}
+    defaults: { _controller: PhpbrAppBundle:Artigo:ler }
