@@ -4,8 +4,6 @@ namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use Phpbr\Bundle\AppBundle\Form\Type\ArtigoFormType;
 

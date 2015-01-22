@@ -14,29 +14,6 @@ class ArtigoRepository extends EntityRepository
 {
 
     /**
-     * @param $params
-     *
-     * @return array|null
-     */
-    public function paramConverterPorSlug($params) {
-        $result = null;
-
-        if (!empty($params) && isset($params['slug'])) {
-            $query = $this->createQueryBuilder('Artigo')
-                ->where('Artigo.publicado = :flagPublicado')
-                ->andWhere('Artigo.slug = :slug')
-                ->setParameters(array(
-                    'flagPublicado' => true,
-                    'slug' => $params['slug']
-                ));
-
-            $result = $query->getQuery()->getOneOrNullResult();
-        }
-
-        return $result;
-    }
-
-    /**
      * @param null $qte
      *
      * @return array
