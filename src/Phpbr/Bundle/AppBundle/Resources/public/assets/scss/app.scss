@@ -38,3 +38,19 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+/*
+    Custom CSS php-br.org
+    ******************************
+*/
+
+$cor-fundo: #2E2E2E;
+$cor-borda: #86B404;
+
+.rodape-div {
+    background-color: $cor-fundo;
+    height: 300px;
+    padding: 20px;
+    border-top: 3px solid $cor-fundo;
+    color: #fff;
+}

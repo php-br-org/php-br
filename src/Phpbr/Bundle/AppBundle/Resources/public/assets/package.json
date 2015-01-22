@@ -1,10 +1,17 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "grunt",
   "version": "0.0.1",
   "devDependencies": {
     "node-sass": "~0.9.3",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sass": "~0.8.1"
-  }
+  },
+  "description": "This is a template to start your own project that uses Grunt and libsass!",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
 }
