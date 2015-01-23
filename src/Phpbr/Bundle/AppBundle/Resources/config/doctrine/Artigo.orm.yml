@@ -21,6 +21,7 @@ Phpbr\Bundle\AppBundle\Entity\Artigo:
             type: integer
         aprovado:
             type: boolean
+            nullable: true
         tags:
             type: string
             length: 255
