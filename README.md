@@ -2,16 +2,11 @@ Projeto PHP-BR
 ========================
 
 Este projeto tem como objetivo o desenvolvimento
-de um portal para a comunidade PHP no Brasil.
+de um portal para a comunidade ##php-br
 
-Dúvidas? phpbr@yahoo.ca
-
-```
-irc.freenode.net
-```
+Dúvidas? ##php-br - irc.freenode.net
 
 ```
-#!text
 
          888                      888                                        
          888                      888                                        
@@ -27,13 +22,12 @@ irc.freenode.net
 ```
 
 
-
 1) Instalação:
 ----------------------------------
 
-Instalacao por Vagrant:
+Instalação por Vagrant:
 
-Necessario:
+Necessário:
 
 - Virtualbox
 
@@ -42,7 +36,7 @@ Necessario:
 - rsync (se Windows)
 
 
-Va ate a raiz do projeto e execute:
+Vá até a raiz do projeto e execute:
 
     vagrant up
 
@@ -84,7 +78,7 @@ Edite seu arquivo de configuração do Apache:
 
     ./install.sh
 
-2) Front-end
+2) Front-end:
 ----------------------------------
 Necessario: NodeJS + NPM. 
 
@@ -119,7 +113,7 @@ Para compilar automaticamente ao salvar (A executar na sua maquina):
     grunt watch
 
 
-3) Observacoes
+3) Observações:
 ----------------------------------
 
 Para acessar a VM, execute o seguinte comando na raiz do projeto:
@@ -133,15 +127,3 @@ Para limpar o cache da apliacao (a executar diretamente na VM):
     php app/console cache:clear
     # ou
     sudo rm -rf app/cache/*
-
-
-Colaboradores:
-----------------------------------
-
-  * Rodrigo Z Arthuso;  IRC NICK: **rodd**
-
-  * Rodolfo Bandeira;  IRC NICK: **ule**
-
-  * Gabriel Novaes; IRC NICK: **codeman**
-
-----------------------------------
