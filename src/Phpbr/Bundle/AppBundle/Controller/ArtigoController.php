@@ -55,7 +55,7 @@ class ArtigoController extends Controller
             $entityManager->persist($artigo);
             $entityManager->flush();
 
-            return $this->redirect($this->generateUrl('lista_artigos'));
+            return $this->redirect($this->generateUrl('lista_meus_artigos'));
         }
 
         return $this->render('PhpbrAppBundle:Artigo:novo.html.twig', array(

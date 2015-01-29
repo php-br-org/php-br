@@ -36,9 +36,9 @@ class ArtigoRepository extends EntityRepository
     public function listaArtigosUsuario($usuario, $qte = null) {
 
         $query = $this->createQueryBuilder('Artigo')
-            ->where('Artigo.id = :usuario')
+            ->where('Artigo.user = :usuario')
             ->orderBy('Artigo.score', 'DESC')
-            ->addOrderBy('Artigo.dataPublicado', 'DESC')
+            ->addOrderBy('Artigo.id', 'DESC')
             ->setParameter('usuario', $usuario);
 
         if (is_numeric($qte)) $query->setMaxResults($qte);
