@@ -19,6 +19,7 @@ class ArtigoRepository extends EntityRepository
      * @return array
      */
     public function listaArtigosAtivos($qte = null) {
+
         $query = $this->createQueryBuilder('Artigo')
             ->where('Artigo.publicado = :flagPublicado')
             ->orderBy('Artigo.score', 'DESC')
@@ -31,4 +32,21 @@ class ArtigoRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function listaArtigosUsuario($usuario, $qte = null) {
+
+        $query = $this->createQueryBuilder('Artigo')
+            ->where('Artigo.id = :usuario')
+            ->orderBy('Artigo.score', 'DESC')
+            ->addOrderBy('Artigo.dataPublicado', 'DESC')
+            ->setParameter('usuario', $usuario);
+
+        if (is_numeric($qte)) $query->setMaxResults($qte);
+
+        $query = $query->getQuery();
+
+        return $query->getResult();
+    }
+
+
 }

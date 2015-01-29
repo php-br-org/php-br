@@ -13,9 +13,23 @@ class ArtigoController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
+    public function listmeusartigosAction() {
+        $entityManager = $this->getDoctrine()->getManager();
+        $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
+
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        $artigos = $artigoRepo->listaArtigosUsuario($usuario);
+
+        return $this->render('PhpbrAppBundle:Artigo:lista.html.twig', compact('artigos'));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction() {
         $entityManager = $this->getDoctrine()->getManager();
         $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
+
         $artigos = $artigoRepo->listaArtigosAtivos();
 
         return $this->render('PhpbrAppBundle:Artigo:lista.html.twig', compact('artigos'));
