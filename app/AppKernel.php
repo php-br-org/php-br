@@ -20,6 +20,7 @@ class AppKernel extends Kernel
 	        new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Phpbr\Bundle\AppBundle\PhpbrAppBundle(),
+            new BSky\Bundle\TextAreaCountdownBundle\BSkyTextAreaCountdownBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
