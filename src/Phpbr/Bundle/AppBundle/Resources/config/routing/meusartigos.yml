@@ -1,0 +1,3 @@
+lista_meus_artigos:
+    path:   /
+    defaults: { _controller: PhpbrAppBundle:Artigo:listmeusartigos }
