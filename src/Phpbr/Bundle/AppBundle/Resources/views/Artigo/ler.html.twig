@@ -7,13 +7,13 @@
             <p class="subheader">{{ artigo.score }} pontos / Publicado por: {{ artigo.user.name }} / Data: {{ artigo.dataPublicado|date('d/m/Y') }}</p>
 
             {% if artigo.tags|length %}
-                <p class="subheader">Tags: {{ artigo.tags }}</p>
+                <p class="subheader">Tags: {{ artigo.tags|e }}</p>
             {% endif %}
 
             <hr/>
 
-            <article id="{{ artigo.slug }}">
-                {{ artigo.texto|raw }}
+            <article id="{{ artigo.slug|e }}">
+                {{ artigo.texto|e|nl2br }}
             </article>
         </div>
     </div>

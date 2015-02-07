@@ -4,6 +4,7 @@ namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Phpbr\Bundle\AppBundle\Entity\Artigo;
 
 class DefaultController extends Controller
 {
@@ -14,8 +15,19 @@ class DefaultController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function pageAction($page) {
+        $returnArtigos = array();
         try {
-            return $this->render("PhpbrAppBundle:Default:{$page}.html.twig");
+            if ($page == 'inicial') {
+                $em = $this->getDoctrine()->getManager();
+                $artigoRepo = $em->getRepository('PhpbrAppBundle:Artigo');
+
+                $artigos = $artigoRepo->listaArtigosAtivos();
+
+                $returnArtigos = compact('artigos');
+            }
+
+            return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", $returnArtigos);
+
         } catch (\InvalidArgumentException $e) {
             throw new NotFoundHttpException;
         }

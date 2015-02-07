@@ -21,11 +21,11 @@
                         <tr>
                             <td>
                                 <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                                    {{ artigo.titulo }}
+                                    {{ artigo.titulo|e }}
                                 </a>
                             </td>
                             <td>
-                                {{ artigo.user.name }}
+                                {{ artigo.user.name|e }}
                             </td>
                             <td>
                                 {{ artigo.dataPublicado|date('d/m/Y') }}
