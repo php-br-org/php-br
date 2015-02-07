@@ -4,6 +4,7 @@
     <div class="row">
         <div class="large-12 columns">
             <h3>Novo Artigo</h3>
+            {{ tinymce_init() }}
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
