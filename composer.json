@@ -34,7 +34,8 @@
         "geoip2/geoip2" : "~0.7.0",
         "hwi/oauth-bundle": "0.4.*@dev",
         "stfalcon/tinymce-bundle": "dev-master",
-        "codeception/codeception": "dev-master"
+        "codeception/codeception": "dev-master",
+        "nomaya/social-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

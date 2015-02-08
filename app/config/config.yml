@@ -132,7 +132,38 @@ stfalcon_tinymce:
              menubar: false
              toolbar1: "alignleft,aligncenter,alignright,alignjustify,bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
 
-
+nomaya_social:
+    buttons:
+        facebook:
+            url:            null
+            locale:         "pt_BR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            locale:         "pt_BR"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            null
+            locale :        "pt"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:
+            url:            null
+            locale:         "pt_BR"
+            counter:        "right"
+        pinterest:
+            url:            null
+    links: 
+#        facebook:           "http://www.facebook.com/yann.chauvel"
+#        googleplus:         "https://plus.google.com/105931415830389032796"
+    theme:                  'default' # optional
 
 
 

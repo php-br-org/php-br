@@ -6,6 +6,8 @@
             <h2>{{ artigo.titulo }}</h2>
             <p class="subheader">{{ artigo.score }} pontos / Publicado por: {{ artigo.user.name }} / Data: {{ artigo.dataPublicado|date('d/m/Y') }}</p>
 
+            {{ socialButtons() }}
+
             {% if artigo.tags|length %}
                 <p class="subheader">Tags: {{ artigo.tags|e }}</p>
             {% endif %}
