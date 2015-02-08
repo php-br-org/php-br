@@ -6,17 +6,24 @@
             <h2>{{ artigo.titulo }}</h2>
             <p class="subheader">{{ artigo.score }} pontos / Publicado por: {{ artigo.user.name }} / Data: {{ artigo.dataPublicado|date('d/m/Y') }}</p>
 
-            {{ socialButtons() }}
-
             {% if artigo.tags|length %}
                 <p class="subheader">Tags: {{ artigo.tags|e }}</p>
             {% endif %}
 
             <hr/>
 
-            <article id="{{ artigo.slug|e }}">
-                {{ artigo.texto|raw|nl2br }}
-            </article>
+            <div class="large-9 medium-9 columns">
+                <article id="{{ artigo.slug|e }}">
+                    {{ artigo.texto|raw|nl2br }}
+                </article>
+            </div>
+ 
+            <div class="large-3 medium-3 columns">
+                <p>{{ facebookButton() }}</p>
+                <p>{{ twitterButton() }}</p>
+                <p>{{ linkedinButton() }}</p>
+            </div>
+
         </div>
     </div>
 {% endblock %}

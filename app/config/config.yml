@@ -144,10 +144,10 @@ nomaya_social:
         twitter:
             url:            null
             locale:         "pt_BR"
-            message:        "Je veux partager ça avec vous"
+            message:        "Dá uma olhada nisso! "
             text:           "Tweet"
-            via:            "L'Equipe cartedevisitevirtuelle.fr"
-            tag:            "ttot"
+            via:            "http://php-br.org"
+            tag:            "php-br"
         googleplus:
             url:            null
             locale :        "pt"
@@ -161,7 +161,7 @@ nomaya_social:
         pinterest:
             url:            null
     links: 
-#        facebook:           "http://www.facebook.com/yann.chauvel"
+        facebook:           "https://www.facebook.com/pages/Comunidade-php-br-freenode/1504977413115148"
 #        googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
 
