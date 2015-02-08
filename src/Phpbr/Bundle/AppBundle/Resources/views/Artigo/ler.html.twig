@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h1>{{ artigo.titulo }}</h1>
+            <h2>{{ artigo.titulo }}</h2>
             <p class="subheader">{{ artigo.score }} pontos / Publicado por: {{ artigo.user.name }} / Data: {{ artigo.dataPublicado|date('d/m/Y') }}</p>
 
             {% if artigo.tags|length %}
@@ -13,7 +13,7 @@
             <hr/>
 
             <article id="{{ artigo.slug|e }}">
-                {{ artigo.texto|e|nl2br }}
+                {{ artigo.texto|raw|nl2br }}
             </article>
         </div>
     </div>
