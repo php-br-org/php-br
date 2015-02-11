@@ -72,4 +72,42 @@ class ArtigoController extends Controller
         return $this->render('PhpbrAppBundle:Artigo:ler.html.twig', compact('artigo'));
     }
 
+
+     /**
+     * Deletes a Url entity.
+     *
+     **/
+    public function deletarAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+
+        if(gettype($usuario) != 'object') {
+            return $this->redirect('/artigos');
+        }
+
+        $entity = $em->getRepository('PhpbrAppBundle:Artigo')->findOneBy(
+            array(
+                'id' => $id,
+                'user' => $usuario->getId()
+            )
+        );
+
+            if (!$entity) {
+                return $this->redirect($this->generateUrl('lista_meus_artigos',
+                    array(
+                        'erro' => 'Erro ao tentar deletar este artigo. Ou ele não existe, ou você não tem permissão para excluí-lo'
+                    )
+                ));
+            }
+
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('lista_meus_artigos',
+            array(
+                'msg' => 'Artigo excluído com sucesso!'
+            )
+        ));
+    }
 }

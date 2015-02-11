@@ -11,6 +11,7 @@
                 <table width="100%%">
                     <thead>
                         <tr>
+                            <th>Excluir</th>
                             <th>Titulo</th>
                             <th>Publicado por</th>
                             <th>Data</th>
@@ -19,6 +20,9 @@
                     <tbody>
                     {% for artigo in artigos %}
                         <tr>
+                            <td>
+                                <a href="/meus-artigos/{{ artigo.id }}/deletar">Excluir</a>
+                            </td>
                             <td>
                                 <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
                                     {{ artigo.titulo|e }}

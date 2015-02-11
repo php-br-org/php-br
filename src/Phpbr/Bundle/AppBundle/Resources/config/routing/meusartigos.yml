@@ -1,3 +1,7 @@
 lista_meus_artigos:
     path:   /
     defaults: { _controller: PhpbrAppBundle:Artigo:listmeusartigos }
+
+deleta_meus_artigos:
+    path: /{id}/deletar
+    defaults: { _controller: PhpbrAppBundle:Artigo:deletar }
