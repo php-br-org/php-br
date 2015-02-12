@@ -1,0 +1,45 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>Artigos</h3> 
+            <p>
+                <a href="{{ path('novo_artigo') }}">Criar Artigo</a>
+            </p>
+            {% if artigos|length %}
+                <table width="100%%">
+                    <thead>
+                        <tr>
+                            <th>Excluir</th>
+                            <th>Titulo</th>
+                            <th>Publicado por</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for artigo in artigos %}
+                        <tr>
+                            <td>
+                                <a href="/meus-artigos/{{ artigo.id }}/deletar">Excluir</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
+                                    {{ artigo.titulo|e }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ artigo.user.name|e }}
+                            </td>
+                            <td>
+                                {{ artigo.dataPublicado|date('d/m/Y') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
