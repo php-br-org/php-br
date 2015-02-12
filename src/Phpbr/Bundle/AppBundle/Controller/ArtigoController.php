@@ -20,7 +20,7 @@ class ArtigoController extends Controller
         $usuario = $this->get('security.context')->getToken()->getUser();
         $artigos = $artigoRepo->listaArtigosUsuario($usuario);
 
-        return $this->render('PhpbrAppBundle:Artigo:lista.html.twig', compact('artigos'));
+        return $this->render('PhpbrAppBundle:Artigo:lista-meus-artigos.html.twig', compact('artigos'));
     }
 
     /**
