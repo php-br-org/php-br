@@ -10,7 +10,7 @@
                     </a>
                 </h4>
                 <p class="text-justify">
-                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="artigo.user.name|raw" class="th img-gravatar-inicial" />"
+                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="{{ artigo.user.name|raw }}" class="th img-gravatar-inicial" />
                 {{ artigo.resumo|e }}
                 </p>
             {% endfor %}
@@ -24,7 +24,7 @@
                     </a>
                 </h4>
                 <p class="text-justify">
-                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="artigo.user.name|raw" class="th img-gravatar-inicial" />"
+                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="{{ artigo.user.name|raw }}" class="th img-gravatar-inicial" />
                 {{ artigo.resumo|e }}
                 </p>
 
@@ -39,7 +39,7 @@
                     </a>
                 </h4>
                 <p class="text-justify">
-                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="artigo.user.name|raw" class="th img-gravatar-inicial" />"
+                <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="{{ artigo.user.name|raw }}" class="th img-gravatar-inicial" />
                 {{ artigo.resumo|e }}
                 </p>
 
