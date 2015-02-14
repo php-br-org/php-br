@@ -48,5 +48,5 @@ class ArtigoRepository extends EntityRepository
         return $query->getResult();
     }
 
-
 }
+

@@ -69,7 +69,16 @@ class ArtigoController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function lerAction(Artigo $artigo) {
-        return $this->render('PhpbrAppBundle:Artigo:ler.html.twig', compact('artigo'));
+        $email = $artigo->getUser()->getEmail();
+        $gravatar = $this->get('gravatar');
+        $imgGravatar = $gravatar->getGravatar($email, 150);
+
+        return $this->render('PhpbrAppBundle:Artigo:ler.html.twig', 
+            array_merge(
+                compact('artigo'), 
+                array('gravatar' => $imgGravatar)
+            )
+        );
     }
 
 

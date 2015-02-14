@@ -1,5 +1,6 @@
 parameters:
     my_user_provider.class: Phpbr\Bundle\AppBundle\Security\Core\User\FOSUBUserProvider
+    gravatar.class: Phpbr\Bundle\AppBundle\Gravatar
 
 services:
     my_user_provider:
@@ -12,3 +13,5 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: phpbr_user_registration }
+    gravatar:
+        class: "%gravatar.class%"
