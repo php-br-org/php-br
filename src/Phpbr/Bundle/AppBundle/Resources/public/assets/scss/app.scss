@@ -2,6 +2,52 @@
 @import "settings";
 @import "foundation";
 
+/*
+    Customizacoes CSS php-br.org
+    ******************************
+*/
+
+$cor-fundo: #2E2E2E;
+$cor-borda: #86B404;
+$cor-fonte-top: #F7FE2E;
+$cor-fonte-top-link: #80FF00;
+
+.rodape-div {
+    background-color: $cor-fundo;
+    height: 300px;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 3px solid $cor-borda;
+    color: #fff;
+    font-family: 'Mallanna', 'sans-serif';
+}
+
+.fonte-header {
+    padding: 5px;
+    font-family: 'Mallanna', 'sans-serif';
+}
+
+.fonte-header a:link, .rodape-div a:link {
+    color: $cor-fonte-top;
+}
+
+.fonte-header a:visited, .rodape-div a:visited {
+    color: $cor-fonte-top;
+}
+
+.fonte-header a:active, .rodape-div a:active {
+    color: $cor-fonte-top-link;
+}
+
+.fonte-header a:hover, .rodape-div a:hover {
+    color: $cor-fonte-top-link;
+}
+
+.img-gravatar-inicial {
+    float:left;
+    margin: 3px;
+}
+
 // Or selectively include components
 // @import
 //   "foundation/components/accordion",
@@ -40,25 +86,3 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-/*
-    Custom CSS php-br.org
-    ******************************
-*/
-
-$cor-fundo: #2E2E2E;
-$cor-borda: #86B404;
-
-.rodape-div {
-    background-color: $cor-fundo;
-    height: 300px;
-    padding: 20px;
-    margin-top: 20px;
-    border-top: 3px solid $cor-borda;
-    color: #fff;
-    font-family: 'Mallanna', 'sans-serif';
-}
-
-.fonte-header {
-    padding: 5px;
-    font-family: 'Mallanna', 'sans-serif';
-}

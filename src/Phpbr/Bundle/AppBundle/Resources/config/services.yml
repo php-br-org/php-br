@@ -1,6 +1,7 @@
 parameters:
     my_user_provider.class: Phpbr\Bundle\AppBundle\Security\Core\User\FOSUBUserProvider
     gravatar.class: Phpbr\Bundle\AppBundle\Gravatar
+    gravatar.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\GravatarExtension
 
 services:
     my_user_provider:
@@ -15,3 +16,9 @@ services:
             - { name: form.type, alias: phpbr_user_registration }
     gravatar:
         class: "%gravatar.class%"
+
+    gravatar.twig_extension:
+        class: "%gravatar.twig_extension.class%"
+        public: false
+        tags:
+            - { name: twig.extension }
