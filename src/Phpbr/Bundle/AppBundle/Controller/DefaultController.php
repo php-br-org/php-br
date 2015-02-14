@@ -23,10 +23,6 @@ class DefaultController extends Controller
 
                 $artigos = $artigoRepo->listaArtigosAtivos();
 
-        $email = $artigos->getUser()->getEmail();
-        $gravatar = $this->get('gravatar');
-        $imgGravatar = $gravatar->getGravatar($email, 150);
-
                 $returnArtigos = compact('artigos');
             }
 
