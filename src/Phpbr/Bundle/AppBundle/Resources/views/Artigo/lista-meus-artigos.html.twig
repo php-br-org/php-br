@@ -31,6 +31,12 @@
                         {{ artigo.titulo|e }}
                     </a> <br />
                     <small>Autor: {{ artigo.user.username|raw }}</small>
+                    <br />
+                    {% if (artigo.publicado == 1) %}
+                        <span data-tooltip class="label [radius] success" title="Tooltip">Publicado</span>
+                    {% else %}
+                        <span data-tooltip class="label [radius] alert" title="Tooltip">Não Publicado</span>
+                    {% endif %}
                 </div>
 
                 <div class="large-3 columns">
