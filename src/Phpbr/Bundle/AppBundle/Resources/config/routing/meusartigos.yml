@@ -5,3 +5,12 @@ lista_meus_artigos:
 deleta_meus_artigos:
     path: /{id}/deletar
     defaults: { _controller: PhpbrAppBundle:Artigo:deletar }
+
+artigo_edit:
+    path:     /{id}/editar
+    defaults: { _controller: PhpbrAppBundle:Artigo:editar }
+
+artigo_update:
+    path:     /{id}/update
+    defaults: { _controller: PhpbrAppBundle:Artigo:update }
+    requirements: { _method: post|put }

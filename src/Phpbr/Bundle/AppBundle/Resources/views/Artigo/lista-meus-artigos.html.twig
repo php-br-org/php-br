@@ -3,41 +3,47 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3>Meus Artigos</h3> 
+            <h3><a href="/meus-artigos">Meus Artigos</a> :: Lista de Artigos</h3> 
             <p>
-                <a href="{{ path('novo_artigo') }}">Criar Artigo</a>
+                <a href="{{ path('novo_artigo') }}" class="button success">Criar Artigo</a>
             </p>
+            <hr />
+
             {% if artigos|length %}
-                <table width="100%%">
-                    <thead>
-                        <tr>
-                            <th>Excluir</th>
-                            <th>Titulo</th>
-                            <th>Publicado por</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for artigo in artigos %}
-                        <tr>
-                            <td>
-<a data-confirm='{"title":"Tem certeza que deseja excluir este item?","body":"{{ artigo.titulo|e }}","ok":"Certeza absoluta! Pode deletar!","cancel":"Acho melhor não..."}' href="/meus-artigos/{{ artigo.id }}/deletar">Excluir</a>
-                            </td>
-                            <td>
-                                <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                                    {{ artigo.titulo|e }}
-                                </a>
-                            </td>
-                            <td>
-                                {{ artigo.user.name|e }}
-                            </td>
-                            <td>
-                                {{ artigo.dataPublicado|date('d/m/Y') }}
-                            </td>
-                        </tr>
+            {% for artigo in artigos %}
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    <a data-confirm='{
+                        "title":"Tem certeza que deseja excluir este item?",
+                        "body":"{{ artigo.titulo|e }}",
+                        "ok":"SIM",
+                        "cancel":"NÃO"}' 
+                    href="/meus-artigos/{{ artigo.id }}/deletar"
+                    class="button tiny alert">Deletar</a>
+
+                    <a href="/meus-artigos/{{ artigo.id }}/editar" 
+                        class="button tiny">Editar</a>
+                </div>
+
+                <div class="large-6 columns">
+
+                    <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
+                        {{ artigo.titulo|e }}
+                    </a> <br />
+                    <small>Autor: {{ artigo.user.username|raw }}</small>
+                </div>
+
+                <div class="large-3 columns">
+                    <h5>
+                        <small>
+                            {{ artigo.dataPublicado|date('d/m/Y') }}, 
+                            {{ artigo.dataPublicado|date('U')|tempo_passado }} atrás
+                        </small>
+                    </h5>
+                </div>
+            </div>
+            <hr />
                     {% endfor %}
-                    </tbody>
-                </table>
             {% endif %}
 
         </div>

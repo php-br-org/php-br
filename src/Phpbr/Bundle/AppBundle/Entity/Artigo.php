@@ -9,8 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Artigo
 {
+
     /**
-     * @var integer
+     * @var integer $uid
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
      */
     private $id;
 

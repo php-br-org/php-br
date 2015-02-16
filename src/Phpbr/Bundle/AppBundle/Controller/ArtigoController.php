@@ -63,6 +63,95 @@ class ArtigoController extends Controller
         ));
     }
 
+
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse\Symfony\Component\HttpFoundation\Response
+     */
+    public function editarAction($id) { 
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        $entity = $em->getRepository('PhpbrAppBundle:Artigo')->findOneBy(
+            array(
+                'id' => $id,
+                'user' => $usuario->getId()
+            )
+        );
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Erro. Este artigo não existe.');
+        }
+
+        $editForm = $this->createEditForm($entity);
+
+        return $this->render('PhpbrAppBundle:Artigo:editar.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+
+
+    /**
+    * Creates a form to edit a Artigo entity.
+    *
+    * @param Artigo $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    private function createEditForm(Artigo $entity)
+    {
+        $form = $this->createForm(new ArtigoFormType(), $entity, array(
+            'action' => $this->generateUrl('artigo_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        // $form->add('submit', 'submit', array('label' => 'Atualizar'));
+
+        return $form;
+    }
+
+
+    /**
+     * Edits an existing Artigo entity.
+     *
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        $entity = $em->getRepository('PhpbrAppBundle:Artigo')->findOneBy(
+            array(
+                'id' => $id,
+                'user' => $usuario->getId()
+            )
+        );
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Erro! Este artigo não é editável!');
+        }
+
+        $editForm = $this->createEditForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('artigo_edit', 
+                array(
+                    'id' => $id,
+                    'sucesso' => true
+                )
+            ));
+        }
+
+        return $this->render('PhpbrAppBundle:Artigo:editar.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+
+
     /**
      * @param Artigo $artigo
      *
