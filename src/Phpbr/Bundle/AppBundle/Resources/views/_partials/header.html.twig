@@ -21,13 +21,20 @@
                                     <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
                                 </li>
                                 <li>
-                                    <a href="/artigos">Artigos</a>
+                                    <a href="{{ path('lista_artigos') }}">Artigos</a>
                                 </li>
                                 <li>
-                                    <a href="/meus-artigos">Meus Artigos</a>
+                                    <a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a>
                                 </li>
                             </ul>
                         </li>
+
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li>
+                                <a href="{{ path('home_admin') }}">Painel</a>
+                            </li>
+                        {% endif %}
+
                         <li>
                             <a href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

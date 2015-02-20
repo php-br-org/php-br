@@ -1,0 +1,31 @@
+<header>
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="inline-list left fonte-header" style="padding-top:10px;">
+                <li><a href="{{ path('phpbr_app_inicial') }}">Retornar para a Home</a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </section>
+        </nav>
+    </div>
+</header>
+
+<div id="content-wrapper">
+    <div class="panel">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>Painel</h2>
+            </div>
+        </div>
+    </div>
+</div>

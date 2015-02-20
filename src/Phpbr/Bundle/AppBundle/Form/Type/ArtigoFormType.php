@@ -12,8 +12,6 @@ class ArtigoFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('titulo', null, array('attr' => array('class' => ''), 'required' => true))
-            // Como habilito o textareacountdown aqui? 
-            // ->add('resumo', 'textareacountdown', array('attr' => array('class' => '', 'rows' => 5), 'required' => false))
             ->add('resumo', 'textarea', array('attr' => array('class' => '', 'rows' => 5), 'required' => false))
             ->add(
                 'texto', 

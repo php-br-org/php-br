@@ -2,6 +2,10 @@ fos_user_registration_register:
     path: /registro/
     defaults: { _controller: FOSUserBundle:Registration:register }
 
+fos_user_registration_confirmed:
+    path: /registro/concluido
+    defaults: { _controller: FOSUserBundle:Registration:confirmed }
+
 fos_user_profile_show:
     path: /perfil/
     defaults: { _controller: FOSUserBundle:Profile:show }

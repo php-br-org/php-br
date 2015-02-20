@@ -22,9 +22,13 @@ class ArtigoRepository extends EntityRepository
 
         $query = $this->createQueryBuilder('Artigo')
             ->where('Artigo.publicado = :flagPublicado')
+            ->andWhere('Artigo.aprovado = :aprovado')
             ->orderBy('Artigo.score', 'DESC')
             ->addOrderBy('Artigo.dataPublicado', 'DESC')
-            ->setParameter('flagPublicado', true);
+            ->setParameters(array(
+                'flagPublicado' => true,
+                'aprovado' => true
+            ));
 
         if (is_numeric($qte)) $query->setMaxResults($qte);
 
@@ -33,6 +37,12 @@ class ArtigoRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @param $usuario
+     * @param null $qte
+     *
+     * @return array
+     */
     public function listaArtigosUsuario($usuario, $qte = null) {
 
         $query = $this->createQueryBuilder('Artigo')
@@ -46,6 +56,18 @@ class ArtigoRepository extends EntityRepository
         $query = $query->getQuery();
 
         return $query->getResult();
+    }
+
+    /**
+     * Lista todos os artigos, independentemente de seu status
+     * @return array
+     */
+    public function listaAdminArtigos() {
+
+        $query = $this->createQueryBuilder('Artigo')
+            ->orderBy('Artigo.dataPublicado', 'ASC');
+
+        return $query->getQuery()->getResult();
     }
 
 }

@@ -11,6 +11,7 @@ phpbr_app_fos:
 phpbr_app_artigo:
     resource: "@PhpbrAppBundle/Resources/config/routing/artigo.yml"
     prefix: /artigos/
+
 phpbr_app_meus_artigos:
     resource: "@PhpbrAppBundle/Resources/config/routing/meusartigos.yml"
     prefix: /meus-artigos/

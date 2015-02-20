@@ -42,10 +42,9 @@ class ArtigoController extends Controller
      */
     public function novoAction(Request $request) {
         $artigo = new Artigo();
-        $artigoForm = new ArtigoFormType();
         $entityManager = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm($artigoForm, $artigo, array());
+        $form = $this->createForm(new ArtigoFormType(), $artigo, array());
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -63,11 +62,10 @@ class ArtigoController extends Controller
         ));
     }
 
-
     /**
-     * @param Request $request
+     * @param $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editarAction($id) { 
         $em = $this->getDoctrine()->getManager();
@@ -91,7 +89,6 @@ class ArtigoController extends Controller
         ));
     }
 
-
     /**
     * Creates a form to edit a Artigo entity.
     *
@@ -111,10 +108,12 @@ class ArtigoController extends Controller
         return $form;
     }
 
-
     /**
      * Edits an existing Artigo entity.
+     * @param Request $request
+     * @param $id
      *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $request, $id)
     {
@@ -151,7 +150,6 @@ class ArtigoController extends Controller
         ));
     }
 
-
     /**
      * @param Artigo $artigo
      *
@@ -170,17 +168,17 @@ class ArtigoController extends Controller
         );
     }
 
-
-     /**
-     * Deletes a Url entity.
+    /**
+     * @param $id
      *
-     **/
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deletarAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $this->get('security.context')->getToken()->getUser();
 
-        if(gettype($usuario) != 'object') {
+        if (gettype($usuario) != 'object') {
             return $this->redirect('/artigos');
         }
 
@@ -191,13 +189,13 @@ class ArtigoController extends Controller
             )
         );
 
-            if (!$entity) {
-                return $this->redirect($this->generateUrl('lista_meus_artigos',
-                    array(
-                        'erro' => 'Erro ao tentar deletar este artigo. Ou ele não existe, ou você não tem permissão para excluí-lo'
-                    )
-                ));
-            }
+        if (!$entity) {
+            return $this->redirect($this->generateUrl('lista_meus_artigos',
+                array(
+                    'erro' => 'Erro ao tentar deletar este artigo. Ou ele não existe, ou você não tem permissão para excluí-lo'
+                )
+            ));
+        }
 
         $em->remove($entity);
         $em->flush();

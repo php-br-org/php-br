@@ -2,10 +2,10 @@
 
 <div class="fos_user_user_show">
     {% if (is_granted('ROLE_SUPER_ADMIN') == true) %}
-        <p><h4>Administrador:</4></p>
+        <p><h4>Administrador:</h4></p>
         <hr />
     {% else %}
-        <p><h4>Meu Perfil:</4></p>
+        <p><h4>Meu Perfil:</h4></p>
         <hr />
     {% endif %}
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>

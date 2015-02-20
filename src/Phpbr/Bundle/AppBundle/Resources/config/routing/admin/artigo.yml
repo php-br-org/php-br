@@ -1,0 +1,11 @@
+admin_artigos:
+    path: /
+    defaults: { _controller: "PhpbrAppBundle:Admin\Artigo:lista" }
+
+admin_artigo_aprovar:
+    path: /aprovar/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Admin\Artigo:aprovar" }
+
+admin_artigo_anular:
+    path: /anular/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Admin\Artigo:anular" }

@@ -24,4 +24,4 @@ Phpbr\Bundle\AppBundle\Entity\User:
     oneToMany:
         artigos:
             targetEntity: Artigo
-            mappedBy: artigo
+            mappedBy: user

@@ -37,3 +37,7 @@ facebook_login:
 phpbr_app:
     resource: "@PhpbrAppBundle/Resources/config/routing.yml"
     prefix:   /
+
+phpbr_app_admin:
+    resource: "@PhpbrAppBundle/Resources/config/routing_admin.yml"
+    prefix:   /painel

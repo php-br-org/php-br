@@ -16,6 +16,7 @@ class DefaultController extends Controller
      */
     public function pageAction($page) {
         $returnArtigos = array();
+
         try {
             if ($page == 'inicial') {
                 $em = $this->getDoctrine()->getManager();

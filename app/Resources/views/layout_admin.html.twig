@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Painel | ##php-br | irc.freenode.net
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets filter="cssrewrite"
+        '@PhpbrAppBundle/Resources/public/assets/css/*'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" media="screen" />
+    {% endstylesheets %}
+
+    <link href='http://fonts.googleapis.com/css?family=Mallanna:300italic,400italic,400,600,700,300' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block headscripts %}
+    {% javascripts
+        'bundles/phpbrapp/assets/bower_components/modernizr/modernizr.js'
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+
+{% block body %}
+    {% include "PhpbrAppBundle:Admin:_partials/header.html.twig" %}
+
+    {% block content %}
+        <div class="row">
+            {% block fos_user_content %}{% endblock %}
+        </div>
+    {% endblock %}
+    {% include "PhpbrAppBundle:Admin:_partials/footer.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        'bundles/phpbrapp/assets/bower_components/jquery/dist/jquery.min.js'
+        'bundles/phpbrapp/assets/bower_components/foundation/js/foundation.min.js'
+        'bundles/phpbrapp/assets/bower_components/foundation/js/foundation/foundation.reveal.js'
+        'bundles/phpbrapp/assets/bower_components/confirm-with-reveal/build/confirm_with_reveal.min.js'
+        'bundles/phpbrapp/assets/js/app.js'
+        filter="?yui_js"
+    %}
+    <script src='{{ asset_url }}' type='text/javascript'></script>
+    {% endjavascripts %}
+{% endblock %}
+

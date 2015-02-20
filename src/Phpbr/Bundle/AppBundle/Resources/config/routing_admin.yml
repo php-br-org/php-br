@@ -1,0 +1,7 @@
+home_admin:
+    path: /
+    defaults: { _controller: "PhpbrAppBundle:Admin\Admin:index" }
+
+admin_artigos:
+    resource: "@PhpbrAppBundle/Resources/config/routing/admin/artigo.yml"
+    prefix: /artigos
