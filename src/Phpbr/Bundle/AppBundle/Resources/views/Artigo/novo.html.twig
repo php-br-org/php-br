@@ -4,10 +4,17 @@
     <div class="row">
         <div class="large-12 columns">
             <h3><a href="/meus-artigos">Meus Artigos</a> :: Novo Artigo</h3> 
-            {{ tinymce_init() }}
+            {{ tinymce_init({'theme': {'bbcode': {'menubar': false }}}) }}
+
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        phpbr.highlight();
+    </script>
 {% endblock %}
