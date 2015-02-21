@@ -31,6 +31,7 @@ class ArtigoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $artigo->setAprovado(true);
+        $artigo->setDataAutorizado(new \DateTime());
         $em->persist($artigo);
         $em->flush();
 
@@ -52,6 +53,7 @@ class ArtigoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $artigo->setAprovado(false);
+        $artigo->setDataAutorizado(null);
         $em->persist($artigo);
         $em->flush();
 

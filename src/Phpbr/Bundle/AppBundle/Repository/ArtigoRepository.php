@@ -65,6 +65,7 @@ class ArtigoRepository extends EntityRepository
     public function listaAdminArtigos() {
 
         $query = $this->createQueryBuilder('Artigo')
+            ->andWhere('Artigo.publicado = true')
             ->orderBy('Artigo.dataPublicado', 'ASC');
 
         return $query->getQuery()->getResult();

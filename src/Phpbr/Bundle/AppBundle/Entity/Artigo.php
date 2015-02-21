@@ -69,6 +69,11 @@ class Artigo
     private $dataAtualizado;
 
     /**
+     * @var \DateTime
+     */
+    private $dataAutorizado;
+
+    /**
      * @var \Phpbr\Bundle\AppBundle\Entity\User
      */
     private $user;
@@ -321,6 +326,29 @@ class Artigo
     public function getDataAtualizado()
     {
         return $this->dataAtualizado;
+    }
+
+    /**
+     * Set dataAutorizado
+     *
+     * @param \DateTime $dataAutorizado
+     * @return Artigo
+     */
+    public function setDataAutorizado($dataAutorizado)
+    {
+        $this->dataAutorizado = $dataAutorizado;
+
+        return $this;
+    }
+
+    /**
+     * Get dataAutorizado
+     *
+     * @return \DateTime 
+     */
+    public function getDataAutorizado()
+    {
+        return $this->dataAutorizado;
     }
 
     /**
