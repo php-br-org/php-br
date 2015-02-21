@@ -1,6 +1,6 @@
 <header>
     <div class="contain-to-grid">
-        <nav class="top-bar" data-topbar role="navigation">
+        <nav class="top-bar" data-topbar data-options="is_hover: true" role="navigation">
             <ul class="inline-list left fonte-header" style="padding-top:10px;">
                 <li><a href="{{ path('lista_artigos') }}">Artigos</a></li>
                 <li><a href="/quem-somos">Quem somos</a></li>
@@ -13,25 +13,27 @@
                 <ul class="right">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li class="has-dropdown">
-                            <a href="{{ path('fos_user_profile_show') }}">
-                                {{ app.user.username }}
+                            <a href="javascript:return false;">
+                                Meu Dados
                             </a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('lista_artigos') }}">Artigos</a>
-                                </li>
-                                <li>
                                     <a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
                                 </li>
                             </ul>
                         </li>
 
-                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li>
-                                <a href="{{ path('home_admin') }}">Painel</a>
+                        {% if (is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN')) %}
+                            <li class="has-dropdown">
+                                <a href="{{ path('home_admin') }}">Painel Admin</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="{{ path('admin_artigos') }}">Aprovar Artigos</a>
+                                    </li>
+                                </ul>
                             </li>
                         {% endif %}
 
