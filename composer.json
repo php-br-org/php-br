@@ -35,7 +35,8 @@
         "hwi/oauth-bundle": "0.4.*@dev",
         "stfalcon/tinymce-bundle": "dev-master",
         "codeception/codeception": "dev-master",
-        "nomaya/social-bundle": "dev-master"
+        "nomaya/social-bundle": "dev-master",
+        "knplabs/knp-disqus-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

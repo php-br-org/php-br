@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Phpbr\Bundle\AppBundle\PhpbrAppBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

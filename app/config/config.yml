@@ -165,5 +165,14 @@ nomaya_social:
 #        googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
 
+knp_disqus:
+    api_key: %knp_disqus.api_key%
+    secret_key: %knp_disqus.secret_key% # optional, for SSO auth only
+    forums:
+        lorem:
+            shortname: %knp_disqus.lorem.shortname%
+#            cache: my_cache_for_lorem # cache template key, usage described below
 
-
+# my_cache_for_lorem:
+# If you setup up an cache, you should also configure cache provider, which will be used automatically
+# ...

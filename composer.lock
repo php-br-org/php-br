@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac94bad34e4ec09c05770d6cba573f60",
+    "hash": "c930311a2a3e867c4cf55455226c54f2",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1810,6 +1810,62 @@
                 "media"
             ],
             "time": "2014-08-19 13:42:49"
+        },
+        {
+            "name": "knplabs/knp-disqus-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/DisqusBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpDisqusBundle.git",
+                "reference": "1560b148a8b4e55445aed561a0dfcd711080f53c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpDisqusBundle/zipball/1560b148a8b4e55445aed561a0dfcd711080f53c",
+                "reference": "1560b148a8b4e55445aed561a0dfcd711080f53c",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "~0.7",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "require-dev": {
+                "symfony/yaml": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\DisqusBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpDisqusBundle/contributors"
+                }
+            ],
+            "homepage": "http://github.com/KnpLabs/KnpDisqusBundle",
+            "keywords": [
+                "comments",
+                "disqus",
+                "forum"
+            ],
+            "time": "2013-12-23 22:16:02"
         },
         {
             "name": "knplabs/knp-gaufrette-bundle",
@@ -4205,7 +4261,8 @@
         "hwi/oauth-bundle": 20,
         "stfalcon/tinymce-bundle": 20,
         "codeception/codeception": 20,
-        "nomaya/social-bundle": 20
+        "nomaya/social-bundle": 20,
+        "knplabs/knp-disqus-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
