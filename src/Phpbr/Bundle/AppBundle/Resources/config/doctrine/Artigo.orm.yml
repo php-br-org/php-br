@@ -32,6 +32,9 @@ Phpbr\Bundle\AppBundle\Entity\Artigo:
         dataAtualizado:
             type: datetime
             nullable: true
+        dataAutorizado:
+            type: datetime
+            nullable: true
         slug:
             type: string
             length: 255
