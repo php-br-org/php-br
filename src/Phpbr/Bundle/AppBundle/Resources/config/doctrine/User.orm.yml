@@ -12,6 +12,15 @@ Phpbr\Bundle\AppBundle\Entity\User:
         name:
             type: string
             length: 255
+        linkedin:
+            type: string
+            length: 255
+        twitter:
+            type: string
+            length: 255
+        github:
+            type: string
+            length: 255
         facebook_id:
             type: string
             length: 255
@@ -25,3 +34,4 @@ Phpbr\Bundle\AppBundle\Entity\User:
         artigos:
             targetEntity: Artigo
             mappedBy: user
+
