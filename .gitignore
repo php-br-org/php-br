@@ -5,10 +5,11 @@
 !app/logs/.gitkeep
 
 # Parameters
+install.sj
 
 # Managed by Composer
 /app/bootstrap.php.cache
-/var/bootstrap.php.cache
+!app/console
 /bin/*
 !bin/console
 !bin/symfony_requirements
