@@ -77,6 +77,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Phpbr\Bundle\AppBundle\Entity\User
+    profile:
+        form:
+            type: phpbr_user_profile
     registration:
         form:
             type: phpbr_user_registration

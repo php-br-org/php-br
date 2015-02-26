@@ -4,14 +4,7 @@
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 
-# Cache and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-
 # Parameters
-/app/config/parameters.yml
 
 # Managed by Composer
 /app/bootstrap.php.cache
@@ -20,6 +13,7 @@
 !bin/console
 !bin/symfony_requirements
 /vendor/
+!src/Phpbr/Bundle/AppBundle/Resources/public/assets/js/vendor/
 
 # Assets and user uploads
 /web/bundles/*

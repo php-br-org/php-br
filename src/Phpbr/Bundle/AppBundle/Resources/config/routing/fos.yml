@@ -13,3 +13,7 @@ fos_user_profile_show:
 fos_user_profile_edit:
     path: /perfil/editar
     defaults: { _controller: FOSUserBundle:Profile:edit }
+
+fos_user_change_password:
+    path: /alterar-senha
+    defaults: { _controller: FOSUserBundle:ChangePassword:changePassword }

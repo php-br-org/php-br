@@ -15,12 +15,15 @@ Phpbr\Bundle\AppBundle\Entity\User:
         linkedin:
             type: string
             length: 255
+            nullable: true
         twitter:
             type: string
             length: 255
+            nullable: true
         github:
             type: string
             length: 255
+            nullable: true
         facebook_id:
             type: string
             length: 255

@@ -19,3 +19,6 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
+    knp_disqus.api_key:     test
+    knp_disqus.secret_key:  test
+    knp_disqus.lorem.shortname:     test

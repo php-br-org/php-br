@@ -10,11 +10,19 @@ services:
         #this is the place where the properties are passed to the UserProvider - see config.yml
         # arguments: [@fos_user.user_manager,{facebook: facebook_id, google: google_id}]
         arguments: [@fos_user.user_manager,{facebook: facebook_id }]
+
     phpbr_app.registration.form.type:
         class: Phpbr\Bundle\AppBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: phpbr_user_registration }
+
+    phpbr_app.profile.form.type:
+        class: Phpbr\Bundle\AppBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: phpbr_user_profile }
+
     gravatar:
         class: "%gravatar.class%"
 

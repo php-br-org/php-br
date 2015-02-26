@@ -2,10 +2,10 @@
 
 namespace Phpbr\Bundle\AppBundle\Form\Type;
 
-use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
+use FOS\UserBundle\Form\Type\ProfileFormType as BaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class RegistrationFormType extends BaseType
+class ProfileFormType extends BaseType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         parent::buildForm($builder, $options);
@@ -20,10 +20,10 @@ class RegistrationFormType extends BaseType
     }
 
     public function getParent() {
-        return 'fos_user_registration';
+        return 'fos_user_profile';
     }
 
     public function getName() {
-        return 'phpbr_user_registration';
+        return 'phpbr_user_profile';
     }
 }
