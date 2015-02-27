@@ -52,7 +52,7 @@ Exemplo de config do apache:
 
     cd /var/www/html
 
-    git clone https://bitbucket.org/rzarthuso/php-br.git
+    git clone https://github.com/php-br-org/php-br.git
 
 Edite seu arquivo de configuração do Apache:
 
