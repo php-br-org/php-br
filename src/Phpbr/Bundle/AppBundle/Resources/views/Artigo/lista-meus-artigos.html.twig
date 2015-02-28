@@ -48,7 +48,7 @@
                                     {% endif %}
                                 </span>
                         {% else %}
-                            {% if ((artigo.dataAutorizado is not null) and artigo.aprovado == 0) %}
+                            {% if (artigo.dataAutorizado|length < 1) %}
                                 <span data-tooltip class="label [radius] alert" title="Seu artigo está aguardando aprovação.">AGUARDANDO APROVAÇÃO</span>
                             {% else %}
                                 <span data-tooltip class="label [radius] alert" title="Seu artigo foi reprovado pelo Admin.">REPROVADO</span>
