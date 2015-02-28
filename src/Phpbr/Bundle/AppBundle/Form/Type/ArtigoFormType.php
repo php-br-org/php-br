@@ -26,8 +26,15 @@ class ArtigoFormType extends AbstractType
                 )
             )
             ->add('tags', null, array('attr' => array('class' => ''), 'required' => false))
-            ->add('publicado', null, array('attr' => array('class'=>'checkbox'), 'required' => false, 'label' => 'Visivel a todos?'))
-            ->add('Publicar', 'submit')
+            ->add('publicado', 'choice', array(
+                'choices' => array(
+                    '0' => 'Salvar como Rascunho',
+                    '1' => 'Publicar Artigo'
+                ),
+                'label' => 'Status do Artigo:',
+                'required' => true
+            ))
+            ->add('Salvar', 'submit')
         ;
     }
 
