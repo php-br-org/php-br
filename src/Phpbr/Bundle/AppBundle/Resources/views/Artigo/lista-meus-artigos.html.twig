@@ -78,4 +78,12 @@
 
         </div>
     </div>
+
+    {% if artigos|length %}
+        <div class="row">
+            <div class="large-12 columns text-center">
+                {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

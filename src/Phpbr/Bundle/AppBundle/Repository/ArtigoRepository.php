@@ -3,6 +3,7 @@
 namespace Phpbr\Bundle\AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 /**
  * ArtigoRepository
@@ -18,7 +19,7 @@ class ArtigoRepository extends EntityRepository
      *
      * @return array
      */
-    public function listaArtigosAtivos($qte = null) {
+    public function listaArtigosRecentes($qte = null) {
 
         $query = $this->createQueryBuilder('Artigo')
             ->where('Artigo.publicado = :flagPublicado')
@@ -38,12 +39,33 @@ class ArtigoRepository extends EntityRepository
     }
 
     /**
-     * @param $usuario
-     * @param null $qte
+     * Retorna Adapter para pagerfanta (paginacao)
      *
-     * @return array
+     * @return DoctrineORMAdapter
      */
-    public function listaArtigosUsuario($usuario, $qte = null) {
+    public function listaArtigosAtivosAdapter() {
+
+        $query = $this->createQueryBuilder('Artigo')
+            ->where('Artigo.publicado = :flagPublicado')
+            ->andWhere('Artigo.aprovado = :aprovado')
+            ->orderBy('Artigo.score', 'DESC')
+            ->addOrderBy('Artigo.dataPublicado', 'DESC')
+            ->setParameters(array(
+                'flagPublicado' => true,
+                'aprovado' => true
+            ));
+
+        $pagerfantaAdapter = new DoctrineORMAdapter($query);
+
+        return $pagerfantaAdapter;
+    }
+
+    /**
+     * @param $usuario
+     *
+     * @return DoctrineORMAdapter
+     */
+    public function listaArtigosUsuario($usuario) {
 
         $query = $this->createQueryBuilder('Artigo')
             ->where('Artigo.user = :usuario')
@@ -51,11 +73,9 @@ class ArtigoRepository extends EntityRepository
             ->addOrderBy('Artigo.id', 'DESC')
             ->setParameter('usuario', $usuario);
 
-        if (is_numeric($qte)) $query->setMaxResults($qte);
+        $pagerfantaAdapter = new DoctrineORMAdapter($query);
 
-        $query = $query->getQuery();
-
-        return $query->getResult();
+        return $pagerfantaAdapter;
     }
 
     /**

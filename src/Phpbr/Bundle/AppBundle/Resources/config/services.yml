@@ -37,3 +37,10 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+    pagerfanta.view.phpbr:
+        class: Phpbr\Bundle\AppBundle\Pagerfanta\CustomView
+        public: false
+        arguments:
+            - @translator
+        tags: [{ name: pagerfanta.view, alias: phpbr }]

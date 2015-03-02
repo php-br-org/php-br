@@ -22,3 +22,5 @@ parameters:
     knp_disqus.api_key:     test
     knp_disqus.secret_key:  test
     knp_disqus.lorem.shortname:     test
+
+    artigos_por_pagina: 4

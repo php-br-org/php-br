@@ -12,3 +12,5 @@ parameters:
     debug_toolbar:          false
     debug_redirects:        false
     use_assetic_controller: false
+
+    artigos_por_pagina: 10
