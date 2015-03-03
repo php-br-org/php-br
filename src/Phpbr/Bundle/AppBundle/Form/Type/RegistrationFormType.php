@@ -16,6 +16,7 @@ class RegistrationFormType extends BaseType
             ->add('linkedin', 'url', array('label' => 'LinkedIn', 'required' => false))
             ->add('twitter', 'text', array('label' => 'Twitter', 'attr' => array('placeholder' => '@Usuario'), 'required' => false))
             ->add('github', 'text', array('label' => 'Conta GitHub', 'required' => false))
+            ->add('captcha', 'captcha')
             ;
     }
 

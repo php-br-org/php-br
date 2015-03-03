@@ -37,3 +37,24 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+
+knp_disqus:
+    api_key: %knp_disqus.api_key%
+    secret_key: %knp_disqus.secret_key% # optional, for SSO auth only
+    forums:
+        lorem:
+            shortname: %knp_disqus.lorem.shortname%
+#            cache: my_cache_for_lorem # cache template key, usage described below
+
+white_october_pagerfanta:
+    exceptions_strategy:
+        out_of_range_page:        to_http_not_found
+        not_valid_current_page:   to_http_not_found
+
+gregwar_captcha:
+    width: 200
+    height: 50
+    length: 6
+
+
