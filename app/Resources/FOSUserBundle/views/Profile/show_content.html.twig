@@ -10,4 +10,15 @@
     {% endif %}
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    {% if (user.linkedin is not null) %}
+        <p>Linkedin: <a href="{{ user.linkedin }}">{{ user.linkedin }}</a></p>
+    {% endif %}
+
+    {% if (user.twitter is not null) %}
+        <p>Twitter: <a href="https://twitter.com/{{ user.twitter }}">{{ user.twitter }}</a></p>
+    {% endif %}
+
+    {% if (user.github is not null) %}
+        <p>Github: <a href="https://github.com/{{ user.github }}">{{ user.github }}</a></p>
+    {% endif %}
 </div>

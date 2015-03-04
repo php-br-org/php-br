@@ -1,0 +1,32 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <h3>Informações de Perfil</h3>
+        <p>
+        {% if (user is not null) %}
+            <p><h4>{{ user.username }}</h4></p>
+            <p>
+                <hr />
+            </p>
+            <p>
+                <img src="{{ user.email|email2gravatar('180') }}" alt="{{ user.name|raw }}" class="th img-gravatar-inicial" />
+            </p>
+            {% if (user.linkedin|length > 0) %}
+                <p>Linkedin: <a href="{{ user.linkedin }}">{{ user.linkedin }}</a></p>
+            {% endif %}
+
+            {% if (user.twitter|length > 0) %}
+                <p>Twitter: <a href="https://twitter.com/{{ user.twitter }}">{{ user.twitter }}</a></p>
+            {% endif %}
+
+            {% if (user.github|length > 0) %}
+                <p>Github: <a href="https://github.com/{{ user.github }}">{{ user.github }}</a></p>
+            {% endif %}
+        {% else %}
+            <p>404</p>
+            <p>Este usuário não existe</p>
+        {% endif %}
+            </div>
+{% endblock %}
+

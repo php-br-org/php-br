@@ -17,3 +17,9 @@ phpbr_app_colabore:
 phpbr_app_webchat:
     path:   /webchat
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'webchat' }
+
+phpbr_app_verusuario:
+    path:   /ver-usuario/{usuario}
+    defaults: { _controller: PhpbrAppBundle:Default:verUsuario, page: 'ver-usuario' }
+
+

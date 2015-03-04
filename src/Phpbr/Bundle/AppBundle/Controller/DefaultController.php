@@ -35,4 +35,26 @@ class DefaultController extends Controller
         }
     }
 
+    /**
+     * @param $usuario
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     */
+    public function verUsuarioAction($usuario) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('PhpbrAppBundle:User')->findOneBy(
+
+            array(
+                'username' => $usuario
+            )
+        );
+
+        return $this->render("PhpbrAppBundle:Default:ver-usuario.html.twig", 
+            array(
+                'user' => $entity
+            )
+        );
+    }
+
 }
