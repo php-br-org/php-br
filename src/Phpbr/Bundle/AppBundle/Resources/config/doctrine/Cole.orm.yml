@@ -1,0 +1,24 @@
+Phpbr\Bundle\AppBundle\Entity\Cole:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: 255
+        tipo:
+            type: string
+            length: '48'
+        codigo:
+            type: text
+        dataCriacao:
+            type: datetime
+        chaveDeletar:
+            type: string
+            length: '32'
+    lifecycleCallbacks: {  }

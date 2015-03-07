@@ -1,3 +1,6 @@
+phpbr_app_cole:
+    resource: "@PhpbrAppBundle/Resources/config/routing/cole.yml"
+
 phpbr_app_url:
     resource: "@PhpbrAppBundle/Resources/config/routing/url.yml"
     prefix:   /url
@@ -15,3 +18,4 @@ phpbr_app_artigo:
 phpbr_app_meus_artigos:
     resource: "@PhpbrAppBundle/Resources/config/routing/meusartigos.yml"
     prefix: /meus-artigos/
+

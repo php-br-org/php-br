@@ -1,0 +1,31 @@
+
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+    {{ entity.titulo }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+            <div class="large-9 columns">
+                <h4>
+                    http://cole.php-br.org/{{ entity.id }} 
+                    <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
+                    <h5>
+                        <strong>Titulo:</strong> {{ entity.titulo }}
+                        <span class="label success">{{ entity.dataCriacao|date('U')|tempo_passado }} atrás</span>
+                    </h5>
+                </h4>
+            </div>
+            <div class="large-3 columns">
+                <a href="{{ path('cole_novo') }}" class="button success right">
+                    Novo código
+                </a>
+            </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="panel">{{ codigo|raw }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
