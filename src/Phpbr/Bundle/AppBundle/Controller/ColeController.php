@@ -45,7 +45,12 @@ class ColeController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cole_ver', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('cole_ver', 
+                array(
+                    'id' => $entity->getId(),
+                    'chaveDeletar' => $entity->getChaveDeletar(),
+                )
+            ));
         }
 
         return $this->render('PhpbrAppBundle:Cole:novo.html.twig', array(
@@ -215,14 +220,18 @@ class ColeController extends Controller
      * Deletes a Cole entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deletarAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PhpbrAppBundle:Cole')->find($id);
+            $entity = $em->getRepository('PhpbrAppBundle:Cole')->findOneBy(
+                array(
+                    'id' => $id
+                )
+            );
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -245,7 +254,7 @@ class ColeController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cole_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('cole_deletar', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

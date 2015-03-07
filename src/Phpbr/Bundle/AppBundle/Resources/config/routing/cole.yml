@@ -37,8 +37,9 @@ cole_update:
     defaults: { _controller: "PhpbrAppBundle:Cole:update" }
     methods:  [POST, PUT]
 
-cole_delete:
-    path:     /{id}/delete
+cole_deletar:
+    path:     /{id}/deletar 
     host:     cole.php-br.org
-    defaults: { _controller: "PhpbrAppBundle:Cole:delete" }
+    defaults: { _controller: "PhpbrAppBundle:Cole:deletar" }
     methods:  [POST, DELETE]
+

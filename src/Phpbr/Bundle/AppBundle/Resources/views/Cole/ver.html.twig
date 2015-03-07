@@ -4,6 +4,7 @@
 {% block title %}
     {{ entity.titulo }}
 {% endblock %}
+{% set queryParams = app.request.query.all %}
 
 {% block content %}
     <div class="row">
@@ -24,6 +25,12 @@
             </div>
         <div class="row">
             <div class="large-12 columns">
+                {% if queryParams.chaveDeletar is defined %}
+                    {% if queryParams.chaveDeletar == entity.chaveDeletar %}
+                        {{ form(delete_form) }}
+                        <span class="label alert">Este botão só está disponível agora. Esta é sua única chance de excluir o código! </span>
+                    {% endif %}
+                {% endif %}
                 <div class="panel">{{ codigo|raw }}</div>
             </div>
         </div>
