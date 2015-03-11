@@ -4,6 +4,7 @@ namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Phpbr\Bundle\AppBundle\Entity\Cole;
@@ -37,6 +38,7 @@ class ColeController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Cole();
+        $session = new Session();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -45,10 +47,11 @@ class ColeController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $session->set('chaveDeletar', $entity->getChaveDeletar());
+
             return $this->redirect($this->generateUrl('cole_ver', 
                 array(
                     'id' => $entity->getId(),
-                    'chaveDeletar' => $entity->getChaveDeletar(),
                 )
             ));
         }

@@ -25,8 +25,8 @@
             </div>
         <div class="row">
             <div class="large-12 columns">
-                {% if queryParams.chaveDeletar is defined %}
-                    {% if queryParams.chaveDeletar == entity.chaveDeletar %}
+                {% if app.session.get('chaveDeletar') is defined %}
+                    {% if app.session.get('chaveDeletar') == entity.chaveDeletar %}
                         {{ form(delete_form) }}
                         <span class="label alert">Este botão só está disponível agora. Esta é sua única chance de excluir o código! </span>
                     {% endif %}
