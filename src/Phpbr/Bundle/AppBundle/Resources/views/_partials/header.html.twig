@@ -13,17 +13,17 @@
                             </a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a>
+                                    <a href="http://php-br.org{{ path('lista_meus_artigos') }}">Meus Artigos</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
+                                    <a href="http://php-br.org{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
                                 </li>
                             </ul>
                         </li>
 
                         {% if (is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN')) %}
                             <li class="has-dropdown">
-                                <a href="{{ path('home_admin') }}">Painel Admin</a>
+                                <a href="http://php-br.org{{ path('home_admin') }}">Painel Admin</a>
                                 <ul class="dropdown">
                                     <li>
                                         <a href="{{ path('admin_artigos') }}">Aprovar Artigos</a>
@@ -33,23 +33,23 @@
                         {% endif %}
 
                         <li>
-                            <a href="{{ path('fos_user_security_logout') }}">
+                            <a href="http://php-br.org{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="{{ path('fos_user_security_login') }}">Entrar</a>
+                            <a href="http://php-br.org{{ path('fos_user_security_login') }}">Entrar</a>
                         </li>
                         <li>
-                            <a href="{{ path('fos_user_registration_register') }}">Novo Perfil</a>
+                            <a href="http://php-br.org{{ path('fos_user_registration_register') }}">Novo Perfil</a>
                         </li>
                     {% endif %}
                 </ul>
 
                 <!-- Left Nav Section -->
                 <ul class="left">
-                    <li><a href="{{ path('lista_artigos') }}">Artigos</a></li>
+                    <li><a href="http://php-br.org{{ path('lista_artigos') }}">Artigos</a></li>
                     <li><a href="http://php-br.org/quem-somos">Quem somos</a></li>
                     <li><a href="http://php-br.org/webchat">Webchat</a></li>
                     <li><a href="http://php-br.org/colabore">Colabore</a></li>
