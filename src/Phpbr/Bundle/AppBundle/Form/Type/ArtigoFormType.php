@@ -29,12 +29,10 @@ class ArtigoFormType extends AbstractType
             ->add('publicado', 'choice', array(
                 'choices' => array(
                     '0' => 'Salvar como Rascunho',
-                    '1' => 'Publicar Artigo'
-                'extended' => true,
-                'data' => '0',
+                    '1' => 'Publicar Artigo',
                 ),
-                'label' => 'Status do Artigo:',
-                'required' => true
+                'expanded' => true,
+                'data' => '0',
             ))
             ->add('Salvar', 'submit')
         ;
