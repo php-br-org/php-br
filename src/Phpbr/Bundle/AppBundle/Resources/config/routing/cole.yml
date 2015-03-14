@@ -3,6 +3,11 @@ cole:
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Cole:index" }
 
+cole_pagina:
+    path:     /pagina/{pagina}/
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:index", pagina:1 }
+
 cole_ver:
     path:     /{id}
     host:     cole.php-br.org

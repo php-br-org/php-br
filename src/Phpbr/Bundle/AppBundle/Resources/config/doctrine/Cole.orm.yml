@@ -1,6 +1,7 @@
 Phpbr\Bundle\AppBundle\Entity\Cole:
     type: entity
     table: null
+    repositoryClass: Phpbr\Bundle\AppBundle\Repository\ColeRepository
     id:
         id:
             type: integer

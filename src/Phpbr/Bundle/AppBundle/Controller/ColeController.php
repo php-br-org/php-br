@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Phpbr\Bundle\AppBundle\Entity\Cole;
 use Phpbr\Bundle\AppBundle\Form\ColeType;
+use Pagerfanta\Pagerfanta;
 
 /**
  * Cole controller.
@@ -21,16 +22,24 @@ class ColeController extends Controller
      * Lists all Cole entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('PhpbrAppBundle:Cole')->findAll();
+        $coleRepo = $em->getRepository('PhpbrAppBundle:Cole')->listaColesAdapter();
+
+        $coles = new Pagerfanta($coleRepo);
+        $coles->setMaxPerPage($this->container->getParameter('coles_por_pagina'));
+
+        $pagina = $request->get('pagina', 1);
+        $coles->setCurrentPage($pagina);
 
         return $this->render('PhpbrAppBundle:Cole:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $coles
         ));
     }
+
+
     /**
      * Creates a new Cole entity.
      *
