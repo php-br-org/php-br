@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Phpbr\Bundle\AppBundle\Entity\Cole;
 use Phpbr\Bundle\AppBundle\Form\ColeType;
 use Pagerfanta\Pagerfanta;
+use Phpbr\Bundle\AppBundle\Services\ColeService;
 
 /**
  * Cole controller.
@@ -24,9 +25,9 @@ class ColeController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $coleService = $this->get('phpbr_cole_service_em');
 
-        $coleRepo = $em->getRepository('PhpbrAppBundle:Cole')->listaColesAdapter();
+        $coleRepo = $coleService->em->getRepository('PhpbrAppBundle:Cole')->listaColesAdapter();
 
         $coles = new Pagerfanta($coleRepo);
         $coles->setMaxPerPage($this->container->getParameter('coles_por_pagina'));
@@ -52,9 +53,9 @@ class ColeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $coleService = $this->get('phpbr_cole_service_em');
+            $coleService->em->persist($entity);
+            $coleService->em->flush();
 
             $session->set('chaveDeletar', $entity->getChaveDeletar());
 
@@ -111,8 +112,8 @@ class ColeController extends Controller
      */
     public function verAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $coleService = $this->get('phpbr_cole_service_em');
+        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -136,9 +137,9 @@ class ColeController extends Controller
      */
     public function verRawAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $coleService = $this->get('phpbr_cole_service_em');
 
-        $entity = $em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -162,9 +163,9 @@ class ColeController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $coleService = $this->get('phpbr_cole_service_em');
 
-        $entity = $em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -204,9 +205,8 @@ class ColeController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $coleService = $this->get('phpbr_cole_service_em');
+        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -217,7 +217,7 @@ class ColeController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $em->flush();
+            $coleService->em->flush();
 
             return $this->redirect($this->generateUrl('cole_edit', array('id' => $id)));
         }
@@ -238,8 +238,8 @@ class ColeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PhpbrAppBundle:Cole')->findOneBy(
+            $coleService = $this->get('phpbr_cole_service_em');
+            $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->findOneBy(
                 array(
                     'id' => $id
                 )
@@ -249,8 +249,8 @@ class ColeController extends Controller
                 throw $this->createNotFoundException('Unable to find Cole entity.');
             }
 
-            $em->remove($entity);
-            $em->flush();
+            $coleService->em->remove($entity);
+            $coleService->em->flush();
         }
 
         return $this->redirect($this->generateUrl('cole'));
