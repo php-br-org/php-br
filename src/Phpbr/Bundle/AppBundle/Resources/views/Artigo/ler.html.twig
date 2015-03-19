@@ -19,7 +19,7 @@
 
             <div class="large-9 medium-9 columns">
                 <article id="{{ artigo.slug }}">
-                    {{ artigo.texto|raw|nl2br }}
+                    {{ artigo.texto|raw }}
                 </article>
             {{ knp_disqus_render('phpbrorg', {'identifier': artigo.slug, 'limit': 10}) }}
             </div>
