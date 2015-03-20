@@ -24,8 +24,7 @@ class ArtigoRepository extends EntityRepository
         $query = $this->createQueryBuilder('Artigo')
             ->where('Artigo.publicado = :flagPublicado')
             ->andWhere('Artigo.aprovado = :aprovado')
-            ->orderBy('Artigo.score', 'DESC')
-            ->addOrderBy('Artigo.dataPublicado', 'DESC')
+            ->orderBy('Artigo.dataAutorizado', 'DESC')
             ->setParameters(array(
                 'flagPublicado' => true,
                 'aprovado' => true

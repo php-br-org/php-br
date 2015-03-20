@@ -19,8 +19,8 @@
                     </p>
                     <h5>
                         <small>
-                        Autor: <a href="/ver-usuario/{{ artigo.user.username|raw }}">{{ artigo.user.username|raw }}</a>
-                        , {{ artigo.dataPublicado|date('U')|tempo_passado }} atrás
+                        Autor: <a href="/ver-usuario/{{ artigo.user.username|raw }}">{{ artigo.user.name|raw }}</a>
+                        , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
                         </small>
                     </h5>
                 </div>
