@@ -15,11 +15,6 @@ class Categoria
     private $id;
 
     /**
-     * @var string
-     */
-    private $categoria;
-
-    /**
      * @var boolean
      */
     private $status;
@@ -116,14 +111,14 @@ class Categoria
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $categoriam;
+    private $categoria;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->categoriam = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categoria = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -150,45 +145,12 @@ class Categoria
     }
 
     /**
-     * Add categoriam
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoriam
-     * @return Categoria
-     */
-    public function addCategoriam(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoriam)
-    {
-        $this->categoriam[] = $categoriam;
-
-        return $this;
-    }
-
-    /**
-     * Remove categoriam
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoriam
-     */
-    public function removeCategoriam(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoriam)
-    {
-        $this->categoriam->removeElement($categoriam);
-    }
-
-    /**
-     * Get categoriam
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategoriam()
-    {
-        return $this->categoriam;
-    }
-
-    /**
      * Add categoria
      *
      * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria
      * @return Categoria
      */
-    public function addCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
+    public function addCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
     {
         $this->categoria[] = $categoria;
 
@@ -200,7 +162,7 @@ class Categoria
      *
      * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria
      */
-    public function removeCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
+    public function removeCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
     {
         $this->categoria->removeElement($categoria);
     }

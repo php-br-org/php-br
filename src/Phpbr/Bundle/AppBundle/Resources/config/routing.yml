@@ -19,3 +19,8 @@ phpbr_app_meus_artigos:
     resource: "@PhpbrAppBundle/Resources/config/routing/meusartigos.yml"
     prefix: /meus-artigos/
 
+phpbr_app_forum:
+    resource: "@PhpbrAppBundle/Resources/config/routing/forum.yml"
+    prefix: /forum
+
+
