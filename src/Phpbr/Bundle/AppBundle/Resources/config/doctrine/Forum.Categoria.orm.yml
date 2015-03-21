@@ -1,0 +1,25 @@
+Phpbr\Bundle\AppBundle\Entity\Forum\Categoria:
+    type: entity
+    table: forum_categoria
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descricao:
+            type: text
+        status:
+            type: boolean
+        dataCriacao:
+            type: datetime
+
+    oneToMany:
+        categoria:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Topico
+            mappedBy: categoria
+            cascate: [persist, remove]
+            orderBy:
+                dataCriacao: ASC
+    lifecycleCallbacks: {  }

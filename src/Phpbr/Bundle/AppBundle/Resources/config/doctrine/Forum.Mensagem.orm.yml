@@ -1,0 +1,31 @@
+Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem:
+    type: entity
+    table: forum_mensagem
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        mensagem:
+            type: text
+        dataCriacao:
+            type: datetime
+    manyToOne:
+        topico:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Topico
+            inversedBy: mensagem
+            joinColumn:
+                name: topico_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        user:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\User
+            inversedBy: mensagem
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }
+
