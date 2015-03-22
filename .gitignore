@@ -5,7 +5,9 @@
 !app/logs/.gitkeep
 
 # Parameters
-install.sj
+install.sh
+app/config/parameters_prod.yml
+app/config/config_prod.yml
 
 # Managed by Composer
 /app/bootstrap.php.cache
@@ -20,6 +22,7 @@ install.sj
 /web/bundles/*
 !/web/bundles/phpbrapp/assets/images
 /web/uploads/*
+/web/js/*
 
 # PHPUnit
 /app/phpunit.xml

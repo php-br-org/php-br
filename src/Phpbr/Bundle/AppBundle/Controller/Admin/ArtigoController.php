@@ -53,7 +53,6 @@ class ArtigoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $artigo->setAprovado(false);
-        $artigo->setDataAutorizado(null);
         $em->persist($artigo);
         $em->flush();
 

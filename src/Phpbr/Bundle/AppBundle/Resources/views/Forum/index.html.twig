@@ -1,0 +1,35 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3><a href="/forum">##php-br Forum</a> | Tópicos</h3> 
+            <hr />
+            {% for categoria in categorias %}
+            <div class="row">
+                <div class="large-6 columns">
+                    <strong>
+                        <a href="ver-topico/{{ categoria.id }}">{{ categoria.nome|upper }}</a>
+                    </strong>
+                    <br />
+                    {{ categoria.descricao }}
+                </div>
+                <div class="large-2 columns">
+                    <strong>Topicos:</strong> 
+                    2123
+                </div>
+                <div class="large-2 columns">
+                    Mensagens: <strong>10101</strong>
+                </div>
+                <div class="large-2 columns">
+                    Último Tópico: <strong>18 minutos atrás</strong>
+                </div>
+            </div>
+            <hr />
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

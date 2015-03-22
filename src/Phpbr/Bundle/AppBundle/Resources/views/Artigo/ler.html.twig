@@ -1,11 +1,18 @@
 {% extends "::layout.html.twig" %}
 
+{% block title %}
+    {{ artigo.titulo }}
+{% endblock %}
+
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
             <h2>{{ artigo.titulo }}</h2>
-            <p class="subheader">{{ artigo.score }} pontos / Publicado por: {{ artigo.user.name|raw }} / Data: {{ artigo.dataPublicado|date('d/m/Y') }}</p>
-
+            <p class="subheader">
+                Publicado por: <a href="/ver-usuario/{{ artigo.user.username|raw }}">{{ artigo.user.name|raw }}</a>,
+                 Data: {{ artigo.dataAutorizado|date('d/m/Y') }}, 
+                {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
+                </p>
             {% if artigo.tags|length %}
                 <p class="subheader">Tags: {{ artigo.tags|raw }}</p>
             {% endif %}

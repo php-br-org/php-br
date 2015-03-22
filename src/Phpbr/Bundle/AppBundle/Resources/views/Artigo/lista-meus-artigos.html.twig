@@ -48,7 +48,7 @@
                                     {% endif %}
                                 </span>
                         {% else %}
-                            {% if ((artigo.dataAutorizado is not null) and artigo.aprovado == 0) %}
+                            {% if (artigo.dataAutorizado|length < 1) %}
                                 <span data-tooltip class="label [radius] alert" title="Seu artigo está aguardando aprovação.">AGUARDANDO APROVAÇÃO</span>
                             {% else %}
                                 <span data-tooltip class="label [radius] alert" title="Seu artigo foi reprovado pelo Admin.">REPROVADO</span>
@@ -58,7 +58,7 @@
                         <span 
                             data-tooltip 
                             class="label [radius] alert" 
-                            title="Seu artigo está salvo como rascunho. Somente você tem accesso a ele. Para publicá-lo, edite e marque a opção Visível a Todos!">NÃO VISÍVEL</span>
+                            title="Seu artigo está salvo como rascunho. Somente você tem accesso a ele. Para publicá-lo, edite e marque a opção Visível a Todos!">RASCUNHO</span>
                     {% endif %}
 
                 </div>
@@ -78,4 +78,12 @@
 
         </div>
     </div>
+
+    {% if artigos|length %}
+        <div class="row">
+            <div class="large-12 columns text-center">
+                {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

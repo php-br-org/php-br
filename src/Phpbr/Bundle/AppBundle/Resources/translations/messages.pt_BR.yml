@@ -1,0 +1,4 @@
+phpbr:
+    paginacao:
+        proximo: 'Próxima'
+        anterior: 'Anterior'

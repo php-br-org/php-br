@@ -1,0 +1,22 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Forum - Novo tópico{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3><a href="/forum">Forum</a> :: Novo Tópico</h3> 
+            {{ tinymce_init() }}
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        phpbr.highlight();
+    </script>
+{% endblock %}

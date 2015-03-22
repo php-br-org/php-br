@@ -1,0 +1,50 @@
+cole:
+    path:     /
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:index" }
+
+cole_pagina:
+    path:     /pagina/{pagina}/
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:index", pagina:1 }
+
+cole_ver:
+    path:     /{id}
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:ver" }
+    requirements:
+        id: \d+
+
+cole_verRaw:
+    path:     /{id}/ver-raw
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:verRaw" }
+
+cole_novo:
+    path:     /novo
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:novo" }
+
+cole_create:
+    path:     /criar
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:create" }
+    methods:  POST
+
+cole_edit:
+    path:     /{id}/edit
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:edit" }
+
+cole_update:
+    path:     /{id}/update
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:update" }
+    methods:  [POST, PUT]
+
+cole_deletar:
+    path:     /{id}/deletar 
+    host:     cole.php-br.org
+    defaults: { _controller: "PhpbrAppBundle:Cole:deletar" }
+    methods:  [POST, DELETE]
+

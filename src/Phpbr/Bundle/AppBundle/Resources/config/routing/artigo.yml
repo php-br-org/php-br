@@ -9,4 +9,3 @@ lista_artigos:
 ler_artigo:
     path: /ler/{slug}
     defaults: { _controller: PhpbrAppBundle:Artigo:ler }
-

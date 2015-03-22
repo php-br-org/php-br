@@ -6,31 +6,47 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use Phpbr\Bundle\AppBundle\Form\Type\ArtigoFormType;
+use Pagerfanta\Pagerfanta;
 
 class ArtigoController extends Controller
 {
 
     /**
+     * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listmeusartigosAction() {
+    public function listaMeusArtigosAction(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
         $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
 
         $usuario = $this->get('security.context')->getToken()->getUser();
-        $artigos = $artigoRepo->listaArtigosUsuario($usuario);
+        $artigosAdapter = $artigoRepo->listaArtigosUsuario($usuario);
+
+        $artigos = new Pagerfanta($artigosAdapter);
+        $artigos->setMaxPerPage($this->container->getParameter('artigos_por_pagina'));
+
+        $pagina = $request->get('pagina', 1);
+        $artigos->setCurrentPage($pagina);
 
         return $this->render('PhpbrAppBundle:Artigo:lista-meus-artigos.html.twig', compact('artigos'));
     }
 
     /**
+     * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction() {
+    public function listAction(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
         $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
+        $artigosAdapter = $artigoRepo->listaArtigosAtivosAdapter();
 
-        $artigos = $artigoRepo->listaArtigosAtivos();
+        $artigos = new Pagerfanta($artigosAdapter);
+        $artigos->setMaxPerPage($this->container->getParameter('artigos_por_pagina'));
+
+        $pagina = $request->get('pagina', 1);
+        $artigos->setCurrentPage($pagina);
 
         return $this->render('PhpbrAppBundle:Artigo:lista.html.twig', compact('artigos'));
     }

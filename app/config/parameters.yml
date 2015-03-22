@@ -1,10 +1,10 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     127.0.0.1
+    database_host:     localhost
     database_port:     ~
     database_name:     phpbr
     database_user:     root
-    database_password: root
+    database_password: 
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
@@ -19,6 +19,10 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
-    knp_disqus.api_key:     test
-    knp_disqus.secret_key:  test
-    knp_disqus.lorem.shortname:     test
+
+    knp_disqus.api_key: XXX
+    knp_disqus.secret_key: XXX # optional, for SSO auth only
+    knp_disqus.lorem.shortname: "php-br.org"
+
+    artigos_por_pagina: 10
+    coles_por_pagina: 5

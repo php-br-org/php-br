@@ -117,8 +117,8 @@ hwi_oauth:
     resource_owners:
         facebook:
             type:                facebook
-            client_id:           390760204405346
-            client_secret:       24ba3bf6ccd0321ebca051d501637dcf
+            client_id:           1111111111111
+            client_secret:       AAAAAAAAAAAAAAAAAAAAAAAAA
     # here you will add one (or more) configurations for resource owners
 
 nomaya_social:
@@ -162,6 +162,12 @@ knp_disqus:
             shortname: %knp_disqus.lorem.shortname%
 #            cache: my_cache_for_lorem # cache template key, usage described below
 
-# my_cache_for_lorem:
-# If you setup up an cache, you should also configure cache provider, which will be used automatically
-# ...
+white_october_pagerfanta:
+    exceptions_strategy:
+        out_of_range_page:        to_http_not_found
+        not_valid_current_page:   to_http_not_found
+
+gregwar_captcha:
+    width: 200
+    height: 50
+    length: 6
