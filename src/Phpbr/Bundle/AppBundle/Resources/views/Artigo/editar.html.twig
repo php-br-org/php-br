@@ -9,12 +9,9 @@
                     <p><a href="/meus-artigos">Clique aqui</a> para retonar a sua lista de artigos</a>
                 </div>
             {% endif %}
-            <p>
-                {{ tinymce_init() }}
-                {{ form(edit_form) }}
-            <ul class="record_actions">
-            <p>
-            </p>
+
+            {{ form(edit_form) }}
+            <ul class="record_actions"></ul>
         </div>
 </div>
 {% endblock %}
