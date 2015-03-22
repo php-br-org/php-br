@@ -46,6 +46,8 @@ Uma vez a VM configurada, execute o seguinte comando para sincronizar os arquivo
 
 ---
 
+2) Instalação em seu próprio server:
+-------------------------
 Se você estiver em uma máquina rodando UBUNTU:
 
 Exemplo de config do apache:
@@ -78,7 +80,7 @@ Edite seu arquivo de configuração do Apache:
 
     ./install.sh
 
-2) Front-end:
+3) Front-end:
 ----------------------------------
 Necessario: NodeJS + NPM. 
 
@@ -113,7 +115,7 @@ Para compilar automaticamente ao salvar (A executar na sua maquina):
     grunt watch
 
 
-3) Observações:
+4) Observações:
 ----------------------------------
 
 Para acessar a VM, execute o seguinte comando na raiz do projeto:

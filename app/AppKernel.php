@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

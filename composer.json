@@ -38,7 +38,8 @@
         "nomaya/social-bundle": "dev-master",
         "knplabs/knp-disqus-bundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
-        "geshi/geshi": "dev-master"
+        "geshi/geshi": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

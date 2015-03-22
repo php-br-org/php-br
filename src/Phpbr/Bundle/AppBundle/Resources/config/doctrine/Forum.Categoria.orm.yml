@@ -8,6 +8,9 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Categoria:
             generator:
                 strategy: AUTO
     fields:
+        nome:
+            type: string
+            length: 255
         descricao:
             type: text
         status:
@@ -16,10 +19,9 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Categoria:
             type: datetime
 
     oneToMany:
-        categoria:
-            targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Topico
+        categorias:
+            targetEntity: 'Phpbr\Bundle\AppBundle\Entity\Forum\Topico'
             mappedBy: categoria
-            cascate: [persist, remove]
-            orderBy:
-                dataCriacao: ASC
+
     lifecycleCallbacks: {  }
+

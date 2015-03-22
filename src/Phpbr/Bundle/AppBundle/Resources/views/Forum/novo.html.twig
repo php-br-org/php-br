@@ -1,7 +1,22 @@
-{% extends "::base.html.twig" %}
+{% extends "::layout.html.twig" %}
 
-{% block title %}PhpbrAppBundle:Forum\Topico:novo{% endblock %}
+{% block title %}Forum - Novo tópico{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Forum\Topico:novo page</h1>
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3><a href="/forum">Forum</a> :: Novo Tópico</h3> 
+            {{ tinymce_init() }}
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        phpbr.highlight();
+    </script>
 {% endblock %}

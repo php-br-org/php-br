@@ -11,13 +11,14 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Topico:
         assunto:
             type: string
             length: 255
+        mensagem:
+            type: text
         dataCriacao:
             type: datetime
     manyToOne:
         categoria:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Categoria
-            inversedBy: categoria
-            cascate: [persist]
+            inversedBy: topico
             joinColumn:
                 name: categoria_id
                 referencedColumnName: id
@@ -29,11 +30,9 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Topico:
                 name: user_id
                 referencedColumnName: id
                 onDelete: CASCADE
+    lifecycleCallbacks: {  }
+
     oneToMany:
-        mensagem:
+        mensagens:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem
             mappedBy: topico
-            cascate: [persist, remove]
-            orderBy:
-                dataCriacao: ASC
-    lifecycleCallbacks: {  }

@@ -181,4 +181,146 @@ class Topico
     {
         return $this->user;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $nome_mensagem;
+
+
+    /**
+     * Add nome_mensagem
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $nomeMensagem
+     * @return Topico
+     */
+    public function addNomeMensagem(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $nomeMensagem)
+    {
+        $this->nome_mensagem[] = $nomeMensagem;
+
+        return $this;
+    }
+
+    /**
+     * Remove nome_mensagem
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $nomeMensagem
+     */
+    public function removeNomeMensagem(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $nomeMensagem)
+    {
+        $this->nome_mensagem->removeElement($nomeMensagem);
+    }
+
+    /**
+     * Get nome_mensagem
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNomeMensagem()
+    {
+        return $this->nome_mensagem;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $topicos;
+
+
+    /**
+     * Add topicos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $topicos
+     * @return Topico
+     */
+    public function addTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $topicos)
+    {
+        $this->topicos[] = $topicos;
+
+        return $this;
+    }
+
+    /**
+     * Remove topicos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $topicos
+     */
+    public function removeTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $topicos)
+    {
+        $this->topicos->removeElement($topicos);
+    }
+
+    /**
+     * Get topicos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTopicos()
+    {
+        return $this->topicos;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $mensagems;
+
+
+    /**
+     * Get mensagems
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMensagems()
+    {
+        return $this->mensagems;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $mensagens;
+
+
+    /**
+     * Set mensagem
+     *
+     * @param string $mensagem
+     * @return Topico
+     */
+    public function setMensagem($mensagem)
+    {
+        $this->mensagem = $mensagem;
+
+        return $this;
+    }
+
+    /**
+     * Add mensagens
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagens
+     * @return Topico
+     */
+    public function addMensagen(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagens)
+    {
+        $this->mensagens[] = $mensagens;
+
+        return $this;
+    }
+
+    /**
+     * Remove mensagens
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagens
+     */
+    public function removeMensagen(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagens)
+    {
+        $this->mensagens->removeElement($mensagens);
+    }
+
+    /**
+     * Get mensagens
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMensagens()
+    {
+        return $this->mensagens;
+    }
 }

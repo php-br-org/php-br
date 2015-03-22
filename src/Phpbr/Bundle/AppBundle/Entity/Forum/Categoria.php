@@ -166,4 +166,123 @@ class Categoria
     {
         $this->categoria->removeElement($categoria);
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $nome_categoria;
+
+
+    /**
+     * Add nome_categoria
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria
+     * @return Categoria
+     */
+    public function addNomeCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria)
+    {
+        $this->nome_categoria[] = $nomeCategoria;
+
+        return $this;
+    }
+
+    /**
+     * Remove nome_categoria
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria
+     */
+    public function removeNomeCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria)
+    {
+        $this->nome_categoria->removeElement($nomeCategoria);
+    }
+
+    /**
+     * Get nome_categoria
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNomeCategoria()
+    {
+        return $this->nome_categoria;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $categorias;
+
+
+    /**
+     * Get categorias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategorias()
+    {
+        return $this->categorias;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $topicos;
+
+
+    /**
+     * Add topicos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos
+     * @return Categoria
+     */
+    public function addTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos)
+    {
+        $this->topicos[] = $topicos;
+
+        return $this;
+    }
+
+    /**
+     * Remove topicos
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos
+     */
+    public function removeTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos)
+    {
+        $this->topicos->removeElement($topicos);
+    }
+
+    /**
+     * Get topicos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTopicos()
+    {
+        return $this->topicos;
+    }
+    /**
+     * @var string
+     */
+    private $nome;
+
+
+    /**
+     * Set nome
+     *
+     * @param string $nome
+     * @return Categoria
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    /**
+     * Get nome
+     *
+     * @return string 
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
 }
