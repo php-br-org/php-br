@@ -1,0 +1,562 @@
+/* Prevent text selection while mouse dragging.
+   (See: http://blog.herdhound.com/2012/02/prevent-text-selection-during-mousemove.html) */
+.unselectable * {
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+}
+
+.meltdown_wrap, .meltdown_wrap *,
+.meltdown_wrap:before, .meltdown_wrap:after,
+.meltdown_wrap *:before, .meltdown_wrap *:after {
+    -webkit-box-sizing:content-box !important; -moz-box-sizing:content-box !important; box-sizing:content-box !important;
+}
+.meltdown_controls {
+    margin-left: 0 !important;
+}
+
+textarea.meltdown-editor {
+    padding: 0 !important;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+/* Meltdown Wrap
+=======================================================================*/
+
+.meltdown_wrap {
+    position: relative !important;
+    margin-bottom: 10px !important;
+    padding: 0 5px !important;
+    background: #c8c8c8 !important;
+    -moz-border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+    overflow: hidden !important;
+}
+
+/* Allow the margins to collapse with the other childrens of .meltdown_wrap: */
+.meltdown_topmargin {
+    margin-bottom: 5px !important;
+}
+.meltdown_bottommargin {
+    margin-top: 5px !important;
+}
+
+/* Meltdown Font Icons
+=======================================================================*/
+
+@font-face {
+    font-family: 'meltdown' !important;
+    src:url('../../../../fonts/meltdown.eot') !important;
+    src:url('../../../../fonts/meltdown.eot?#iefix') format('embedded-opentype'),
+    url('../../../../fonts/meltdown.woff') format('woff'),
+    url('../../../../fonts/meltdown.ttf') format('truetype'),
+    url('../../../../fonts/meltdown.svg#meltdown') format('svg') !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+    font-family: 'meltdown' !important;
+    content: attr(data-icon) !important;
+    speak: none !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="meltdown-icon-"]:before {
+*/
+.meltdown-icon-eye-open:before, .meltdown-icon-eye-close:before, .meltdown-icon-table:before, .meltdown-icon-bold:before, .meltdown-icon-italic:before, .meltdown-icon-list-ol:before, .meltdown-icon-list-ul:before, .meltdown-icon-link:before, .meltdown-icon-code:before, .meltdown-icon-picture:before, .meltdown-icon-quote:before, .meltdown-icon-help:before, .meltdown-icon-code-block:before, .meltdown-icon-return:before, .meltdown-icon-footnote:before, .meltdown-icon-hr:before, .meltdown-icon-caret-down:before, .meltdown-icon-add-to-list:before {
+    font-family: 'meltdown' !important;
+    speak: none !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+.meltdown-icon-eye-open:before {
+    content: "\73" !important;
+}
+.meltdown-icon-eye-close:before {
+    content: "\68" !important;
+}
+.meltdown-icon-table:before {
+    content: "\74" !important;
+}
+.meltdown-icon-bold:before {
+    content: "\62" !important;
+}
+.meltdown-icon-italic:before {
+    content: "\69" !important;
+}
+.meltdown-icon-list-ol:before {
+    content: "\31" !important;
+}
+.meltdown-icon-list-ul:before {
+    content: "\2a" !important;
+}
+.meltdown-icon-link:before {
+    content: "\6c" !important;
+}
+.meltdown-icon-code:before {
+    content: "\3c" !important;
+}
+.meltdown-icon-picture:before {
+    content: "\70" !important;
+}
+.meltdown-icon-quote:before {
+    content: "\22" !important;
+}
+.meltdown-icon-help:before {
+    content: "\3f" !important;
+}
+.meltdown-icon-code-block:before {
+    content: "\5b" !important;
+}
+.meltdown-icon-return:before {
+    content: "\72" !important;
+}
+.meltdown-icon-footnote:before {
+    content: "\66" !important;
+}
+.meltdown-icon-hr:before {
+    content: "\5f" !important;
+}
+.meltdown-icon-caret-down:before {
+    content: "\76" !important;
+}
+.meltdown-icon-add-to-list:before {
+    content: "\2b" !important;
+}
+
+
+/* Meltdown Editor
+=======================================================================*/
+
+.meltdown_editor-wrap {
+}
+
+.meltdown_editor-deco {
+    border: 1px solid #a8a8a8 !important;
+    padding: 5px !important;
+    background: #fff !important;
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius: 3px !important;
+}
+.meltdown_editor-deco.focus {
+    border-color: #5c8cd0 !important;
+}
+
+.meltdown_editor {
+    display: block !important;	/* Removes the bottom space. */
+    margin: 0 !important;
+    border: 0 !important;
+    width: 100% !important;
+    resize: vertical !important;
+    min-height: 15px !important;
+    height: auto !important;
+}
+
+.meltdown_editor {
+    outline: none !important;
+}
+
+
+/* Resize handle
+=======================================================================*/
+
+
+.sidebyside .meltdown_preview-wrap2 {
+    position: relative !important;
+    padding-left: 8px !important;
+}
+.meltdown_resizehandle {
+    text-align: center !important;
+    margin: -2px 0 -5px !important;
+    font-size: 12px !important;
+}
+.meltdown_resizehandle > span:before {
+    content: "•" !important;
+    color: #686868 !important;
+}
+
+.meltdown_resizehandle-horiz {
+    cursor: auto !important;
+}
+.meltdown_resizehandle-vert {
+    cursor: row-resize !important;
+}
+
+
+/* Meltdown Toolbar
+=======================================================================*/
+
+.meltdown_bar {
+    position: relative !important;
+    padding: 5px 0 !important;
+    margin: 0 0 3px !important;
+    height: 24px !important;
+    border: 1px solid #a8a8a8 !important;
+    background: #fff !important; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%) !important; /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)) !important; /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%) !important; /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%) !important; /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%) !important; /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%) !important; /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ) !important; /* IE6-9 */
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius: 3px !important;
+}
+ul.meltdown_controls {
+    float: left !important;
+    width: 100% !important;
+    margin: 0 !important !important;
+    padding: 0 !important !important;
+    list-style: none !important;
+}
+li.meltdown_controlbutton {
+    position: relative !important;
+    float: left !important;
+    margin: 0 0 0 5px !important;
+    padding: 0 !important;
+}
+.meltdown_controls li.meltdown_control-preview { float: right !important; margin-right: 5px !important; }
+li.meltdown_controlbutton > span {
+    float: left !important;
+    padding: 6px !important;
+    line-height: 1em !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    -moz-border-radius: 2px !important;
+    -webkit-border-radius: 2px !important;
+    border-radius: 2px !important;
+    color: #333 !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+}
+.meltdown_controls li.meltdown_controlsep > span {
+    min-width: 1px !important;
+    width: 1px !important;
+    background-color: #ccc !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    cursor: auto !important;
+}
+li.meltdown_controlbutton:hover > span,
+li.meltdown_controlbutton:focus > span {
+    color: #06c !important;
+}
+.meltdown_controls li.meltdown_control-bold > span,
+.meltdown_controls li.meltdown_control-italics > span,
+.meltdown_controls li.meltdown_control-ul > span,
+.meltdown_controls li.meltdown_control-ol > span,
+.meltdown_controls li.meltdown_control-hr > span,
+.meltdown_controls li.meltdown_control-table > span,
+.meltdown_controls li.meltdown_control-preview > span,
+.meltdown_controls li.meltdown_control-link > span,
+.meltdown_controls li.meltdown_control-img > span,
+.meltdown_controls li.meltdown_control-blockquote > span,
+.meltdown_controls li.meltdown_control-codeblock > span,
+.meltdown_controls li.meltdown_control-code > span,
+.meltdown_controls li.meltdown_control-footnote > span,
+.meltdown_controls li.meltdown_controlgroup-kitchenSink > span {
+    height: 12px !important;
+    position: relative !important;
+    text-indent: -9000em !important;
+    width: 12px !important;
+}
+.meltdown_controls li.meltdown_control-bold > span:before,
+.meltdown_controls li.meltdown_control-italics > span:before,
+.meltdown_controls li.meltdown_control-ul > span:before,
+.meltdown_controls li.meltdown_control-ol > span:before,
+.meltdown_controls li.meltdown_control-hr > span:before,
+.meltdown_controls li.meltdown_control-table > span:before,
+.meltdown_controls li.meltdown_control-preview > span:before,
+.meltdown_controls li.meltdown_control-link > span:before,
+.meltdown_controls li.meltdown_control-img > span:before,
+.meltdown_controls li.meltdown_control-blockquote > span:before,
+.meltdown_controls li.meltdown_control-codeblock > span:before,
+.meltdown_controls li.meltdown_control-code > span:before,
+.meltdown_controls li.meltdown_control-footnote > span:before,
+.meltdown_controls li.meltdown_controlgroup-kitchenSink > span:before {
+    position: absolute !important;
+    left: 4px !important;
+    top: 4px !important;
+    font-family: 'meltdown' !important;
+    speak: none !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-indent: 0 !important;
+}
+/* Resize and reposition Bold */
+.meltdown_controls li.meltdown_control-bold > span:before {
+    content: "\62" !important;
+    font-size: 12px !important;
+    left: 7px !important;
+    top: 7px !important;
+}
+/* Resize and reposition Italics */
+.meltdown_controls li.meltdown_control-italics > span:before {
+    content: "\69" !important;
+    font-size: 12px !important;
+    left: 8px !important;
+    top: 7px !important;
+}
+.meltdown_controls li.meltdown_control-ul > span:before {
+    content: "\2a" !important;
+}
+.meltdown_controls li.meltdown_control-ol > span:before {
+    content: "\31" !important;
+}
+.meltdown_controls li.meltdown_control-table > span:before {
+    content: "\74" !important;
+}
+.meltdown_controls li.meltdown_control-preview > span:before {
+    content: "\73" !important;
+}
+.meltdown_wrap.openpreview .meltdown_controls li.meltdown_control-preview > span:before {
+    content: "\68" !important; /* Toggle to Closed Eye */
+    color: #06c !important;
+}
+.meltdown_controls li.meltdown_controlgroup-kitchenSink > span:before {
+    content: "\2b" !important;
+}
+.meltdown_controls li.meltdown_control-link > span:before {
+    content: "\6c" !important;
+}
+.meltdown_controls li.meltdown_control-img > span:before {
+    content: "\70" !important;
+}
+.meltdown_controls li.meltdown_control-blockquote > span:before {
+    content: "\22" !important;
+}
+.meltdown_controls li.meltdown_control-codeblock > span:before {
+    content: "\5b" !important;
+}
+.meltdown_controls li.meltdown_control-code > span:before {
+    content: "\3c" !important;
+}
+.meltdown_controls li.meltdown_control-footnote > span:before {
+    content: "\66" !important;
+}
+.meltdown_controls li.meltdown_control-hr > span:before {
+    content: "\5f" !important;
+}
+
+li.meltdown_controlgroup ul {
+    position: absolute !important;
+    left: 0 !important;
+    top: 24px !important;
+    margin: 0 !important !important;
+    padding: 5px !important !important;
+    min-width: 100% !important;
+    background: #fff !important;
+    border: 1px solid #a8a8a8 !important;
+    list-style: none !important;
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,.2) !important;
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,.2) !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,.2) !important;
+    -webkit-background-clip: padding-box !important;
+    -moz-background-clip: padding !important;
+    background-clip: padding-box !important;
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius: 3px !important;
+}
+.meltdown_controls li.meltdown_controlgroup-kitchenSink > ul {
+    width: 120px !important;
+}
+li.meltdown_controlgroup-open > span {
+    color: #06c !important;
+}
+.meltdown_controls li.meltdown_controlgroup i.meltdown-icon-caret-down {
+
+}
+li.meltdown_controlgroup li {
+    float: none !important;
+    margin: 0 !important;
+}
+.meltdown_controls li.meltdown_controlgroup-kitchenSink li { float: left !important; margin-left: 5px !important; }
+li.meltdown_controlgroup li span { display: block !important; float: none !important; }
+
+.meltdown_controlbutton.disabled > span,
+li.meltdown_controlbutton.disabled:hover > span,
+li.meltdown_controlbutton.disabled:focus > span {
+    color: grey !important;
+    cursor: not-allowed !important;
+}
+
+.meltdown_controlbutton.overflowedControl {
+    display: none !important;
+}
+
+
+/* Meltdown Preview
+=======================================================================*/
+
+.meltdown_preview-wrap {
+    overflow: hidden !important;	/* Prevent resizeHandle's negative margins from adding extra pixels to the height. */
+}
+
+.meltdown_preview-header {
+    display: block !important;
+    padding: 2px 5px !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #666 !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    border: 1px solid #a8a8a8 !important;
+    border-bottom-color: #ccc !important;
+    background: #eeeeee !important; /* Old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 100%) !important; /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#eeeeee)) !important; /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eeeeee 0%,#eeeeee 100%) !important; /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eeeeee 0%,#eeeeee 100%) !important; /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eeeeee 0%,#eeeeee 100%) !important; /* IE10+ */
+    background: linear-gradient(to bottom, #eeeeee 0%,#eeeeee 100%) !important; /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ) !important; /* IE6-9 */
+    -webkit-border-top-left-radius: 3px !important;
+    -webkit-border-top-right-radius: 3px !important;
+    -moz-border-radius-topleft: 3px !important;
+    -moz-border-radius-topright: 3px !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+}
+
+.meltdown_preview {
+    border: 1px solid #a8a8a8 !important;
+    border-top: 0 !important;
+    padding: 5px !important;
+    overflow: auto !important;
+    background: #fff !important;
+    -webkit-border-bottom-right-radius: 3px !important;
+    -webkit-border-bottom-left-radius: 3px !important;
+    -moz-border-radius-bottomright: 3px !important;
+    -moz-border-radius-bottomleft: 3px !important;
+    border-bottom-right-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+    resize: vertical !important;
+    min-height: 15px !important;
+}
+
+
+/* HeightsManaged
+=======================================================================*/
+
+.meltdown_wrap.heightsManaged {
+    resize: vertical !important;
+}
+
+.meltdown_wrap.heightsManaged .meltdown_editor {
+    resize: none !important;
+}
+
+.meltdown_wrap.heightsManaged .meltdown_preview {
+    resize: none !important;
+}
+
+
+/* Sidebyside
+=======================================================================*/
+
+.meltdown_wrap.sidebyside .meltdown_editor-wrap,
+.meltdown_wrap.sidebyside .meltdown_preview-wrap {
+    display: table-cell !important;
+    vertical-align: top !important;
+}
+
+.sidebyside .meltdown_resizehandle {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 10px !important;
+    margin: 0 !important;
+}
+.sidebyside .meltdown_resizehandle > span {
+    position: absolute !important;
+    top: 50% !important;
+    left: 2px !important;
+    margin-top: -4px !important;
+}
+
+.sidebyside .meltdown_resizehandle-vert {
+    cursor: auto !important;
+}
+.sidebyside .meltdown_resizehandle-horiz {
+    cursor: col-resize !important;
+}
+
+
+/* Fullscreen
+=======================================================================*/
+
+.meltdown_wrap.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: auto !important !important;
+    height: auto !important !important;
+    margin: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+    z-index: 1000 !important;
+    resize: none !important;
+}
+
+
+/* element_resize_detection.js
+   Source: http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/
+=======================================================================*/
+
+.resize-triggers {
+    visibility: hidden !important;
+}
+.resize-triggers, .resize-triggers > div, .contract-trigger:before {
+    content: " " !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+.resize-triggers > div {
+    background: #eee !important;
+    overflow: auto !important;
+}
+.contract-trigger:before {
+    width: 200% !important;
+    height: 200% !important;
+}
+
+.meltdown_control-fullscreen,
+.meltdown_control-sidebyside {
+    display: none;
+}

@@ -17,8 +17,7 @@ class ArtigoFormType extends AbstractType
                 'textarea', 
                 array(
                     'attr' => array(
-                        'class' => 'tinymce',
-                        'data-theme' => 'simple',
+                        'class' => 'meltdown-editor',
                         'rows' => 15
                     ), 
                     'required' => true
