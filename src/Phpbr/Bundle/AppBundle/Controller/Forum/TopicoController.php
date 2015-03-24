@@ -24,6 +24,7 @@ class TopicoController extends Controller
     public function verAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+
         $topicos = $em->getRepository('PhpbrAppBundle:Forum\Topico')
             ->find($id);
 
@@ -36,9 +37,21 @@ class TopicoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $topicos = $em->getRepository('PhpbrAppBundle:Forum\Topico')
+            ->findBy(
+                array('categoria' => $id),
+                array('id' => 'DESC')
+            );
+
+        if (!$topicos) {
+            die('Topico sem mensagens');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $categoria = $em->getRepository('PhpbrAppBundle:Forum\Categoria')
             ->find($id);
 
         return $this->render('PhpbrAppBundle:Forum:ver.html.twig', array(
+            'categoria' => $categoria,
             'topicos' => $topicos
         ));
     }
@@ -71,7 +84,8 @@ class TopicoController extends Controller
     {
         return $this->render('PhpbrAppBundle:Forum:deletar.html.twig', array(
                 // ...
-            ));    }
+        ));    
+    }
 
 }
 

@@ -5,7 +5,23 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="/forum">##php-br Forum</a> | Tópicos</h3> 
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | Tópicos</h3> 
+            <hr />
+
+            <div class="row">
+                <div class="large-6 columns" style="vertical-align: middle;">
+                    <strong>ASSUNTOS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>TÓPICOS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>MENSAGENS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>ÚLTIMAS</strong>
+                </div>
+            </div>
             <hr />
             {% for categoria in categorias %}
             <div class="row">
@@ -17,14 +33,13 @@
                     {{ categoria.descricao }}
                 </div>
                 <div class="large-2 columns">
-                    <strong>Topicos:</strong> 
-                    2123
+                    53
                 </div>
                 <div class="large-2 columns">
-                    Mensagens: <strong>10101</strong>
+                    410
                 </div>
                 <div class="large-2 columns">
-                    Último Tópico: <strong>18 minutos atrás</strong>
+                    18 minutos atrás
                 </div>
             </div>
             <hr />

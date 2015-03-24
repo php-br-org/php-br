@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="medium-8 large-8 columns">
+        <div class="medium-9 large-9 columns">
             {% for artigo in artigos|slice(0, 6) %}
             <div>
                 <h4>
@@ -29,22 +29,18 @@
             {% endfor %}
         </div>
 
-        <div class="medium-4 large-4 columns text-center">
-            {% for artigo in artigos|slice(6, 6) %}
+        <div class="medium-3 large-3 columns text-center">
+            <div class="text-left">
+            <strong>ÚLTIMOS CADASTROS</strong>
+            </div>
+            {% for usuario in usuarios|reverse|slice(0, 5) %}
                 <p class="text-left">
-                    <h5>
-                    <img src="{{ artigo.user.email|email2gravatar('40') }}" alt="{{ artigo.user.name|raw }}" class="th img-gravatar-inicial" />
+                <a href="/ver-usuario/{{ usuario.username|raw }}">
+                    <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name|raw }}" class="th img-gravatar-inicial" />
+                </a>
                 <p class="text-left">
-                        <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                            {{ artigo.titulo|e }}
-                        </a>
-                        <br />
-                        <small>
-                        Autor: <a href="/autor/{{ artigo.user.username|raw }}">{{ artigo.user.username|raw }}</a>
-                        , {{ artigo.dataPublicado|date('U')|tempo_passado }} atrás
-                        </small>
-                        </p>
-                    </h5>
+                    <a href="/ver-usuario/{{ usuario.username|raw }}">{{ usuario.name|raw }}</a>
+                </p>
                 </p>
                 <hr />
             {% endfor %}
