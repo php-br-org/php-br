@@ -3,6 +3,7 @@ parameters:
     gravatar.class: Phpbr\Bundle\AppBundle\Gravatar
     gravatar.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\GravatarExtension
     tempo_passado.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\TempoExtension
+    phpbr.coleservice.em.class: Phpbr\Bundle\AppBundle\Services\ColeService
 
 services:
     my_user_provider:
@@ -44,3 +45,9 @@ services:
         arguments:
             - @translator
         tags: [{ name: pagerfanta.view, alias: phpbr }]
+
+    phpbr_cole_service_em:
+        class: "%phpbr.coleservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+

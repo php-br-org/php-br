@@ -1,0 +1,26 @@
+{
+  "name": "Meltdown",
+  "homepage": "https://github.com/iphands/Meltdown",
+  "description": "Markdown Extra Live Toolbox",
+  "main": "js/jquery.meltdown.js",
+  "keywords": [
+    "markdown"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "d9963e5f1d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d9963e5f1d3a6095653d33f8f21d5128542dc90e"
+  },
+  "_source": "git://github.com/iphands/Meltdown.git",
+  "_target": "*",
+  "_originalSource": "iphands/Meltdown"
+}

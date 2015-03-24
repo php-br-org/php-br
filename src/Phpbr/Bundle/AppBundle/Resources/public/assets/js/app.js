@@ -4,13 +4,18 @@
     var phpbr = phpbr || {};
 
     phpbr.prototype = {
-        highlight: function() {
-            hljs.initHighlightingOnLoad();
-        }
+    };
+
+    phpbr.highlight = function() {
+        hljs.initHighlightingOnLoad();
     };
 
     $(document).ready(function() {
-        $(document).foundation();
-        $(document).confirmWithReveal();
+        $(this).foundation();
+        $(this).confirmWithReveal();
+
+        $('textarea.meltdown-editor').meltdown({
+            fullscreen: false
+        });
     });
 //} ( jQuery ) );

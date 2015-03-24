@@ -5,7 +5,6 @@ namespace Phpbr\Bundle\AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use BSky\Bundle\TextAreaCountdownBundle\Form\Extension\Type;
 
 class ArtigoFormType extends AbstractType
 {
@@ -18,8 +17,7 @@ class ArtigoFormType extends AbstractType
                 'textarea', 
                 array(
                     'attr' => array(
-                        'class' => 'tinymce',
-                        'data-theme' => 'simple',
+                        'class' => 'meltdown-editor',
                         'rows' => 15
                     ), 
                     'required' => true
@@ -29,10 +27,10 @@ class ArtigoFormType extends AbstractType
             ->add('publicado', 'choice', array(
                 'choices' => array(
                     '0' => 'Salvar como Rascunho',
-                    '1' => 'Publicar Artigo'
+                    '1' => 'Publicar Artigo',
                 ),
-                'label' => 'Status do Artigo:',
-                'required' => true
+                'expanded' => true,
+                'data' => '0',
             ))
             ->add('Salvar', 'submit')
         ;

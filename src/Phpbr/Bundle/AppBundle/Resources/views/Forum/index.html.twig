@@ -1,0 +1,50 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | Tópicos</h3> 
+            <hr />
+
+            <div class="row">
+                <div class="large-6 columns" style="vertical-align: middle;">
+                    <strong>ASSUNTOS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>TÓPICOS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>MENSAGENS</strong>
+                </div>
+                <div class="large-2 columns" style="vertical-align: middle;">
+                    <strong>ÚLTIMAS</strong>
+                </div>
+            </div>
+            <hr />
+            {% for categoria in categorias %}
+            <div class="row">
+                <div class="large-6 columns">
+                    <strong>
+                        <a href="ver-topico/{{ categoria.id }}">{{ categoria.nome|upper }}</a>
+                    </strong>
+                    <br />
+                    {{ categoria.descricao }}
+                </div>
+                <div class="large-2 columns">
+                    53
+                </div>
+                <div class="large-2 columns">
+                    410
+                </div>
+                <div class="large-2 columns">
+                    18 minutos atrás
+                </div>
+            </div>
+            <hr />
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

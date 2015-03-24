@@ -3,9 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="/meus-artigos">Meus Artigos</a> :: Novo Artigo</h3> 
-            {{ tinymce_init({'theme': {'bbcode': {'menubar': false }}}) }}
-
+            <h3><a href="/meus-artigos">Meus Artigos</a> :: Novo Artigo</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}

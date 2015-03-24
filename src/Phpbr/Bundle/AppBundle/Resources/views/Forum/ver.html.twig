@@ -1,0 +1,38 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-9 columns">
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3> 
+        </div>
+
+        <div class="large-3 columns">
+            <a href="{{ path('forum_novo_topico') }}" class="button success right">
+                Novo Tópico
+            </a>
+        </div>
+        <hr />
+    </div>
+
+    {% for topico in topicos %}
+        <div class="row">
+            <div class="large-9 columns">
+                <a href="{{ topico.slug }}">{{ topico.assunto }}</a>
+            </div>
+            <div class="large-1 columns">
+                <strong>5</strong>
+            </div>
+            <div class="large-2 columns">
+                {{ topico.dataCriacao|date('U')|tempo_passado }} atrás
+                    <br />
+                <a href="{{ path('phpbr_app_verusuario', topico.user.username) }}">
+                    {{ topico.user.username }}
+                </a>
+            </div>
+            <hr />
+        </div>
+    {% endfor %}
+{% endblock %}
+
