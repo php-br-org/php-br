@@ -5,7 +5,6 @@
 !app/logs/.gitkeep
 
 # Parameters
-install.sh
 app/config/parameters_prod.yml
 app/config/config_prod.yml
 
