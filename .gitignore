@@ -23,6 +23,7 @@ app/config/config_prod.yml
 !/web/bundles/phpbrapp/assets/images
 /web/uploads/*
 /web/js/*
+/web/css/*
 
 # PHPUnit
 /app/phpunit.xml
