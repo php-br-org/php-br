@@ -15,6 +15,15 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Topico:
             type: text
         dataCriacao:
             type: datetime
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - assunto
     manyToOne:
         categoria:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Categoria

@@ -5,9 +5,7 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="/forum">Forum</a> :: Novo Tópico</h3> 
-            {{ tinymce_init() }}
-
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | Novo Tópico</h3> 
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
