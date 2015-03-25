@@ -1,0 +1,4 @@
+phpbr:
+    forum:
+        new_topic: 'Novo Tópico'
+        save: 'Salvar'

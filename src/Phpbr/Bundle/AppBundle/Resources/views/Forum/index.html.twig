@@ -12,13 +12,13 @@
                 <div class="large-6 columns" style="vertical-align: middle;">
                     <strong>ASSUNTOS</strong>
                 </div>
-                <div class="large-2 columns" style="vertical-align: middle;">
+                <div class="large-2 columns text-center" style="vertical-align: middle;">
                     <strong>TÓPICOS</strong>
                 </div>
-                <div class="large-2 columns" style="vertical-align: middle;">
+                <div class="large-2 columns text-center" style="vertical-align: middle;">
                     <strong>MENSAGENS</strong>
                 </div>
-                <div class="large-2 columns" style="vertical-align: middle;">
+                <div class="large-2 columns text-center" style="vertical-align: middle;">
                     <strong>ÚLTIMAS</strong>
                 </div>
             </div>
@@ -32,11 +32,11 @@
                     <br />
                     {{ categoria.descricao }}
                 </div>
-                <div class="large-2 columns">
-                    53
+                <div class="large-2 columns text-center">
+                    {{ categoria.id|quantidade_topicos }}
                 </div>
-                <div class="large-2 columns">
-                    410
+                <div class="large-2 columns text-center">
+                    {{ categoria.id|quantidade_mensagens }}
                 </div>
                 <div class="large-2 columns">
                     18 minutos atrás

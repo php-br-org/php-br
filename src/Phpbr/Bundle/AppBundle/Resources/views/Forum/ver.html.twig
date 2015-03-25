@@ -27,7 +27,7 @@
             <div class="large-2 columns">
                 {{ topico.dataCriacao|date('U')|tempo_passado }} atrás
                     <br />
-                <a href="{{ path('phpbr_app_verusuario', topico.user.username) }}">
+                <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
                     {{ topico.user.username }}
                 </a>
             </div>

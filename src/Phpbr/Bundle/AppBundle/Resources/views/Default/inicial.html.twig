@@ -19,7 +19,9 @@
                     </p>
                     <h5>
                         <small>
-                        Autor: <a href="/ver-usuario/{{ artigo.user.username|raw }}">{{ artigo.user.name|raw }}</a>
+                        Autor: 
+                <a href="{{ path('phpbr_app_verusuario', { 'page': 'ver-usuario', 'usuario': artigo.user }) }}">
+                        {{ artigo.user.name|raw }}</a>
                         , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
                         </small>
                     </h5>
@@ -35,12 +37,12 @@
             </div>
             {% for usuario in usuarios|reverse|slice(0, 5) %}
                 <p class="text-left">
-                <a href="/ver-usuario/{{ usuario.username|raw }}">
+                <a href="{{ path('phpbr_app_verusuario', { 'page': 'ver-usuario', 'usuario': usuario }) }}">
                     <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name|raw }}" class="th img-gravatar-inicial" />
                 </a>
-                <p class="text-left">
-                    <a href="/ver-usuario/{{ usuario.username|raw }}">{{ usuario.name|raw }}</a>
-                </p>
+                    <a href="{{ path('phpbr_app_verusuario', { 'page': 'ver-usuario', 'usuario': usuario }) }}">
+                    {{ usuario.name|raw }}</a>
+                        <br />
                 </p>
                 <hr />
             {% endfor %}
@@ -78,3 +80,4 @@
         </div>
     </div>
 {% endblock %}
+
