@@ -5,6 +5,7 @@
 !app/logs/.gitkeep
 
 # Parameters
+app/config/parameters.yml
 app/config/parameters_prod.yml
 app/config/config_prod.yml
 
