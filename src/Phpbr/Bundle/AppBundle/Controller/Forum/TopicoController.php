@@ -2,17 +2,22 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller\Forum;
 
+use SoftDeleteable\Fixture\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 use Phpbr\Bundle\AppBundle\Entity\Forum\Topico;
 use Phpbr\Bundle\AppBundle\Entity\Forum\Categoria;
 use Phpbr\Bundle\AppBundle\Form\Type\ForumTopicoFormType;
+
 
 
 class TopicoController extends Controller
 {
     public function indexAction()
     {
+        $session = new Session();
         $em = $this->getDoctrine()->getManager();
         $categorias = $em->getRepository('PhpbrAppBundle:Forum\Categoria')->findAll();
 
@@ -35,6 +40,7 @@ class TopicoController extends Controller
 
     public function verTopicoAction($id)
     {
+        $session = new Session();
         $em = $this->getDoctrine()->getManager();
         $topicos = $em->getRepository('PhpbrAppBundle:Forum\Topico')
             ->findBy(
@@ -42,13 +48,11 @@ class TopicoController extends Controller
                 array('id' => 'DESC')
             );
 
-        if (!$topicos) {
-            die('Topico sem mensagens');
-        }
-
         $em = $this->getDoctrine()->getManager();
         $categoria = $em->getRepository('PhpbrAppBundle:Forum\Categoria')
             ->find($id);
+
+        $session->set('forumCategoria', $categoria->getId());
 
         return $this->render('PhpbrAppBundle:Forum:ver.html.twig', array(
             'categoria' => $categoria,
@@ -60,23 +64,52 @@ class TopicoController extends Controller
     {
         $topico = new Topico();
         $em = $this->getDoctrine()->getManager();
+        $session = new Session();
+
+        $categoriaId = $session->get('forumCategoria');
+
+        if (!$this->verificaUsuarioLogado()) {
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        }
 
         $form = $this->createForm(new ForumTopicoFormType(), $topico, array());
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $usuario = $this->get('security.context')->getToken()->getUser();
-            $artigo->setUser($usuario);
+            $topico->setUser($usuario);
 
-            $entityManager->persist($artigo);
-            $entityManager->flush();
+            $emCategoria = $this->getDoctrine()->getManager();
+            $categoria = $emCategoria->getRepository('PhpbrAppBundle:Forum\Categoria')
+                ->find($categoriaId);
+            $topico->setCategoria($categoria);
+            $topico->setDataCriacao(new \DateTime());
 
-            return $this->redirect($this->generateUrl('lista_meus_artigos'));
+            $em->persist($topico);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ver_topico',
+                array(
+                    'id' => $categoriaId
+                )
+            ));
         }
 
         return $this->render('PhpbrAppBundle:Forum:novo.html.twig', array(
             'form' => $form->createView()
         ));
+    }
+
+    public function verificaUsuarioLogado()
+    {
+        $return = false;
+        $usuario = $this->get('security.context')->getToken()->getUser();
+
+        if ('anon.' != $usuario) {
+            $return = true;
+        }
+
+        return $return;
     }
 
 

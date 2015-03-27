@@ -10,6 +10,10 @@ ver_topico:
     path:     /ver-topico/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verTopico" }
 
+ver_mensagem:
+    path:     /ver-mensagem/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:verMensagem" }
+
 forum_novo_topico:
     path:     /novo
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:novo" }
