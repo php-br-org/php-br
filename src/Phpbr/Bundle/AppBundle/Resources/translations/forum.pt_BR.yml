@@ -2,3 +2,4 @@ phpbr:
     forum:
         new_topic: 'Novo Tópico'
         save: 'Salvar'
+        login: 'Fazer login'

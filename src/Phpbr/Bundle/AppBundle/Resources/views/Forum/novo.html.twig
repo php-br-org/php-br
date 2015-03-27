@@ -5,7 +5,10 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="{{ path('forum_index') }}">Forum</a> | Novo Tópico</h3> 
+            <h3>
+                <a href="{{ url('forum_index') }}">Forum</a> |
+                <a href="{{ url('ver_topico', {'id': categoria.id}) }}">{{ categoria.nome }}</a>
+                | Novo Tópico</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}

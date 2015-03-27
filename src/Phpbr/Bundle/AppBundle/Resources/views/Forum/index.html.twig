@@ -5,21 +5,21 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="{{ path('forum_index') }}">Forum</a> | Tópicos</h3> 
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ 'phpbr.forum.topics'|trans({}, 'messages') }}</h3>
             <hr />
 
             <div class="row">
                 <div class="large-6 columns" style="vertical-align: middle;">
-                    <strong>ASSUNTOS</strong>
+                    <strong>{{ 'phpbr.forum.subjects'|trans({}, 'messages')|upper }}</strong>
                 </div>
                 <div class="large-2 columns text-center" style="vertical-align: middle;">
-                    <strong>TÓPICOS</strong>
+                    <strong>{{ 'phpbr.forum.topics'|trans({}, 'messages')|upper }}</strong>
                 </div>
                 <div class="large-2 columns text-center" style="vertical-align: middle;">
-                    <strong>MENSAGENS</strong>
+                    <strong>{{ 'phpbr.forum.messages'|trans({}, 'messages')|upper }}</strong>
                 </div>
                 <div class="large-2 columns text-center" style="vertical-align: middle;">
-                    <strong>ÚLTIMAS</strong>
+                    <strong>{{ 'phpbr.forum.lasts'|trans({}, 'messages')|upper }}</strong>
                 </div>
             </div>
             <hr />

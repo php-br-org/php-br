@@ -2,7 +2,6 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller\Forum;
 
-use SoftDeleteable\Fixture\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -67,8 +66,13 @@ class TopicoController extends Controller
         $session = new Session();
 
         $categoriaId = $session->get('forumCategoria');
+        $emCategoria = $this->getDoctrine()->getManager();
+        $categoria = $emCategoria->getRepository('PhpbrAppBundle:Forum\Categoria')
+            ->find($categoriaId);
 
-        if (!$this->verificaUsuarioLogado()) {
+        $usuario = $this->get('security.context')->getToken()->getUser();
+
+        if ('anon.' == $usuario) {
             return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
 
@@ -76,12 +80,8 @@ class TopicoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $usuario = $this->get('security.context')->getToken()->getUser();
             $topico->setUser($usuario);
 
-            $emCategoria = $this->getDoctrine()->getManager();
-            $categoria = $emCategoria->getRepository('PhpbrAppBundle:Forum\Categoria')
-                ->find($categoriaId);
             $topico->setCategoria($categoria);
             $topico->setDataCriacao(new \DateTime());
 
@@ -96,20 +96,9 @@ class TopicoController extends Controller
         }
 
         return $this->render('PhpbrAppBundle:Forum:novo.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categoria' => $categoria
         ));
-    }
-
-    public function verificaUsuarioLogado()
-    {
-        $return = false;
-        $usuario = $this->get('security.context')->getToken()->getUser();
-
-        if ('anon.' != $usuario) {
-            $return = true;
-        }
-
-        return $return;
     }
 
 

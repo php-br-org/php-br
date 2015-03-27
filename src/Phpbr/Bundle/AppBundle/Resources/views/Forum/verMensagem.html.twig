@@ -13,30 +13,73 @@
         </div>
 
         <div class="large-3 columns">
-            <a href="{{ url('forum_novo_topico') }}" class="button success right">
-                Novo Comentário
+            <a href="#formMensagem" class="button success right">
+                {{ 'phpbr.forum.new_message'|trans({}, 'messages') }}
             </a>
         </div>
         <hr />
     </div>
 
         <div class="row">
-            <div class="large-9 columns">
+            <div class="large-2 columns">
+                <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                    <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name|raw }}" class="th img-gravatar-inicial" />
+                </a>
+                <a href="{{ url('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
+                    {{ topico.user.name }}
+                </a>
+                <p>
+                    <small>
+                        {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
+                        {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'messages') }}
+                    </small>
+                </p>
+            </div>
+            <div class="large-10 columns">
                 <strong>{{ topico.assunto }}</strong>
                 <p>
                     {{ topico.mensagem }}
                 </p>
             </div>
-            <div class="large-3 columns">
-                <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
-                    {{ topico.user.username }}
-                </a>
-                <p>
-                    <small>{{ topico.dataCriacao|date('U')|tempo_passado }} atrás</small>
-                </p>
-            </div>
-            <hr />
+                <hr />
+
+            {% for mensagem in mensagens %}
+                <div class="row">
+                    <div class="large-2 columns">
+                        <a href="{{ url('phpbr_app_verusuario', {'usuario': mensagem.user.username} ) }}">
+                            <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name|raw }}" class="th img-gravatar-inicial" />
+                        </a>
+                        <a href="{{ url('phpbr_app_verusuario', {'usuario': mensagem.user.username}) }}">
+                            {{ mensagem.user.name }}
+                        </a>
+                        <p>
+                            <small>
+                                {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
+                                {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'messages') }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="large-10 columns">
+                        {{ mensagem.mensagem }}
+                    </div>
+                    <hr />
+                </div>
+            {% endfor %}
         </div>
-    <hr />
+
+
+    <div class="row">
+        <div class="large-12 columns">
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ url('fos_user_security_login') }}">
+                    {{ 'phpbr.forum.login'|trans({}, 'messages') }}
+                </a>
+            {% endif %}
+            <a id="formMensagem"></a>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
 
