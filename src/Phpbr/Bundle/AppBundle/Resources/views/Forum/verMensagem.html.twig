@@ -7,14 +7,14 @@
         <div class="large-9 columns">
             <h3>
                 <a href="{{ url('forum_index') }}">Forum</a> |
-                <a href="{{ url('ver_topico', {'id': topico.categoria.id }) }}">{{ topico.categoria.nome }}</a> |
+                <a href="{{ url('forum_ver_topico', {'id': topico.categoria.id }) }}">{{ topico.categoria.nome }}</a> |
                 {{ topico.assunto }}
             </h3>
         </div>
 
         <div class="large-3 columns">
             <a href="#formMensagem" class="button success right">
-                {{ 'phpbr.forum.new_message'|trans({}, 'messages') }}
+                {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}
             </a>
         </div>
         <hr />
@@ -31,7 +31,7 @@
                 <p>
                     <small>
                         {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
-                        {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'messages') }}
+                        {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </small>
                 </p>
             </div>
@@ -55,7 +55,7 @@
                         <p>
                             <small>
                                 {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
-                                {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'messages') }}
+                                {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                             </small>
                         </p>
                     </div>
@@ -72,7 +72,7 @@
         <div class="large-12 columns">
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ url('fos_user_security_login') }}">
-                    {{ 'phpbr.forum.login'|trans({}, 'messages') }}
+                    {{ 'phpbr.forum.login'|trans({}, 'forum') }}
                 </a>
             {% endif %}
             <a id="formMensagem"></a>

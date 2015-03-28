@@ -2,18 +2,3 @@ phpbr:
     paginacao:
         proximo: 'Próxima'
         anterior: 'Anterior'
-    forum:
-        login: 'Para poder fazer comentários, você deve fazer o Login'
-        new_message: 'Nova Mensagem'
-        new_topic: 'Novo Tópico'
-        save: 'Salvar'
-        subject: 'Assunto'
-        subjects: 'Assuntos'
-        topic: 'Tópico'
-        topics: 'Tópicos'
-        messages: 'Mensagens'
-        last_message: 'Última Mensagem'
-        lasts: 'Últimas'
-        ago: 'atrás'
-        author: 'Autor'
-

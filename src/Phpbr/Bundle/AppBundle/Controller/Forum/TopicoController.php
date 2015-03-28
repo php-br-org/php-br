@@ -14,17 +14,6 @@ use Phpbr\Bundle\AppBundle\Form\Type\ForumTopicoFormType;
 
 class TopicoController extends Controller
 {
-    public function indexAction()
-    {
-        $session = new Session();
-        $em = $this->getDoctrine()->getManager();
-        $categorias = $em->getRepository('PhpbrAppBundle:Forum\Categoria')->findAll();
-
-        return $this->render('PhpbrAppBundle:Forum:index.html.twig', array(
-            'categorias' => $categorias
-        ));
-    }
-
     public function verAction($id)
     {
         $em = $this->getDoctrine()->getManager();

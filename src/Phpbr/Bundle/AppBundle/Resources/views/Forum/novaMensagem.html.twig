@@ -1,11 +1,11 @@
 {% extends "::layout.html.twig" %}
 
-{% block title %}Forum - Nova mensagem{% endblock %}
+{% block title %}Forum - {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="{{ path('forum_index') }}">Forum</a> | Novo Tópico</h3>
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}

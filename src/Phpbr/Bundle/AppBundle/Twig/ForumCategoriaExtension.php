@@ -5,7 +5,7 @@ namespace Phpbr\Bundle\AppBundle\Twig;
 use Doctrine\ORM\EntityManager;
 use Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem;
 
-class ForumMensagemExtension extends \Twig_Extension {
+class ForumCategoriaExtension extends \Twig_Extension {
 
     protected $em;
 
@@ -17,31 +17,41 @@ class ForumMensagemExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'quantidade_mensagens',
+                'categoria2ultima_mensagem',
                 array (
                     $this,
-                    'getQuantidadeMensagens'
+                    'getUltimaMensagem'
                 )
             )
         );
     }
 
-    public function getQuantidadeMensagens($categoria_id) {
-        $return = $this->em->createQueryBuilder()
-            ->select('COUNT(m)')
-            ->from('Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem', 'm')
+    public function getUltimaMensagem($categoria_id) {
+
+        $repository = $this->em->getRepository('PhpbrAppBundle:Forum\Mensagem');
+
+        $ultimaMensagem = $this->em->createQueryBuilder($repository)
+            ->select('m')
+            ->from('PhpbrAppBundle:Forum\Mensagem', 'm')
             ->leftJoin('m.topico', 't')
             ->leftJoin('t.categoria', 'c')
             ->where('c.id = :categoria')
             ->setParameter('categoria', $categoria_id)
+            ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult();
 
-        return (int) $return[1];
+            $dataCriacao = $ultimaMensagem->getDataCriacao();
+
+        try {
+            return $dataCriacao;
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
     }
 
     public function getName() {
-        return 'quantidade_mensagens';
+        return 'categoria2ultima_mensagem';
     }
 }
 

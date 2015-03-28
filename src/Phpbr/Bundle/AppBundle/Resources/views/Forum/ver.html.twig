@@ -10,7 +10,7 @@
 
         <div class="large-3 columns">
             <a href="{{ url('forum_novo_topico') }}" class="button success right">
-                {{ 'phpbr.forum.new_topic'|trans({}, 'messages') }}
+                {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </a>
         </div>
         <hr />
@@ -19,13 +19,13 @@
 
     <div class="row">
         <div class="large-9 columns" style="vertical-align: middle;">
-            <strong>{{ 'phpbr.forum.subject'|trans({}, 'messages')|upper }}</strong>
+            <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper }}</strong>
         </div>
         <div class="large-1 columns text-center" style="vertical-align: middle;">
-            <strong>{{ 'phpbr.forum.messages'|trans({}, 'messages')|upper }}</strong>
+            <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper }}</strong>
         </div>
         <div class="large-2 columns text-center" style="vertical-align: middle;">
-            <strong>{{ 'phpbr.forum.author'|trans({}, 'messages')|upper }}</strong>
+            <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper }}</strong>
         </div>
         <br />
         <hr />
@@ -37,13 +37,13 @@
             <div class="large-9 columns">
                 {{ topico.dataCriacao|date('d/m/Y H:i') }},
                 <small>
-                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'messages') }}
+                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                 </small>
                 <p>
-                    <a href="{{ url('ver_mensagem', {'slug': topico.slug}) }}">
+                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
                        <strong>#{{ topico.id }}</strong>
                     </a>
-                    <a href="{{ url('ver_mensagem', {'slug': topico.slug}) }}">
+                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
                         {{ topico.assunto }}
                     </a>
                 </p>
