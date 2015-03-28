@@ -3,17 +3,18 @@
 <div class="row">
     <div class="large-12 columns">
         <p>
-    {{ form(edit_form) }}
+            {{ form(edit_form) }}
+        </p>
 
-        <ul class="record_actions">
-    <p>
-        <a href="{{ path('url') }}">
-            Back to the list
-        </a>
-    </p>
-    <p>
-        {{ form(delete_form) }}
-    </p>
+        <ul class="record_actions"></ul>
+        <p>
+            <a href="{{ path('url') }}">
+                Back to the list
+            </a>
+        </p>
+        <p>
+            {{ form(delete_form) }}
+        </p>
     </div>
 </div>
 {% endblock %}

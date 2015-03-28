@@ -5,11 +5,11 @@
 {% block content %}
     <div class="row">
         <div class="large-9 columns">
-            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
         </div>
 
         <div class="large-3 columns">
-            <a href="{{ url('forum_novo_topico') }}" class="button success right">
+            <a href="{{ path('forum_novo_topico') }}" class="button success right">
                 {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </a>
         </div>
@@ -40,10 +40,10 @@
                     {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                 </small>
                 <p>
-                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
                        <strong>#{{ topico.id }}</strong>
                     </a>
-                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
                         {{ topico.assunto }}
                     </a>
                 </p>
@@ -53,11 +53,11 @@
             </div>
             <div class="large-2 columns text-center">
                 <small>
-                    <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
                         <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="th" />
                     </a>
                     <br />
-                    <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username}) }}">
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username}) }}">
                         {{ topico.user.name }}
                     </a>
                 </small>

@@ -2,11 +2,11 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="/meus-artigos">Meus Artigos</a> :: Editar Artigo</h3> 
+            <h3><a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a> :: Editar Artigo</h3>
             {% if app.request.query.all['sucesso'] is defined %}
                 <div class="panel callout radius">
                     Artigo atualizado com sucesso!
-                    <p><a href="/meus-artigos">Clique aqui</a> para retonar a sua lista de artigos</a>
+                    <p><a href="{{ path('lista_meus_artigos') }}">Clique aqui</a> para retonar a sua lista de artigos</a>
                 </div>
             {% endif %}
 

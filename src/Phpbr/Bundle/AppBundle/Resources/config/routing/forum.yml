@@ -7,11 +7,11 @@ forum_ver_categoria:
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:ver" }
 
 forum_ver_topico:
-    path:     /ver-topico/{id}
+    path:     /topico/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verTopico" }
 
 forum_ver_mensagem:
-    path:     /ver-mensagem/{slug}
+    path:     /mensagem/{slug}
     defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:verMensagem" }
 
 forum_novo_topico:

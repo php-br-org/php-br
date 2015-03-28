@@ -13,17 +13,17 @@
                             </a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="http://php-br.org{{ path('lista_meus_artigos') }}">Meus Artigos</a>
+                                    <a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a>
                                 </li>
                                 <li>
-                                    <a href="http://php-br.org{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
+                                    <a href="{{ path('fos_user_profile_edit') }}">Editar Perfil</a>
                                 </li>
                             </ul>
                         </li>
 
                         {% if (is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN')) %}
                             <li class="has-dropdown">
-                                <a href="http://php-br.org{{ path('home_admin') }}">Painel Admin</a>
+                                <a href="{{ path('home_admin') }}">Painel Admin</a>
                                 <ul class="dropdown">
                                     <li>
                                         <a href="{{ path('admin_artigos') }}">Aprovar Artigos</a>
@@ -33,28 +33,28 @@
                         {% endif %}
 
                         <li>
-                            <a href="http://php-br.org{{ path('fos_user_security_logout') }}">
+                            <a href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="http://php-br.org{{ path('fos_user_security_login') }}">Entrar</a>
+                            <a href="{{ path('fos_user_security_login') }}">Entrar</a>
                         </li>
                         <li>
-                            <a href="http://php-br.org{{ path('fos_user_registration_register') }}">Novo Perfil</a>
+                            <a href="{{ path('fos_user_registration_register') }}">Novo Perfil</a>
                         </li>
                     {% endif %}
                 </ul>
 
                 <!-- Left Nav Section -->
                 <ul class="left">
-                    <li><a href="http://php-br.org{{ path('lista_artigos') }}">Artigos</a></li>
-                    <li><a href="http://php-br.org/quem-somos">Quem somos</a></li>
-                    <li><a href="http://php-br.org/webchat">Webchat</a></li>
-                    <li><a href="http://cole.php-br.org/">Cole Códigos</a></li>
-                    <li><a href="http://php-br.org/forum">Forum</a></li>
-                    <li><a href="http://php-br.org/contato">Contato</a></li>
+                    <li><a href="{{ path('lista_artigos') }}">Artigos</a></li>
+                    <li><a href="{{ path('phpbr_app_quemsomos') }}">Quem somos</a></li>
+                    <li><a href="{{ path('phpbr_app_webchat') }}">Webchat</a></li>
+                    <li><a href="{{ url('cole') }}">Cole Códigos</a></li>
+                    <li><a href="{{ path('forum_index') }}">Forum</a></li>
+                    <li><a href="{{ path('phpbr_app_contato') }}">Contato</a></li>
                 </ul>
             </section>
         </nav>
@@ -65,7 +65,7 @@
     <div class="panel">
         <div class="row">
             <div class="large-4 columns">
-                <a href="http://php-br.org">
+                <a href="{{ path('phpbr_app_inicial') }}">
                     <img src="{{ asset('bundles/phpbrapp/assets/images/logo-site.png') }}" border="0" />
                 </a>
             </div>
