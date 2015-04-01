@@ -23,13 +23,5 @@ class CategoriaController extends Controller
         $em = $this->getDoctrine()->getManager();
         $mensagem = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')
             ->findAll();
-
-        /*
-        select * from mensagem m
-            inner join topico t
-            on m.topico_id = t.id
-            inner join categoria c
-                t.categoria_id = c.id;
-         */
     }
 }

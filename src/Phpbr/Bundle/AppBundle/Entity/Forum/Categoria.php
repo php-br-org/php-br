@@ -37,14 +37,14 @@ class Categoria
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $categorias;
+    private $topicos;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->topicos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -150,35 +150,35 @@ class Categoria
     }
 
     /**
-     * Add categorias
+     * Add topicos
      *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categorias
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos
      * @return Categoria
      */
-    public function addCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categorias)
+    public function addTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos)
     {
-        $this->categorias[] = $categorias;
+        $this->topicos[] = $topicos;
 
         return $this;
     }
 
     /**
-     * Remove categorias
+     * Remove topicos
      *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categorias
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos
      */
-    public function removeCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categorias)
+    public function removeTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topicos)
     {
-        $this->categorias->removeElement($categorias);
+        $this->topicos->removeElement($topicos);
     }
 
     /**
-     * Get categorias
+     * Get topicos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCategorias()
+    public function getTopicos()
     {
-        return $this->categorias;
+        return $this->topicos;
     }
 }

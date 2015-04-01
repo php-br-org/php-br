@@ -19,7 +19,7 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Categoria:
             type: datetime
 
     oneToMany:
-        categorias:
+        topicos:
             targetEntity: 'Phpbr\Bundle\AppBundle\Entity\Forum\Topico'
             mappedBy: categoria
 

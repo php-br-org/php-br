@@ -30,21 +30,16 @@ class TopicoController extends Controller
     {
         $session = new Session();
         $em = $this->getDoctrine()->getManager();
-        $topicos = $em->getRepository('PhpbrAppBundle:Forum\Topico')
-            ->findBy(
-                array('categoria' => $id),
-                array('id' => 'DESC')
-            );
 
-        $em = $this->getDoctrine()->getManager();
         $categoria = $em->getRepository('PhpbrAppBundle:Forum\Categoria')
             ->find($id);
 
+        $topicos = $categoria->getTopicos();
         $session->set('forumCategoria', $categoria->getId());
 
-        return $this->render('PhpbrAppBundle:Forum:ver.html.twig', array(
+        return $this->render('@PhpbrApp/Forum/ver.html.twig', array(
             'categoria' => $categoria,
-            'topicos' => $topicos
+            'topicos'   => $topicos
         ));
     }
 
