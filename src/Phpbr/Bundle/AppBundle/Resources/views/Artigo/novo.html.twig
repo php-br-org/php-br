@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3><a href="/meus-artigos">Meus Artigos</a> :: Novo Artigo</h3>
+            <h3><a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a> :: Novo Artigo</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}

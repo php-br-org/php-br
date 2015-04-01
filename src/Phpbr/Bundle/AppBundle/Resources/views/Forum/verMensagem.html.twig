@@ -1,0 +1,85 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-9 columns">
+            <h3>
+                <a href="{{ path('forum_index') }}">Forum</a> |
+                <a href="{{ path('forum_ver_topico', {'id': topico.categoria.id }) }}">{{ topico.categoria.nome }}</a> |
+                {{ topico.assunto }}
+            </h3>
+        </div>
+
+        <div class="large-3 columns">
+            <a href="#formMensagem" class="button success right">
+                {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}
+            </a>
+        </div>
+        <hr />
+    </div>
+
+        <div class="row">
+            <div class="large-2 columns">
+                <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                    <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name|raw }}" class="th img-gravatar-inicial" />
+                </a>
+                <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
+                    {{ topico.user.name }}
+                </a>
+                <p>
+                    <small>
+                        {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
+                        {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                    </small>
+                </p>
+            </div>
+            <div class="large-10 columns">
+                <strong>{{ topico.assunto }}</strong>
+                <p>
+                    {{ topico.mensagem }}
+                </p>
+            </div>
+                <hr />
+
+            {% for mensagem in mensagens %}
+                <div class="row">
+                    <div class="large-2 columns">
+                        <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username} ) }}">
+                            <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name|raw }}" class="th img-gravatar-inicial" />
+                        </a>
+                        <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username}) }}">
+                            {{ mensagem.user.name }}
+                        </a>
+                        <p>
+                            <small>
+                                {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
+                                {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="large-10 columns">
+                        {{ mensagem.mensagem }}
+                    </div>
+                    <hr />
+                </div>
+            {% endfor %}
+        </div>
+
+
+    <div class="row">
+        <div class="large-12 columns">
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ path('fos_user_security_login') }}">
+                    {{ 'phpbr.forum.login'|trans({}, 'forum') }}
+                </a>
+            {% endif %}
+            <a id="formMensagem"></a>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+

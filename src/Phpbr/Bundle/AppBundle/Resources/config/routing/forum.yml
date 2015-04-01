@@ -1,27 +1,32 @@
 forum_index:
     path:     /
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:index" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Categoria:index" }
 
-ver:
+forum_ver_categoria:
     path:     /ver/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:ver" }
 
-ver_topico:
-    path:     /ver-topico/{id}
+forum_ver_topico:
+    path:     /topico/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verTopico" }
+
+forum_ver_mensagem:
+    path:     /mensagem/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:verMensagem" }
 
 forum_novo_topico:
     path:     /novo
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:novo" }
 
-deletar:
+forum_deletar:
     path:     /deletar/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topico:deletar" }
 
-nova_mensagem:
+forum_nova_mensagem:
     path:     /{topico_id}/novaMensagem
     defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:novaMensagem" }
 
-deletar_mensagem:
+forum_deletar_mensagem:
     path:     /deletar-mensagem/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:deletarMensagem" }
+

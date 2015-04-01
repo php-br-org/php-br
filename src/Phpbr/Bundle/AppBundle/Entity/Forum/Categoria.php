@@ -15,6 +15,16 @@ class Categoria
     private $id;
 
     /**
+     * @var string
+     */
+    private $nome;
+
+    /**
+     * @var string
+     */
+    private $descricao;
+
+    /**
      * @var boolean
      */
     private $status;
@@ -24,6 +34,18 @@ class Categoria
      */
     private $dataCriacao;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $topicos;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->topicos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -36,26 +58,49 @@ class Categoria
     }
 
     /**
-     * Set categoria
+     * Set nome
      *
-     * @param string $categoria
+     * @param string $nome
      * @return Categoria
      */
-    public function setCategoria($categoria)
+    public function setNome($nome)
     {
-        $this->categoria = $categoria;
+        $this->nome = $nome;
 
         return $this;
     }
 
     /**
-     * Get categoria
+     * Get nome
      *
      * @return string 
      */
-    public function getCategoria()
+    public function getNome()
     {
-        return $this->categoria;
+        return $this->nome;
+    }
+
+    /**
+     * Set descricao
+     *
+     * @param string $descricao
+     * @return Categoria
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    /**
+     * Get descricao
+     *
+     * @return string 
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
     }
 
     /**
@@ -103,127 +148,6 @@ class Categoria
     {
         return $this->dataCriacao;
     }
-    /**
-     * @var string
-     */
-    private $descricao;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $categoria;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->categoria = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set descricao
-     *
-     * @param string $descricao
-     * @return Categoria
-     */
-    public function setDescricao($descricao)
-    {
-        $this->descricao = $descricao;
-
-        return $this;
-    }
-
-    /**
-     * Get descricao
-     *
-     * @return string 
-     */
-    public function getDescricao()
-    {
-        return $this->descricao;
-    }
-
-    /**
-     * Add categoria
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria
-     * @return Categoria
-     */
-    public function addCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
-    {
-        $this->categoria[] = $categoria;
-
-        return $this;
-    }
-
-    /**
-     * Remove categoria
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria
-     */
-    public function removeCategoria(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $categoria)
-    {
-        $this->categoria->removeElement($categoria);
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $nome_categoria;
-
-
-    /**
-     * Add nome_categoria
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria
-     * @return Categoria
-     */
-    public function addNomeCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria)
-    {
-        $this->nome_categoria[] = $nomeCategoria;
-
-        return $this;
-    }
-
-    /**
-     * Remove nome_categoria
-     *
-     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria
-     */
-    public function removeNomeCategorium(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $nomeCategoria)
-    {
-        $this->nome_categoria->removeElement($nomeCategoria);
-    }
-
-    /**
-     * Get nome_categoria
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getNomeCategoria()
-    {
-        return $this->nome_categoria;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $categorias;
-
-
-    /**
-     * Get categorias
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategorias()
-    {
-        return $this->categorias;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $topicos;
-
 
     /**
      * Add topicos
@@ -256,33 +180,5 @@ class Categoria
     public function getTopicos()
     {
         return $this->topicos;
-    }
-    /**
-     * @var string
-     */
-    private $nome;
-
-
-    /**
-     * Set nome
-     *
-     * @param string $nome
-     * @return Categoria
-     */
-    public function setNome($nome)
-    {
-        $this->nome = $nome;
-
-        return $this;
-    }
-
-    /**
-     * Get nome
-     *
-     * @return string 
-     */
-    public function getNome()
-    {
-        return $this->nome;
     }
 }

@@ -5,7 +5,7 @@
 !app/logs/.gitkeep
 
 # Parameters
-install.sh
+app/config/parameters.yml
 app/config/parameters_prod.yml
 app/config/config_prod.yml
 
@@ -23,6 +23,7 @@ app/config/config_prod.yml
 !/web/bundles/phpbrapp/assets/images
 /web/uploads/*
 /web/js/*
+/web/css/*
 
 # PHPUnit
 /app/phpunit.xml
@@ -33,6 +34,7 @@ app/config/config_prod.yml
 
 # Composer PHAR
 /composer.phar
+/composer.lock
 
 # More files
 .DS_Store

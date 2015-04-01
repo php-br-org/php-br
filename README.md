@@ -129,3 +129,9 @@ Para limpar o cache da apliacao (a executar diretamente na VM):
     php app/console cache:clear
     # ou
     sudo rm -rf app/cache/*
+
+Para cada alteracao feita no .gitignore, execute (na raiz do projeto):
+
+    git rm -r --cached .
+    git add .
+    git commit -m "Atualizando .gitignore"

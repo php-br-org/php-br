@@ -5,31 +5,62 @@
 {% block content %}
     <div class="row">
         <div class="large-9 columns">
-            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3> 
+            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
         </div>
 
         <div class="large-3 columns">
             <a href="{{ path('forum_novo_topico') }}" class="button success right">
-                Novo Tópico
+                {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </a>
         </div>
         <hr />
     </div>
 
+
+    <div class="row">
+        <div class="large-9 columns" style="vertical-align: middle;">
+            <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper }}</strong>
+        </div>
+        <div class="large-1 columns text-center" style="vertical-align: middle;">
+            <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper }}</strong>
+        </div>
+        <div class="large-2 columns text-center" style="vertical-align: middle;">
+            <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper }}</strong>
+        </div>
+        <br />
+        <hr />
+    </div>
+
+
     {% for topico in topicos %}
         <div class="row">
             <div class="large-9 columns">
-                <a href="{{ topico.slug }}">{{ topico.assunto }}</a>
+                {{ topico.dataCriacao|date('d/m/Y H:i') }},
+                <small>
+                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                </small>
+                <p>
+                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                       <strong>#{{ topico.id }}</strong>
+                    </a>
+                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                        {{ topico.assunto }}
+                    </a>
+                </p>
             </div>
-            <div class="large-1 columns">
+            <div class="large-1 columns text-center">
                 <strong>5</strong>
             </div>
-            <div class="large-2 columns">
-                {{ topico.dataCriacao|date('U')|tempo_passado }} atrás
+            <div class="large-2 columns text-center">
+                <small>
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                        <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="th" />
+                    </a>
                     <br />
-                <a href="{{ path('phpbr_app_verusuario', topico.user.username) }}">
-                    {{ topico.user.username }}
-                </a>
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username}) }}">
+                        {{ topico.user.name }}
+                    </a>
+                </small>
             </div>
             <hr />
         </div>
