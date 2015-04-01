@@ -1,6 +1,8 @@
 Projeto PHP-BR
 ========================
 
+[![Build Status](https://travis-ci.org/php-br-org/php-br.png?branch=master)](https://travis-ci.org/php-br-org/php-br)
+
 Este projeto tem como objetivo o desenvolvimento
 de um portal para a comunidade ##php-br
 
