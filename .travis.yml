@@ -3,16 +3,12 @@ language: php
 php:
     - 5.4
 
-env:
-    - SYMFONY_VERSION=2.6.*
+before_install:
+    - composer self-update
+    - composer update
 
 before_script:
-    - composer self-update
-    - composer install --no-interaction
-    - chmod -R 777 app/cache app/logs
-    - php app/console cache:warmup --env=dev
-    - chmod -R 777 app/cache app/logs
-    - sleep 5
+    - composer install -n
 
 script:
     - bin/phpunit -c app/
