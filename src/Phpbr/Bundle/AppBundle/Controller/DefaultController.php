@@ -19,6 +19,8 @@ class DefaultController extends Controller
         $returnArtigos = array();
 
         try {
+            $params = array();
+
             if ($page == 'inicial') {
                 $em = $this->getDoctrine()->getManager();
                 $artigoRepo = $em->getRepository('PhpbrAppBundle:Artigo');
@@ -28,14 +30,13 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $usuarios = $em->getRepository('PhpbrAppBundle:User')
                     ->findAll();
+
+                $params['artigos'] = $artigos;
+
+                $params['usuarios'] = $usuarios;
             }
 
-            return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", 
-                array(
-                    'artigos' => $artigos,
-                    'usuarios' => $usuarios,
-                )
-            );
+            return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", $params);
 
         } catch (\InvalidArgumentException $e) {
             throw new NotFoundHttpException;
