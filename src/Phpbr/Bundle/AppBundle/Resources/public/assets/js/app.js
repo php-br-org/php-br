@@ -1,21 +1,39 @@
-//( function ( $ ) {
-    'use strict';
+'use strict';
 
-    var phpbr = phpbr || {};
+var phpbr = phpbr || {};
 
-    phpbr.prototype = {
-    };
+phpbr.prototype = {};
 
-    phpbr.highlight = function() {
+phpbr = {
+    highlight : function() {
         hljs.initHighlightingOnLoad();
-    };
+    },
+    countdownupdate : function(element) {
 
-    $(document).ready(function() {
-        $(this).foundation();
-        $(this).confirmWithReveal();
+        var size = $('.' + element).attr('maxlength');
 
-        $('textarea.meltdown-editor').meltdown({
-            fullscreen: false
-        });
+        var remaining = size - $('.' + element).val().length;
+
+        $(".span-countdown-" + element).text(remaining + ' careteres restantes de ' + size);
+    },
+    countdown : function(element) {
+        var size = $('.' + element).attr('maxlength');
+
+        var remaining = size - $('.' + element).val().length;
+
+        $('.'+element).after('<div class="div-countdown-' + element + '" id="textarea-countdown"><span class="span-countdown-' + element + '">' + remaining + ' careteres restantes de ' + size + '</span></div>');
+
+        $('.'+element).attr('onChange', "phpbr.countdownupdate('"+element+"', "+size+");");
+
+        $('.'+element).attr('onKeyUp', "phpbr.countdownupdate('"+element+"', "+size+");");
+    }
+};
+
+$(document).ready(function() {
+    $(this).foundation();
+    $(this).confirmWithReveal();
+
+    $('textarea.meltdown-editor').meltdown({
+        fullscreen: false
     });
-//} ( jQuery ) );
+});
