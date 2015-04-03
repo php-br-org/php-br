@@ -11,7 +11,17 @@ class ArtigoFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('titulo', null, array('attr' => array('class' => ''), 'required' => true))
-            ->add('resumo', 'textarea', array('attr' => array('class' => '', 'rows' => 5), 'required' => false))
+            ->add(
+                'resumo',
+                'textarea',
+                array(
+                    'attr' => array(
+                        'class' => 'countdown-resumo',
+                        'rows' => 5,
+                        'maxlength' => '255'),
+                    'required' => false
+                )
+            )
             ->add(
                 'texto', 
                 'textarea', 

@@ -1,3 +1,12 @@
+.textarea-countdown:after {
+  border: 20px!important;
+  content: "<span class=\"span-countdown\"></span>";
+}
+
+.span-countdown {
+  border: 1px solid #FF0000;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Mallanna);
 @import "settings";
 @import "foundation";
@@ -47,6 +56,18 @@ $cor-fonte-top-link: #80FF00;
 .img-gravatar-inicial {
     float:left;
     margin: 3px;
+}
+
+div#textarea-countdown {
+  margin-top: -16px!important;
+  text-align: right!important;
+}
+
+div#textarea-countdown span {
+  color: #008cba;
+  font-family: 'Mallanna', 'sans-serif';
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 // Or selectively include components
