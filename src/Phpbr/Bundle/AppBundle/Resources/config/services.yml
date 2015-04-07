@@ -73,7 +73,7 @@ services:
         class: Phpbr\Bundle\AppBundle\Pagerfanta\CustomView
         public: false
         arguments:
-            - @translator
+            - @translator.default
         tags: [{ name: pagerfanta.view, alias: phpbr }]
 
     phpbr_cole_service_em:
