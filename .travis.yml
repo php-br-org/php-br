@@ -8,7 +8,7 @@ before_install:
     - composer update
 
 before_script:
-    - mysql -e 'create database myapp_test;'
+    - mysql -e 'create database phpbr;'
     - composer install -n
 
 script:
