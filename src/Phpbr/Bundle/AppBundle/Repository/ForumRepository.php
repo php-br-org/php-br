@@ -19,5 +19,4 @@ class ForumRepository extends EntityRepository
         $pagerfantaAdapter = new DoctrineORMAdapter($query);
         return $pagerfantaAdapter;
     }
-
 }

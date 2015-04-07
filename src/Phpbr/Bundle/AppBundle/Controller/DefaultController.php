@@ -16,24 +16,20 @@ class DefaultController extends Controller
      * @todo Usar um render() ao inves de buscar os artigos aqui? (- performance / + organizacao).
      */
     public function pageAction($page) {
-        $returnArtigos = array();
-
         try {
             $params = array();
 
             if ($page == 'inicial') {
                 $em = $this->getDoctrine()->getManager();
-                $artigoRepo = $em->getRepository('PhpbrAppBundle:Artigo');
 
+                $artigoRepo = $em->getRepository('PhpbrAppBundle:Artigo');
                 $artigos = $artigoRepo->listaArtigosRecentes(10);
 
-                $em = $this->getDoctrine()->getManager();
-                $usuarios = $em->getRepository('PhpbrAppBundle:User')
-                    ->findAll();
+                $usuarios = $em->getRepository('PhpbrAppBundle:User')->listaUltimosUsuarios(5);
+                $coles = $em->getRepository('PhpbrAppBundle:Cole')->listaColes(5);
+                $forumMensagens = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')->listaRecentes();
 
-                $params['artigos'] = $artigos;
-
-                $params['usuarios'] = $usuarios;
+                $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens');
             }
 
             return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", $params);
