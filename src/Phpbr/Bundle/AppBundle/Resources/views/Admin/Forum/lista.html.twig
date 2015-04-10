@@ -1,0 +1,67 @@
+{% extends "::layout_admin.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+
+    <div class="row">
+        <div class="large-9 columns">
+            <h3><a href="{{ url('forum_index') }}">Forum</a></h3>
+        </div>
+
+        <div class="large-3 columns">
+            <a href="{{ url('admin_forum_nova_categoria') }}" class="button secondary right">
+                {{ 'phpbr.forum.new_category'|trans({}, 'forum') }}
+            </a>
+        </div>
+        <hr />
+
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div data-alert class="alert-box info">
+                            {{ flashMessage }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+
+
+            {% if categorias|length %}
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Descrição</th>
+                            <th>Data</th>
+                            <th>Acao</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for categoria in categorias %}
+                            <tr>
+                                <td>
+                                    {{ categoria.nome|e }}
+                                </td>
+                                <td>
+                                    {{ categoria.descricao|e }}
+                                </td>
+                                <td>
+                                    {{ categoria.dataCriacao|date('d/m/Y') }}
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin_forum_deletar_categoria', {'id': categoria.id}) }} ">
+                                    Remover
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+            {% else %}
+                Nenhuma categoria.
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

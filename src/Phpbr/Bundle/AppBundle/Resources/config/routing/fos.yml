@@ -1,19 +1,26 @@
 fos_user_registration_register:
     path: /registro/
     defaults: { _controller: FOSUserBundle:Registration:register }
+    host:     %website%
 
 fos_user_registration_confirmed:
     path: /registro/concluido
     defaults: { _controller: FOSUserBundle:Registration:confirmed }
+    host:     %website%
 
 fos_user_profile_show:
     path: /perfil/
     defaults: { _controller: FOSUserBundle:Profile:show }
+    host:     %website%
 
 fos_user_profile_edit:
     path: /perfil/editar
     defaults: { _controller: FOSUserBundle:Profile:edit }
+    host:     %website%
 
 fos_user_change_password:
     path: /alterar-senha
     defaults: { _controller: FOSUserBundle:ChangePassword:changePassword }
+    host:     %website%
+
+

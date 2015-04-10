@@ -5,11 +5,11 @@
 {% block content %}
     <div class="row">
         <div class="large-9 columns">
-            <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
+            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
         </div>
 
         <div class="large-3 columns">
-            <a href="{{ path('forum_novo_topico') }}" class="button secondary right">
+            <a href="{{ url('forum_novo_topico') }}" class="button secondary right">
                 {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </a>
         </div>
@@ -24,10 +24,10 @@
                         <th scope="column">
                             <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper }}</strong>
                         </th>
-                        <th scope="column">
+                        <th scope="column" class="text-center">
                             <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper }}</strong>
                         </th>
-                        <th scope="column">
+                        <th scope="column" class="text-center">
                             <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper }}</strong>
                         </th>
                     </tr>
@@ -41,27 +41,18 @@
                                     {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                                 </small>
                                 <p>
-                                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
-                                        <strong>#{{ topico.id }}</strong>
-                                    </a>
-                                    <a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
                                         {{ topico.assunto }}
                                     </a>
                                 </p>
                             </td>
-                            <td>
-                                <strong>5</strong>
+                            <td class="text-center">
+                                <strong>{{ (topico.id|topico2quantidade_mensagens) + 1 }}</strong>
                             </td>
-                            <td>
-                                <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
-                                    <div class="row collapse">
-                                        <div class="large-3 columns">
-                                            <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="avatar" />
-                                        </div>
-                                        <div class="large-9 columns forum-username">
-                                            {{ topico.user.name }}
-                                        </div>
-                                    </div>
+                            <td class="text-center">
+                                <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                                    <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="avatar" />
+                                {{ topico.user.name }}
                                 </a>
                             </td>
                         </tr>

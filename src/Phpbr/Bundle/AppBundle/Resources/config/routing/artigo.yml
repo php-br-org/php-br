@@ -1,11 +1,14 @@
 novo_artigo:
     path:     /novo
     defaults: { _controller: PhpbrAppBundle:Artigo:novo }
+    host:     %website%
 
 lista_artigos:
     path:   /
     defaults: { _controller: PhpbrAppBundle:Artigo:list }
+    host:     %website%
 
 ler_artigo:
     path: /ler/{slug}
     defaults: { _controller: PhpbrAppBundle:Artigo:ler }
+    host:     %website%
