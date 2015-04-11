@@ -13,11 +13,6 @@ phpbr_app_contato:
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'contato' }
     host:     %website%
 
-phpbr_app_colabore:
-    path:     /colabore
-    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'colabore' }
-    host:     %website%
-
 phpbr_app_webchat:
     path:   /webchat
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'webchat' }
