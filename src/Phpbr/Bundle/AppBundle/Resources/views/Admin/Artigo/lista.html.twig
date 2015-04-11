@@ -29,7 +29,9 @@
                         {% for artigo in artigos %}
                             <tr>
                                 <td>
-                                    {{ artigo.titulo|e }}
+                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}" target="_blank">
+                                {{ artigo.titulo|e }}
+                            </a>
                                 </td>
                                 <td>
                                     {{ artigo.user.name|e }}
