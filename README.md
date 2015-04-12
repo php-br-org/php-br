@@ -3,6 +3,8 @@ Projeto PHP-BR
 
 [![Build Status](https://travis-ci.org/php-br-org/php-br.png?branch=master)](https://travis-ci.org/php-br-org/php-br) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/php-br-org/php-br/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/php-br-org/php-br/?branch=master)
 
+http://php-br.org
+
 Este projeto tem como objetivo o desenvolvimento
 de um portal para a comunidade ##php-br
 
