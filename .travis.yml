@@ -1,0 +1,20 @@
+language: php
+
+php:
+    - 5.4
+
+before_install:
+    - composer self-update
+    - composer update
+
+before_script:
+    - mysql -e 'create database phpbr;'
+    - composer install -n
+
+script:
+    - bin/phpunit -c app src/Phpbr/Bundle/AppBundle/
+
+notifications:
+    email:
+        - phpbr@yahoo.ca
+

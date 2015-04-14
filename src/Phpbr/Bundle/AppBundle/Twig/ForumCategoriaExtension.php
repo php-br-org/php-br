@@ -30,20 +30,20 @@ class ForumCategoriaExtension extends \Twig_Extension {
 
         $repository = $this->em->getRepository('PhpbrAppBundle:Forum\Mensagem');
 
-        $ultimaMensagem = $this->em->createQueryBuilder($repository)
-            ->select('m')
-            ->from('PhpbrAppBundle:Forum\Mensagem', 'm')
-            ->leftJoin('m.topico', 't')
-            ->leftJoin('t.categoria', 'c')
-            ->where('c.id = :categoria')
-            ->setParameter('categoria', $categoria_id)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult();
-
-            $dataCriacao = $ultimaMensagem->getDataCriacao();
-
         try {
+            $ultimaMensagem = $this->em->createQueryBuilder($repository)
+                ->select('m')
+                ->from('PhpbrAppBundle:Forum\Mensagem', 'm')
+                ->leftJoin('m.topico', 't')
+                ->leftJoin('t.categoria', 'c')
+                ->where('c.id = :categoria')
+                ->setParameter('categoria', $categoria_id)
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getOneOrNullResult();
+
+            $dataCriacao = $ultimaMensagem ? $ultimaMensagem->getDataCriacao() : null;
+
             return $dataCriacao;
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
