@@ -23,4 +23,7 @@ phpbr_app_forum:
     resource: "@PhpbrAppBundle/Resources/config/routing/forum.yml"
     prefix: /forum
 
+phpbr_api:
+    resource: "@PhpbrAppBundle/Resources/config/routing/api.yml"
+    prefix: /api
 

@@ -42,7 +42,7 @@ class ForumController extends Controller
 
         if ($form->isValid()) {
             $categoria->setDataCriacao(new \DateTime());
-            $categoria->setStatus(1);
+            $categoria->setStatus(true);
 
             $em->persist($categoria);
             $em->flush();
@@ -57,7 +57,7 @@ class ForumController extends Controller
     }
 
 
-    public function deletarAction(Request $request, $id)
+    public function deletarAction($id)
     {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('PhpbrAppBundle:Forum\Categoria')->findOneBy(

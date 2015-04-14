@@ -1,0 +1,9 @@
+phpbr_api_get_artigo:
+    path: /v1/artigo/{id}
+    defaults: { _controller: "PhpbrAppBundle:ArtigoApi:getArtigo" }
+    requirements:
+        _method: GET
+        id: "\d+"
+    host: %website%
+
+
