@@ -1,4 +1,25 @@
-<header>
+    <a href="https://github.com/php-br-org/php-br">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+
+<header id="main-header">
+    <div id="content-wrapper">
+        <div class="panel">
+            <div class="row">
+                <div class="large-4 columns">
+                    <a href="{{ url('phpbr_app_inicial') }}">
+                        <img src="{{ asset('bundles/phpbrapp/assets/images/logo-site.png') }}" border="0" />
+                    </a>
+                </div>
+                <div class="large-8 columns text-right">
+                    <a href="https://www.digitalocean.com/?refcode=814f738c2a2d">
+                        <img src="{{ asset('bundles/phpbrapp/assets/images/ssd_digitalocean.jpg') }}" border="0" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="contain-to-grid">
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
@@ -27,6 +48,9 @@
                                 <ul class="dropdown">
                                     <li>
                                         <a href="{{ url('admin_artigos') }}">Aprovar Artigos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('admin_forum_categorias') }}">Forum Categorias</a>
                                     </li>
                                 </ul>
                             </li>
@@ -61,19 +85,3 @@
     </div>
 </header>
 
-<div id="content-wrapper">
-    <div class="panel">
-        <div class="row">
-            <div class="large-4 columns">
-                <a href="{{ url('phpbr_app_inicial') }}">
-                    <img src="{{ asset('bundles/phpbrapp/assets/images/logo-site.png') }}" border="0" />
-                </a>
-            </div>
-            <div class="large-8 columns">
-                <a href="https://www.digitalocean.com/?refcode=814f738c2a2d">
-                    <img src="{{ asset('bundles/phpbrapp/assets/images/ssd_digitalocean.jpg') }}" border="0" />
-                </a>
-            </div>
-        </div>
-    </div>
-</div>

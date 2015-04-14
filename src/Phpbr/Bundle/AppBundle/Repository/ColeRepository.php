@@ -25,4 +25,18 @@ class ColeRepository extends EntityRepository
         return $pagerfantaAdapter;
     }
 
+    /**
+     * @param int $qte
+     *
+     * @return array
+     */
+    public function listaColes($qte = 10) {
+        $query = $this->createQueryBuilder('Cole')
+            ->orderBy('Cole.dataCriacao', 'DESC');
+
+        if (is_numeric($qte)) $query->setMaxResults($qte);
+
+        return $query->getQuery()->getResult();
+    }
+
 }

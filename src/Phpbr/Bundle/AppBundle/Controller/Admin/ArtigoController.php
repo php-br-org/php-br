@@ -64,3 +64,5 @@ class ArtigoController extends Controller
         return $this->redirect($this->generateUrl('admin_artigos'));
     }
 }
+
+

@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    /**
+     * @param int $qte
+     *
+     * @return array
+     */
+    public function listaUltimosUsuarios($qte = 10) {
+        $query = $this->createQueryBuilder('User')
+            ->orderBy('User.id', 'DESC');
+
+        if (is_numeric($qte)) $query->setMaxResults($qte);
+
+        return $query->getQuery()->getResult();
+    }
 }

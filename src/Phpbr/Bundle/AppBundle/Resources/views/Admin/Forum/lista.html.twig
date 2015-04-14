@@ -3,7 +3,18 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h4>Artigos</h4>
+
+    <div class="row">
+        <div class="large-9 columns">
+            <h3><a href="{{ url('forum_index') }}">Forum</a></h3>
+        </div>
+
+        <div class="large-3 columns">
+            <a href="{{ url('admin_forum_nova_categoria') }}" class="button secondary right">
+                {{ 'phpbr.forum.new_category'|trans({}, 'forum') }}
+            </a>
+        </div>
+        <hr />
 
             {% for flashMessage in app.session.flashbag.get('notice') %}
                 <div class="row">
@@ -14,45 +25,42 @@
                     </div>
                 </div>
             {% endfor %}
+    </div>
 
-            {% if artigos|length %}
+
+            {% if categorias|length %}
                     <table width="100%">
                         <thead>
                         <tr>
-                            <th>Titulo</th>
-                            <th>Publicado por</th>
+                            <th>Categoria</th>
+                            <th>Descrição</th>
                             <th>Data</th>
                             <th>Acao</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for artigo in artigos %}
+                        {% for categoria in categorias %}
                             <tr>
                                 <td>
-                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}" target="_blank">
-                                {{ artigo.titulo|e }}
-                            </a>
+                                    {{ categoria.nome|e }}
                                 </td>
                                 <td>
-                                    {{ artigo.user.name|e }}
+                                    {{ categoria.descricao|e }}
                                 </td>
                                 <td>
-                                    {{ artigo.dataPublicado|date('d/m/Y') }}
+                                    {{ categoria.dataCriacao|date('d/m/Y') }}
                                 </td>
                                 <td>
-                                    {% if artigo.aprovado == false %}
-                                        <a href="{{ path('admin_artigo_aprovar', {slug: artigo.slug}) }}">Aprovar</a>
-                                    {% else %}
-                                        <a href="{{ path('admin_artigo_anular', {slug: artigo.slug}) }}">Anular</a>
-                                    {% endif %}
-                                     | Remover
+                                    <a href="{{ url('admin_forum_deletar_categoria', {'id': categoria.id}) }} ">
+                                    Remover
+                                    </a>
                                 </td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
             {% else %}
-                Nenhum artigo pendente no momento.
+                Nenhuma categoria.
             {% endif %}
         </div>
     </div>

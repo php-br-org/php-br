@@ -1,12 +1,3 @@
-.textarea-countdown:after {
-  border: 20px!important;
-  content: "<span class=\"span-countdown\"></span>";
-}
-
-.span-countdown {
-  border: 1px solid #FF0000;
-}
-
 @import url(http://fonts.googleapis.com/css?family=Mallanna);
 @import "settings";
 @import "foundation";
@@ -17,45 +8,104 @@
     ******************************
 */
 
-$cor-fundo: #2E2E2E;
-$cor-borda: #86B404;
-$cor-fonte-top: #F7FE2E;
-$cor-fonte-top-link: #80FF00;
+$cor-fundo: #f9f9f9;
+$cor-borda: #757FAE;
+$cor-fonte-top: #333;
+$cor-fonte-top-link: #999;
 
-.rodape-div {
+$avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+
+#main-header {
+    margin-bottom: rem-calc(40);
+}
+#main-header .panel {
+    margin-bottom: 0;
+}
+
+#users-block {
+//    padding-left: 40px;
+//    padding-right: 40px;
+}
+
+.sidebar-item-block {
+    margin-top: rem-calc(2) !important;
+    background-color: #fff;
+    border-bottom: 2px solid #F9F9F9;
+    padding: 10px 0;
+}
+
+.rodape {
     background-color: $cor-fundo;
-    height: 300px;
+    //height: 300px;
     padding: 20px;
     margin-top: 20px;
-    border-top: 3px solid $cor-borda;
-    color: #fff;
-    font-family: 'Mallanna', 'sans-serif';
+    border-top: 1px solid #ddd;
+    color: #333;
+    font-family: 'Mallanna', 'sans-serif';;
 }
 
 .fonte-header {
     padding: 5px;
     font-family: 'Mallanna', 'sans-serif';
 }
-
-.fonte-header a:link, .rodape-div a:link {
+.rodape a {
+    text-decoration: underline;
+}
+.fonte-header a:link, .rodape a:link {
     color: $cor-fonte-top;
 }
 
-.fonte-header a:visited, .rodape-div a:visited {
+.fonte-header a:visited, .rodape a:visited {
     color: $cor-fonte-top;
 }
 
-.fonte-header a:active, .rodape-div a:active {
+.fonte-header a:active, .rodape a:active {
     color: $cor-fonte-top-link;
 }
 
-.fonte-header a:hover, .rodape-div a:hover {
+.fonte-header a:hover, .rodape a:hover {
     color: $cor-fonte-top-link;
 }
 
-.img-gravatar-inicial {
-    float:left;
-    margin: 3px;
+//.img-gravatar-inicial {
+//    float:left;
+//    margin: 3px;
+//}
+
+.avatar {
+    float: left;
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+//
+//    -webkit-box-shadow: $avatar-shadow;
+//    -moz-box-shadow: $avatar-shadow;
+//    box-shadow: $avatar-shadow;
+}
+
+.sidebar-block {
+    margin-top: 40px !important;
+}
+.sidebar-block:first-child {
+    margin-top: 0 !important;
+}
+
+#latest-forum {
+    background-color: $cor-fundo;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.forum-username {
+    padding: 5px 0 0 10px !important;
+}
+
+.forum-full-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div#textarea-countdown {
@@ -69,6 +119,30 @@ div#textarea-countdown span {
   font-size: 0.875rem;
   line-height: 1.5;
 }
+
+.textarea-countdown:after {
+    border: 20px!important;
+    content: "<span class=\"span-countdown\"></span>";
+}
+
+.span-countdown {
+    border: 1px solid #FF0000;
+}
+
+
+.contributors {
+  overflow: auto;
+  margin-bottom: 3em;
+}
+
+.contributors img {
+  float: left;
+  border: 1px solid #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
 
 // Or selectively include components
 // @import

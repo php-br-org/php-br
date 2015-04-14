@@ -1,25 +1,26 @@
 phpbr_app_inicial:
     path:     /
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'inicial' }
+    host:     %website%
 
 phpbr_app_quemsomos:
     path:     /quem-somos
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'quemsomos' }
+    host:     %website%
 
 phpbr_app_contato:
     path:     /contato
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'contato' }
-
-phpbr_app_colabore:
-    path:     /colabore
-    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'colabore' }
+    host:     %website%
 
 phpbr_app_webchat:
     path:   /webchat
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'webchat' }
+    host:     %website%
 
 phpbr_app_verusuario:
     path:   /usuario/{usuario}
     defaults: { _controller: PhpbrAppBundle:Default:verUsuario }
+    host:     %website%
 
 

@@ -72,7 +72,7 @@ class TopicoController extends Controller
             $em->persist($topico);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('ver_topico',
+            return $this->redirect($this->generateUrl('forum_ver_topico',
                 array(
                     'id' => $categoriaId
                 )

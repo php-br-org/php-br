@@ -1,6 +1,7 @@
 Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem:
     type: entity
     table: forum_mensagem
+    repositoryClass: Phpbr\Bundle\AppBundle\Repository\ForumMensagemRepository
     id:
         id:
             type: integer

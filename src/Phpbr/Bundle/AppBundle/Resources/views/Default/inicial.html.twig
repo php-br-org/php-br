@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="medium-9 large-9 columns">
+        <div class="medium-8 large-8 columns">
             {% for artigo in artigos|slice(0, 6) %}
             <div>
                 <h4>
@@ -12,7 +12,7 @@
                 </h4>
 
                 <div style="width:80px; float:left;">
-                    <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="th img-gravatar-inicial" />
+                    <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar" />
                 </div>
 
                 <div>
@@ -33,21 +33,80 @@
             {% endfor %}
         </div>
 
-        <div class="medium-3 large-3 columns text-center">
-            <div class="text-left">
-                <strong>ÚLTIMOS CADASTROS</strong>
+        <div class="medium-4 large-4 columns">
+            <div class="row sidebar-block">
+                <div class="large-12 columns">
+                    <h5>Últimos Cadastrados</h5>
+
+                    <div id="users-block">
+                    {% for usuario in usuarios %}
+                        <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
+                            <div class="row sidebar-item-block collapse">
+                                <div class="large-2 columns">
+                                    <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar" />
+                                </div>
+                                <div class="large-10 columns">
+                                    {{ usuario.name }}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    </div>
+                </div>
             </div>
 
-            {% for usuario in usuarios|reverse|slice(0, 5) %}
-                <p class="text-left">
-                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
-                        <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name|raw }}" class="th img-gravatar-inicial" />
-                    </a>
-                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">{{ usuario.name|raw }}</a>
-                    <br>
-                </p>
+            <div class="row sidebar-block">
+                <div class="large-12 columns">
+                    <h5>Coles Recentes</h5>
 
-                <hr>
+                    <div id="coles-block">
+                        {% for cole in coles %}
+                            <a href="{{ url('cole_ver', {'id': cole.id}) }}">
+                                <div class="row sidebar-item-block collapse">
+                                    <div class="large-2 columns">
+                                        <span class="label">{{ cole.tipo }}</span>
+                                    </div>
+                                    <div class="large-10 columns">
+                                        {{ cole.titulo }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row sidebar-block">
+                <div class="large-12 columns">
+                    <div id="contributors" class="contributors">
+                    <h5>
+                    Desenvolvedores
+                        <br />
+                        <small>
+                            <a href="https://github.com/php-br-org/php-br" target="_blank">Colabore você também!</a>
+                        </small>
+                    </h5>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div id="latest-forum" class="row">
+        <div class="large-12 columns">
+            <h4>Últimas do Forum</h4>
+
+            {% for mensagem in forumMensagens %}
+                <div class="forumMensagem">
+                    <a href="{{ path('forum_ver_topico', {'id': mensagem.topico.id}) }}">
+                        <b>{{ mensagem.topico.assunto }}</b>
+                    </a>
+                    - {{ mensagem.user.username }}
+                </div>
             {% endfor %}
         </div>
     </div>
@@ -58,29 +117,29 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="large-12 columns">
-            <hr />
-            <h3>Notícias do mundo PHP</h3>
-                <div class="medium-8 large-8 columns">
-                    <h4></h4>
-                </div>
-                <div class="medium-3 large-3 columns">
-                    <h4>Vagas de Emprego</h4>
-                    <p>
-                        -
-                    </p>
-                    <p>
-                        -
-                    </p>
-                    <hr />
-                    <h4>Eventos PHP</h4>
-                    <p>
-                    - <br>
-                    - <br>
-                    </p>
-                </div>
-        </div>
-    </div>
+    {#<div class="row">#}
+        {#<div class="large-12 columns">#}
+            {#<hr />#}
+            {#<h3>Notícias do mundo PHP</h3>#}
+                {#<div class="medium-8 large-8 columns">#}
+                    {#<h4></h4>#}
+                {#</div>#}
+                {#<div class="medium-3 large-3 columns">#}
+                    {#<h4>Vagas de Emprego</h4>#}
+                    {#<p>#}
+                        {#-#}
+                    {#</p>#}
+                    {#<p>#}
+                        {#-#}
+                    {#</p>#}
+                    {#<hr />#}
+                    {#<h4>Eventos PHP</h4>#}
+                    {#<p>#}
+                    {#- <br>#}
+                    {#- <br>#}
+                    {#</p>#}
+                {#</div>#}
+        {#</div>#}
+    {#</div>#}
 {% endblock %}
 

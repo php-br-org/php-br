@@ -5,3 +5,7 @@ home_admin:
 admin_artigos:
     resource: "@PhpbrAppBundle/Resources/config/routing/admin/artigo.yml"
     prefix: /artigos
+
+admin_forum:
+    resource: "@PhpbrAppBundle/Resources/config/routing/admin/forum.yml"
+    prefix: /forum
