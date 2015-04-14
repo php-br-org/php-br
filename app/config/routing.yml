@@ -41,3 +41,10 @@ phpbr_app:
 phpbr_app_admin:
     resource: "@PhpbrAppBundle/Resources/config/routing_admin.yml"
     prefix:   /painel
+
+# app/config/routing.yml
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+

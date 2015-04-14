@@ -5,9 +5,18 @@ namespace Phpbr\Bundle\AppBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use FOS\RestBundle\Controller\FOSRestController;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class ArtigoApiController extends FOSRestController 
 {
+    /**
+     * Este método retorna dados de um artigo específico.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Retorna dados do artigo requisitado.",
+     * )
+     */
     public function getArtigoAction($id)
     {
         $em = $this->getDoctrine()->getManager();

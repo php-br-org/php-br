@@ -171,4 +171,7 @@ gregwar_captcha:
     height: 50
     length: 4
 
+# app/config/config.yml
+nelmio_api_doc: ~
+
 
