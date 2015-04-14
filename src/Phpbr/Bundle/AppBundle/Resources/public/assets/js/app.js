@@ -14,7 +14,7 @@ phpbr = {
 
         var remaining = size - $('.' + element).val().length;
 
-        $(".span-countdown-" + element).text(remaining + ' careteres restantes de ' + size);
+        $(".span-countdown-" + element).text(remaining + ' caracteres restantes de ' + size);
     },
     countdown : function(element) {
         var size = $('.' + element).attr('maxlength');
