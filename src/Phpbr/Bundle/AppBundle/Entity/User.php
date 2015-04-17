@@ -60,7 +60,7 @@ class User extends BaseUser
      */
     private $topicos;
 
-    
+
     public function __construct() {
         $this->artigos = new ArrayCollection();
         $this->mensagens = new ArrayCollection();

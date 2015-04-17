@@ -42,7 +42,6 @@ class ArtigoFormType extends AbstractType
                 'expanded' => true,
                 'data' => '0',
             ))
-            ->add('captcha', 'captcha')
             ->add('Salvar', 'submit')
         ;
     }
