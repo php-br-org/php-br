@@ -37,4 +37,9 @@ Phpbr\Bundle\AppBundle\Entity\User:
         artigos:
             targetEntity: Artigo
             mappedBy: user
-
+        mensagens:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem
+            mappedBy: user
+        topicos:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Topico
+            mappedBy: user

@@ -50,9 +50,21 @@ class User extends BaseUser
      */
     private $artigos;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $mensagens;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $topicos;
+
+    
     public function __construct() {
         $this->artigos = new ArrayCollection();
+        $this->mensagens = new ArrayCollection();
+        $this->topicos = new ArrayCollection();
 
         parent::__construct();
     }
@@ -240,5 +252,73 @@ class User extends BaseUser
     public function getArtigos()
     {
         return $this->artigos;
+    }
+
+    /**
+     * Add mensagen
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagen
+     *
+     * @return User
+     */
+    public function addMensagen(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagen)
+    {
+        $this->mensagens[] = $mensagen;
+
+        return $this;
+    }
+
+    /**
+     * Remove mensagen
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagen
+     */
+    public function removeMensagen(\Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem $mensagen)
+    {
+        $this->mensagens->removeElement($mensagen);
+    }
+
+    /**
+     * Get mensagens
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMensagens()
+    {
+        return $this->mensagens;
+    }
+
+    /**
+     * Add topico
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topico
+     *
+     * @return User
+     */
+    public function addTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topico)
+    {
+        $this->topicos[] = $topico;
+
+        return $this;
+    }
+
+    /**
+     * Remove topico
+     *
+     * @param \Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topico
+     */
+    public function removeTopico(\Phpbr\Bundle\AppBundle\Entity\Forum\Topico $topico)
+    {
+        $this->topicos->removeElement($topico);
+    }
+
+    /**
+     * Get topicos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTopicos()
+    {
+        return $this->topicos;
     }
 }

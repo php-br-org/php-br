@@ -27,14 +27,14 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Topico:
     manyToOne:
         categoria:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Categoria
-            inversedBy: topico
+            inversedBy: topicos
             joinColumn:
                 name: categoria_id
                 referencedColumnName: id
                 onDelete: CASCADE
         user:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\User
-            inversedBy: topico
+            inversedBy: topicos
             joinColumn:
                 name: user_id
                 referencedColumnName: id

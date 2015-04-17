@@ -16,14 +16,14 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem:
     manyToOne:
         topico:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\Forum\Topico
-            inversedBy: mensagem
+            inversedBy: mensagens
             joinColumn:
                 name: topico_id
                 referencedColumnName: id
                 onDelete: CASCADE
         user:
             targetEntity: Phpbr\Bundle\AppBundle\Entity\User
-            inversedBy: mensagem
+            inversedBy: mensagens
             joinColumn:
                 name: user_id
                 referencedColumnName: id
