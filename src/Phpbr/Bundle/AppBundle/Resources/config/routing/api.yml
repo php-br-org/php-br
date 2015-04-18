@@ -7,3 +7,20 @@ phpbr_api_get_artigo:
     host: %website%
 
 
+phpbr_api_put_irc:
+    path: /v1/irc/{nicks}
+    defaults: { _controller: "PhpbrAppBundle:IrcApi:putIrc" }
+    requirements:
+        _method: PUT
+    host: %website%
+
+
+phpbr_api_get_irc:
+    path: /v1/irc
+    defaults: { _controller: "PhpbrAppBundle:IrcApi:getNicks" }
+    requirements:
+        _method: GET
+    host: %website%
+
+
+
