@@ -8,7 +8,7 @@ phpbr_api_get_artigo:
 
 
 phpbr_api_put_irc:
-    path: /v1/irc/{nicks}
+    path: /v1/irc/{api_key}/{nicks}
     defaults: { _controller: "PhpbrAppBundle:IrcApi:putIrc" }
     requirements:
         _method: PUT

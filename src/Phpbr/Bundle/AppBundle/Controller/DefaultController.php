@@ -29,7 +29,9 @@ class DefaultController extends Controller
                 $coles = $em->getRepository('PhpbrAppBundle:Cole')->listaColes(5);
                 $forumMensagens = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')->listaRecentes();
 
-                $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens');
+                $ircNicks = $this->pegaIrcNicks();
+
+                $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens', 'ircNicks');
             }
 
             return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", $params);
@@ -60,6 +62,25 @@ class DefaultController extends Controller
         );
     }
 
+
+    public function pegaIrcNicks(){
+        $ircNicks = array();
+
+        $em = $this->getDoctrine()->getManager();
+        $nicks = $em->getRepository('PhpbrAppBundle:Irc')
+            ->find(1);
+
+        if ($nicks) {
+            preg_match_all("/\\\"(.*?)\\\"/i", $nicks->getNicks(), $matches);
+
+            if (count($matches[1]) > 0){
+                $ircNicks = $matches[1];
+            }
+        }
+
+        return $ircNicks;
+
+    }
 }
 
 
