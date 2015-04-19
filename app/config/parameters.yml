@@ -28,4 +28,6 @@ parameters:
     coles_por_pagina: 5
 
     website: "www.php-br.org"
-
+    
+    irc.bot.api_key: XXX
+    
