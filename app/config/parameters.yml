@@ -27,7 +27,7 @@ parameters:
     artigos_por_pagina: 10
     coles_por_pagina: 5
 
-    website: "www.php-br.org"
+    website: "php-br.dev"
     
     irc.bot.api_key: XXX
     
