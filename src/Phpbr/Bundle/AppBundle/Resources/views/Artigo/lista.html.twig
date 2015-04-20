@@ -3,39 +3,41 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3>Artigos</h3> 
+            <h3>Artigos</h3>
             <p>
                 <a href="{{ path('novo_artigo') }}">Criar Artigo</a>
             </p>
-            {% if artigos|length %}
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <th>Titulo</th>
-                            <th>Publicado por</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for artigo in artigos %}
-                        <tr>
-                            <td>
-                                <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                                    {{ artigo.titulo|e }}
-                                </a>
-                            </td>
-                            <td>
-                                {{ artigo.user.name|e }}
-                            </td>
-                            <td>
-                                {{ artigo.dataPublicado|date('d/m/Y') }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
 
+            {% if artigos|length %}
+                {% for artigo in artigos %}
+                    <div>
+                        <h4>
+                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
+                                {{ artigo.titulo|e }}
+                            </a>
+                        </h4>
+
+                        <div style="width:80px; float:left;">
+                            <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar" />
+                        </div>
+
+                        <div>
+                            <p class="text-justify">
+                                {{ artigo.resumo|e }}
+                            </p>
+                            <h5>
+                                <small>
+                                    Autor:
+                                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': artigo.user }) }}">{{ artigo.user.name|raw }}</a>
+                                    , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
+                                </small>
+                            </h5>
+                        </div>
+
+                        <hr>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 
