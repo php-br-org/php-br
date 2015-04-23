@@ -38,3 +38,7 @@ forum_deletar_mensagem:
     defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:deletarMensagem" }
     host:     %website%
 
+forum_deletar_topico:
+    path:     /deletar-topico/{id}
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:deletarTopico" }
+    host:     %website%

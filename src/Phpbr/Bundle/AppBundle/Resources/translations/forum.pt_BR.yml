@@ -14,3 +14,5 @@ phpbr:
         ago: 'atrás'
         author: 'Autor'
         new_category: 'Nova Categoria'
+        delete_message: 'Deletar Mensagem'
+        delete_topic: 'Deletar Tópico'

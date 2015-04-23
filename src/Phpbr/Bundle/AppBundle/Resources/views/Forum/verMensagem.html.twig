@@ -18,6 +18,11 @@
             </a>
         </div>
         <hr />
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice panel callout radius">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
     </div>
 
         <div class="row">
@@ -36,12 +41,18 @@
                 </p>
             </div>
             <div class="large-10 columns">
+                {% if (topico.user == usuario) %}
+                    <a href="{{ path('forum_deletar_topico', {'id': topico.id}) }}" class="tiny button">
+                        {{ 'phpbr.forum.delete_topic'|trans({}, 'forum') }}
+                    </a>
+                    <br />
+                {% endif %}
                 <strong>{{ topico.assunto }}</strong>
                 <p>
                     {{ topico.mensagem }}
                 </p>
             </div>
-                <hr />
+            <hr />
 
             {% for mensagem in mensagens %}
                 <div class="row">
@@ -60,6 +71,12 @@
                         </p>
                     </div>
                     <div class="large-10 columns">
+                        {% if (mensagem.user == usuario) %}
+                            <a href="{{ path('forum_deletar_mensagem', {'id': mensagem.id}) }}" class="tiny button">
+                                {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
+                            </a>
+                            <br />
+                        {% endif %}
                         {{ mensagem.mensagem }}
                     </div>
                     <hr />

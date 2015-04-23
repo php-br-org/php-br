@@ -9,7 +9,6 @@ class CategoriaController extends Controller
 {
     public function indexAction()
     {
-        $session = new Session();
         $em = $this->getDoctrine()->getManager();
         $categorias = $em->getRepository('PhpbrAppBundle:Forum\Categoria')->findAll();
 

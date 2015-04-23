@@ -7,15 +7,12 @@
 
 {% block content %}
     <div class="row">
-        <div class="large-9 columns">
-            <h3>http://cole.php-br.org</h3>
+        <div class="large-12 columns">
+        <h3>Novo Código</h3>
+            {{ form(form) }}
         </div>
-            <div class="large-3 columns">
-                <a href="{{ path('cole_novo') }}" class="button success right">
-                    Novo Código
-                </a>
-            </div>
-            <hr />
+        <hr />
+    </div>
     {% for entity in entities %}
             <div class="row">
                 <div class="large-3 columns">

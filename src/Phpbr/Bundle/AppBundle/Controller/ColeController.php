@@ -25,8 +25,27 @@ class ColeController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $coleService = $this->get('phpbr_cole_service_em');
 
+        $entity = new Cole();
+        $session = new Session();
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $coleService = $this->get('phpbr_cole_service_em');
+            $coleService->em->persist($entity);
+            $coleService->em->flush();
+
+            $session->set('chaveDeletar', $entity->getChaveDeletar());
+
+            return $this->redirect($this->generateUrl('cole_ver',
+                array(
+                    'id' => $entity->getId(),
+                )
+            ));
+        }
+
+        $coleService = $this->get('phpbr_cole_service_em');
         $coleRepo = $coleService->em->getRepository('PhpbrAppBundle:Cole')->listaColesAdapter();
 
         $coles = new Pagerfanta($coleRepo);
@@ -36,7 +55,8 @@ class ColeController extends Controller
         $coles->setCurrentPage($pagina);
 
         return $this->render('PhpbrAppBundle:Cole:index.html.twig', array(
-            'entities' => $coles
+            'entities' => $coles,
+            'form'     => $form->createView()
         ));
     }
 

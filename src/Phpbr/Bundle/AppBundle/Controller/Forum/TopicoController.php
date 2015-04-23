@@ -93,5 +93,11 @@ class TopicoController extends Controller
         ));    
     }
 
+    public function deletarTopico($id)
+    {
+        return $this->render('PhpbrAppBundle:Forum:deletar.html.twig', array(
+            // ...
+        ));
+    }
 }
 

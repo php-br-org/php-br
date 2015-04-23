@@ -55,7 +55,8 @@ class MensagemController extends Controller
         return $this->render('PhpbrAppBundle:Forum:verMensagem.html.twig', array(
             'topico' => $topico,
             'form' => $form->createView(),
-            'mensagens' => $mensagens
+            'mensagens' => $mensagens,
+            'usuario' => $usuario
         ));
     }
 
@@ -68,9 +69,50 @@ class MensagemController extends Controller
 
     public function deletarMensagemAction($id)
     {
-        return $this->render('PhpbrAppBundle:Forum:deletarMensagem.html.twig', array(
-                // ...
-            ));
+        $usuario = $this->get('security.context')->getToken()->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+        $mensagem = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')
+            ->findOneBy(
+                array('id' => $id)
+            );
+
+        if (!$mensagem) {
+            throw $this->createNotFoundException('Unable to find mensagem entity.');
+        }
+
+
+        if ($mensagem->getUser() != $usuario){
+            throw $this->createNotFoundException('Unable to find mensagem entity.');
+        }
+
+        $topico = $mensagem->getTopico();
+
+        $em->remove($mensagem);
+        $em->flush();
+
+            $this->addFlash(
+                'notice',
+                'Mensagem deletada com sucesso!'
+            );
+
+        $em = $this->getDoctrine()->getManager();
+        $mensagens = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')
+            ->findBy(
+                array('topico' => $topico)
+            );
+
+        $mensagem = new Mensagem();
+        $form = $this->createForm(new ForumMensagemFormType(), $mensagem, array());
+
+        return $this->redirect(
+            $this->generateUrl(
+                'forum_ver_mensagem',
+                array(
+                    'slug' => $topico->getSlug()
+                )
+            )
+        );
     }
 
     public function topicos2ultimaMensagem($categoria_id)
