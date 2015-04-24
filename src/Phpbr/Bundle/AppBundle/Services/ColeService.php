@@ -13,7 +13,7 @@ class ColeService {
     /**
      * @var EntityManagerInterface $em
      */
-    private $em;
+    public $em;
 
     public function __construct(EntityManagerInterface $em)
     {
