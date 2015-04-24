@@ -32,9 +32,7 @@ class ColeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $coleService = $this->get('phpbr_cole_service_em');
-            $coleService->em->persist($entity);
-            $coleService->em->flush();
+            $this->getColeService()->insert($entity);
 
             $session->set('chaveDeletar', $entity->getChaveDeletar());
 
@@ -73,9 +71,7 @@ class ColeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $coleService = $this->get('phpbr_cole_service_em');
-            $coleService->em->persist($entity);
-            $coleService->em->flush();
+            $this->getColeService()->insert($entity);
 
             $session->set('chaveDeletar', $entity->getChaveDeletar());
 
@@ -132,8 +128,7 @@ class ColeController extends Controller
      */
     public function verAction($id)
     {
-        $coleService = $this->get('phpbr_cole_service_em');
-        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $this->getColeService()->findByCole($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -157,9 +152,7 @@ class ColeController extends Controller
      */
     public function verRawAction($id)
     {
-        $coleService = $this->get('phpbr_cole_service_em');
-
-        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $this->getColeService()->findByCole($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -183,9 +176,7 @@ class ColeController extends Controller
      */
     public function editAction($id)
     {
-        $coleService = $this->get('phpbr_cole_service_em');
-
-        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $this->getColeService()->findByCole($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -225,8 +216,7 @@ class ColeController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $coleService = $this->get('phpbr_cole_service_em');
-        $entity = $coleService->em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $this->getColeService()->findByCole($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cole entity.');
@@ -237,7 +227,7 @@ class ColeController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $coleService->em->flush();
+            $this->getColeService()->insert($entity);
 
             return $this->redirect($this->generateUrl('cole_edit', array('id' => $id)));
         }
@@ -291,5 +281,16 @@ class ColeController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+
+    /**
+     * Get Cole Service
+     *
+     * @return ColeService
+     */
+    private function getColeService()
+    {
+        return $this->get('phpbr_cole_service_em');
     }
 }

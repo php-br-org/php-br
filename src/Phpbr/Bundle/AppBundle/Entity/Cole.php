@@ -3,11 +3,12 @@
 namespace Phpbr\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Phpbr\Bundle\AppBundle\Entity\Interfaces\ColeInterface;
 
 /**
  * Cole
  */
-class Cole
+class Cole implements ColeInterface
 {
     /**
      * @var integer
