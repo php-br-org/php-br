@@ -37,7 +37,7 @@
                     {{ categoria.id|quantidade_topicos }}
                 </div>
                 <div class="large-2 columns text-center">
-                    {{ categoria.id|quantidade_mensagens }}
+                    {{ (categoria.id|quantidade_mensagens + categoria.id|quantidade_topicos) }}
                 </div>
                 <div class="large-2 columns text-center">
                     {{ categoria.id|categoria2ultima_mensagem|date('d/m/Y')  }}
