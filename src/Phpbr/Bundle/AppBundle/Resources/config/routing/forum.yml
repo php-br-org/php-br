@@ -4,8 +4,8 @@ forum_index:
     host:     %website%
 
 forum_ver_categoria:
-    path:     /ver/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:ver" }
+    path:     /categoria/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verCategoria" }
     host:     %website%
 
 forum_ver_topico:

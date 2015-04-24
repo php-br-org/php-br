@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="large-6 columns">
                     <strong>
-                        <a href="{{ url('forum_ver_topico', {'id': categoria.id}) }}">{{ categoria.nome|upper }}</a>
+                        <a href="{{ url('forum_ver_categoria', {'slug': categoria.slug}) }}">{{ categoria.nome|upper }}</a>
                     </strong>
                     <br />
                     {{ categoria.descricao }}

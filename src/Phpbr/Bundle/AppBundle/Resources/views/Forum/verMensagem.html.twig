@@ -7,7 +7,7 @@
         <div class="large-9 columns">
             <h3>
                 <a href="{{ path('forum_index') }}">Forum</a> |
-                <a href="{{ path('forum_ver_topico', {'id': topico.categoria.id }) }}">{{ topico.categoria.nome }}</a> |
+                <a href="{{ path('forum_ver_categoria', {'slug': topico.categoria.slug }) }}">{{ topico.categoria.nome }}</a> |
                 {{ topico.assunto }}
             </h3>
         </div>

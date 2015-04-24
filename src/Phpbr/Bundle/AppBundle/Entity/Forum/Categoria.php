@@ -40,6 +40,11 @@ class Categoria
     private $topicos;
 
     /**
+     * @var string
+     */
+    private $slug;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -180,5 +185,28 @@ class Categoria
     public function getTopicos()
     {
         return $this->topicos;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Topico
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

@@ -43,6 +43,25 @@ class TopicoController extends Controller
         ));
     }
 
+    public function verCategoriaAction($slug)
+    {
+        $session = new Session();
+        $em = $this->getDoctrine()->getManager();
+
+        $categoria = $em->getRepository('PhpbrAppBundle:Forum\Categoria')
+            ->findOneBy(array(
+                'slug' => $slug
+            ));
+
+        $topicos = $categoria->getTopicos();
+        $session->set('forumCategoria', $categoria->getId());
+
+        return $this->render('@PhpbrApp/Forum/ver.html.twig', array(
+            'categoria' => $categoria,
+            'topicos'   => $topicos
+        ));
+    }
+
     public function novoAction(Request $request)
     {
         $topico = new Topico();
@@ -93,11 +112,43 @@ class TopicoController extends Controller
         ));    
     }
 
-    public function deletarTopico($id)
+    public function deletarTopicoAction($id)
     {
-        return $this->render('PhpbrAppBundle:Forum:deletar.html.twig', array(
-            // ...
-        ));
+        $usuario = $this->get('security.context')->getToken()->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+        $topico = $em->getRepository('PhpbrAppBundle:Forum\Topico')
+            ->findOneBy(
+                array('id' => $id)
+            );
+
+        if (!$topico) {
+            throw $this->createNotFoundException('Nao achou este topico!');
+        }
+
+
+        if ($topico->getUser() != $usuario){
+            throw $this->createNotFoundException('Negado!');
+        }
+
+        $categoria = $topico->getCategoria();
+
+        $em->remove($topico);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'Topico deletado com sucesso!'
+        );
+
+        return $this->redirect(
+            $this->generateUrl(
+                'forum_ver_categoria',
+                array(
+                    'slug' => $categoria->getSlug()
+                )
+            )
+        );
     }
 }
 

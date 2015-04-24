@@ -17,6 +17,15 @@ Phpbr\Bundle\AppBundle\Entity\Forum\Categoria:
             type: boolean
         dataCriacao:
             type: datetime
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - nome
 
     oneToMany:
         topicos:
