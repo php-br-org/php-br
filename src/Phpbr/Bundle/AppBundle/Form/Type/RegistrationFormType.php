@@ -12,12 +12,28 @@ class RegistrationFormType extends BaseType
 
         // Lista de campos customizaveis
         $builder
-            ->add('name', 'text', array('label' => 'Nome', 'required' => true))
-            ->add('linkedin', 'url', array('label' => 'LinkedIn', 'required' => false))
-            ->add('twitter', 'text', array('label' => 'Twitter', 'attr' => array('placeholder' => '@Usuario'), 'required' => false))
-            ->add('github', 'text', array('label' => 'Conta GitHub', 'required' => false))
-            ->add('captcha', 'captcha')
-            ;
+            ->add('name', 'text', array(
+                'label' => 'Nome',
+                'required' => true
+            ))
+            ->add('linkedin', 'url', array(
+                'label' => 'LinkedIn',
+                'required' => false
+            ))
+            ->add('twitter', 'text', array(
+                'label' => 'Twitter',
+                'attr' => array(
+                    'placeholder' => 'https://twitter.com/usuario'
+                ),
+                'required' => false
+            ))
+            ->add('github', 'text', array(
+                'label' => 'GitHub',
+                'attr' => array(
+                    'placeholder' => 'https://github.com/usuario'
+                ),
+                'required' => false))
+            ->add('captcha', 'captcha');
     }
 
     public function getParent() {

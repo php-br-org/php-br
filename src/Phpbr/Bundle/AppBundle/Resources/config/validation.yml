@@ -8,6 +8,17 @@ Phpbr\Bundle\AppBundle\Entity\User:
             - Length:
                 min: 4
                 max: 20
+        github:
+            - Regex:
+                pattern: /^(https?:\/\/)?((w{3}\.)?)github.com\/.*/
+                message: "Preencha a URL do seu github corretamente"
+        twitter:
+            - Regex:
+                pattern: /^(https?:\/\/)?((w{3}\.)?)twitter.com\/.*/
+                message: "Preencha a URL do seu twitter corretamente"
+
+
+
 
 Phpbr\Bundle\AppBundle\Entity\Artigo:
     constraints:
