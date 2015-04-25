@@ -15,6 +15,7 @@ app/config/config_prod.yml
 /bin/*
 !bin/console
 !bin/symfony_requirements
+!bin/phpunit
 /vendor/
 !src/Phpbr/Bundle/AppBundle/Resources/public/assets/js/vendor/
 
