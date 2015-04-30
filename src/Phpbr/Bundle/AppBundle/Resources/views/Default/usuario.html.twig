@@ -13,15 +13,15 @@
                 <img src="{{ user.email|email2gravatar('180') }}" alt="{{ user.name|raw }}" class="th img-gravatar-inicial" />
             </p>
             {% if (user.linkedin|length > 0) %}
-                <p>Linkedin: <a href="{{ user.linkedin }}">{{ user.linkedin }}</a></p>
+                <p>Linkedin: <a href="{{ user.linkedin }}" target="_blank">{{ user.linkedin }}</a></p>
             {% endif %}
 
             {% if (user.twitter|length > 0) %}
-                <p>Twitter: <a href="https://twitter.com/{{ user.twitter }}">{{ user.twitter }}</a></p>
+                <p>Twitter: <a href="{{ user.twitter }}" target="_blank">{{ user.twitter }}</a></p>
             {% endif %}
 
             {% if (user.github|length > 0) %}
-                <p>Github: <a href="https://github.com/{{ user.github }}">{{ user.github }}</a></p>
+                <p>Github: <a href="{{ user.github }}" target="_blank">{{ user.github }}</a></p>
             {% endif %}
         {% else %}
             <p>404</p>

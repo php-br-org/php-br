@@ -78,7 +78,10 @@ class ColeType extends AbstractType
                 'data' => 'php'
             ))
             ->add('codigo', 'textarea', array(
-                'attr' => array('rows' => '15')
+                'attr' => array(
+                    'rows' => '15',
+                    'class' => 'lined'
+                )
             ))
             ->add('captcha', 'captcha');
     }
