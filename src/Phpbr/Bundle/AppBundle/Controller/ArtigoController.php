@@ -2,12 +2,16 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller;
 
+use Phpbr\Bundle\AppBundle\Services\ArtigoService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use Phpbr\Bundle\AppBundle\Form\Type\ArtigoFormType;
 use Pagerfanta\Pagerfanta;
 
+/**
+ * Class ArtigoController
+ */
 class ArtigoController extends Controller
 {
 
@@ -17,9 +21,7 @@ class ArtigoController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listaMeusArtigosAction(Request $request) {
-        $entityManager = $this->getDoctrine()->getManager();
-        $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
-
+        $artigoRepo = $this->getArtigoService()->repository();
         $usuario = $this->get('security.context')->getToken()->getUser();
         $artigosAdapter = $artigoRepo->listaArtigosUsuario($usuario);
 
@@ -38,8 +40,8 @@ class ArtigoController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listAction(Request $request) {
-        $entityManager = $this->getDoctrine()->getManager();
-        $artigoRepo = $entityManager->getRepository('PhpbrAppBundle:Artigo');
+        $artigoRepo = $this->getArtigoService()->repository();
+
         $artigosAdapter = $artigoRepo->listaArtigosAtivosAdapter();
 
         $artigos = new Pagerfanta($artigosAdapter);
@@ -58,7 +60,6 @@ class ArtigoController extends Controller
      */
     public function novoAction(Request $request) {
         $artigo = new Artigo();
-        $entityManager = $this->getDoctrine()->getManager();
 
         $form = $this->createForm(new ArtigoFormType(), $artigo, array());
         $form->handleRequest($request);
@@ -67,8 +68,7 @@ class ArtigoController extends Controller
             $usuario = $this->get('security.context')->getToken()->getUser();
             $artigo->setUser($usuario);
 
-            $entityManager->persist($artigo);
-            $entityManager->flush();
+            $this->getArtigoService()->insert($artigo);
 
             return $this->redirect($this->generateUrl('lista_meus_artigos'));
         }
@@ -83,10 +83,11 @@ class ArtigoController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editarAction($id) { 
-        $em = $this->getDoctrine()->getManager();
+    public function editarAction($id) {
         $usuario = $this->get('security.context')->getToken()->getUser();
-        $entity = $em->getRepository('PhpbrAppBundle:Artigo')->findOneBy(
+        $id = $this->getArtigoService()->findByArticle($id);
+
+        $entity = $this->getArtigoService()->repository()->findOneBy(
             array(
                 'id' => $id,
                 'user' => $usuario->getId()
@@ -119,8 +120,6 @@ class ArtigoController extends Controller
             'method' => 'PUT',
         ));
 
-        // $form->add('submit', 'submit', array('label' => 'Atualizar'));
-
         return $form;
     }
 
@@ -150,7 +149,7 @@ class ArtigoController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $em->flush();
+            $this->getArtigoService()->insert($entity);
 
             return $this->redirect($this->generateUrl('artigo_edit', 
                 array(
@@ -191,14 +190,14 @@ class ArtigoController extends Controller
      */
     public function deletarAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
         $usuario = $this->get('security.context')->getToken()->getUser();
 
         if (gettype($usuario) != 'object') {
             return $this->redirect('/artigos');
         }
 
-        $entity = $em->getRepository('PhpbrAppBundle:Artigo')->findOneBy(
+        $id = $this->getArtigoService()->findByArticle($id);
+        $entity = $this->getArtigoService()->repository()->findOneBy(
             array(
                 'id' => $id,
                 'user' => $usuario->getId()
@@ -213,13 +212,22 @@ class ArtigoController extends Controller
             ));
         }
 
-        $em->remove($entity);
-        $em->flush();
+        $this->getArtigoService()->remove($entity);
 
         return $this->redirect($this->generateUrl('lista_meus_artigos',
             array(
                 'msg' => 'Artigo excluído com sucesso!'
             )
         ));
+    }
+
+    /**
+     * Get Artigo Service
+     *
+     * @return ArtigoService
+     */
+    private function getArtigoService()
+    {
+        return $this->get('phpbr_artigo_service_em');
     }
 }
