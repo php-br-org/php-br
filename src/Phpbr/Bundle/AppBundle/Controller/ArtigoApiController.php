@@ -76,10 +76,9 @@ class ArtigoApiController extends FOSRestController
             return false;
         }
 
-        try {
-            $client = new Client([
-                'base_url' => 'http://disqus.com'
-            ]);
+        $client = new Client([
+            'base_url' => 'http://disqus.com'
+        ]);
 
             $filter = [
                 'query' => [
@@ -92,11 +91,15 @@ class ArtigoApiController extends FOSRestController
                 ]
             ];
 
-            $responseDiscus = $client->get('api/3.0/threads/details.json', $filter);
-            $dados = $responseDiscus->json();
-        } catch (Guzzle\Http\Exception\BadResponseException $e) {
-            $dados['response']['posts'] = 0;
-        }
+            try {
+                $responseDiscus = $client->get('api/3.0/threads/details.json', $filter);
+                $dados = $responseDiscus->json();
+            } catch (\Exception $e) {
+                $dados['response']['posts'] = 0;
+                if ('400' == $e->getResponse()->getStatusCode()) {
+                    // die('Erro 400!');
+                }
+            }
 
         $quantidade = $dados['response']['posts'];
 
