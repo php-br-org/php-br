@@ -23,4 +23,11 @@ phpbr_api_get_irc:
     host: %website%
 
 
+phpbr_api_get_qtd_comentarios_artigo:
+    path: /v1/qtd-comentarios/{slug}
+    defaults: { _controller: "PhpbrAppBundle:ArtigoApi:getQuantidadeComentarios" }
+    requirements:
+        _method: GET
+    host: %website%
+
 

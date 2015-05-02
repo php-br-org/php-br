@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use GuzzleHttp\Client;
+
 
 class ArtigoApiController extends FOSRestController 
 {
@@ -52,6 +54,60 @@ class ArtigoApiController extends FOSRestController
 
         $serializer = $this->get('jms_serializer');
         $response->setContent($serializer->serialize($dados, 'json'));
+        $response->setStatusCode(Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response->send();
+
+    }
+
+
+    /**
+     * Este método retorna a quantidade de comentarios feitos usando Discus para um artigo específico.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Retorna a quantidade de comentários de um artigo.",
+     * )
+     */
+    public function getQuantidadeComentariosAction($slug)
+    {
+        // http://disqus.com/api/3.0/threads/details.json?api_key=0tSPk5oNVNwFqU8IR1s74M0gKWQSr1db7iPQlQJnFHhK6jiz7Jz95ujWj41A0WIb&
+        // forum=phpbrorg&
+        // thread:link=http://www.php-br.org/artigos/ler/escalando-sua-aplicacao-php-redis
+        // Ler: posts
+
+        if (!$slug){
+            return false;
+        }
+
+        try {
+            $client = new Client([
+                'base_url' => 'http://disqus.com'
+            ]);
+
+            $filter = [
+                'query' => [
+                    'api_key'   => $this->container->getParameter('knp_disqus.api_key'),
+                    'forum'     => 'phpbrorg',
+                    'thread:link' => sprintf('http://%s/artigos/ler/%s',
+                        $this->container->getParameter('website'),
+                        $slug
+                    )
+                ]
+            ];
+
+            $responseDiscus = $client->get('api/3.0/threads/details.json', $filter);
+            $dados = $responseDiscus->json();
+        } catch (Guzzle\Http\Exception\BadResponseException $e) {
+            $dados['response']['posts'] = 0;
+        }
+
+        $quantidade = $dados['response']['posts'];
+
+        $response = new Response();
+        $serializer = $this->get('jms_serializer');
+        $response->setContent($serializer->serialize($quantidade, 'json'));
         $response->setStatusCode(Response::HTTP_OK);
         $response->headers->set('Content-Type', 'application/json');
 

@@ -1,6 +1,31 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
+    <script>
+    function getComentarios(slug) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/v1/qtd-comentarios/' + slug,
+            success: function(data,status) {
+                var quantidade = parseInt(data);
+                var comentario = 'comentário';
+                var retorno = '<strong>' + data + '</strong> ' + comentario;
+
+                if (quantidade > 0){
+                    if (1 == quantidade) {
+                        var retornoFinal = retorno;
+                    } else {
+                        var retornoFinal = retorno + 's';
+                    }
+                    $('#comentarios_' + slug).append(retornoFinal);
+                } else {
+                    $('#comentarios_' + slug).append('Comente!');
+                }
+
+            }
+        });
+    }
+    </script>
     <div class="row">
         <div class="medium-8 large-8 columns">
             {% for artigo in artigos|slice(0, 6) %}
@@ -23,9 +48,13 @@
                         <small>
                         Autor: 
                         <a href="{{ path('phpbr_app_verusuario', { 'usuario': artigo.user }) }}">{{ artigo.user.name|raw }}</a>
-                        , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
+                        , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás.
+                            <span id="comentarios_{{ artigo.slug }}" class="secondary radius label"></span>
                         </small>
                     </h5>
+                    <script>
+                        getComentarios('{{ artigo.slug }}');
+                    </script>
                 </div>
 
                 <hr>
@@ -136,29 +165,5 @@
         </div>
     </div>
 
-    {#<div class="row">#}
-        {#<div class="large-12 columns">#}
-            {#<hr />#}
-            {#<h3>Notícias do mundo PHP</h3>#}
-                {#<div class="medium-8 large-8 columns">#}
-                    {#<h4></h4>#}
-                {#</div>#}
-                {#<div class="medium-3 large-3 columns">#}
-                    {#<h4>Vagas de Emprego</h4>#}
-                    {#<p>#}
-                        {#-#}
-                    {#</p>#}
-                    {#<p>#}
-                        {#-#}
-                    {#</p>#}
-                    {#<hr />#}
-                    {#<h4>Eventos PHP</h4>#}
-                    {#<p>#}
-                    {#- <br>#}
-                    {#- <br>#}
-                    {#</p>#}
-                {#</div>#}
-        {#</div>#}
-    {#</div>#}
 {% endblock %}
 

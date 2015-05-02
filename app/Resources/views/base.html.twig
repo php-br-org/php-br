@@ -18,11 +18,6 @@
         <meta name="author" content="php-br"/>
         <meta name="copyright" content="php-br"/>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        {# <link rel="apple-touch-icon" href="{{ asset('touch-icon-iphone.png') }}" />
-        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('apple-touch-icon-57x57.png') }}" />
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}" />
-        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}" />
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('apple-touch-icon-144x144.png') }}" /> #}
 
         {% block twitter %}{% endblock %}
         {% block facebook %}{% endblock %}
@@ -31,8 +26,6 @@
         {% block headscripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-
         {% javascripts
             'bundles/phpbrapp/assets/bower_components/jquery/dist/jquery.min.js'
             'bundles/phpbrapp/assets/bower_components/foundation/js/foundation.min.js'
@@ -51,5 +44,7 @@
         {% endjavascripts %}
 
         {% block javascripts %}{% endblock %}
+
+        {% block body %}{% endblock %}
     </body>
 </html>
