@@ -79,7 +79,7 @@ class ColeType extends AbstractType
             ))
             ->add('codigo', 'textarea', array(
                 'attr' => array(
-                    'rows' => '15',
+                    'rows' => '25',
                     'class' => 'lined'
                 )
             ))
