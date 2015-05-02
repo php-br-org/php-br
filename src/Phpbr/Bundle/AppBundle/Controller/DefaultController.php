@@ -31,9 +31,6 @@ class DefaultController extends Controller
 
                 $ircNicks = $this->pegaIrcNicks();
 
-                // http://disqus.com/api/3.0/threads/details.json?api_key=0tSPk5oNVNwFqU8IR1s74M0gKWQSr1db7iPQlQJnFHhK6jiz7Jz95ujWj41A0WIb&forum=phpbrorg&thread:link=http://www.php-br.org/artigos/ler/escalando-sua-aplicacao-php-redis
-
-
                 $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens', 'ircNicks');
 
             }
