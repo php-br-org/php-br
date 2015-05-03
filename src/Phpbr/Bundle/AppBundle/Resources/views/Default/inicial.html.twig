@@ -2,29 +2,7 @@
 
 {% block content %}
     <script>
-    function getComentarios(slug) {
-        $.ajax({
-            type: 'GET',
-            url: '/api/v1/qtd-comentarios/' + slug,
-            success: function(data,status) {
-                var quantidade = parseInt(data);
-                var comentario = 'comentário';
-                var retorno = '<strong>' + data + '</strong> ' + comentario;
 
-                if (quantidade > 0){
-                    if (1 == quantidade) {
-                        var retornoFinal = retorno;
-                    } else {
-                        var retornoFinal = retorno + 's';
-                    }
-                    $('#comentarios_' + slug).append(retornoFinal);
-                } else {
-                    $('#comentarios_' + slug).append('Comente!');
-                }
-
-            }
-        });
-    }
     </script>
     <div class="row">
         <div class="medium-8 large-8 columns">
@@ -52,7 +30,7 @@
                         </small>
                     </h5>
                     <script>
-                        getComentarios('{{ artigo.slug }}');
+                        phpbr.getComentarios('{{ artigo.slug }}');
                     </script>
                 </div>
 
@@ -62,23 +40,21 @@
         </div>
 
         <div class="medium-4 large-4 columns">
+            {% if ircNicks|length > 1 %}
+                <div class="row sidebar-block">
+                    <div class="large-12 columns">
+                        <h5><strong>{{  (ircNicks|length - 1) }}</strong> usuários online no ##php-br</h5>
 
-        {% if ircNicks|length > 1 %}
-            <div class="row sidebar-block">
-                <div class="large-12 columns">
-                    <h5><strong>{{  (ircNicks|length - 1) }}</strong> usuários online no ##php-br</h5>
-
-                    <div id="irc-list-block">
-                        <ul class="inline-list">
-                            {% for ircNick in ircNicks %}
-                                <li><small>{{ ircNick }}</small></li>
-                            {% endfor %}
-                        </ul>
+                        <div id="irc-list-block">
+                            <ul class="inline-list">
+                                {% for ircNick in ircNicks %}
+                                    <li><small>{{ ircNick }}</small></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endif %}
-
+            {% endif %}
 
             <div class="row sidebar-block">
                 <div class="large-12 columns">
@@ -101,7 +77,6 @@
                 </div>
             </div>
 
-
             <div class="row sidebar-block">
                 <div class="large-12 columns">
                     <h5>Coles Recentes</h5>
@@ -123,7 +98,6 @@
                 </div>
             </div>
 
-
             <div class="row sidebar-block">
                 <div class="large-12 columns">
                     <div id="contributors" class="contributors">
@@ -138,8 +112,6 @@
                 </div>
             </div>
 
-
-
         </div>
     </div>
 
@@ -149,7 +121,7 @@
 
             {% for mensagem in forumMensagens %}
                 <div class="forumMensagem">
-                    <a href="{{ path('forum_ver_topico', {'id': mensagem.topico.id}) }}">
+                    <a href="{{ path('forum_ver_mensagem', {'slug_categoria': mensagem.topico.categoria.slug, 'slug': mensagem.topico.slug}) }}">
                         <b>{{ mensagem.topico.assunto }}</b>
                     </a>
                     - {{ mensagem.user.username }}
@@ -165,4 +137,3 @@
     </div>
 
 {% endblock %}
-

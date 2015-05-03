@@ -85,7 +85,6 @@
         {% endfor %}
     </div>
 
-
     <div class="row">
         <div class="large-12 columns">
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -101,3 +100,8 @@
     </div>
 {% endblock %}
 
+{% block javascripts %}
+    <script>
+        phpbr.highlight();
+    </script>
+{% endblock %}
