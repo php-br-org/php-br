@@ -13,7 +13,12 @@ use Phpbr\Bundle\AppBundle\Entity\Forum\Mensagem;
 
 class MensagemController extends Controller
 {
-
+    /**
+     * @param Topico $topico
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function verMensagemAction(Topico $topico, Request $request)
     {
         $mensagem = new Mensagem();
@@ -24,10 +29,6 @@ class MensagemController extends Controller
         $topico_id = $topico->getId();
 
         if ($form->isValid()) {
-            if ('anon.' == $usuario) {
-                return $this->redirect($this->generateUrl('fos_user_security_login'));
-            }
-
             $mensagem->setUser($usuario);
             $mensagem->setTopico($topico);
             $mensagem->setDataCriacao(new \DateTime());
@@ -60,6 +61,11 @@ class MensagemController extends Controller
         ));
     }
 
+    /**
+     * @param $topico_id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function novaMensagemAction($topico_id)
     {
         return $this->render('PhpbrAppBundle:Forum:novaMensagem.html.twig', array(
@@ -67,6 +73,11 @@ class MensagemController extends Controller
             ));
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deletarMensagemAction($id)
     {
         $usuario = $this->get('security.context')->getToken()->getUser();
@@ -109,12 +120,18 @@ class MensagemController extends Controller
             $this->generateUrl(
                 'forum_ver_mensagem',
                 array(
+                    'slug_categoria' => $topico->getCategoria()->getSlug(),
                     'slug' => $topico->getSlug()
                 )
             )
         );
     }
 
+    /**
+     * @param $categoria_id
+     *
+     * @return mixed
+     */
     public function topicos2ultimaMensagem($categoria_id)
     {
         $em = $this->getDoctrine()->getManager();

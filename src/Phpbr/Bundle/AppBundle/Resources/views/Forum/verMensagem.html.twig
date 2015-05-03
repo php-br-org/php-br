@@ -29,17 +29,16 @@
 
     <div class="row">
         <div class="large-2 columns">
-            <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
-                <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name|raw }}" class="th img-gravatar-inicial" />
-            </a>
             <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
-                {{ topico.user.name }}
+                <div class="sidebar-item-block">
+                    <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name }}" class="avatar" />
+                </div>
+                <div class="">
+                    {{ topico.user.name }}
+                </div>
             </a>
             <p>
-                <small>
-                    {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
-                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
-                </small>
+                {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
             </p>
         </div>
         <div class="large-10 columns">
@@ -59,17 +58,17 @@
         {% for mensagem in mensagens %}
             <div class="row">
                 <div class="large-2 columns">
-                    <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username} ) }}">
-                        <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name|raw }}" class="th img-gravatar-inicial" />
-                    </a>
-                    <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username}) }}">
-                        {{ mensagem.user.name }}
+
+                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': mensagem.user.username }) }}">
+                        <div class="sidebar-item-block">
+                            <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name }}" class="avatar" />
+                        </div>
+                        <div class="">
+                            {{ mensagem.user.name }}
+                        </div>
                     </a>
                     <p>
-                        <small>
-                            {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
-                            {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
-                        </small>
+                        {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </p>
                 </div>
                 <div class="large-10 columns">

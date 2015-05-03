@@ -10,10 +10,13 @@ use Phpbr\Bundle\AppBundle\Entity\Forum\Topico;
 use Phpbr\Bundle\AppBundle\Entity\Forum\Categoria;
 use Phpbr\Bundle\AppBundle\Form\Type\ForumTopicoFormType;
 
-
-
 class TopicoController extends Controller
 {
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function verAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +29,11 @@ class TopicoController extends Controller
         ));
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function verTopicoAction($id)
     {
         $session = new Session();
@@ -43,25 +51,11 @@ class TopicoController extends Controller
         ));
     }
 
-    public function verCategoriaAction($slug)
-    {
-        $session = new Session();
-        $em = $this->getDoctrine()->getManager();
-
-        $categoria = $em->getRepository('PhpbrAppBundle:Forum\Categoria')
-            ->findOneBy(array(
-                'slug' => $slug
-            ));
-
-        $topicos = $categoria->getTopicos();
-        $session->set('forumCategoria', $categoria->getId());
-
-        return $this->render('@PhpbrApp/Forum/ver.html.twig', array(
-            'categoria' => $categoria,
-            'topicos'   => $topicos
-        ));
-    }
-
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function novoAction(Request $request)
     {
         $topico = new Topico();
@@ -89,6 +83,7 @@ class TopicoController extends Controller
 
             return $this->redirect($this->generateUrl('forum_ver_mensagem',
                 array(
+                    'slug_categoria' => $categoria->getSlug(),
                     'slug' => $topico->getSlug()
                 )
             ));
@@ -100,7 +95,11 @@ class TopicoController extends Controller
         ));
     }
 
-
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function deletarAction($id)
     {
         return $this->render('PhpbrAppBundle:Forum:deletar.html.twig', array(
@@ -108,6 +107,11 @@ class TopicoController extends Controller
         ));    
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deletarTopicoAction($id)
     {
         $usuario = $this->get('security.context')->getToken()->getUser();

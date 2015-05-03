@@ -27,10 +27,10 @@
                         <th scope="column">
                             <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper }}</strong>
                         </th>
-                        <th scope="column" class="text-center">
+                        <th scope="column" class="text-center" width="80">
                             <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper }}</strong>
                         </th>
-                        <th scope="column" class="text-center">
+                        <th scope="column" class="text-center" width="220">
                             <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper }}</strong>
                         </th>
                     </tr>
@@ -39,12 +39,8 @@
                     {% for topico in topicos %}
                         <tr>
                             <td>
-                                {{ topico.dataCriacao|date('d/m/Y H:i') }},
-                                <small>
-                                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
-                                </small>
                                 <p>
-                                    <a href="{{ url('forum_ver_mensagem', {'slug': topico.slug}) }}">
+                                    <a href="{{ url('forum_ver_mensagem', {'slug_categoria': topico.categoria.slug, 'slug': topico.slug}) }}">
                                         {{ topico.assunto }}
                                     </a>
                                 </p>
@@ -52,11 +48,16 @@
                             <td class="text-center">
                                 <strong>{{ (topico.id|topico2quantidade_mensagens) + 1 }}</strong>
                             </td>
-                            <td class="text-center">
+                            <td>
                                 <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
                                     <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="avatar" />
-                                {{ topico.user.name }}
+                                    &nbsp;
+                                    {{ topico.user.name }}
                                 </a>
+
+                                <br>
+                                &nbsp;
+                                {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                             </td>
                         </tr>
                     {% endfor %}

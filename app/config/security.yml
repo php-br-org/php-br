@@ -52,5 +52,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/artigos/novo, role: ROLE_USER }
         - { path: ^/forum/novo, role: ROLE_USER }
+        - { path: ^/forum/[^/]+/novaMensagem, role: ROLE_USER, methods: [POST] }
+        - { path: ^/forum/mensagem/[^/]+, role: ROLE_USER, methods: [POST] }
         - { path: ^/painel/, role: ROLE_ADMIN }
 

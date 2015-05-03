@@ -5,7 +5,7 @@ forum_index:
 
 forum_ver_categoria:
     path:     /categoria/{slug}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verCategoria" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Categoria:verCategoria" }
     host:     %website%
 
 forum_ver_topico:
@@ -14,7 +14,7 @@ forum_ver_topico:
     host:     %website%
 
 forum_ver_mensagem:
-    path:     /mensagem/{slug}
+    path:     /{slug_categoria}/{slug}
     defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:verMensagem" }
     host:     %website%
 
