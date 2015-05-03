@@ -75,10 +75,6 @@ class TopicoController extends Controller
 
         $usuario = $this->get('security.context')->getToken()->getUser();
 
-        if ('anon.' == $usuario) {
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
-        }
-
         $form = $this->createForm(new ForumTopicoFormType(), $topico, array());
         $form->handleRequest($request);
 
@@ -91,9 +87,9 @@ class TopicoController extends Controller
             $em->persist($topico);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('forum_ver_topico',
+            return $this->redirect($this->generateUrl('forum_ver_mensagem',
                 array(
-                    'id' => $categoriaId
+                    'slug' => $topico->getSlug()
                 )
             ));
         }

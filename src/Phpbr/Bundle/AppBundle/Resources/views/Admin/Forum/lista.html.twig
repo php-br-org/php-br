@@ -3,30 +3,29 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
+            <div class="row">
+                <div class="large-9 columns">
+                    <h3><a href="{{ url('forum_index') }}">Forum</a></h3>
+                </div>
 
-    <div class="row">
-        <div class="large-9 columns">
-            <h3><a href="{{ url('forum_index') }}">Forum</a></h3>
-        </div>
+                <div class="large-3 columns">
+                    <a href="{{ url('admin_forum_nova_categoria') }}" class="button secondary right">
+                        {{ 'phpbr.forum.new_category'|trans({}, 'forum') }}
+                    </a>
+                </div>
 
-        <div class="large-3 columns">
-            <a href="{{ url('admin_forum_nova_categoria') }}" class="button secondary right">
-                {{ 'phpbr.forum.new_category'|trans({}, 'forum') }}
-            </a>
-        </div>
-        <hr />
+                <hr />
 
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div class="row">
-                    <div class="large-12 columns">
-                        <div data-alert class="alert-box info">
-                            {{ flashMessage }}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div data-alert class="alert-box info">
+                                {{ flashMessage }}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-    </div>
-
+                {% endfor %}
+            </div>
 
             {% if categorias|length %}
                     <table width="100%">

@@ -15,6 +15,7 @@ class ForumMensagemFormType extends AbstractType
                 'textarea', 
                 array(
                     'attr' => array(
+                        'class' => 'meltdown-editor',
                         'rows' => 15
                     ), 
                     'required' => true

@@ -17,7 +17,9 @@
                 {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}
             </a>
         </div>
+
         <hr />
+
         {% for flashMessage in app.session.flashbag.get('notice') %}
             <div class="flash-notice panel callout radius">
                 {{ flashMessage }}
@@ -25,64 +27,64 @@
         {% endfor %}
     </div>
 
-        <div class="row">
-            <div class="large-2 columns">
-                <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
-                    <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name|raw }}" class="th img-gravatar-inicial" />
-                </a>
-                <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
-                    {{ topico.user.name }}
-                </a>
-                <p>
-                    <small>
-                        {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
-                        {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
-                    </small>
-                </p>
-            </div>
-            <div class="large-10 columns">
-                {% if (topico.user == usuario) %}
-                    <a href="{{ path('forum_deletar_topico', {'id': topico.id}) }}" class="tiny button">
-                        {{ 'phpbr.forum.delete_topic'|trans({}, 'forum') }}
-                    </a>
-                    <br />
-                {% endif %}
-                <strong>{{ topico.assunto }}</strong>
-                <p>
-                    {{ topico.mensagem }}
-                </p>
-            </div>
-            <hr />
-
-            {% for mensagem in mensagens %}
-                <div class="row">
-                    <div class="large-2 columns">
-                        <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username} ) }}">
-                            <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name|raw }}" class="th img-gravatar-inicial" />
-                        </a>
-                        <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username}) }}">
-                            {{ mensagem.user.name }}
-                        </a>
-                        <p>
-                            <small>
-                                {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
-                                {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
-                            </small>
-                        </p>
-                    </div>
-                    <div class="large-10 columns">
-                        {% if (mensagem.user == usuario) %}
-                            <a href="{{ path('forum_deletar_mensagem', {'id': mensagem.id}) }}" class="tiny button">
-                                {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
-                            </a>
-                            <br />
-                        {% endif %}
-                        {{ mensagem.mensagem }}
-                    </div>
-                    <hr />
-                </div>
-            {% endfor %}
+    <div class="row">
+        <div class="large-2 columns">
+            <a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
+                <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name|raw }}" class="th img-gravatar-inicial" />
+            </a>
+            <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
+                {{ topico.user.name }}
+            </a>
+            <p>
+                <small>
+                    {{ topico.dataCriacao|date('d/m/Y H:i') }} <br />
+                    {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                </small>
+            </p>
         </div>
+        <div class="large-10 columns">
+            {% if (topico.user == usuario) %}
+                <a href="{{ path('forum_deletar_topico', {'id': topico.id}) }}" class="tiny button">
+                    {{ 'phpbr.forum.delete_topic'|trans({}, 'forum') }}
+                </a>
+                <br />
+            {% endif %}
+            <strong>{{ topico.assunto }}</strong>
+            <p>
+                {{ topico.mensagem|markdown }}
+            </p>
+        </div>
+        <hr />
+
+        {% for mensagem in mensagens %}
+            <div class="row">
+                <div class="large-2 columns">
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username} ) }}">
+                        <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name|raw }}" class="th img-gravatar-inicial" />
+                    </a>
+                    <a href="{{ path('phpbr_app_verusuario', {'usuario': mensagem.user.username}) }}">
+                        {{ mensagem.user.name }}
+                    </a>
+                    <p>
+                        <small>
+                            {{ mensagem.dataCriacao|date('d/m/Y H:i') }} <br />
+                            {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                        </small>
+                    </p>
+                </div>
+                <div class="large-10 columns">
+                    {% if (mensagem.user == usuario) %}
+                        <a href="{{ path('forum_deletar_mensagem', {'id': mensagem.id}) }}" class="tiny button">
+                            {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
+                        </a>
+                        <br />
+                    {% endif %}
+                    {{ mensagem.mensagem|markdown }}
+                </div>
+                <hr />
+            </div>
+        {% endfor %}
+    </div>
 
 
     <div class="row">
