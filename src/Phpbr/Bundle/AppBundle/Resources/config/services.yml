@@ -9,6 +9,7 @@ parameters:
     forum_conta_mensagens.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\ForumContaMensagensExtension
     phpbr.coleservice.em.class: Phpbr\Bundle\AppBundle\Services\ColeService
     phpbr.artigoservice.em.class: Phpbr\Bundle\AppBundle\Services\ArtigoService
+    phpbr.defaultservice.em.class: Phpbr\Bundle\AppBundle\Services\DefaultService
 
 services:
     my_user_provider:
@@ -98,4 +99,9 @@ services:
             class: "%phpbr.artigoservice.em.class%"
             arguments:
                 entityManager: "@doctrine.orm.entity_manager"
+
+    phpbr_default_service_em:
+                class: "%phpbr.defaultservice.em.class%"
+                arguments:
+                    entityManager: "@doctrine.orm.entity_manager"
 

@@ -2,6 +2,7 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller;
 
+use Phpbr\Bundle\AppBundle\Services\DefaultService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -20,14 +21,12 @@ class DefaultController extends Controller
             $params = array();
 
             if ($page == 'inicial') {
-                $em = $this->getDoctrine()->getManager();
-
-                $artigoRepo = $em->getRepository('PhpbrAppBundle:Artigo');
+                $artigoRepo = $this->getDefaultService()->repository();
                 $artigos = $artigoRepo->listaArtigosRecentes(10);
 
-                $usuarios = $em->getRepository('PhpbrAppBundle:User')->listaUltimosUsuarios(5);
-                $coles = $em->getRepository('PhpbrAppBundle:Cole')->listaColes(5);
-                $forumMensagens = $em->getRepository('PhpbrAppBundle:Forum\Mensagem')->listaRecentes();
+                $usuarios = $this->getDefaultService()->listaUltimosUsuarios(5);
+                $coles = $this->getDefaultService()->listaColes(5);
+                $forumMensagens = $this->getDefaultService()->forumMensagens();
 
                 $ircNicks = $this->pegaIrcNicks();
 
@@ -49,12 +48,8 @@ class DefaultController extends Controller
      *
      */
     public function verUsuarioAction($usuario) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('PhpbrAppBundle:User')->findOneBy(
-            array(
-                'username' => $usuario
-            )
-        );
+
+        $entity = $this->getDefaultService()->findOneByUser($usuario);
 
         return $this->render("PhpbrAppBundle:Default:usuario.html.twig",
             array(
@@ -64,12 +59,10 @@ class DefaultController extends Controller
     }
 
 
-    public function pegaIrcNicks(){
+    private function pegaIrcNicks(){
         $ircNicks = array();
 
-        $em = $this->getDoctrine()->getManager();
-        $nicks = $em->getRepository('PhpbrAppBundle:Irc')
-            ->find(1);
+        $nicks = $this->getDefaultService()->ircNick(1);
 
         if ($nicks) {
             preg_match_all("/\\\"(.*?)\\\"/i", $nicks->getNicks(), $matches);
@@ -81,6 +74,16 @@ class DefaultController extends Controller
 
         return $ircNicks;
 
+    }
+
+    /**
+     * Get Default Service
+     *
+     * @return DefaultService
+     */
+    private function getDefaultService()
+    {
+        return $this->get('phpbr_default_service_em');
     }
 }
 
