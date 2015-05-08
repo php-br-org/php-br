@@ -1,0 +1,11 @@
+phpbr_evento_view_all:
+    path:     /eventos
+    defaults: { _controller: "PhpbrAppBundle:Event:viewAll" }
+    host:     %website%
+
+phpbr_evento_view:
+    path:     /evento/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Event:view" }
+    host:     %website%
+
+

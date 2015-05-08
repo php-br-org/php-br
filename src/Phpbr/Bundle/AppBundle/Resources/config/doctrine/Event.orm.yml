@@ -1,0 +1,44 @@
+Phpbr\Bundle\AppBundle\Entity\Event:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        location:
+            type: string
+            length: 255
+        day:
+            type: datetime
+        createdAt:
+            type: datetime
+            column: created_at
+        approvedAt:
+            type: datetime
+            column: approved_at
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - title
+    manyToOne:
+        user:
+            targetEntity: Phpbr\Bundle\AppBundle\Entity\User
+            inversedBy: events
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }
