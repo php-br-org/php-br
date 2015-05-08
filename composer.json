@@ -19,7 +19,7 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "sensio/generator-bundle": "~2.5",
+        "sensio/generator-bundle": "^2.5",
         "leafo/lessphp": "*",
         "misd/guzzle-bundle": "~1.0",
         "besimple/i18n-routing-bundle": "2.2",
