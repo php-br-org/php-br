@@ -2,6 +2,7 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller;
 
+use Phpbr\Bundle\AppBundle\Services\ArtigoApiService;
 use Symfony\Component\HttpFoundation\Response;
 use Phpbr\Bundle\AppBundle\Entity\Artigo;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -21,15 +22,7 @@ class ArtigoApiController extends FOSRestController
      */
     public function getArtigoAction($id)
     {
-        $repository = $this->getDoctrine()
-            ->getRepository('PhpbrAppBundle:Artigo');
-
-        $query = $repository->createQueryBuilder('Artigo')
-            ->where('Artigo.id = :id')
-            ->andWhere('Artigo.aprovado = :aprovado')
-            ->setParameter('id', $id)
-            ->setParameter('aprovado', true)
-            ->getQuery();
+        $query = $this->getArtigoApiService()->getQueryBuilder($id);
 
         $artigo = $query->getOneOrNullResult();
 
@@ -111,6 +104,16 @@ class ArtigoApiController extends FOSRestController
 
         return $response->send();
 
+    }
+
+    /**
+     * Get Artigo Api Service
+     *
+     * @return ArtigoApiService
+     */
+    private function getArtigoApiService()
+    {
+        return $this->get('phpbr_artigo_api_service_em');
     }
 }
 
