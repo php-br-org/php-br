@@ -10,6 +10,8 @@ parameters:
     phpbr.coleservice.em.class: Phpbr\Bundle\AppBundle\Services\ColeService
     phpbr.artigoservice.em.class: Phpbr\Bundle\AppBundle\Services\ArtigoService
     phpbr.defaultservice.em.class: Phpbr\Bundle\AppBundle\Services\DefaultService
+    phpbr.eventservice.em.class: Phpbr\Bundle\AppBundle\Services\EventService
+
 
 services:
     my_user_provider:
@@ -105,3 +107,7 @@ services:
                 arguments:
                     entityManager: "@doctrine.orm.entity_manager"
 
+    phpbr_event_service_em:
+                class: "%phpbr.eventservice.em.class%"
+                arguments:
+                    entityManager: "@doctrine.orm.entity_manager"

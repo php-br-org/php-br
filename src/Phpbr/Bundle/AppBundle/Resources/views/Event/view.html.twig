@@ -1,19 +1,32 @@
 {% extends "::layout.html.twig" %}
 
 {% block title %}
-    Evento
+    {{ 'phpbr.event.events'|trans({}, 'event') }}
 {% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-
+            <div class="large-9 columns">
+                <h3>
+                    <a href="{{ url('phpbr_event_view_all') }}">
+                        {{ 'phpbr.event.events'|trans({}, 'event') }}
+                    </a>
+                    |
+                        {{ entity.title }}
+                </h3>
+            </div>
+            <div class="large-3 columns text-right">
+                <a href="{{ url('phpbr_new_event') }}" class="button success">
+                    {{ 'phpbr.event.new_event'|trans({}, 'event') }}
+                </a>
+            </div>
+            <hr>
+            <div class="large-12 columns">
+                <h4>{{ entity.title }} <small>{{ entity.day|date('d/m/Y') }}</small></h4>
+                {{ entity.location }}
+                {{ entity.description }}
+            </div>
         </div>
     </div>
-{% endblock %}
-
-{% block javascripts %}
-    <script>
-        phpbr.highlight();
-    </script>
 {% endblock %}

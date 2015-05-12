@@ -231,7 +231,7 @@ class Event
      * Set user
      *
      * @param \Phpbr\Bundle\AppBundle\Entity\User $user
-     * @return Topico
+     * @return Event
      */
     public function setUser(\Phpbr\Bundle\AppBundle\Entity\User $user = null)
     {

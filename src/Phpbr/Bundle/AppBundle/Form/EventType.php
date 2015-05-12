@@ -15,10 +15,25 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('description')
-            ->add('location')
-            ->add('day')
+            ->add('title', 'text', [
+                'label' => 'Nome do Evento'
+            ])
+            ->add('description', 'textarea', [
+                'label' => 'Descrição',
+                'attr' => [
+                    'rows' => '15'
+                ]
+            ])
+            ->add('location', 'text', ['label' => 'Localização'])
+            ->add('day', 'text', [
+                'label' => 'Dia',
+                'attr' => [
+                    'class' => 'large-2 columns'
+                ]
+            ])
+            ->add('save', 'submit', [
+                'label' => 'Salvar'
+            ])
         ;
     }
     
@@ -27,9 +42,9 @@ class EventType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Phpbr\Bundle\AppBundle\Entity\Event'
-        ));
+        ]);
     }
 
     /**

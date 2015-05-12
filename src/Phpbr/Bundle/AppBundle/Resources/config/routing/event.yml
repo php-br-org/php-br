@@ -1,0 +1,25 @@
+phpbr_event_view_all:
+    path:     /eventos
+    defaults: { _controller: "PhpbrAppBundle:Event:viewAll" }
+    host:     %website%
+
+phpbr_new_event:
+    path:     /evento/novo
+    defaults: { _controller: "PhpbrAppBundle:Event:new" }
+    host:     %website%
+
+phpbr_event_view:
+    path:     /evento/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Event:view" }
+    host:     %website%
+
+phpbr_list_my_events:
+    path:     /
+    defaults: { _controller: "PhpbrAppBundle:Event:listMyEvents" }
+    host:     %website%
+
+
+
+
+
+

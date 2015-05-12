@@ -23,6 +23,7 @@ security:
                 csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
+                use_referer: true
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"

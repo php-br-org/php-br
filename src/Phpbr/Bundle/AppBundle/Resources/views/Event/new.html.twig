@@ -1,0 +1,59 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-9 columns">
+            <h3>
+                <a href="{{ url('phpbr_list_my_events') }}">
+                    {{ 'phpbr.event.my_events'|trans({}, 'event') }}
+                </a>
+                |
+                {{ 'phpbr.event.new_event'|trans({}, 'event') }}
+            </h3>
+
+            {{ form_start(form) }}
+            <div>
+                {{ form_label(form.title) }}
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title) }}
+            </div>
+
+            <div>
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description) }}
+            </div>
+
+            <div>
+                {{ form_label(form.location) }}
+                {{ form_errors(form.location) }}
+                {{ form_widget(form.location) }}
+            </div>
+
+            <div class="row">
+                <div class="large-2 columns">
+                    {{ form_label(form.day) }}
+                    {{ form_errors(form.day) }}
+                    {{ form_widget(form.day) }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="large-3 columns">
+            <h5>
+                {{ 'phpbr.event.next_events'|trans({}, 'event') }}
+            </h5>
+            <hr>
+            {% for event in entities|slice(0, 5) %}
+                <a href="{{ path('phpbr_event_view', {'slug': event.slug}) }}">
+                    <strong>{{ event.title }}</strong><br />
+                    <small>{{ event.day|date('d/m/Y') }}</small>
+                </a>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

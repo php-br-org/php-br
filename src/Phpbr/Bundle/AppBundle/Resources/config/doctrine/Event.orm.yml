@@ -24,6 +24,7 @@ Phpbr\Bundle\AppBundle\Entity\Event:
         approvedAt:
             type: datetime
             column: approved_at
+            nullable: true
         slug:
             type: string
             length: 255

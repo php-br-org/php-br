@@ -28,4 +28,4 @@ phpbr_api:
     prefix: /api
 
 phpbr_evento:
-    resource: "@PhpbrAppBundle/Resources/config/routing/evento.yml"
+    resource: "@PhpbrAppBundle/Resources/config/routing/event.yml"

@@ -1,14 +1,37 @@
 {% extends "::layout.html.twig" %}
 
 {% block title %}
-    Eventos
+    {{ 'phpbr.event.events'|trans({}, 'event') }}
 {% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h3>Eventos Pelo Brasil</h3>
+            <div class="large-9 columns">
+                <h3>{{ 'phpbr.event.events'|trans({}, 'event') }}</h3>
+            </div>
+            <div class="large-3 columns text-right">
+                <a href="{{ url('phpbr_new_event') }}" class="button success">
+                    {{ 'phpbr.event.new_event'|trans({}, 'event') }}
+                </a>
+            </div>
             <hr>
+            <div class="large-12 columns">
+                {% for entity in entities %}
+                <div class="large-9 columns">
+                        <a href="{{ url('phpbr_event_view', { 'slug': entity.slug }) }}">{{ entity.title }}</a>
+                        <small>{{ entity.day|date('d/m/Y') }}</small>
+                    </h4>
+                    {{ entity.location }}
+                </div>
+                <div class="large-3 columns text-right">
+                    <a href="{{ url('phpbr_event_view', { slug: entity.slug }) }}" class="button tiny">
+                            {{ 'phpbr.event.details'|trans({}, 'event') }}
+                    </a>
+                </div>
+                    <hr>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

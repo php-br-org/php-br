@@ -1,0 +1,37 @@
+{
+  "name": "foundation-datepicker",
+  "version": "1.3.0",
+  "homepage": "https://github.com/najlepsiwebdesigner/foundation-datepicker",
+  "authors": [
+    "Peter Beňo <najlepsiwebdesigner@gmail.com>"
+  ],
+  "description": "Foundation datepicker jQuery plugin",
+  "main": [
+    "js/foundation-datepicker.js",
+    "stylesheets/foundation-datepicker.css"
+  ],
+  "keywords": [
+    "foundation",
+    "datepicker",
+    "jquery",
+    "less"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.3.0",
+    "commit": "e8f09ff24d4525c435b05190577908b8d693bf28"
+  },
+  "_source": "git://github.com/najlepsiwebdesigner/foundation-datepicker.git",
+  "_target": "~1.3.0",
+  "_originalSource": "foundation-datepicker",
+  "_direct": true
+}

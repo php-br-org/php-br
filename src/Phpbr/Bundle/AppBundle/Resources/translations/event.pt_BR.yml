@@ -1,0 +1,11 @@
+phpbr:
+    event:
+        my_events: 'Meus Eventos'
+        new_event: 'Novo Evento'
+        save: 'Salvar'
+        event: 'Evento'
+        events: 'Eventos'
+        details: 'Mais detalhes'
+        next_events: 'Próximos Eventos'
+        event_name: 'Nome do Evento'
+

@@ -30,11 +30,17 @@ var phpbr = phpbr || {
                 }
             });
 
+            $('#phpbr_bundle_appbundle_event_day').fdatepicker({
+                language: 'pt_br',
+                format: 'dd/mm/yyyy'
+            });
+
             $(".lined").linedtextarea(
                 {selectedLine: 1}
             );
 
             phpbr.tabbedTextarea();
+
         });
     },
 

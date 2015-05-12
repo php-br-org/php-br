@@ -40,6 +40,9 @@
                                     <a href="{{ url('lista_meus_artigos') }}">Meus Artigos</a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('phpbr_list_my_events') }}">Meus Eventos</a>
+                                </li>
+                                <li>
                                     <a href="{{ url('fos_user_profile_edit') }}">Editar Perfil</a>
                                 </li>
                             </ul>
@@ -80,6 +83,8 @@
                     <li><a href="{{ url('phpbr_app_webchat') }}">Webchat</a></li>
                     <li><a href="{{ url('cole') }}">Cole Códigos</a></li>
                     <li><a href="{{ url('forum_index') }}">Forum</a></li>
+                    <li><a href="{{ url('phpbr_event_view_all') }}">{{ 'phpbr.event.events'|trans({}, 'event') }}</a></li>
+                    <li><a href="{{ url('nelmio_api_doc_index') }}">API</a></li>
                     <li><a href="{{ url('phpbr_app_contato') }}">Contato</a></li>
                 </ul>
             </section>
