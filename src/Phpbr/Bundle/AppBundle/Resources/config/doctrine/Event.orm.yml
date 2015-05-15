@@ -17,7 +17,7 @@ Phpbr\Bundle\AppBundle\Entity\Event:
             type: string
             length: 255
         day:
-            type: datetime
+            type: date
         createdAt:
             type: datetime
             column: created_at

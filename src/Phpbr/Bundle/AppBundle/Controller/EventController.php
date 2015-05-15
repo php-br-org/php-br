@@ -35,13 +35,24 @@ class EventController extends Controller
 
         if ($form->isValid()) {
             $event->setUser($user);
+
+            $data = $request->request->all();
+            $day = $data['phpbr_bundle_appbundle_event']['day'];
+
+            $date = new \DateTime(\DateTime::createFromFormat('d/m/Y', $day)->format('Y-m-d'));
+
+            if($date === false) {
+                throw new \Exception('Invalid Date');
+            }
+
+            $event->setDay($date);
             $event->setCreatedAt(new \DateTime());
 
             $this->getEventService()->insert($event);
 
             return $this->redirect(
                 $this->generateUrl(
-                    'phpbr_list_my_events', [
+                    'phpbr_event_view', [
                         'slug' => $event->getSlug()
                     ]
                 )

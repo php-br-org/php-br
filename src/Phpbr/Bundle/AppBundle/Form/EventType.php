@@ -26,10 +26,7 @@ class EventType extends AbstractType
             ])
             ->add('location', 'text', ['label' => 'Localização'])
             ->add('day', 'text', [
-                'label' => 'Dia',
-                'attr' => [
-                    'class' => 'large-2 columns'
-                ]
+                'label' => 'Dia'
             ])
             ->add('save', 'submit', [
                 'label' => 'Salvar'
