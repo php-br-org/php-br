@@ -8,18 +8,28 @@ phpbr_new_event:
     defaults: { _controller: "PhpbrAppBundle:Event:new" }
     host:     %website%
 
+phpbr_event_my_events:
+    path:     /eventos/meus-eventos
+    defaults: { _controller: "PhpbrAppBundle:Event:myEvents" }
+    host:     %website%
+
+phpbr_list_my_events:
+    path:     /evento/meus-eventos
+    defaults: { _controller: "PhpbrAppBundle:Event:listMyEvents" }
+    host:     %website%
+
+phpbr_event_delete:
+    path:     /evento/delete/{id}
+    defaults: { _controller: "PhpbrAppBundle:Event:delete" }
+    host:     %website%
+
+phpbr_event_edit:
+    path:     /evento/edit/{id}
+    defaults: { _controller: "PhpbrAppBundle:Event:edit" }
+    host:     %website%
+
 phpbr_event_view:
     path:     /evento/{slug}
     defaults: { _controller: "PhpbrAppBundle:Event:view" }
     host:     %website%
-
-phpbr_list_my_events:
-    path:     /
-    defaults: { _controller: "PhpbrAppBundle:Event:listMyEvents" }
-    host:     %website%
-
-
-
-
-
 

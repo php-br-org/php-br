@@ -7,8 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Phpbr\Bundle\AppBundle\Entity\Event;
 use Phpbr\Bundle\AppBundle\Form\EventType;
-use Phpbr\Bundle\AppBundle\Services\EventService;
 use Pagerfanta\Pagerfanta;
+use Phpbr\Bundle\AppBundle\Services\EventService;
 
 
 /**
@@ -90,21 +90,21 @@ class EventController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listMyEventsAction(Request $request) {
-        $eventRepo = $this->getEventService()->repository();
         $user = $this->get('security.context')->getToken()->getUser();
-        $eventAdapter = $eventRepo->listUsersEvent($user);
+        $em = $this->getDoctrine()->getManager();
 
-        $events = new Pagerfanta($eventAdapter);
-        $events->setMaxPerPage($this->container->getParameter('events_per_page'));
+        $entities = $em->getRepository('PhpbrAppBundle:Event')->findBy(
+            [ 'user' => $user ]
+        );
 
-        $pagina = $request->get('pagina', 1);
-        $events->setCurrentPage($pagina);
+        if (!$entities){
+            throw $this->createNotFoundException('No events for this user');
+        }
 
-        return $this->render('PhpbrAppBundle:Event:list-my-events.html.twig', compact('events'));
+        return $this->render('PhpbrAppBundle:Event:view-my-events.html.twig', array(
+            'entities' => $entities,
+        ));
     }
-
-
-
 
 
     /**
@@ -127,6 +127,45 @@ class EventController extends Controller
 
     public function listMyEvents()
     {
+
+    }
+
+    public function deleteAction($id){
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        if (gettype($user) != 'object') {
+            return $this->redirect('/eventos');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('PhpbrAppBundle:Event')->findOneBy(
+            array(
+                'id' => $id,
+                'user' => $user
+            )
+        );
+
+        if (!$entity) {
+            return $this->redirect($this->generateUrl('phpbr_list_my_events',
+                array(
+                    'erro' => 'Erro ao tentar deletar este evento. Ou ele não existe, ou você não tem permissão para excluí-lo'
+                )
+            ));
+        }
+
+        $em->remove($entity);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'Evento excluído com sucesso!'
+        );
+
+        return $this->redirect($this->generateUrl('phpbr_list_my_events'));
+    }
+
+    public function editAction($id){
 
     }
 

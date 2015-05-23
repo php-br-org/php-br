@@ -56,23 +56,6 @@ class EventRepository extends EntityRepository
     }
 
     /**
-     * @param $usuario
-     *
-     * @return DoctrineORMAdapter
-     */
-    public function listUsersEvents($user) {
-
-        $query = $this->createQueryBuilder('Event')
-            ->where('Event.user = :user')
-            ->orderBy('Event.created_at', 'DESC')
-            ->setParameter('user', $user);
-
-        $pagerfantaAdapter = new DoctrineORMAdapter($query);
-
-        return $pagerfantaAdapter;
-    }
-
-    /**
      * List all events
      * @return array
      */
