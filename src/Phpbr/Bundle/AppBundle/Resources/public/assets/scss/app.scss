@@ -28,10 +28,29 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 }
 
 .sidebar-item-block {
-    margin-top: rem-calc(2) !important;
-    background-color: #fff;
+//    margin-top: rem-calc(1) !important;
+    // background-color: #ececec;
     border-bottom: 2px solid #F9F9F9;
-    padding: 10px 0;
+    padding: 2px;
+}
+
+.user-box {
+    padding-left: 5px;
+}
+
+.user-title-box {
+    background-color: #4F5B93;
+    // border-bottom: 2px solid #ccc;
+    padding-left: 10px;
+  padding-bottom: 1px;
+  color: #FFFFFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.user-title-box h5 small {
+  color: #FFFFFF;
 }
 
 .rodape {
@@ -85,6 +104,19 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 //    box-shadow: $avatar-shadow;
 }
 
+.avatar2 {
+  float: left;
+  position: relative;
+
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  border-radius: 20%;
+  //
+  //    -webkit-box-shadow: $avatar-shadow;
+  //    -moz-box-shadow: $avatar-shadow;
+  //    box-shadow: $avatar-shadow;
+}
+
 .sidebar-block {
     margin-top: 40px !important;
 }
@@ -94,7 +126,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 
 #latest-forum {
     background-color: $cor-fundo;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
 }
 

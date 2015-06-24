@@ -5,7 +5,7 @@
 
     </script>
     <div class="row">
-        <div class="medium-8 large-8 columns">
+        <div class="medium-9 large-9 columns">
             {% for artigo in artigos|slice(0, 6) %}
             <div>
                 <h4>
@@ -39,12 +39,16 @@
             {% endfor %}
         </div>
 
-        <div class="medium-4 large-4 columns">
+        <div class="medium-3 large-3 columns">
             {% if ircNicks|length > 1 %}
                 <div class="row sidebar-block">
                     <div class="large-12 columns">
-                        <h5><strong>{{  (ircNicks|length - 1) }}</strong> usuários online no ##php-br</h5>
-
+                        <div class="user-title-box"><h5><small>AGORA NO ##php-br</small></h5></div>
+                        <h5>
+                            <small>
+                                <strong>{{  (ircNicks|length - 1) }}</strong> usuários online
+                            </small>
+                        </h5>
                         <div id="irc-list-block">
                             <ul class="inline-list">
                                 {% for ircNick in ircNicks %}
@@ -58,17 +62,16 @@
 
             <div class="row sidebar-block">
                 <div class="large-12 columns">
-                    <h5>Últimos Cadastrados</h5>
-
                     <div id="users-block">
-                    {% for usuario in usuarios %}
+                        <div class="user-title-box"><h5><small>ÚLTIMOS CADASTROS</small></h5></div>
+                        {% for usuario in usuarios %}
                         <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
                             <div class="row sidebar-item-block collapse">
                                 <div class="large-2 columns">
-                                    <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar" />
+                                    <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar2" />
                                 </div>
                                 <div class="large-10 columns">
-                                    {{ usuario.name }}
+                                    <div class="user-box"><h5> <small> {{ usuario.username|lower }} </small> </h5></div>
                                 </div>
                             </div>
                         </a>
@@ -79,9 +82,8 @@
 
             <div class="row sidebar-block">
                 <div class="large-12 columns">
-                    <h5>Coles Recentes</h5>
-
                     <div id="coles-block">
+                        <div class="user-title-box"><h5><small>COLE CÓDIGOS</small></h5></div>
                         {% for cole in coles %}
                             <a href="{{ url('cole_ver', {'id': cole.id}) }}">
                                 <div class="row sidebar-item-block collapse">
@@ -89,7 +91,7 @@
                                         <span class="label">{{ cole.tipo }}</span>
                                     </div>
                                     <div class="large-10 columns">
-                                        {{ cole.titulo }}
+                                        <h5><small>{{ cole.titulo|upper }}</small></h5>
                                     </div>
                                 </div>
                             </a>
@@ -100,10 +102,9 @@
 
             <div class="row sidebar-block">
                 <div class="large-12 columns">
+                    <div class="user-title-box"><h5><small>COLABORADORES</small></h5></div>
                     <div id="contributors" class="contributors">
                     <h5>
-                    Desenvolvedores
-                        <br />
                         <small>
                             <a href="https://github.com/php-br-org/php-br" target="_blank">Colabore você também!</a>
                         </small>
@@ -135,5 +136,4 @@
             {% block fos_user_content %}{% endblock %}
         </div>
     </div>
-
 {% endblock %}
