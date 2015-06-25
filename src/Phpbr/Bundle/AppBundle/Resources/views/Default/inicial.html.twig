@@ -1,10 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
-    <script>
-
-    </script>
-    <div class="row">
+    <div class="row main-div-background">
         <div class="medium-9 large-9 columns">
             {% for artigo in artigos|slice(0, 6) %}
             <div>
@@ -14,7 +11,7 @@
                     </a>
                 </h4>
                 <div style="width:80px; float:left;">
-                    <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar" />
+                    <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar2" />
                 </div>
 
                 <div>
@@ -37,6 +34,21 @@
                 <hr>
             </div>
             {% endfor %}
+
+            <div class="row">
+                <div class="medium-9 large-9 columns">
+                <h4>Últimas do Forum</h4>
+
+                {% for mensagem in forumMensagens %}
+                    <div class="forumMensagem">
+                        <a href="{{ path('forum_ver_mensagem', {'slug_categoria': mensagem.topico.categoria.slug, 'slug': mensagem.topico.slug}) }}">
+                            <b>{{ mensagem.topico.assunto }}</b>
+                        </a>
+                        - {{ mensagem.user.username }}
+                    </div>
+                {% endfor %}
+                    </div>
+            </div>
         </div>
 
         <div class="medium-3 large-3 columns">
@@ -63,18 +75,18 @@
             <div class="row sidebar-block">
                 <div class="large-12 columns">
                     <div id="users-block">
-                        <div class="user-title-box"><h5><small>ÚLTIMOS CADASTROS</small></h5></div>
+                        <div class="user-title-box" id="ultimos-cadastros"><h5><small>ÚLTIMOS CADASTROS</small></h5></div>
                         {% for usuario in usuarios %}
-                        <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
-                            <div class="row sidebar-item-block collapse">
+                        <div class="row sidebar-item-block collapse">
+                            <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
                                 <div class="large-2 columns">
                                     <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar2" />
                                 </div>
                                 <div class="large-10 columns">
                                     <div class="user-box"><h5> <small> {{ usuario.username|lower }} </small> </h5></div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     {% endfor %}
                     </div>
                 </div>
@@ -112,28 +124,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-
-    <div id="latest-forum" class="row">
-        <div class="large-12 columns">
-            <h4>Últimas do Forum</h4>
-
-            {% for mensagem in forumMensagens %}
-                <div class="forumMensagem">
-                    <a href="{{ path('forum_ver_mensagem', {'slug_categoria': mensagem.topico.categoria.slug, 'slug': mensagem.topico.slug}) }}">
-                        <b>{{ mensagem.topico.assunto }}</b>
-                    </a>
-                    - {{ mensagem.user.username }}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="large-12 columns">
-            {% block fos_user_content %}{% endblock %}
         </div>
     </div>
 {% endblock %}

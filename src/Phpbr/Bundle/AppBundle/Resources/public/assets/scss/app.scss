@@ -12,11 +12,13 @@ $cor-fundo: #f9f9f9;
 $cor-borda: #757FAE;
 $cor-fonte-top: #333;
 $cor-fonte-top-link: #999;
+$cor-fundo-header: #4F5B93;
+$branco: #FFFFFF;
 
 $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 
 #main-header {
-    margin-bottom: rem-calc(40);
+//    margin-bottom: rem-calc(40);
 }
 #main-header .panel {
     margin-bottom: 0;
@@ -28,8 +30,6 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 }
 
 .sidebar-item-block {
-//    margin-top: rem-calc(1) !important;
-    // background-color: #ececec;
     border-bottom: 2px solid #F9F9F9;
     padding: 2px;
 }
@@ -39,27 +39,24 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 }
 
 .user-title-box {
-    background-color: #4F5B93;
-    // border-bottom: 2px solid #ccc;
-    padding-left: 10px;
-  padding-bottom: 1px;
-  color: #FFFFFF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+    background-color: $cor-fundo-header;
+    padding: 0 0 0 10px;
+    color: #000000;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    height: 30px;
 }
 
 .user-title-box h5 small {
-  color: #FFFFFF;
+  color: $branco;
 }
 
 .rodape {
-    background-color: $cor-fundo;
-    //height: 300px;
+    background-color: $cor-fundo-header;
     padding: 20px;
-    margin-top: 20px;
     border-top: 1px solid #ddd;
-    color: #333;
+    color: $branco;
     font-family: 'Mallanna', 'sans-serif';;
 }
 
@@ -69,6 +66,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 }
 .rodape a {
     text-decoration: underline;
+    color: $branco;
 }
 .fonte-header a:link, .rodape a:link {
     color: $cor-fonte-top;
@@ -86,35 +84,36 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     color: $cor-fonte-top-link;
 }
 
-//.img-gravatar-inicial {
-//    float:left;
-//    margin: 3px;
-//}
-
 .avatar {
     float: left;
     position: relative;
-
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-//
-//    -webkit-box-shadow: $avatar-shadow;
-//    -moz-box-shadow: $avatar-shadow;
-//    box-shadow: $avatar-shadow;
 }
 
 .avatar2 {
   float: left;
   position: relative;
-
   -webkit-border-radius: 20%;
   -moz-border-radius: 20%;
   border-radius: 20%;
-  //
-  //    -webkit-box-shadow: $avatar-shadow;
-  //    -moz-box-shadow: $avatar-shadow;
-  //    box-shadow: $avatar-shadow;
+}
+
+#ultimos-cadastros {
+  margin-bottom: 10px;
+}
+
+.main-div-background {
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  background-color: $branco;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+
+body {
+  background-color: $cor-fundo;
 }
 
 .sidebar-block {
