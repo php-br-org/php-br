@@ -5,11 +5,11 @@
         <div class="medium-9 large-9 columns">
             {% for artigo in artigos|slice(0, 6) %}
             <div>
-                <h4>
+                <h5>
                     <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
                         {{ artigo.titulo|e }}
                     </a>
-                </h4>
+                </h5>
                 <div style="width:80px; float:left;">
                     <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar2" />
                 </div>
@@ -79,12 +79,8 @@
                         {% for usuario in usuarios %}
                         <div class="row sidebar-item-block collapse">
                             <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
-                                <div class="large-2 columns">
-                                    <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar2" />
-                                </div>
-                                <div class="large-10 columns">
-                                    <div class="user-box"><h5> <small> {{ usuario.username|lower }} </small> </h5></div>
-                                </div>
+                                <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar" />
+                                <div class="user-box"><h5> <small> {{ usuario.username|lower }} </small> </h5></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -99,10 +95,10 @@
                         {% for cole in coles %}
                             <a href="{{ url('cole_ver', {'id': cole.id}) }}">
                                 <div class="row sidebar-item-block collapse">
-                                    <div class="large-2 columns">
+                                    <div class="large-3 columns">
                                         <span class="label">{{ cole.tipo }}</span>
                                     </div>
-                                    <div class="large-10 columns">
+                                    <div class="large-9 columns">
                                         <h5><small>{{ cole.titulo|upper }}</small></h5>
                                     </div>
                                 </div>
