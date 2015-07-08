@@ -13,6 +13,7 @@ parameters:
     phpbr.defaultservice.em.class: Phpbr\Bundle\AppBundle\Services\DefaultService
     phpbr.eventservice.em.class: Phpbr\Bundle\AppBundle\Services\EventService
     phpbr.urlservice.em.class: Phpbr\Bundle\AppBundle\Services\UrlService
+    phpbr.ircapiservice.em.class: Phpbr\Bundle\AppBundle\Services\IrcApiService
 
 
 services:
@@ -121,5 +122,10 @@ services:
 
     phpbr_url_service_em:
         class: "%phpbr.urlservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+
+    phpbr_ircapi_service_em:
+        class: "%phpbr.ircapiservice.em.class%"
         arguments:
             entityManager: "@doctrine.orm.entity_manager"

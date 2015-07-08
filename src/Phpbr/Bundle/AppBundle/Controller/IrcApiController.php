@@ -3,6 +3,7 @@
 namespace Phpbr\Bundle\AppBundle\Controller;
 
 use Phpbr\Bundle\AppBundle\Entity\Irc;
+use Phpbr\Bundle\AppBundle\Services\IrcApiService;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -20,9 +21,7 @@ class IrcApiController extends FOSRestController
      */
     public function putIrcAction($api_key, $nicks)
     {
-        $em = $this->getDoctrine()->getManager();
-        $repository = $this->getDoctrine()
-            ->getRepository('PhpbrAppBundle:Irc');
+        $repository = $this->getIrcApiService()->repository();
 
         if ($api_key != $this->container->getParameter('irc.bot.api_key')) {
             $dados = [
@@ -48,8 +47,7 @@ class IrcApiController extends FOSRestController
                 ];
 
                 $irc->setNicks($nicks);
-                $em->persist($irc);
-                $em->flush();
+                $this->getIrcApiService()->insert($irc);
             }
         }
 
@@ -74,9 +72,7 @@ class IrcApiController extends FOSRestController
      */
     public function getNicksAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $nicks = $em->getRepository('PhpbrAppBundle:Irc')
-            ->find(1);
+        $nicks = $this->getIrcApiService()->find(1);
 
         if (!$nicks) {
             $dados = [
@@ -99,6 +95,16 @@ class IrcApiController extends FOSRestController
 
         return $response->send();
 
+    }
+
+    /**
+     * Get Url Service
+     *
+     * @return IrcApiService
+     */
+    private function getIrcApiService()
+    {
+        return $this->get('phpbr_ircapi_service_em');
     }
 }
 
