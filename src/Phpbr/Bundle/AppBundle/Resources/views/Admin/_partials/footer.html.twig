@@ -7,10 +7,10 @@
                 </div>
                 <div class="large-7 columns">
                     <ul class="inline-list right">
-                        <li><a href="{{ path('lista_artigos') }}">Artigos</a></li>
-                        <li><a href="/quem-somos">Quem somos</a></li>
-                        <li><a href="/webchat">Webchat</a></li>
-                        <li><a href="/contato">Contato</a></li>
+                        <li><a href="{{ url('lista_artigos') }}">{{ 'phpbr.header.articles'|trans({}, 'header') }}</a></li>
+                        <li><a href="{{ url('phpbr_app_quemsomos') }}">{{ 'phpbr.header.about'|trans({}, 'header') }}</a></li>
+                        <li><a href="{{ url('phpbr_app_webchat') }}">{{ 'phpbr.header.webchat'|trans({}, 'header') }}</a></li>
+                        <li><a href="{{ url('phpbr_app_contato') }}">{{ 'phpbr.header.contact'|trans({}, 'header') }}</a></li>
                     </ul>
                 </div>
             </div>
