@@ -1,0 +1,19 @@
+phpbr:
+    header:
+        menu: 'Menu'
+        my_articles: 'Meus Artigos'
+        my_events: 'Meus Eventos'
+        edit_profile: 'Editar Perfil'
+        panel: 'Painel Admin'
+        approve_articles: 'Approve Articles'
+        forum_categories: 'Forum Categorias'
+        articles: 'Artigos'
+        about: 'Quem somos'
+        webchat: 'webchat'
+        paste_code: 'Cole Códigos'
+        forum: 'Forum'
+        api: 'API'
+        contact: 'Contato'
+        login: 'Entrar'
+        register: 'Novo Perfil'
+
