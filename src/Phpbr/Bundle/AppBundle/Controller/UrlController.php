@@ -2,6 +2,7 @@
 
 namespace Phpbr\Bundle\AppBundle\Controller;
 
+use Phpbr\Bundle\AppBundle\Services\UrlService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -21,9 +22,7 @@ class UrlController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('PhpbrAppBundle:Url')->findAll();
+        $entities = $this->getUrlService()->findAll();
 
         return $this->render('PhpbrAppBundle:Url:index.html.twig', array(
             'entities' => $entities,
@@ -40,9 +39,7 @@ class UrlController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $this->getUrlService()->insert($entity);
 
             return $this->redirect($this->generateUrl('url_show', array('id' => $entity->getId())));
         }
@@ -93,9 +90,7 @@ class UrlController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PhpbrAppBundle:Url')->find($id);
+        $entity = $this->getUrlService()->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Url entity.');
@@ -115,9 +110,7 @@ class UrlController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PhpbrAppBundle:Url')->find($id);
+        $entity = $this->getUrlService()->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Url entity.');
@@ -157,9 +150,7 @@ class UrlController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PhpbrAppBundle:Url')->find($id);
+        $entity = $this->getUrlService()->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Url entity.');
@@ -170,7 +161,7 @@ class UrlController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $em->flush();
+            $this->getUrlService()->insert($entity);
 
             return $this->redirect($this->generateUrl('url_edit', array('id' => $id)));
         }
@@ -191,15 +182,14 @@ class UrlController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PhpbrAppBundle:Url')->find($id);
+            $entity = $this->getUrlService()->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Url entity.');
             }
 
-            $em->remove($entity);
-            $em->flush();
+            $this->getUrlService()->delete($entity);
+
         }
 
         return $this->redirect($this->generateUrl('url'));
@@ -220,5 +210,15 @@ class UrlController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    /**
+     * Get Url Service
+     *
+     * @return UrlService
+     */
+    private function getUrlService()
+    {
+        return $this->get('phpbr_url_service_em');
     }
 }

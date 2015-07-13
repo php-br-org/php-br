@@ -12,6 +12,8 @@ parameters:
     phpbr.artigoapiservice.em.class: Phpbr\Bundle\AppBundle\Services\ArtigoApiService
     phpbr.defaultservice.em.class: Phpbr\Bundle\AppBundle\Services\DefaultService
     phpbr.eventservice.em.class: Phpbr\Bundle\AppBundle\Services\EventService
+    phpbr.urlservice.em.class: Phpbr\Bundle\AppBundle\Services\UrlService
+    phpbr.ircapiservice.em.class: Phpbr\Bundle\AppBundle\Services\IrcApiService
 
 
 services:
@@ -99,21 +101,31 @@ services:
             entityManager: "@doctrine.orm.entity_manager"
 
     phpbr_artigo_service_em:
-            class: "%phpbr.artigoservice.em.class%"
-            arguments:
-                entityManager: "@doctrine.orm.entity_manager"
+        class: "%phpbr.artigoservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
 
     phpbr_artigo_api_service_em:
-                    class: "%phpbr.artigoapiservice.em.class%"
-                    arguments:
-                        entityManager: "@doctrine.orm.entity_manager"
+        class: "%phpbr.artigoapiservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
 
     phpbr_default_service_em:
-                class: "%phpbr.defaultservice.em.class%"
-                arguments:
-                    entityManager: "@doctrine.orm.entity_manager"
+        class: "%phpbr.defaultservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
 
     phpbr_event_service_em:
-                class: "%phpbr.eventservice.em.class%"
-                arguments:
-                    entityManager: "@doctrine.orm.entity_manager"
+          class: "%phpbr.eventservice.em.class%"
+          arguments:
+              entityManager: "@doctrine.orm.entity_manager"
+
+    phpbr_url_service_em:
+        class: "%phpbr.urlservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+
+    phpbr_ircapi_service_em:
+        class: "%phpbr.ircapiservice.em.class%"
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"

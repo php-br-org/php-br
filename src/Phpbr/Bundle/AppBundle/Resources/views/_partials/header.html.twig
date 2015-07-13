@@ -26,7 +26,7 @@
                 <li class="name">
                     <a href="#"></a>
                 </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>{{ 'phpbr.header.menu'|trans({}, 'header') }}</span></a></li>
             </ul>
             <section class="top-bar-section" style="padding-left: -10px;">
                 <ul class="right">
@@ -37,26 +37,26 @@
                             </a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="{{ url('lista_meus_artigos') }}">Meus Artigos</a>
+                                    <a href="{{ url('lista_meus_artigos') }}">{{ 'phpbr.header.my_articles'|trans({}, 'header') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('phpbr_list_my_events') }}">Meus Eventos</a>
+                                    <a href="{{ url('phpbr_list_my_events') }}">{{ 'phpbr.header.my_events'|trans({}, 'header') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('fos_user_profile_edit') }}">Editar Perfil</a>
+                                    <a href="{{ url('fos_user_profile_edit') }}">{{ 'phpbr.header.edit_profile'|trans({}, 'header') }}</a>
                                 </li>
                             </ul>
                         </li>
 
                         {% if (is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN')) %}
                             <li class="has-dropdown">
-                                <a href="{{ url('home_admin') }}">Painel Admin</a>
+                                <a href="{{ url('home_admin') }}">{{ 'phpbr.header.panel'|trans({}, 'header') }}</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="{{ url('admin_artigos') }}">Aprovar Artigos</a>
+                                        <a href="{{ url('admin_artigos') }}">{{ 'phpbr.header.approve_articles'|trans({}, 'header') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('admin_forum_categorias') }}">Forum Categorias</a>
+                                        <a href="{{ url('admin_forum_categorias') }}">{{ 'phpbr.header.forum_categories'|trans({}, 'header') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -69,26 +69,25 @@
                         </li>
                     {% else %}
                         <li>
-                            <a href="{{ url('fos_user_security_login') }}">Entrar</a>
+                            <a href="{{ url('fos_user_security_login') }}">{{ 'phpbr.header.login'|trans({}, 'header') }}</a>
                         </li>
                         <li>
-                            <a href="{{ url('fos_user_registration_register') }}">Novo Perfil</a>
+                            <a href="{{ url('fos_user_registration_register') }}">{{ 'phpbr.header.register'|trans({}, 'header') }}</a>
                         </li>
                     {% endif %}
                 </ul>
 
                 <ul class="left">
-                    <li><a href="{{ url('lista_artigos') }}">Artigos</a></li>
-                    <li><a href="{{ url('phpbr_app_quemsomos') }}">Quem somos</a></li>
-                    <li><a href="{{ url('phpbr_app_webchat') }}">Webchat</a></li>
-                    <li><a href="{{ url('cole') }}">Cole Códigos</a></li>
-                    <li><a href="{{ url('forum_index') }}">Forum</a></li>
+                    <li><a href="{{ url('lista_artigos') }}">{{ 'phpbr.header.articles'|trans({}, 'header') }}</a></li>
+                    <li><a href="{{ url('phpbr_app_quemsomos') }}">{{ 'phpbr.header.about'|trans({}, 'header') }}</a></li>
+                    <li><a href="{{ url('phpbr_app_webchat') }}">{{ 'phpbr.header.webchat'|trans({}, 'header') }}</a></li>
+                    <li><a href="{{ url('cole') }}">{{ 'phpbr.header.paste_code'|trans({}, 'header') }}</a></li>
+                    <li><a href="{{ url('forum_index') }}">{{ 'phpbr.header.forum'|trans({}, 'header') }}</a></li>
                     <li><a href="{{ url('phpbr_event_view_all') }}">{{ 'phpbr.event.events'|trans({}, 'event') }}</a></li>
-                    <li><a href="{{ url('nelmio_api_doc_index') }}">API</a></li>
-                    <li><a href="{{ url('phpbr_app_contato') }}">Contato</a></li>
+                    <li><a href="{{ url('nelmio_api_doc_index') }}">{{ 'phpbr.header.api'|trans({}, 'header') }}</a></li>
+                    <li><a href="{{ url('phpbr_app_contato') }}">{{ 'phpbr.header.contact'|trans({}, 'header') }}</a></li>
                 </ul>
             </section>
         </nav>
     </div>
 </header>
-
