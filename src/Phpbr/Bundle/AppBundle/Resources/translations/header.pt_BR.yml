@@ -16,4 +16,6 @@ phpbr:
         contact: 'Contato'
         login: 'Entrar'
         register: 'Novo Perfil'
+        home: 'Home'
+        admin: 'Admin'
 

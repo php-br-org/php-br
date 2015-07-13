@@ -1,0 +1,12 @@
+phpbr:
+    article:
+        articles: 'Artigos'
+        title: 'Titulo'
+        published_by: 'Publicado por'
+        date: 'Data'
+        action: 'Ação'
+        approve: 'Aprovar'
+        cancel: 'Anular'
+        remove: 'Remover'
+        massage: 'Nenhum artigo pendente no momento'
+
