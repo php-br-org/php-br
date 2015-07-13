@@ -22,3 +22,4 @@ phpbr:
         action: 'Ação'
         remove: 'Remover'
         no_category: 'Nenhuma Categoria.'
+        forum_categories: 'Forum Categorias'
