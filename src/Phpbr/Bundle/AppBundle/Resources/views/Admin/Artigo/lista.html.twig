@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="large-12 columns">
-            <h4>Artigos</h4>
+            <h4>{{ 'phpbr.header.articles'|trans({}, 'article') }}</h4>
 
             {% for flashMessage in app.session.flashbag.get('notice') %}
                 <div class="row">
@@ -19,10 +19,10 @@
                     <table width="100%">
                         <thead>
                         <tr>
-                            <th>Titulo</th>
-                            <th>Publicado por</th>
-                            <th>Data</th>
-                            <th>Acao</th>
+                            <th>{{ 'phpbr.header.title'|trans({}, 'article') }}</th>
+                            <th>{{ 'phpbr.header.published_by'|trans({}, 'article') }}:</th>
+                            <th>{{ 'phpbr.header.date'|trans({}, 'article') }}</th>
+                            <th>{{ 'phpbr.header.action'|trans({}, 'article') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,18 +41,18 @@
                                 </td>
                                 <td>
                                     {% if artigo.aprovado == false %}
-                                        <a href="{{ path('admin_artigo_aprovar', {slug: artigo.slug}) }}">Aprovar</a>
+                                        <a href="{{ path('admin_artigo_aprovar', {slug: artigo.slug}) }}">{{ 'phpbr.header.approve'|trans({}, 'article') }}</a>
                                     {% else %}
-                                        <a href="{{ path('admin_artigo_anular', {slug: artigo.slug}) }}">Anular</a>
+                                        <a href="{{ path('admin_artigo_anular', {slug: artigo.slug}) }}">{{ 'phpbr.header.cancel'|trans({}, 'article') }}</a>
                                     {% endif %}
-                                     | Remover
+                                     | {{ 'phpbr.header.remove'|trans({}, 'article') }}
                                 </td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
             {% else %}
-                Nenhum artigo pendente no momento.
+                {{ 'phpbr.header.massage'|trans({}, 'article') }}.
             {% endif %}
         </div>
     </div>

@@ -2,8 +2,8 @@
     <div class="contain-to-grid">
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="inline-list left fonte-header" style="padding-top:10px;">
-                <li><a href="{{ url('phpbr_app_inicial') }}">Home</a></li>
-                <li><a href="{{ url('home_admin') }}">Admin</a></li>
+                <li><a href="{{ url('phpbr_app_inicial') }}">{{ 'phpbr.header.home'|trans({}, 'header') }}</a></li>
+                <li><a href="{{ url('home_admin') }}">{{ 'phpbr.header.admin'|trans({}, 'header') }}</a></li>
             </ul>
 
             <section class="top-bar-section">
@@ -25,7 +25,7 @@
     <div class="panel">
         <div class="row">
             <div class="large-12 columns">
-                <h2>Painel</h2>
+                <h2>{{ 'phpbr.header.panel'|trans({}, 'header') }}</h2>
             </div>
         </div>
     </div>
