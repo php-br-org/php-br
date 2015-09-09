@@ -136,7 +136,7 @@ class ColeController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        $geshi =& new \GeSHi($entity->getCodigo(), $entity->getTipo());
+        $geshi = new \GeSHi($entity->getCodigo(), $entity->getTipo());
         $codigo = $geshi->parse_code();
 
         return $this->render('PhpbrAppBundle:Cole:ver.html.twig', array(
