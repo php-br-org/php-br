@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpbr\Bundle\AppBundle;
+namespace Phpbr\Bundle\AppBundle\Utils;
 
 class Gravatar {
 

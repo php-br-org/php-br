@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row main-div-background">
         <div class="large-12 columns">
             <h2>{{ artigo.titulo }}</h2>
             <p class="subheader">
@@ -30,9 +30,6 @@
 
                 <div class="large-3 medium-3 columns">
                     <p class="text-center"><img src="{{ gravatar }}" alt="{{ artigo.user.name|raw }}" class="th" /></p>
-                    <p>{{ facebookButton() }}</p>
-                    <p>{{ twitterButton() }}</p>
-                    <p>{{ linkedinButton() }}</p>
                 </div>
             </div>
 

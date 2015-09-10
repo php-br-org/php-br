@@ -1,6 +1,6 @@
 parameters:
     my_user_provider.class: Phpbr\Bundle\AppBundle\Security\Core\User\FOSUBUserProvider
-    gravatar.class: Phpbr\Bundle\AppBundle\Gravatar
+    gravatar.class: Phpbr\Bundle\AppBundle\Utils\Gravatar
     gravatar.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\GravatarExtension
     tempo_passado.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\TempoExtension
     forum_topico.twig_extension.class: Phpbr\Bundle\AppBundle\Twig\ForumTopicoExtension

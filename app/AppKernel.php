@@ -20,7 +20,6 @@ class AppKernel extends Kernel
 	        new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Phpbr\Bundle\AppBundle\PhpbrAppBundle(),
-            new Nomaya\SocialBundle\NomayaSocialBundle(),
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
