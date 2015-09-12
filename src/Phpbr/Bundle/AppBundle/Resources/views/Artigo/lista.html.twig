@@ -38,14 +38,12 @@
                     </div>
                 {% endfor %}
             {% endif %}
+
+            {% if artigos|length %}
+                <div class="row">
+                    {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
+                </div>
+            {% endif %}
         </div>
     </div>
-
-    {% if artigos|length %}
-        <div class="row">
-            <div class="large-12 columns text-center">
-                {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
-            </div>
-        </div>
-    {% endif %}
 {% endblock %}
