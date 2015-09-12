@@ -39,8 +39,10 @@
     {% include "PhpbrAppBundle::_partials/header.html.twig" %}
 
     {% block content %}
-        <div class="row">
-            {% block fos_user_content %}{% endblock %}
+        <div class="row main-div-background">
+            <div class="large-11 large-centered columns">
+                {% block fos_user_content %}{% endblock %}
+            </div>
         </div>
     {% endblock %}
     

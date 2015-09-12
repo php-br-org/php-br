@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row main-div-background">
-        <div class="large-11 large-centered columns">
-        <h3>Novo Código</h3>
-            {{ form(form) }}
-        </div>
-        <hr />
+<div> class="row main-div-background">
+    <div class="large-11 large-centered columns">
+    <h3>Novo Código</h3>
+        {{ form(form) }}
     </div>
+    <hr />
+
     {% for entity in entities %}
             <div class="row">
                 <div class="large-3 columns">
@@ -31,6 +31,7 @@
             </div>
         {% endfor %}
 
+
     {% if entities|length %}
         <div class="row">
             <div class="large-11 large-centered columns text-center">
@@ -38,9 +39,6 @@
             </div>
         </div>
     {% endif %}
-
-        </div>
-    </div>
 </div>
 {% endblock %}
 
