@@ -1,7 +1,8 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
-    <div class="row main-div-background">
+<div class="row main-div-background">
+    <div class="large-12 columns">
         <h3>Informações de Perfil</h3>
         <p>
         {% if (user is not null) %}
@@ -27,6 +28,7 @@
             <p>404</p>
             <p>Este usuário não existe</p>
         {% endif %}
-            </div>
+    </div>
+</div>
 {% endblock %}
 

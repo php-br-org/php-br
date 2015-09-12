@@ -65,34 +65,50 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     font-family: 'Mallanna', 'sans-serif';
 }
 .rodape a {
-    text-decoration: underline;
+    text-decoration: none;
     color: $branco;
 }
-.fonte-header a:link, .rodape a:link {
-    color: $cor-fonte-top;
+.fonte-header a:link {
+  color: $cor-fonte-top;
 }
 
-.fonte-header a:visited, .rodape a:visited {
-    color: $cor-fonte-top;
+.rodape a:link {
+  color: $branco;
 }
 
-.fonte-header a:active, .rodape a:active {
-    color: $cor-fonte-top-link;
+.fonte-header a:visited {
+  color: $cor-fonte-top;
 }
 
-.fonte-header a:hover, .rodape a:hover {
+.rodape a:visited {
+  color: $branco;
+}
+
+.fonte-header a:active {
+  color: $cor-fonte-top-link;
+}
+
+.rodape a:active {
+  color: $branco;
+}
+
+.fonte-header a:hover {
+  color: $cor-fonte-top-link;
+}
+
+.rodape a:hover {
     color: $cor-fonte-top-link;
 }
 
 .avatar {
-    float: left;
-    position: relative;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    height: 40px;
-    width: 40px;
-    margin-right: 5px;
+  float: left;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
 }
 
 .avatar2 {
@@ -113,6 +129,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
   background-color: $branco;
   padding-top: 15px;
   padding-bottom: 25px;
+  min-height: 800px;
 }
 
 body {
@@ -120,26 +137,26 @@ body {
 }
 
 .sidebar-block {
-    margin-top: 40px !important;
+  margin-top: 40px !important;
 }
 .sidebar-block:first-child {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 #latest-forum {
-    background-color: $cor-fundo;
-    margin-top: 10px;
-    padding: 10px;
+  background-color: $cor-fundo;
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .forum-username {
-    padding: 5px 0 0 10px !important;
+  padding: 5px 0 0 10px !important;
 }
 
 .forum-full-width {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div#textarea-countdown {
@@ -155,12 +172,12 @@ div#textarea-countdown span {
 }
 
 .textarea-countdown:after {
-    border: 20px!important;
-    content: "<span class=\"span-countdown\"></span>";
+  border: 20px!important;
+  content: "<span class=\"span-countdown\"></span>";
 }
 
 .span-countdown {
-    border: 1px solid #FF0000;
+  border: 1px solid #FF0000;
 }
 
 
@@ -176,6 +193,9 @@ div#textarea-countdown span {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+
+
+
 
 
 // Or selectively include components
