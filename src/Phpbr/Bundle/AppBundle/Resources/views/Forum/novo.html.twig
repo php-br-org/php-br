@@ -3,8 +3,8 @@
 {% block title %}Forum - {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="large-12 columns">
+    <div class="row main-div-background">
+        <div class="large-11 large-centered columns">
             <h3>
                 <a href="{{ url('forum_index') }}">Forum</a> |
                 <a href="{{ url('forum_ver_topico', {'id': categoria.id}) }}">{{ categoria.nome }}</a>

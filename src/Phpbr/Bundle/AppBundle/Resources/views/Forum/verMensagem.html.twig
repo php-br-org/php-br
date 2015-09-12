@@ -3,8 +3,9 @@
 {% block title %}Forum{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="large-9 columns">
+<div class="row main-div-background">
+    <div class="large-11 large-centered columns">
+        <div class="large-8 columns">
             <h3>
                 <a href="{{ path('forum_index') }}">Forum</a> |
                 <a href="{{ path('forum_ver_categoria', {'slug': topico.categoria.slug }) }}">{{ topico.categoria.nome }}</a> |
@@ -27,7 +28,7 @@
         {% endfor %}
     </div>
 
-    <div class="row">
+    <div class="large-11 large-centered columns">
         <div class="large-2 columns">
             <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
                 <div class="sidebar-item-block">
@@ -41,7 +42,7 @@
                 {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
             </p>
         </div>
-        <div class="large-10 columns">
+        <div class="large-9 columns">
             {% if (topico.user == usuario) %}
                 <a href="{{ path('forum_deletar_topico', {'id': topico.id}) }}" class="tiny button">
                     {{ 'phpbr.forum.delete_topic'|trans({}, 'forum') }}
@@ -71,7 +72,7 @@
                         {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </p>
                 </div>
-                <div class="large-10 columns">
+                <div class="large-9 columns">
                     {% if (mensagem.user == usuario) %}
                         <a href="{{ path('forum_deletar_mensagem', {'id': mensagem.id}) }}" class="tiny button">
                             {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
@@ -86,7 +87,7 @@
     </div>
 
     <div class="row">
-        <div class="large-12 columns">
+        <div class="large-11 large-centered columns">
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('fos_user_security_login') }}">
                     {{ 'phpbr.forum.login'|trans({}, 'forum') }}
@@ -98,6 +99,7 @@
             {{ form_end(form) }}
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}

@@ -3,8 +3,9 @@
 {% block title %}Forum{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="large-9 columns">
+<div class="row main-div-background">
+    <div class="large-11 large-centered columns">
+        <div class="large-8 columns">
             <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
         </div>
 
@@ -20,7 +21,7 @@
     </div>
 
     <div class="row collapse">
-        <div class="large-12 columns">
+        <div class="large-11 large-centered columns">
             <table class="forum-full-width">
                 <thead>
                     <tr>
@@ -66,53 +67,5 @@
         </div>
     </div>
 
-    {#<div class="row">#}
-        {#<div class="large-9 columns" style="vertical-align: middle;">#}
-
-        {#</div>#}
-        {#<div class="large-1 columns text-center" style="vertical-align: middle;">#}
-
-        {#</div>#}
-        {#<div class="large-2 columns text-center" style="vertical-align: middle;">#}
-
-        {#</div>#}
-        {#<br />#}
-        {#<hr />#}
-    {#</div>#}
-
-
-    {#{% for topico in topicos %}#}
-        {#<div class="row">#}
-            {#<div class="large-9 columns">#}
-                {#{{ topico.dataCriacao|date('d/m/Y H:i') }},#}
-                {#<small>#}
-                    {#{{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}#}
-                {#</small>#}
-                {#<p>#}
-                    {#<a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">#}
-                       {#<strong>#{{ topico.id }}</strong>#}
-                    {#</a>#}
-                    {#<a href="{{ path('forum_ver_mensagem', {'slug': topico.slug}) }}">#}
-                        {#{{ topico.assunto }}#}
-                    {#</a>#}
-                {#</p>#}
-            {#</div>#}
-            {#<div class="large-1 columns text-center">#}
-                {#<strong>5</strong>#}
-            {#</div>#}
-            {#<div class="large-2 columns">#}
-                {#<a href="{{ path('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">#}
-                    {#<div class="row collapse">#}
-                        {#<div class="large-3 columns">#}
-                            {#<img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="avatar" />#}
-                        {#</div>#}
-                        {#<div class="large-9 columns forum-username">#}
-                            {#{{ topico.user.name }}#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</a>#}
-            {#</div>#}
-            {#<hr />#}
-        {#</div>#}
-    {#{% endfor %}#}
+</div>
 {% endblock %}

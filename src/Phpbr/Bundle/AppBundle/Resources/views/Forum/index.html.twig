@@ -3,13 +3,14 @@
 {% block title %}Forum{% endblock %}
 
 {% block content %}
+<div class="row main-div-background">
     <div class="row">
-        <div class="large-12 columns">
+        <div class="large-11 large-centered columns">
             <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ 'phpbr.forum.topics'|trans({}, 'forum') }}</h3>
             <hr />
 
             <div class="row">
-                <div class="large-6 columns" style="vertical-align: middle;">
+                <div class="large-5 columns" style="vertical-align: middle;">
                     <strong>{{ 'phpbr.forum.subjects'|trans({}, 'forum')|upper }}</strong>
                 </div>
                 <div class="large-2 columns text-center" style="vertical-align: middle;">
@@ -26,7 +27,7 @@
 
             {% for categoria in categorias %}
             <div class="row">
-                <div class="large-6 columns">
+                <div class="large-5 columns">
                     <strong>
                         <a href="{{ url('forum_ver_categoria', {'slug': categoria.slug}) }}">{{ categoria.nome|upper }}</a>
                     </strong>
@@ -52,5 +53,6 @@
             {% endfor %}
         </div>
     </div>
+</div>
 {% endblock %}
 

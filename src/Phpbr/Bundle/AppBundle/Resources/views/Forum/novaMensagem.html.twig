@@ -3,8 +3,8 @@
 {% block title %}Forum - {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="large-12 columns">
+    <div class="row main-div-background">
+        <div class="large-11 columns">
             <h3><a href="{{ path('forum_index') }}">Forum</a> | {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}

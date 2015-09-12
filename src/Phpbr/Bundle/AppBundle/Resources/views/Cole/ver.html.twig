@@ -7,8 +7,8 @@
 {% set queryParams = app.request.query.all %}
 
 {% block content %}
-    <div class="row">
-            <div class="large-9 columns">
+    <div class="large-11 large-centered columns">
+            <div class="large-8 columns">
                 <h4>
                     http://cole.php-br.org/{{ entity.id }} 
                     <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
@@ -24,7 +24,7 @@
                 </a>
             </div>
         <div class="row">
-            <div class="large-12 columns">
+            <div class="large-11 large-centered columns">
                 {% if app.session.get('chaveDeletar') is defined %}
                     {% if app.session.get('chaveDeletar') == entity.chaveDeletar %}
                         {{ form(delete_form) }}

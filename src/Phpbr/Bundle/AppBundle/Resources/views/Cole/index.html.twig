@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="large-12 columns">
+        <div class="large-11 large-centered columns">
         <h3>Novo Código</h3>
             {{ form(form) }}
         </div>
@@ -23,7 +23,7 @@
                         <small>{% if entity.dataCriacao %}{{ entity.dataCriacao|date('d/m/y H:i') }}{% endif %}</small>
                     </h5>
                 </div>
-                <div class="large-9 columns">
+                <div class="large-8 columns">
                     <h5>
                         <a href="{{ path('cole_ver', { 'id': entity.id }) }}">{{ entity.titulo }}</a>
                     </h5>
@@ -33,7 +33,7 @@
 
     {% if entities|length %}
         <div class="row">
-            <div class="large-12 columns text-center">
+            <div class="large-11 large-centered columns text-center">
                 {{ pagerfanta(entities, 'phpbr', {'pageParameter': '[pagina]'}) }}
             </div>
         </div>
