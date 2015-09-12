@@ -8,25 +8,27 @@
 
 {% block content %}
 <div class="row main-div-background">
-    <div class="large-11 large-centered columns">
-        <div class="large-8 columns">
-            <h4>
-                http://cole.php-br.org/{{ entity.id }}
-                <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
-                <h5>
-                    <strong>Titulo:</strong> {{ entity.titulo }}
-                    <span class="label success">{{ entity.dataCriacao|date('U')|tempo_passado }} atrás</span>
-                </h5>
-            </h4>
-        </div>
-        <div class="large-3 columns">
-            <a href="{{ url('cole_novo') }}" class="button success right">
-                Novo código
-            </a>
+    <div class="row">
+        <div class="large-11 large-centered columns">
+            <div class="large-8 columns">
+                <h4>
+                    http://cole.php-br.org/{{ entity.id }}
+                    <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
+                    <h5>
+                        <strong>Titulo:</strong> {{ entity.titulo }}
+                        <span class="label success">{{ entity.dataCriacao|date('U')|tempo_passado }} atrás</span>
+                    </h5>
+                </h4>
+            </div>
+            <div class="large-3 columns">
+                <a href="{{ url('cole_novo') }}" class="button success right">
+                    Novo código
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="clear: both;">
         {% if app.session.get('chaveDeletar') is defined %}
             {% if app.session.get('chaveDeletar') == entity.chaveDeletar %}
                 {{ form(delete_form) }}
