@@ -41,7 +41,8 @@
         "nelmio/api-doc-bundle": "@dev",
         "guzzlehttp/guzzle": "~5.0",
         "snc/redis-bundle": "1.1.x-dev",
-        "phpunit/phpunit": "4.8.*@dev"
+        "phpunit/phpunit": "4.8.*@dev",
+        "knplabs/github-api": "^1.4"
     },
     "require-dev": {
     },

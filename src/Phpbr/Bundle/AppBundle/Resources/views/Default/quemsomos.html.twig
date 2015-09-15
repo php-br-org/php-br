@@ -12,10 +12,17 @@
         </p>
         <br />
         <h4>Colaboradores no Desenvolvimento:</h4>
-        <div id="contributors" class="contributors">
-        </div>
 
+        <div>
+        {% for contributor in contributors %}
+        <a title="{{ contributor.login }}" rel="tooltip" target="_blank" href="{{ contributor.html_url }}">
+            <img src="{{ contributor.avatar_url }}" class="avatar" height="48" width="48">
+        </a>
+        {% endfor %}
+        </div>
+        <p style="clear:both;">
         Obrigado a todos os colaboradores de software e artigos publicados!
+        </p>
     </div>
 </div>
 {% endblock %}

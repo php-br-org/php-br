@@ -20,7 +20,7 @@ class DefaultController extends Controller
         try {
             $params = array();
 
-            if ($page == 'inicial') {
+            if ('inicial' == $page) {
                 $artigoRepo = $this->getDefaultService()->repository();
                 $artigos = $artigoRepo->listaArtigosRecentes(10);
 
@@ -31,7 +31,12 @@ class DefaultController extends Controller
                 $ircNicks = $this->pegaIrcNicks();
 
                 $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens', 'ircNicks');
+            }
 
+            if ('quemsomos' == $page) {
+                $client = new \Github\Client();
+                $contributors = $client->api('repo')->contributors('php-br-org', 'php-br');
+                $params = compact('contributors');
             }
 
             return $this->render("PhpbrAppBundle:Default:{$page}.html.twig", $params);
