@@ -43,3 +43,5 @@ app/config/config_prod.yml
 /.vagrant/
 /.idea
 /node_modules/
+dump.sql
+dump.tar.gz

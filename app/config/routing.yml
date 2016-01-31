@@ -25,7 +25,7 @@ hwi_oauth_security:
 
 hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
-    prefix: /login
+    prefix:   /login
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
@@ -33,6 +33,10 @@ hwi_oauth_redirect:
 
 facebook_login:
     pattern: /login/check-facebook
+
+github_login:
+    path: /login/check-github
+
 
 phpbr_app:
     resource: "@PhpbrAppBundle/Resources/config/routing.yml"

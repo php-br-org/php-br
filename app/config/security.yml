@@ -27,7 +27,9 @@ security:
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"
+                    my_github:             "/login/check-github"
                 login_path:        /login
+                use_forward:       false
                 failure_path:      /login
 
                 oauth_user_provider:
