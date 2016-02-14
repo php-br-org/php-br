@@ -10,7 +10,8 @@ Phpbr\AppBundle\Entity\Irc:
     fields:
         nicks:
             type: text
-        dataAtualizado:
+        updatedAt:
             type: datetime
             nullable: true
+            column: updated_at
     lifecycleCallbacks: {  }

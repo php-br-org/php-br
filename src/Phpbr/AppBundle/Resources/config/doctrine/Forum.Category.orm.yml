@@ -1,0 +1,37 @@
+Phpbr\AppBundle\Entity\Forum\Category:
+    type: entity
+    table: forum_category
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        status:
+            type: boolean
+        createdAt:
+            type: datetime
+            column: created_at
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - name
+
+    oneToMany:
+        topicos:
+            targetEntity: 'Phpbr\AppBundle\Entity\Forum\Topic'
+            mappedBy: category
+
+    lifecycleCallbacks: {  }
+

@@ -34,12 +34,12 @@ Phpbr\AppBundle\Entity\User:
             nullable: true
     lifecycleCallbacks: {  }
     oneToMany:
-        artigos:
-            targetEntity: Artigo
+        articles:
+            targetEntity: Article
             mappedBy: user
-        mensagens:
-            targetEntity: Phpbr\AppBundle\Entity\Forum\Mensagem
+        messages:
+            targetEntity: Phpbr\AppBundle\Entity\Forum\Message
             mappedBy: user
-        topicos:
-            targetEntity: Phpbr\AppBundle\Entity\Forum\Topico
+        topics:
+            targetEntity: Phpbr\AppBundle\Entity\Forum\Topic
             mappedBy: user

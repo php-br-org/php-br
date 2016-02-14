@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-
 class IrcApiController extends FOSRestController
 {
     /**
@@ -51,16 +50,15 @@ class IrcApiController extends FOSRestController
             }
         }
 
-
         $response = new Response();
         $serializer = $this->get('jms_serializer');
+
         $response->setContent($serializer->serialize($dados, 'json'));
         $response->setStatusCode(Response::HTTP_OK);
         $response->headers->set('Content-Type', 'application/json');
 
         return $response->send();
     }
-
 
     /**
      * Este método retorna os nicks do canal ##php-br
@@ -89,12 +87,12 @@ class IrcApiController extends FOSRestController
 
         $response = new Response();
         $serializer = $this->get('jms_serializer');
+
         $response->setContent($serializer->serialize($dados, 'json'));
         $response->setStatusCode(Response::HTTP_OK);
         $response->headers->set('Content-Type', 'application/json');
 
         return $response->send();
-
     }
 
     /**

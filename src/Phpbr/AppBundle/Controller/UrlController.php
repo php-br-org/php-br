@@ -27,6 +27,7 @@ class UrlController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Url entity.
      *
@@ -143,6 +144,7 @@ class UrlController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Url entity.
      *
@@ -171,6 +173,7 @@ class UrlController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Url entity.
      *
@@ -188,7 +191,6 @@ class UrlController extends Controller
             }
 
             $this->getUrlService()->delete($entity);
-
         }
 
         return $this->redirect($this->generateUrl('url'));

@@ -43,11 +43,12 @@ class EventRepository extends EntityRepository
     public function listActiveEventsAdapter() {
 
         $query = $this->createQueryBuilder('Event')
-            ->where('Event.approved_at not :flagPublicado')
-            ->andWhere('Event.approved_at = :aprovado')
+            ->where('Event.approved_at not :flagPublished')
+            ->andWhere('Event.approved_at = :approved')
             ->orderBy('Event.created_at', 'DESC')
             ->setParameters(array(
-                'flagPublicado' => null
+                'flagPublished' => null,
+                'approved'
             ));
 
         $pagerfantaAdapter = new DoctrineORMAdapter($query);
@@ -59,11 +60,11 @@ class EventRepository extends EntityRepository
      * List all events
      * @return array
      */
-    public function listaAdminArtigos() {
+    public function listArticlesAdmin() {
 
-        $query = $this->createQueryBuilder('Artigo')
-            ->andWhere('Artigo.publicado = true')
-            ->orderBy('Artigo.dataPublicado', 'ASC');
+        $query = $this->createQueryBuilder('Article')
+            ->andWhere('Article.published = true')
+            ->orderBy('Article.publishedAt', 'ASC');
 
         return $query->getQuery()->getResult();
     }

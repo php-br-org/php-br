@@ -1,16 +1,16 @@
-phpbr_app_inicial:
+phpbr_app_main:
     path:     /
-    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'inicial' }
+    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'main' }
     host:     %website%
 
-phpbr_app_quemsomos:
+phpbr_app_whoweare:
     path:     /quem-somos
-    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'quemsomos' }
+    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'whoweare' }
     host:     %website%
 
-phpbr_app_contato:
+phpbr_app_contact:
     path:     /contato
-    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'contato' }
+    defaults: { _controller: PhpbrAppBundle:Default:page, page: 'contact' }
     host:     %website%
 
 phpbr_app_webchat:
@@ -18,9 +18,9 @@ phpbr_app_webchat:
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'webchat' }
     host:     %website%
 
-phpbr_app_verusuario:
+phpbr_app_viewuser:
     path:   /usuario/{usuario}
-    defaults: { _controller: PhpbrAppBundle:Default:verUsuario }
+    defaults: { _controller: PhpbrAppBundle:Default:viewUser }
     host:     %website%
 
 

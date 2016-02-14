@@ -1,0 +1,14 @@
+new_article:
+    path:     /novo
+    defaults: { _controller: PhpbrAppBundle:Article:new }
+    host:     %website%
+
+list_articles:
+    path:   /
+    defaults: { _controller: PhpbrAppBundle:Article:list }
+    host:     %website%
+
+read_article:
+    path: /ler/{slug}
+    defaults: { _controller: PhpbrAppBundle:Article:read }
+    host:     %website%

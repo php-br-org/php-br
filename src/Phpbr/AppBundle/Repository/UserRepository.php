@@ -13,15 +13,15 @@ use Doctrine\ORM\EntityRepository;
 class UserRepository extends EntityRepository
 {
     /**
-     * @param int $qte
+     * @param int $qty
      *
      * @return array
      */
-    public function listaUltimosUsuarios($qte = 10) {
+    public function listMostRecentUsers($qty = 10) {
         $query = $this->createQueryBuilder('User')
             ->orderBy('User.id', 'DESC');
 
-        if (is_numeric($qte)) $query->setMaxResults($qte);
+        if (is_numeric($qty)) $query->setMaxResults($qty);
 
         return $query->getQuery()->getResult();
     }

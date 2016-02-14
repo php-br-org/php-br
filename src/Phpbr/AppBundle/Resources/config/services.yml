@@ -2,14 +2,14 @@ parameters:
     my_user_provider.class: Phpbr\AppBundle\Security\Core\User\FOSUBUserProvider
     gravatar.class: Phpbr\AppBundle\Utils\Gravatar
     gravatar.twig_extension.class: Phpbr\AppBundle\Twig\GravatarExtension
-    tempo_passado.twig_extension.class: Phpbr\AppBundle\Twig\TempoExtension
-    forum_topico.twig_extension.class: Phpbr\AppBundle\Twig\ForumTopicoExtension
-    forum_mensagem.twig_extension.class: Phpbr\AppBundle\Twig\ForumMensagemExtension
-    forum_categoria.twig_extension.class: Phpbr\AppBundle\Twig\ForumCategoriaExtension
-    forum_conta_mensagens.twig_extension.class: Phpbr\AppBundle\Twig\ForumContaMensagensExtension
-    phpbr.coleservice.em.class: Phpbr\AppBundle\Services\ColeService
-    phpbr.artigoservice.em.class: Phpbr\AppBundle\Services\ArtigoService
-    phpbr.artigoapiservice.em.class: Phpbr\AppBundle\Services\ArtigoApiService
+    time_passed.twig_extension.class: Phpbr\AppBundle\Twig\TimeExtension
+    forum_topic.twig_extension.class: Phpbr\AppBundle\Twig\ForumTopicExtension
+    forum_message.twig_extension.class: Phpbr\AppBundle\Twig\ForumMessageExtension
+    forum_category.twig_extension.class: Phpbr\AppBundle\Twig\ForumCategoryExtension
+    forum_messages_count.twig_extension.class: Phpbr\AppBundle\Twig\ForumMessagesCountExtension
+    phpbr.pasteservice.em.class: Phpbr\AppBundle\Services\PasteService
+    phpbr.articleservice.em.class: Phpbr\AppBundle\Services\ArticleService
+    phpbr.articleapiservice.em.class: Phpbr\AppBundle\Services\ArticleApiService
     phpbr.defaultservice.em.class: Phpbr\AppBundle\Services\DefaultService
     phpbr.eventservice.em.class: Phpbr\AppBundle\Services\EventService
     phpbr.urlservice.em.class: Phpbr\AppBundle\Services\UrlService
@@ -44,8 +44,8 @@ services:
         tags:
             - { name: twig.extension }
 
-    forum_topico.twig_extension:
-        class: "%forum_topico.twig_extension.class%"
+    forum_topic.twig_extension:
+        class: "%forum_topic.twig_extension.class%"
         public: false
         arguments:
             em: 
@@ -53,18 +53,8 @@ services:
         tags:
             - { name: twig.extension }
 
-    forum_mensagem.twig_extension:
-        class: "%forum_mensagem.twig_extension.class%"
-        public: false
-        arguments:
-            em: 
-                "@doctrine.orm.entity_manager"
-        tags:
-            - { name: twig.extension }
-
-
-    forum_conta_mensagens.twig_extension:
-        class: "%forum_conta_mensagens.twig_extension.class%"
+    forum_message.twig_extension:
+        class: "%forum_message.twig_extension.class%"
         public: false
         arguments:
             em: 
@@ -73,8 +63,18 @@ services:
             - { name: twig.extension }
 
 
-    forum_categoria.twig_extension:
-        class: "%forum_categoria.twig_extension.class%"
+    forum_messages_count.twig_extension:
+        class: "%forum_messages_count.twig_extension.class%"
+        public: false
+        arguments:
+            em: 
+                "@doctrine.orm.entity_manager"
+        tags:
+            - { name: twig.extension }
+
+
+    forum_category.twig_extension:
+        class: "%forum_category.twig_extension.class%"
         public: false
         arguments:
             em:
@@ -82,8 +82,8 @@ services:
         tags:
             - { name: twig.extension }
 
-    tempo_passado.twig_extension:
-        class: "%tempo_passado.twig_extension.class%"
+    time_passed.twig_extension:
+        class: "%time_passed.twig_extension.class%"
         public: false
         tags:
             - { name: twig.extension }
@@ -95,18 +95,18 @@ services:
             - @translator.default
         tags: [{ name: pagerfanta.view, alias: phpbr }]
 
-    phpbr_cole_service_em:
-        class: "%phpbr.coleservice.em.class%"
+    phpbr_paste_service_em:
+        class: "%phpbr.pasteservice.em.class%"
         arguments:
             entityManager: "@doctrine.orm.entity_manager"
 
-    phpbr_artigo_service_em:
-        class: "%phpbr.artigoservice.em.class%"
+    phpbr_article_service_em:
+        class: "%phpbr.articleservice.em.class%"
         arguments:
             entityManager: "@doctrine.orm.entity_manager"
 
-    phpbr_artigo_api_service_em:
-        class: "%phpbr.artigoapiservice.em.class%"
+    phpbr_article_api_service_em:
+        class: "%phpbr.articleapiservice.em.class%"
         arguments:
             entityManager: "@doctrine.orm.entity_manager"
 

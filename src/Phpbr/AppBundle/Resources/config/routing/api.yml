@@ -1,6 +1,6 @@
-phpbr_api_get_artigo:
+phpbr_api_get_article:
     path: /v1/artigo/{id}
-    defaults: { _controller: "PhpbrAppBundle:ArtigoApi:getArtigo" }
+    defaults: { _controller: "PhpbrAppBundle:ArticleApi:getArticle" }
     requirements:
         _method: GET
         id: "\d+"
@@ -23,9 +23,9 @@ phpbr_api_get_irc:
     host: %website%
 
 
-phpbr_api_get_qtd_comentarios_artigo:
+phpbr_api_get_no_comments_article:
     path: /v1/qtd-comentarios/{slug}
-    defaults: { _controller: "PhpbrAppBundle:ArtigoApi:getQuantidadeComentarios" }
+    defaults: { _controller: "PhpbrAppBundle:ArticleApi:getNoComments" }
     requirements:
         _method: GET
     host: %website%

@@ -19,8 +19,8 @@ class CustomView extends DefaultView
     protected function createDefaultTemplate()
     {
         $labels = array(
-            'next' => $this->translator->trans('phpbr.paginacao.proximo'),
-            'previous' => $this->translator->trans('phpbr.paginacao.anterior')
+            'next' => $this->translator->trans('phpbr.pagination.next'),
+            'previous' => $this->translator->trans('phpbr.pagination.previous')
         );
 
         return new PhpbrTemplate($labels);

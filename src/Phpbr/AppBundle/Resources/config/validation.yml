@@ -11,18 +11,15 @@ Phpbr\AppBundle\Entity\User:
         github:
             - Regex:
                 pattern: /^(https?:\/\/)?((w{3}\.)?)github.com\/.*/
-                message: "Preencha a URL do seu github corretamente"
+                message: phpbr.registration.github.invalid
         twitter:
             - Regex:
                 pattern: /^(https?:\/\/)?((w{3}\.)?)twitter.com\/.*/
-                message: "Preencha a URL do seu twitter corretamente"
+                message: phpbr.registration.twitter.invalid
 
-
-
-
-Phpbr\AppBundle\Entity\Artigo:
+Phpbr\AppBundle\Entity\Article:
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: titulo
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
     properties:
         titulo:
             - NotBlank: ~

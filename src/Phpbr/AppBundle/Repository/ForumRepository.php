@@ -13,10 +13,12 @@ class ForumRepository extends EntityRepository
      *
      * @return DoctrineORMAdapter
      */
-    public function listaForumMensagensAdapter() {
-        $query = $this->createQueryBuilder('forum_mensagens')
-            ->orderBy('forum_mensagens.id', 'DESC');
+    public function listForumMessagesAdapter() {
+        $query = $this->createQueryBuilder('forum_messages')
+            ->orderBy('forum_messages.id', 'DESC');
+
         $pagerfantaAdapter = new DoctrineORMAdapter($query);
+
         return $pagerfantaAdapter;
     }
 }

@@ -1,5 +1,5 @@
-phpbr_app_cole:
-    resource: "@PhpbrAppBundle/Resources/config/routing/cole.yml"
+phpbr_app_paste:
+    resource: "@PhpbrAppBundle/Resources/config/routing/paste.yml"
 
 phpbr_app_url:
     resource: "@PhpbrAppBundle/Resources/config/routing/url.yml"
@@ -11,12 +11,12 @@ phpbr_app_main:
 phpbr_app_fos:
     resource: "@PhpbrAppBundle/Resources/config/routing/fos.yml"
 
-phpbr_app_artigo:
-    resource: "@PhpbrAppBundle/Resources/config/routing/artigo.yml"
+phpbr_app_article:
+    resource: "@PhpbrAppBundle/Resources/config/routing/article.yml"
     prefix: /artigos/
 
-phpbr_app_meus_artigos:
-    resource: "@PhpbrAppBundle/Resources/config/routing/meusartigos.yml"
+phpbr_app_my_articles:
+    resource: "@PhpbrAppBundle/Resources/config/routing/my_articles.yml"
     prefix: /meus-artigos/
 
 phpbr_app_forum:
@@ -27,5 +27,5 @@ phpbr_api:
     resource: "@PhpbrAppBundle/Resources/config/routing/api.yml"
     prefix: /api
 
-phpbr_evento:
+phpbr_event:
     resource: "@PhpbrAppBundle/Resources/config/routing/event.yml"

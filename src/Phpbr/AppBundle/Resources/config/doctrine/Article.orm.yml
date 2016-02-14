@@ -1,0 +1,58 @@
+Phpbr\AppBundle\Entity\Article:
+    type: entity
+    table: article
+    repositoryClass: Phpbr\AppBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        excerpt:
+            type: text
+            nullable: true
+        content:
+            type: text
+        score:
+            type: integer
+        approved:
+            type: boolean
+        tags:
+            type: string
+            length: 255
+            nullable: true
+        published:
+            type: boolean
+        publishedAt:
+            type: datetime
+            column: published_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        approvedAt:
+            type: datetime
+            nullable: true
+            column: approved_at
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: -
+                    fields:
+                        - id
+                        - title
+    lifecycleCallbacks: {  }
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: articles
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE

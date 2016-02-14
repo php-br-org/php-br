@@ -20,20 +20,20 @@ class DefaultController extends Controller
         try {
             $params = array();
 
-            if ('inicial' == $page) {
-                $artigoRepo = $this->getDefaultService()->repository();
-                $artigos = $artigoRepo->listaArtigosRecentes(10);
+            if ('main' == $page) {
+                $articleRepo = $this->getDefaultService()->repository();
+                $articles = $articleRepo->listRecentArticles(10);
 
-                $usuarios = $this->getDefaultService()->listaUltimosUsuarios(5);
-                $coles = $this->getDefaultService()->listaColes(5);
-                $forumMensagens = $this->getDefaultService()->forumMensagens();
+                $users = $this->getDefaultService()->listMostRecentUsers(5);
+                $pastes = $this->getDefaultService()->listPastes(5);
+                $forumMessages = $this->getDefaultService()->forumMessages();
 
-                $ircNicks = $this->pegaIrcNicks();
+                $ircNicks = $this->fetchIRCNicks();
 
-                $params = compact('artigos', 'usuarios', 'coles', 'forumMensagens', 'ircNicks');
+                $params = compact('articles', 'users', 'pastes', 'forumMessages', 'ircNicks');
             }
 
-            if ('quemsomos' == $page) {
+            if ('whoweare' == $page) {
                 $client = new \Github\Client();
                 $contributors = $client->api('repo')->contributors('php-br-org', 'php-br');
                 $params = compact('contributors');
@@ -47,24 +47,26 @@ class DefaultController extends Controller
     }
 
     /**
-     * @param $usuario
+     * @param $user
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      */
-    public function verUsuarioAction($usuario) {
+    public function viewUserAction($user) {
 
-        $entity = $this->getDefaultService()->findOneByUser($usuario);
+        $entity = $this->getDefaultService()->findOneByUser($user);
 
-        return $this->render("PhpbrAppBundle:Default:usuario.html.twig",
+        return $this->render("PhpbrAppBundle:Default:user.html.twig",
             array(
                 'user' => $entity
             )
         );
     }
 
-
-    private function pegaIrcNicks(){
+    /**
+     * @return array
+     */
+    private function fetchIRCNicks(){
         $ircNicks = array();
 
         $nicks = $this->getDefaultService()->ircNick(1);
@@ -78,7 +80,6 @@ class DefaultController extends Controller
         }
 
         return $ircNicks;
-
     }
 
     /**

@@ -20,9 +20,7 @@ class Irc
     /**
      * @var string
      */
-    private $dataAtualizado;
-
-
+    private $updatedAt;
 
     /**
      * Get id
@@ -44,7 +42,7 @@ class Irc
     public function setNicks($nicks)
     {
         $this->nicks = $nicks;
-        $this->setDataAtualizado(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
 
         return $this;
     }
@@ -61,27 +59,27 @@ class Irc
 
 
     /**
-     * Set dataAtualizado
+     * Set updatedAt
      *
-     * @param DateTime $dataAtualizado
+     * @param DateTime $updatedAt
      *
      * @return irc
      */
-    public function setDataAtualizado($dataAtualizado)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->dataAtualizado = $dataAtualizado;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get dataAtualizado
+     * Get updatedAt
      *
      * @return DateTime
      */
-    public function getDataAtualizado()
+    public function getUpdatedAt()
     {
-        return $this->dataAtualizado;
+        return $this->updatedAt;
     }
 }
 

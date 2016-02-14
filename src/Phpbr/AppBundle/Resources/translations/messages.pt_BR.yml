@@ -1,4 +1,11 @@
 phpbr:
-    paginacao:
-        proximo: 'Próxima'
-        anterior: 'Anterior'
+    pagination:
+        next: 'Próxima'
+        previous: 'Anterior'
+    article:
+        not_found: 'Erro. Este artigo não existe.'
+        not_editable: 'Erro! Este artigo não é editável!'
+        error_deleting: 'Erro ao tentar deletar este artigo. Ou ele não existe, ou você não tem permissão para excluí-lo'
+        removed: 'Artigo excluído com sucesso!'
+        api:
+            invalid: 'Este ID de artigo nao existe ou nao esta publicado'

@@ -1,6 +1,7 @@
-Phpbr\AppBundle\Entity\Url:
+Phpbr\AppBundle\Entity\Paste:
     type: entity
     table: null
+    repositoryClass: Phpbr\AppBundle\Repository\PasteRepository
     id:
         id:
             type: integer
@@ -8,13 +9,18 @@ Phpbr\AppBundle\Entity\Url:
             generator:
                 strategy: AUTO
     fields:
-        url:
+        title:
             type: string
             length: 255
-        description:
+        type:
             type: string
-            length: 255
+            length: '48'
+        code:
+            type: text
         createdAt:
             type: datetime
             column: created_at
+        deleteKey:
+            type: string
+            length: '32'
     lifecycleCallbacks: {  }

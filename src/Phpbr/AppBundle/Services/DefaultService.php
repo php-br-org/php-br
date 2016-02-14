@@ -22,11 +22,11 @@ class DefaultService
     /**
      * Get Repository
      *
-     * @return Artigo
+     * @return Article
      */
     public function repository()
     {
-        $article = $this->em->getRepository('PhpbrAppBundle:Artigo');
+        $article = $this->em->getRepository('PhpbrAppBundle:Article');
 
         return $article;
     }
@@ -34,53 +34,53 @@ class DefaultService
     /**
      * Get Repository
      *
-     * @return listaUltimosUsuarios
+     * @return listMostRecentUsers
      */
-    public function listaUltimosUsuarios($qtd)
+    public function listMostRecentUsers($qtd)
     {
-        $listaUltimosUsuarios = $this->em->getRepository('PhpbrAppBundle:User')->listaUltimosUsuarios($qtd);
+        $recentUsers = $this->em->getRepository('PhpbrAppBundle:User')->listMostRecentUsers($qtd);
 
-        return $listaUltimosUsuarios;
+        return $recentUsers;
     }
 
     /**
      * Get Repository
      *
-     * @return listaColes
+     * @return listPastes
      */
-    public function listaColes($qtd)
+    public function listPastes($qtd)
     {
-        $listaColes = $this->em->getRepository('PhpbrAppBundle:Cole')->listaColes($qtd);
+        $pastes = $this->em->getRepository('PhpbrAppBundle:Paste')->listPastes($qtd);
 
-        return $listaColes;
+        return $pastes;
     }
 
     /**
      * Get Repository
      *
-     * @return forumMensagens
+     * @return forumMessages
      */
-    public function forumMensagens()
+    public function forumMessages()
     {
-        $forumMensagens = $this->em->getRepository('PhpbrAppBundle:Forum\Mensagem')->listaRecentes();
+        $messages = $this->em->getRepository('PhpbrAppBundle:Forum\Message')->listRecentMessages();
 
-        return $forumMensagens;
+        return $messages;
     }
 
     /**
      * Get Repository
      *
-     * @param $usuario
+     * @param $user
      * @return object
      */
-    public function findOneByUser($usuario)
+    public function findOneByUser($user)
     {
-        $usuario = $this->em->getRepository('PhpbrAppBundle:User')->findOneBy([
-                'username' => $usuario
+        $user = $this->em->getRepository('PhpbrAppBundle:User')->findOneBy([
+                'username' => $user
             ]
         );
 
-        return $usuario;
+        return $user;
     }
 
     /**

@@ -1,0 +1,14 @@
+admin_articles:
+    path: /
+    defaults: { _controller: "PhpbrAppBundle:Admin\Article:list" }
+    host:     %website%
+
+admin_article_approve:
+    path: /aprovar/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Admin\Article:approve" }
+    host:     %website%
+
+admin_article_refuse:
+    path: /anular/{slug}
+    defaults: { _controller: "PhpbrAppBundle:Admin\Article:refuse" }
+    host:     %website%

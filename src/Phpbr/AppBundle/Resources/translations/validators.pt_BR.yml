@@ -23,3 +23,10 @@ fos_user:
         blank: É necessário preencher o nome
         short: "[-Inf,Inf]O nome é muito curto"
         long: "[-Inf,Inf]O nome é muito longo"
+
+phpbr:
+    registration:
+        github:
+            invalid: "Preencha a URL do seu github corretamente"
+        twitter:
+            invalid: "Preencha a URL do seu twitter corretamente"

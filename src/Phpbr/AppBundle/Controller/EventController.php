@@ -21,15 +21,14 @@ class EventController extends Controller
      * New event.
      *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         $event = new Event();
 
         $form = $this->createForm(new EventType(), $event, array());
         $form->handleRequest($request);
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+        if (!$this->container->get('security.token_storage')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return new RedirectResponse($this->generateUrl('fos_user_security_login'));
         }
 
@@ -41,7 +40,7 @@ class EventController extends Controller
 
             $date = new \DateTime(\DateTime::createFromFormat('d/m/Y', $day)->format('Y-m-d'));
 
-            if($date === false) {
+            if ($date === false) {
                 throw new \Exception('Invalid Date');
             }
 
@@ -67,13 +66,11 @@ class EventController extends Controller
         ));
     }
 
-
     /**
      * Lists all events.
      *
      */
-    public function viewAllAction()
-    {
+    public function viewAllAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PhpbrAppBundle:Event')->findAll();
@@ -83,14 +80,13 @@ class EventController extends Controller
         ));
     }
 
-
     /**
      * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listMyEventsAction(Request $request) {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PhpbrAppBundle:Event')->findBy(
@@ -106,13 +102,11 @@ class EventController extends Controller
         ));
     }
 
-
     /**
      * View a specific event.
      *
      */
-    public function viewAction($slug)
-    {
+    public function viewAction($slug) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PhpbrAppBundle:Event')->findOneBy([
@@ -124,14 +118,16 @@ class EventController extends Controller
         ));
     }
 
-
-    public function listMyEvents()
-    {
+    public function listMyEvents() {
 
     }
 
-    public function deleteAction($id){
-        $user = $this->get('security.context')->getToken()->getUser();
+    /**
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function deleteAction($id) {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         if (gettype($user) != 'object') {
             return $this->redirect('/eventos');
@@ -165,21 +161,20 @@ class EventController extends Controller
         return $this->redirect($this->generateUrl('phpbr_list_my_events'));
     }
 
-    public function editAction($id){
+    /**
+     * @param $id
+     */
+    public function editAction($id) {
 
     }
-
 
     /**
      * Get Event Service
      *
      * @return EventService
      */
-    private function getEventService()
-    {
+    private function getEventService() {
         return $this->get('phpbr_event_service_em');
     }
-
-
 
 }

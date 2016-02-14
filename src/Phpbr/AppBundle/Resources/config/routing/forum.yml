@@ -1,44 +1,44 @@
 forum_index:
     path:     /
-    defaults: { _controller: "PhpbrAppBundle:Forum\Categoria:index" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Category:index" }
     host:     %website%
 
-forum_ver_categoria:
+forum_view_category:
     path:     /categoria/{slug}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Categoria:verCategoria" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Category:viewCategory" }
     host:     %website%
 
-forum_ver_topico:
+forum_view_topic:
     path:     /topico/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:verTopico" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:ViewTopic" }
     host:     %website%
 
-forum_ver_mensagem:
+forum_view_message:
     path:     /{slug_categoria}/{slug}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:verMensagem" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Message:viewMessage" }
     host:     %website%
 
-forum_novo_topico:
+forum_new_topic:
     path:     /novo
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:novo" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:new" }
     host:     %website%
 
-forum_deletar:
+forum_delete:
     path:     /deletar/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:deletar" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:delete" }
     host:     %website%
 
-forum_nova_mensagem:
+forum_new_message:
     path:     /{topico_id}/novaMensagem
-    defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:novaMensagem" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Message:newMessage" }
     host:     %website%
 
-forum_deletar_mensagem:
+forum_delete_message:
     path:     /deletar-mensagem/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Mensagem:deletarMensagem" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Message:deleteMessage" }
     host:     %website%
 
-forum_deletar_topico:
+forum_delete_topic:
     path:     /deletar-topico/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topico:deletarTopico" }
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:deleteTopic" }
     host:     %website%

@@ -4,6 +4,8 @@ namespace Phpbr\AppBundle\Form\Type;
 
 use FOS\UserBundle\Form\Type\ProfileFormType as BaseType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
 class ProfileFormType extends BaseType
 {
@@ -12,10 +14,10 @@ class ProfileFormType extends BaseType
 
         // Lista de campos customizaveis
         $builder
-            ->add('name', 'text', array('label' => 'Nome', 'required' => true))
-            ->add('linkedin', 'url', array('label' => 'LinkedIn', 'required' => false))
-            ->add('twitter', 'text', array('label' => 'Twitter', 'attr' => array('placeholder' => '@Usuario'), 'required' => false))
-            ->add('github', 'text', array('label' => 'Conta GitHub', 'required' => false))
+            ->add('name', TextType::class, array('label' => 'Nome', 'required' => true))
+            ->add('linkedin', UrlType::class, array('label' => 'LinkedIn', 'required' => false))
+            ->add('twitter', TextType::class, array('label' => 'Twitter', 'attr' => array('placeholder' => '@Usuario'), 'required' => false))
+            ->add('github', TextType::class, array('label' => 'Conta GitHub', 'required' => false))
             ;
     }
 

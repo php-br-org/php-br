@@ -48,23 +48,23 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $artigos;
+    private $articles;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $mensagens;
+    private $messages;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $topicos;
+    private $topics;
 
 
     public function __construct() {
-        $this->artigos = new ArrayCollection();
-        $this->mensagens = new ArrayCollection();
-        $this->topicos = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+        $this->messages = new ArrayCollection();
+        $this->topics = new ArrayCollection();
 
         parent::__construct();
     }
@@ -138,8 +138,6 @@ class User extends BaseUser
         return $this;
     }
 
-
-
     /**
      * Get linkedin
      *
@@ -149,7 +147,6 @@ class User extends BaseUser
     {
         return $this->linkedin;
     }
-
 
     /**
      * Set github
@@ -222,103 +219,103 @@ class User extends BaseUser
     }
 
     /**
-     * Add artigos
+     * Add article
      *
-     * @param \Phpbr\AppBundle\Entity\Artigo $artigos
+     * @param \Phpbr\AppBundle\Entity\Article $article
      * @return User
      */
-    public function addArtigo(\Phpbr\AppBundle\Entity\Artigo $artigos)
+    public function addArticle(\Phpbr\AppBundle\Entity\Article $article)
     {
-        $this->artigos[] = $artigos;
+        $this->articles[] = $article;
 
         return $this;
     }
 
     /**
-     * Remove artigos
+     * Remove article
      *
-     * @param \Phpbr\AppBundle\Entity\Artigo $artigos
+     * @param \Phpbr\AppBundle\Entity\Article $article
      */
-    public function removeArtigo(\Phpbr\AppBundle\Entity\Artigo $artigos)
+    public function removeArticle(\Phpbr\AppBundle\Entity\Article $article)
     {
-        $this->artigos->removeElement($artigos);
+        $this->articles->removeElement($article);
     }
 
     /**
-     * Get artigos
+     * Get articles
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArtigos()
+    public function getArticles()
     {
-        return $this->artigos;
+        return $this->articles;
     }
 
     /**
-     * Add mensagen
+     * Add Message
      *
-     * @param \Phpbr\AppBundle\Entity\Forum\Mensagem $mensagen
+     * @param \Phpbr\AppBundle\Entity\Forum\Message $message
      *
      * @return User
      */
-    public function addMensagen(\Phpbr\AppBundle\Entity\Forum\Mensagem $mensagen)
+    public function addMessage(\Phpbr\AppBundle\Entity\Forum\Message $message)
     {
-        $this->mensagens[] = $mensagen;
+        $this->messages[] = $message;
 
         return $this;
     }
 
     /**
-     * Remove mensagen
+     * Remove message
      *
-     * @param \Phpbr\AppBundle\Entity\Forum\Mensagem $mensagen
+     * @param \Phpbr\AppBundle\Entity\Forum\Message $message
      */
-    public function removeMensagen(\Phpbr\AppBundle\Entity\Forum\Mensagem $mensagen)
+    public function removeMessage(\Phpbr\AppBundle\Entity\Forum\Message $message)
     {
-        $this->mensagens->removeElement($mensagen);
+        $this->messages->removeElement($message);
     }
 
     /**
-     * Get mensagens
+     * Get messages
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getMensagens()
+    public function getMessages()
     {
-        return $this->mensagens;
+        return $this->messages;
     }
 
     /**
-     * Add topico
+     * Add topic
      *
-     * @param \Phpbr\AppBundle\Entity\Forum\Topico $topico
+     * @param \Phpbr\AppBundle\Entity\Forum\Topic $topic
      *
      * @return User
      */
-    public function addTopico(\Phpbr\AppBundle\Entity\Forum\Topico $topico)
+    public function addTopic(\Phpbr\AppBundle\Entity\Forum\Topic $topic)
     {
-        $this->topicos[] = $topico;
+        $this->topics[] = $topic;
 
         return $this;
     }
 
     /**
-     * Remove topico
+     * Remove topic
      *
-     * @param \Phpbr\AppBundle\Entity\Forum\Topico $topico
+     * @param \Phpbr\AppBundle\Entity\Forum\Topic $topic
      */
-    public function removeTopico(\Phpbr\AppBundle\Entity\Forum\Topico $topico)
+    public function removeTopic(\Phpbr\AppBundle\Entity\Forum\Topic $topic)
     {
-        $this->topicos->removeElement($topico);
+        $this->topics->removeElement($topic);
     }
 
     /**
-     * Get topicos
+     * Get topic
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTopicos()
+    public function getTopics()
     {
-        return $this->topicos;
+        return $this->topics;
     }
 }

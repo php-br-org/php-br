@@ -10,3 +10,7 @@ phpbr:
         remove: 'Remover'
         massage: 'Nenhum artigo pendente no momento'
 
+        form:
+            publish_options:
+                draft: 'Salvar como Rascunho'
+                publish: 'Publicar Artigo'

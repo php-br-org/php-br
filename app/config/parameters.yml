@@ -24,10 +24,9 @@ parameters:
     knp_disqus.secret_key: XXX # optional, for SSO auth only
     knp_disqus.lorem.shortname: "php-br.org"
 
-    artigos_por_pagina: 10
-    coles_por_pagina: 5
+    articles_per_page: 10
+    pastes_per_page: 5
 
     website: "php-br.dev"
     
     irc.bot.api_key: XXX
-    

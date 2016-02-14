@@ -22,7 +22,7 @@ class Url
     /**
      * @var string
      */
-    private $descricao;
+    private $description;
 
     /**
      * @var \DateTime
@@ -64,26 +64,26 @@ class Url
     }
 
     /**
-     * Set descricao
+     * Set description
      *
-     * @param string $descricao
+     * @param string $description
      * @return Url
      */
-    public function setDescricao($descricao)
+    public function setDescription($description)
     {
-        $this->descricao = $descricao;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get descricao
+     * Get description
      *
      * @return string 
      */
-    public function getDescricao()
+    public function getDescription()
     {
-        return $this->descricao;
+        return $this->description;
     }
 
     /**
