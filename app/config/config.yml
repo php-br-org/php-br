@@ -40,7 +40,7 @@ assetic:
     filters:
         compass:
             load_paths:
-                - '%kernel.root_dir%/../src/Phpbr/Bundle/AppBundle/Resources/public/bower_components/foundation/scss'
+                - '%kernel.root_dir%/../src/Phpbr/AppBundle/Resources/public/bower_components/foundation/scss'
             apply_to: ".(scss|sass)$"
         cssrewrite: ~
         #closure:
@@ -50,19 +50,19 @@ assetic:
     assets:
         meltdown_eot:
             inputs:
-                - '%kernel.root_dir%/../src/Phpbr/Bundle/AppBundle/Resources/public/assets/fonts/meltdown.eot'
+                - '%kernel.root_dir%/../src/Phpbr/AppBundle/Resources/public/assets/fonts/meltdown.eot'
             output: fonts/meltdown.eot
         meltdown_svg:
             inputs:
-                - '%kernel.root_dir%/../src/Phpbr/Bundle/AppBundle/Resources/public/assets/fonts/meltdown.svg'
+                - '%kernel.root_dir%/../src/Phpbr/AppBundle/Resources/public/assets/fonts/meltdown.svg'
             output: fonts/meltdown.svg
         meltdown_ttf:
             inputs:
-                - '%kernel.root_dir%/../src/Phpbr/Bundle/AppBundle/Resources/public/assets/fonts/meltdown.ttf'
+                - '%kernel.root_dir%/../src/Phpbr/AppBundle/Resources/public/assets/fonts/meltdown.ttf'
             output: fonts/meltdown.ttf
         meltdown_woff:
             inputs:
-                - '%kernel.root_dir%/../src/Phpbr/Bundle/AppBundle/Resources/public/assets/fonts/meltdown.woff'
+                - '%kernel.root_dir%/../src/Phpbr/AppBundle/Resources/public/assets/fonts/meltdown.woff'
             output: fonts/meltdown.woff
 
 # Doctrine Configuration
@@ -91,13 +91,13 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Phpbr\Bundle\AppBundle\Entity\User
+    user_class: Phpbr\AppBundle\Entity\User
     profile:
         form:
             type: phpbr_user_profile
     registration:
         form:
-            type: phpbr_user_registration
+            type: Phpbr\AppBundle\Form\Type\RegistrationFormType
 
 hwi_oauth:
     #this is my custom user provider, created from FOSUBUserProvider - will manage the 
@@ -166,5 +166,13 @@ snc_redis:
         prefix: phpbr
         use_as_default: true
 
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
 
-
+# Temporary solution for conflict between sf / fosuserbundle: https://github.com/FriendsOfSymfony/FOSUserBundle/issues/2048
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine

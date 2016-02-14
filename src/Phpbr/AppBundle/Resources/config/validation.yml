@@ -1,0 +1,33 @@
+Phpbr\AppBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 4
+                max: 20
+        github:
+            - Regex:
+                pattern: /^(https?:\/\/)?((w{3}\.)?)github.com\/.*/
+                message: "Preencha a URL do seu github corretamente"
+        twitter:
+            - Regex:
+                pattern: /^(https?:\/\/)?((w{3}\.)?)twitter.com\/.*/
+                message: "Preencha a URL do seu twitter corretamente"
+
+
+
+
+Phpbr\AppBundle\Entity\Artigo:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: titulo
+    properties:
+        titulo:
+            - NotBlank: ~
+            - Length:
+                min: 4
+                max: 155
+        texto:
+            - NotBlank: ~

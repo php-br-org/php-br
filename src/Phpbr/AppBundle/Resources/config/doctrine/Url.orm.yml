@@ -1,0 +1,20 @@
+Phpbr\AppBundle\Entity\Url:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        url:
+            type: string
+            length: 255
+        descricao:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            column: created_at
+    lifecycleCallbacks: {  }

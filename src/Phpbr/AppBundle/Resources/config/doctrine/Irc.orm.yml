@@ -1,0 +1,16 @@
+Phpbr\AppBundle\Entity\Irc:
+    type: entity
+    table: irc
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nicks:
+            type: text
+        dataAtualizado:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }
