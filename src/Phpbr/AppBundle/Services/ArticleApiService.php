@@ -3,12 +3,12 @@
 namespace Phpbr\AppBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Phpbr\AppBundle\Entity\Artigo;
+use Phpbr\AppBundle\Entity\Article;
 
 /**
- * Class ArtigoApiService
+ * Class ArticleApiService
  */
-class ArtigoApiService
+class ArticleApiService
 {
 
     public $em;
@@ -24,11 +24,11 @@ class ArtigoApiService
     /**
      * Get Repository
      *
-     * @return Artigo
+     * @return Article
      */
     public function repository()
     {
-        $article = $this->em->getRepository('PhpbrAppBundle:Artigo');
+        $article = $this->em->getRepository('PhpbrAppBundle:Article');
 
         return $article;
     }
@@ -38,17 +38,17 @@ class ArtigoApiService
      * Get Query
      *
      * @param $id
-     * @return Artigo
+     * @return Article
      */
     public function getQueryBuilder($id)
     {
         $repository = $this->repository();
 
-        $query = $repository->createQueryBuilder('Artigo')
-            ->where('Artigo.id = :id')
-            ->andWhere('Artigo.aprovado = :aprovado')
+        $query = $repository->createQueryBuilder('Article')
+            ->where('Article.id = :id')
+            ->andWhere('Article.approved = :approved')
             ->setParameter('id', $id)
-            ->setParameter('aprovado', true)
+            ->setParameter('approved', true)
             ->getQuery();
 
         return $query;

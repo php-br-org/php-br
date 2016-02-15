@@ -3,9 +3,9 @@
 namespace Phpbr\AppBundle\Twig;
 
 use Doctrine\ORM\EntityManager;
-use Phpbr\AppBundle\Entity\Forum\Mensagem;
+use Phpbr\AppBundle\Entity\Forum\Message;
 
-class ForumContaMensagensExtension extends \Twig_Extension {
+class ForumMessagesCountExtension extends \Twig_Extension {
 
     protected $em;
 
@@ -17,22 +17,22 @@ class ForumContaMensagensExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'topico2quantidade_mensagens',
+                'topicMessagesCount',
                 array (
                     $this,
-                    'getTopico2QuantidadeMensagens'
+                    'getTopicMessagesCount'
                 )
             )
         );
     }
 
-    public function getTopico2QuantidadeMensagens($topico_id) {
+    public function getTopicMessagesCount($topic_id) {
         $return = $this->em->createQueryBuilder()
             ->select('COUNT(m)')
-            ->from('Phpbr\AppBundle\Entity\Forum\Mensagem', 'm')
-            ->leftJoin('m.topico', 't')
-            ->where('t.id = :topico')
-            ->setParameter('topico', $topico_id)
+            ->from('Phpbr\AppBundle\Entity\Forum\Message', 'm')
+            ->leftJoin('m.topic', 't')
+            ->where('t.id = :topic')
+            ->setParameter('topic', $topic_id)
             ->getQuery()
             ->getOneOrNullResult();
 
@@ -40,7 +40,7 @@ class ForumContaMensagensExtension extends \Twig_Extension {
     }
 
     public function getName() {
-        return 'topico2quantidade_mensagens';
+        return 'topicMessagesCount';
     }
 }
 

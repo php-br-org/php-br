@@ -2,20 +2,20 @@
 
 namespace Phpbr\AppBundle\Twig;
 
-class TempoExtension extends \Twig_Extension {
+class TimeExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'tempo_passado',
+                'time_passed',
                 array (
                     $this,
-                    'getTempoPassadoFilter'
+                    'getTimePassedFilter'
                 )
             )
         );
     }
 
-    public function getTempoPassadoFilter($timestamp) {
+    public function getTimePassedFilter($timestamp) {
         $since = time() - $timestamp;
 
         $chunks = array(
@@ -36,8 +36,7 @@ class TempoExtension extends \Twig_Extension {
             }
         }
 
-        if ($name == "mes")
-        {
+        if ($name == "mes") {
             $plural = "es";
         } else {
             $plural = "s";
@@ -48,7 +47,7 @@ class TempoExtension extends \Twig_Extension {
     }
 
     public function getName() {
-        return 'tempo_extension';
+        return 'time_extension';
     }
 }
 

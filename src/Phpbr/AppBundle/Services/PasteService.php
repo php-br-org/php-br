@@ -3,12 +3,12 @@
 namespace Phpbr\AppBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Phpbr\AppBundle\Entity\Interfaces\ColeInterface;
+use Phpbr\AppBundle\Entity\Interfaces\PasteInterface;
 
 /**
- * Class ColeService
+ * Class PasteService
  */
-class ColeService {
+class PasteService {
 
     /**
      * @var EntityManagerInterface $em
@@ -23,10 +23,10 @@ class ColeService {
     /**
      * Persist and flush cole
      *
-     * @param ColeInterface $entity
-     * @return ColeInterface
+     * @param PasteInterface $entity
+     * @return PasteInterface
      */
-    public function insert(ColeInterface $entity)
+    public function insert(PasteInterface $entity)
     {
         $this->em->persist($entity);
         $this->em->flush();
@@ -34,9 +34,9 @@ class ColeService {
         return $entity;
     }
 
-    public function findByCole($id)
+    public function findByPaste($id)
     {
-        $entity = $this->em->getRepository('PhpbrAppBundle:Cole')->find($id);
+        $entity = $this->em->getRepository('PhpbrAppBundle:Paste')->find($id);
 
         return $entity;
     }

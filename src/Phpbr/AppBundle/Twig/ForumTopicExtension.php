@@ -4,7 +4,7 @@ namespace Phpbr\AppBundle\Twig;
 
 use Doctrine\ORM\EntityManager;
 
-class ForumTopicoExtension extends \Twig_Extension {
+class ForumTopicExtension extends \Twig_Extension {
 
     protected $em;
 
@@ -16,26 +16,26 @@ class ForumTopicoExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'quantidade_topicos',
+                'qty_topics',
                 array (
                     $this,
-                    'getQuantidadeTopicos'
+                    'getQtyTopics'
                 )
             )
         );
     }
 
-    public function getQuantidadeTopicos($categoria_id) {
-        $topicos = $this->em->getRepository('PhpbrAppBundle:Forum\Topico')
+    public function getQtyTopics($category_id) {
+        $topics = $this->em->getRepository('PhpbrAppBundle:Forum\Topic')
             ->findBy(
-                array('categoria' => $categoria_id)
+                array('category' => $category_id)
             );
 
-        return count($topicos);
+        return count($topics);
     }
 
     public function getName() {
-        return 'quantidade_topicos';
+        return 'qty_topics';
     }
 }
 

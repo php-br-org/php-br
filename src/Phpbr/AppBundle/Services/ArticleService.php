@@ -3,12 +3,12 @@
 namespace Phpbr\AppBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Phpbr\AppBundle\Entity\Artigo;
+use Phpbr\AppBundle\Entity\Article;
 
 /**
- * Class ArtigoService
+ * Class ArticleService
  */
-class ArtigoService
+class ArticleService
 {
 
     public $em;
@@ -24,11 +24,11 @@ class ArtigoService
     /**
      * Get Repository
      *
-     * @return Artigo
+     * @return Article
      */
     public function repository()
     {
-        $article = $this->em->getRepository('PhpbrAppBundle:Artigo');
+        $article = $this->em->getRepository('PhpbrAppBundle:Article');
 
         return $article;
     }
@@ -36,10 +36,10 @@ class ArtigoService
     /**
      * Persist and flush article
      *
-     * @param Artigo $entity
-     * @return Artigo
+     * @param Article $entity
+     * @return Article
      */
-    public function insert(Artigo $entity)
+    public function insert(Article $entity)
     {
         $this->em->persist($entity);
         $this->em->flush();
@@ -50,15 +50,15 @@ class ArtigoService
     /**
      * Remove Article
      *
-     * @param Artigo $artigo
-     * @return Artigo
+     * @param Article $article
+     * @return Article
      */
-    public function remove(Artigo $artigo)
+    public function remove(Article $article)
     {
-        $this->em->remove($artigo);
+        $this->em->remove($article);
         $this->em->flush();
 
-        return $artigo;
+        return $article;
     }
 
     /**
@@ -77,7 +77,7 @@ class ArtigoService
      * Find Article
      *
      * @param int $id
-     * @return Artigo
+     * @return Article
      */
     public function findByArticle($id)
     {

@@ -17,41 +17,40 @@ class ForumCategoryExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'categoria2ultima_mensagem',
+                'categoryLastMessage',
                 array (
                     $this,
-                    'getUltimaMensagem'
+                    'getLastMessage'
                 )
             )
         );
     }
 
-    public function getUltimaMensagem($categoria_id) {
-
-        $repository = $this->em->getRepository('PhpbrAppBundle:Forum\Mensagem');
+    public function getLastMessage($category_id) {
+        $repository = $this->em->getRepository('PhpbrAppBundle:Forum\Message');
 
         try {
-            $ultimaMensagem = $this->em->createQueryBuilder($repository)
+            $lastMessage = $this->em->createQueryBuilder($repository)
                 ->select('m')
-                ->from('PhpbrAppBundle:Forum\Mensagem', 'm')
-                ->leftJoin('m.topico', 't')
-                ->leftJoin('t.categoria', 'c')
-                ->where('c.id = :categoria')
-                ->setParameter('categoria', $categoria_id)
+                ->from('PhpbrAppBundle:Forum\Message', 'm')
+                ->leftJoin('m.topic', 't')
+                ->leftJoin('t.category', 'c')
+                ->where('c.id = :category')
+                ->setParameter('category', $category_id)
                 ->setMaxResults(1)
                 ->getQuery()
                 ->getOneOrNullResult();
 
-            $dataCriacao = $ultimaMensagem ? $ultimaMensagem->getDataCriacao() : null;
+            $createdAt = $lastMessage ? $lastMessage->getCreatedAt() : null;
 
-            return $dataCriacao;
+            return $createdAt;
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
         }
     }
 
     public function getName() {
-        return 'categoria2ultima_mensagem';
+        return 'categoryLastMessage';
     }
 }
 

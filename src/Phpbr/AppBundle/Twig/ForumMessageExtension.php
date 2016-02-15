@@ -3,9 +3,9 @@
 namespace Phpbr\AppBundle\Twig;
 
 use Doctrine\ORM\EntityManager;
-use Phpbr\AppBundle\Entity\Forum\Mensagem;
+use Phpbr\AppBundle\Entity\Forum\Message;
 
-class ForumMensagemExtension extends \Twig_Extension {
+class ForumMessageExtension extends \Twig_Extension {
 
     protected $em;
 
@@ -17,23 +17,23 @@ class ForumMensagemExtension extends \Twig_Extension {
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter(
-                'quantidade_mensagens',
+                'qty_messages',
                 array (
                     $this,
-                    'getQuantidadeMensagens'
+                    'getQtyMessages'
                 )
             )
         );
     }
 
-    public function getQuantidadeMensagens($categoria_id) {
+    public function getQtyMessages($category_id) {
         $return = $this->em->createQueryBuilder()
             ->select('COUNT(m)')
-            ->from('Phpbr\AppBundle\Entity\Forum\Mensagem', 'm')
-            ->leftJoin('m.topico', 't')
-            ->leftJoin('t.categoria', 'c')
-            ->where('c.id = :categoria')
-            ->setParameter('categoria', $categoria_id)
+            ->from('Phpbr\AppBundle\Entity\Forum\Message', 'm')
+            ->leftJoin('m.topic', 't')
+            ->leftJoin('t.category', 'c')
+            ->where('c.id = :category')
+            ->setParameter('category', $category_id)
             ->getQuery()
             ->getOneOrNullResult();
 
@@ -41,7 +41,7 @@ class ForumMensagemExtension extends \Twig_Extension {
     }
 
     public function getName() {
-        return 'quantidade_mensagens';
+        return 'qty_messages';
     }
 }
 
