@@ -3,31 +3,31 @@
 {% block content %}
     <div class="row main-div-background">
         <div class="medium-9 large-9 columns">
-            {% for artigo in artigos|slice(0, 6) %}
+            {% for article in articles|slice(0, 6) %}
             <div>
                 <h5>
-                    <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                        {{ artigo.titulo|e }}
+                    <a href="{{ path('read_article', { slug: article.slug }) }}">
+                        {{ article.title|e }}
                     </a>
                 </h5>
                 <div style="width:80px; float:left;">
-                    <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar2" />
+                    <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|raw }}" class="avatar2" />
                 </div>
 
                 <div>
                     <p class="text-justify">
-                        {{ artigo.resumo|e }}
+                        {{ article.excerpt|e }}
                     </p>
                     <h5>
                         <small>
                         Autor: 
-                        <a href="{{ path('phpbr_app_verusuario', { 'usuario': artigo.user }) }}">{{ artigo.user.name|raw }}</a>
-                        , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás.
-                            <span id="comentarios_{{ artigo.slug }}" class="secondary radius label"></span>
+                        <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|raw }}</a>
+                        , {{ article.approvedAt|date('U')|time_passed }} atrás.
+                            <span id="comentarios_{{ article.slug }}" class="secondary radius label"></span>
                         </small>
                     </h5>
                     <script>
-                        phpbr.getComentarios('{{ artigo.slug }}');
+                        phpbr.getComentarios('{{ article.slug }}');
                     </script>
                 </div>
 
@@ -39,12 +39,12 @@
                 <div class="medium-9 large-9 columns">
                 <h4>Últimas do Forum</h4>
 
-                {% for mensagem in forumMensagens %}
+                {% for message in forumMessages %}
                     <div class="forumMensagem">
-                        <a href="{{ path('forum_ver_mensagem', {'slug_categoria': mensagem.topico.categoria.slug, 'slug': mensagem.topico.slug}) }}">
-                            <b>{{ mensagem.topico.assunto }}</b>
+                        <a href="{{ path('forum_view_message', {'slug_category': message.topico.categoria.slug, 'slug': message.topico.slug}) }}">
+                            <b>{{ message.topico.assunto }}</b>
                         </a>
-                        - {{ mensagem.user.username }}
+                        - {{ message.user.username }}
                     </div>
                 {% endfor %}
                     </div>
@@ -101,11 +101,11 @@
                 <div class="large-12 columns">
                     <div id="users-block">
                         <div class="user-title-box" id="ultimos-cadastros"><h5><small>ÚLTIMOS CADASTROS</small></h5></div>
-                        {% for usuario in usuarios %}
+                        {% for user in users %}
                         <div class="row sidebar-item-block collapse">
-                            <a href="{{ path('phpbr_app_verusuario', { 'usuario': usuario }) }}">
-                                <img src="{{ usuario.email|email2gravatar('40') }}" alt="{{ usuario.name }}" class="avatar" />
-                                <div class="user-box"><h5> <small> {{ usuario.username|lower }} </small> </h5></div>
+                            <a href="{{ path('phpbr_app_viewuser', { 'user': user }) }}">
+                                <img src="{{ user.email|email2gravatar('40') }}" alt="{{ user.name }}" class="avatar" />
+                                <div class="user-box"><h5> <small> {{ user.username|lower }} </small> </h5></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -117,14 +117,14 @@
                 <div class="large-12 columns">
                     <div id="coles-block">
                         <div class="user-title-box"><h5><small>COLE CÓDIGOS</small></h5></div>
-                        {% for cole in coles %}
-                            <a href="{{ url('cole_ver', {'id': cole.id}) }}">
+                        {% for paste in pastes %}
+                            <a href="{{ url('paste_view', {'id': paste.id}) }}">
                                 <div class="row sidebar-item-block collapse">
                                     <div class="large-3 columns">
-                                        <span class="label">{{ cole.tipo }}</span>
+                                        <span class="label">{{ paste.type }}</span>
                                     </div>
                                     <div class="large-9 columns">
-                                        <h5><small>{{ cole.titulo|upper }}</small></h5>
+                                        <h5><small>{{ paste.title|upper }}</small></h5>
                                     </div>
                                 </div>
                             </a>

@@ -5,31 +5,31 @@
         <div class="large-12 columns">
             <h3>Artigos</h3>
             <p>
-                <a href="{{ path('novo_artigo') }}">Criar Artigo</a>
+                <a href="{{ path('new_article') }}">Criar Artigo</a>
             </p>
 
-            {% if artigos|length %}
-                {% for artigo in artigos %}
+            {% if articles|length %}
+                {% for article in articles %}
                     <div>
                         <h4>
-                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                                {{ artigo.titulo|e }}
+                            <a href="{{ path('read_article', { slug: article.slug }) }}">
+                                {{ article.title|e }}
                             </a>
                         </h4>
 
                         <div style="width:80px; float:left;">
-                            <img src="{{ artigo.user.email|email2gravatar('60') }}" alt="{{ artigo.user.name|raw }}" class="avatar" />
+                            <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|raw }}" class="avatar" />
                         </div>
 
                         <div>
                             <p class="text-justify">
-                                {{ artigo.resumo|e }}
+                                {{ article.excerpt|e }}
                             </p>
                             <h5>
                                 <small>
                                     Autor:
-                                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': artigo.user }) }}">{{ artigo.user.name|raw }}</a>
-                                    , {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
+                                    <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|raw }}</a>
+                                    , {{ article.approvedAt|date('U')|time_passed }} atrás
                                 </small>
                             </h5>
                         </div>
@@ -39,9 +39,9 @@
                 {% endfor %}
             {% endif %}
 
-            {% if artigos|length %}
+            {% if articles|length %}
                 <div class="row">
-                    {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
+                    {{ pagerfanta(articles, 'phpbr', {'pageParameter': '[pagina]'}) }}
                 </div>
             {% endif %}
         </div>

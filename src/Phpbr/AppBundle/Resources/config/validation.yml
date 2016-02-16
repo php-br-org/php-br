@@ -21,10 +21,10 @@ Phpbr\AppBundle\Entity\Article:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
     properties:
-        titulo:
+        title:
             - NotBlank: ~
             - Length:
                 min: 4
                 max: 155
-        texto:
+        content:
             - NotBlank: ~

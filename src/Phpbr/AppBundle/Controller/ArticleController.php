@@ -5,7 +5,7 @@ namespace Phpbr\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Phpbr\AppBundle\Services\ArticleService;
-use Phpbr\AppBundle\Entity\Aricle;
+use Phpbr\AppBundle\Entity\Article;
 use Phpbr\AppBundle\Form\Type\ArticleFormType;
 use Pagerfanta\Pagerfanta;
 
@@ -50,7 +50,7 @@ class ArticleController extends Controller
         $page = $request->get('pagina', 1);
         $articles->setCurrentPage($page);
 
-        return $this->render('PhpbrAppBundle:Artigo:lista.html.twig', compact('articles'));
+        return $this->render('PhpbrAppBundle:Article:list.html.twig', compact('articles'));
     }
 
     /**

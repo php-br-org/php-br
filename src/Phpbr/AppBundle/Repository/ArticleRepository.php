@@ -70,7 +70,7 @@ class ArticleRepository extends EntityRepository
             ->where('Article.user = :user')
             ->orderBy('Article.score', 'DESC')
             ->addOrderBy('Article.id', 'DESC')
-            ->setParameter('usuario', $user);
+            ->setParameter('user', $user);
 
         $pagerfantaAdapter = new DoctrineORMAdapter($query);
 

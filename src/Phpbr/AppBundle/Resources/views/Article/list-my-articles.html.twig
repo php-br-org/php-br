@@ -3,55 +3,55 @@
 {% block content %}
     <div class="row main-div-background">
         <div class="large-12 columns">
-            <h3><a href="{{ path('lista_meus_artigos') }}">Meus Artigos</a> :: Lista de Artigos</h3>
+            <h3><a href="{{ path('list_my_articles') }}">Meus Artigos</a> :: Lista de Artigos</h3>
             <p>
-                <a href="{{ path('novo_artigo') }}" class="button success">Criar Artigo</a>
+                <a href="{{ path('new_article') }}" class="button success">Criar Artigo</a>
             </p>
 
             <hr>
 
-            {% if artigos|length %}
-                {% for artigo in artigos %}
+            {% if articles|length %}
+                {% for article in articles %}
                     <div class="row">
                         <div class="large-3 columns text-right">
                             <a data-confirm='{
                                 "title":"Tem certeza que deseja excluir este item?",
-                                "body":"{{ artigo.titulo|e }}",
+                                "body":"{{ article.title|e }}",
                                 "ok":"SIM",
                                 "cancel":"NÃO"}'
-                            href="{{ path('deleta_meus_artigos', { id: artigo.id }) }}"
+                            href="{{ path('delete_my_article', { id: article.id }) }}"
                             class="button tiny alert">Deletar</a>
 
-                            <a href="{{ path('artigo_edit', { id: artigo.id }) }}" class="button tiny">Editar</a>
+                            <a href="{{ path('article_edit', { id: article.id }) }}" class="button tiny">Editar</a>
                         </div>
 
                         <div class="large-6 columns">
 
-                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}">
-                                {{ artigo.titulo|e }}
+                            <a href="{{ path('read_article', { slug: article.slug }) }}">
+                                {{ article.title|e }}
                             </a>
                             <br>
 
-                            <small>Autor: {{ artigo.user.username|raw }}</small>
+                            <small>Autor: {{ article.user.username|raw }}</small>
                             <br>
 
-                            {% if (artigo.publicado == 1) %}
+                            {% if (article.published == 1) %}
                                 <span
                                     data-tooltip
                                     class="label [radius] success"
                                     title="Você setou seu artigo como visível a todos! Confira a tag APROVADO para ver se o Admin do ##php-br aprovou seu artigo!">VISÍVEL</span>
-                                {% if (artigo.aprovado == 1) %}
+                                {% if (article.approved == 1) %}
                                     <span
                                         data-tooltip
                                         class="label [radius] success"
                                         title="Seu artigo foi autorizado pelo Admin e está visível no site!">
                                             APROVADO
-                                            {% if (artigo.dataAutorizado is not null) %}
-                                                {{ artigo.dataAutorizado|date('U')|tempo_passado }} atrás
+                                            {% if (article.approvedAt is not null) %}
+                                                {{ article.approvedAt|date('U')|time_passed }} atrás
                                             {% endif %}
                                         </span>
                                 {% else %}
-                                    {% if (artigo.dataAutorizado|length < 1) %}
+                                    {% if (article.approvedAt|length < 1) %}
                                         <span data-tooltip class="label [radius] alert" title="Seu artigo está aguardando aprovação.">AGUARDANDO APROVAÇÃO</span>
                                     {% else %}
                                         <span data-tooltip class="label [radius] alert" title="Seu artigo foi reprovado pelo Admin.">REPROVADO</span>
@@ -68,8 +68,8 @@
                         <div class="large-3 columns">
                             <h5>
                                 <small>
-                                    {{ artigo.dataPublicado|date('d/m/Y') }},
-                                    {{ artigo.dataPublicado|date('U')|tempo_passado }} atrás
+                                    {{ article.approvedAt|date('d/m/Y') }},
+                                    {{ article.approvedAt|date('U')|time_passed }} atrás
                                 </small>
                             </h5>
                         </div>
@@ -82,10 +82,10 @@
         </div>
     </div>
 
-    {% if artigos|length %}
+    {% if articles|length %}
         <div class="row">
             <div class="large-12 columns text-center">
-                {{ pagerfanta(artigos, 'phpbr', {'pageParameter': '[pagina]'}) }}
+                {{ pagerfanta(articles, 'phpbr', {'pageParameter': '[pagina]'}) }}
             </div>
         </div>
     {% endif %}

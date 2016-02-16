@@ -29,7 +29,7 @@ Phpbr\AppBundle\Entity\Forum\Category:
                         - name
 
     oneToMany:
-        topicos:
+        topics:
             targetEntity: 'Phpbr\AppBundle\Entity\Forum\Topic'
             mappedBy: category
 

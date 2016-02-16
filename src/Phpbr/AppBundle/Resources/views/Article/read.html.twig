@@ -1,0 +1,44 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="row main-div-background">
+        <div class="large-12 columns">
+            <h2>{{ article.title }}</h2>
+            <p class="subheader">
+                Publicado por: <a href="{{ path('phpbr_app_viewuser', {user: article.user.username}) }}">{{ article.user.name|raw }}</a>,
+                 Data: {{ article.approvedAt|date('d/m/Y') }},
+                {{ article.approvedAt|date('U')|time_passed }} atrás
+                </p>
+            {% if article.tags|length %}
+                <p class="subheader">Tags: {{ article.tags|raw }}</p>
+            {% endif %}
+
+            <hr/>
+
+            <div class="row">
+                <div class="large-9 medium-9 columns">
+                    <article id="{{ article.slug }}">
+                        {{ article.content|markdown }}
+                    </article>
+    
+                    {{ knp_disqus_render('phpbrorg', {'identifier': article.slug, 'limit': 10}) }}
+                </div>
+
+                <div class="large-3 medium-3 columns">
+                    <p class="text-center"><img src="{{ gravatar }}" alt="{{ article.user.name|raw }}" class="th" /></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        phpbr.highlight();
+    </script>
+{% endblock %}

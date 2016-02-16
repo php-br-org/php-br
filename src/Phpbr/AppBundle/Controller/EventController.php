@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Phpbr\AppBundle\Entity\Event;
-use Phpbr\AppBundle\Form\EventType;
+use Phpbr\AppBundle\Form\Type\EventType;
 use Pagerfanta\Pagerfanta;
 use Phpbr\AppBundle\Services\EventService;
 

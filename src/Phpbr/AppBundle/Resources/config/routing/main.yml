@@ -19,7 +19,7 @@ phpbr_app_webchat:
     host:     %website%
 
 phpbr_app_viewuser:
-    path:   /usuario/{usuario}
+    path:   /usuario/{user}
     defaults: { _controller: PhpbrAppBundle:Default:viewUser }
     host:     %website%
 

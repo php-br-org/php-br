@@ -43,6 +43,6 @@ Phpbr\AppBundle\Entity\Forum\Topic:
     lifecycleCallbacks: {  }
 
     oneToMany:
-        mensagens:
+        messages:
             targetEntity: Phpbr\AppBundle\Entity\Forum\Message
             mappedBy: topic

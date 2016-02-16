@@ -3,7 +3,7 @@ home_admin:
     defaults: { _controller: "PhpbrAppBundle:Admin\Admin:index" }
 
 admin_articles:
-    resource: "@PhpbrAppBundle/Resources/config/routing/admin/articles.yml"
+    resource: "@PhpbrAppBundle/Resources/config/routing/admin/article.yml"
     prefix: /artigos
 
 admin_forum:
