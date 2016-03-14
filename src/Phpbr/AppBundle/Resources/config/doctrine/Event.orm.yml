@@ -1,6 +1,6 @@
 Phpbr\AppBundle\Entity\Event:
     type: entity
-    table: null
+    table: event
     id:
         id:
             type: integer

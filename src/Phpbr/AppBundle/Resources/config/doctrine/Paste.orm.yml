@@ -1,6 +1,6 @@
 Phpbr\AppBundle\Entity\Paste:
     type: entity
-    table: null
+    table: paste
     repositoryClass: Phpbr\AppBundle\Repository\PasteRepository
     id:
         id:

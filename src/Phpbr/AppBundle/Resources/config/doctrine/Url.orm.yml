@@ -1,6 +1,6 @@
 Phpbr\AppBundle\Entity\Url:
     type: entity
-    table: null
+    table: url
     id:
         id:
             type: integer
