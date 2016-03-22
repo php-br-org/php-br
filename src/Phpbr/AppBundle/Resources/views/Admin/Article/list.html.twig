@@ -15,7 +15,7 @@
                 </div>
             {% endfor %}
 
-            {% if artigos|length %}
+            {% if articles|length %}
                     <table width="100%">
                         <thead>
                         <tr>
@@ -26,24 +26,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for artigo in artigos %}
+                        {% for article in articles %}
                             <tr>
                                 <td>
-                            <a href="{{ path('ler_artigo', { slug: artigo.slug }) }}" target="_blank">
-                                {{ artigo.titulo|e }}
+                            <a href="{{ path('read_article', { slug: article.slug }) }}" target="_blank">
+                                {{ article.title|e }}
                             </a>
                                 </td>
                                 <td>
-                                    {{ artigo.user.name|e }}
+                                    {{ article.user.name|e }}
                                 </td>
                                 <td>
-                                    {{ artigo.dataPublicado|date('d/m/Y') }}
+                                    {{ article.publishedAt|date('d/m/Y') }}
                                 </td>
                                 <td>
-                                    {% if artigo.aprovado == false %}
-                                        <a href="{{ path('admin_artigo_aprovar', {slug: artigo.slug}) }}">{{ 'phpbr.header.approve'|trans({}, 'article') }}</a>
+                                    {% if article.approved == false %}
+                                        <a href="{{ path('admin_article_approve', {slug: article.slug}) }}">{{ 'phpbr.header.approve'|trans({}, 'article') }}</a>
                                     {% else %}
-                                        <a href="{{ path('admin_artigo_anular', {slug: artigo.slug}) }}">{{ 'phpbr.header.cancel'|trans({}, 'article') }}</a>
+                                        <a href="{{ path('admin_article_refuse', {slug: article.slug}) }}">{{ 'phpbr.header.cancel'|trans({}, 'article') }}</a>
                                     {% endif %}
                                      | {{ 'phpbr.header.remove'|trans({}, 'article') }}
                                 </td>

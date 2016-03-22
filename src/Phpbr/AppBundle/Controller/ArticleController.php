@@ -28,7 +28,7 @@ class ArticleController extends Controller
         $articles = new Pagerfanta($articlesAdapter);
         $articles->setMaxPerPage($this->container->getParameter('articles_per_page'));
 
-        $page = $request->get('pagina', 1);
+        $page = $request->get('page', 1);
         $articles->setCurrentPage($page);
 
         return $this->render('PhpbrAppBundle:Article:list-my-articles.html.twig', compact('articles'));
@@ -47,7 +47,7 @@ class ArticleController extends Controller
         $articles = new Pagerfanta($articlesAdapter);
         $articles->setMaxPerPage($this->container->getParameter('articles_per_page'));
 
-        $page = $request->get('pagina', 1);
+        $page = $request->get('page', 1);
         $articles->setCurrentPage($page);
 
         return $this->render('PhpbrAppBundle:Article:list.html.twig', compact('articles'));

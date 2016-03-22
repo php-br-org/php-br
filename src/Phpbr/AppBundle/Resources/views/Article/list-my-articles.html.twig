@@ -32,7 +32,7 @@
                             </a>
                             <br>
 
-                            <small>Autor: {{ article.user.username|raw }}</small>
+                            <small>Autor: {{ article.user.username|e }}</small>
                             <br>
 
                             {% if (article.published == 1) %}

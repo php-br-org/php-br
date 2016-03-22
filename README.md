@@ -102,7 +102,7 @@ Instale bower e grunt-cli em sua maquina:
 
 Para compilar os arquivos de estilo e JS (A executar na sua maquina):
 
-    cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+    cd src/Phpbr/AppBundle/Resources/public/assets
     npm install && bower install --allow-root
     grunt build
 
@@ -115,7 +115,7 @@ Você verá na tela:
 
 Para compilar automaticamente ao salvar (A executar na sua maquina):
 
-    cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+    cd src/Phpbr/AppBundle/Resources/public/assets
     grunt watch
 
 

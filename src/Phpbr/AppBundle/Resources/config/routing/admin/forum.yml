@@ -1,14 +1,11 @@
 admin_forum_categories:
-    path: /
+    path:     /forum-admin/
     defaults: { _controller: "PhpbrAppBundle:Admin\Forum:index" }
-    host:     %website%
 
 admin_forum_new_category:
-    path: /nova-categoria
+    path:     /forum-admin/new-category
     defaults: { _controller: "PhpbrAppBundle:Admin\Forum:newCategory" }
-    host:     %website%
 
 admin_forum_delete_category:
-    path:     /{id}/deletar
+    path:     /forum-admin/{id}/delete
     defaults: { _controller: "PhpbrAppBundle:Admin\Forum:delete" }
-    host:     %website%

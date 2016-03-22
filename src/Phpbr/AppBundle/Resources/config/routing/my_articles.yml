@@ -1,22 +1,16 @@
 list_my_articles:
-    path:   /
+    path:     /my-articles
     defaults: { _controller: PhpbrAppBundle:Article:listMyArticles }
-    host:     %website%
 
 delete_my_article:
-    path: /{id}/deletar
+    path:     /my-articles/{id}/delete
     defaults: { _controller: PhpbrAppBundle:Article:delete }
-    host:     %website%
 
 article_edit:
-    path:     /{id}/editar
+    path:     /my-articles/{id}/edit
     defaults: { _controller: PhpbrAppBundle:Article:edit }
-    host:     %website%
 
 article_update:
-    path:     /{id}/update
+    path:     /my-articles/{id}
     defaults: { _controller: PhpbrAppBundle:Article:update }
     requirements: { _method: post|put }
-    host:     %website%
-
-

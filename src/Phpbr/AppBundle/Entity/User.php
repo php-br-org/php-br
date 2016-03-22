@@ -4,6 +4,7 @@ namespace Phpbr\AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
@@ -60,11 +61,16 @@ class User extends BaseUser
      */
     private $topics;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $events;
 
     public function __construct() {
         $this->articles = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->topics = new ArrayCollection();
+        $this->events = new ArrayCollection();
 
         parent::__construct();
     }
@@ -310,6 +316,32 @@ class User extends BaseUser
     }
 
     /**
+     * Add event
+     *
+     * @param \Phpbr\AppBundle\Entity\Event $event
+     *
+     * @return User
+     */
+    public function addEvent(\Phpbr\AppBundle\Entity\Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \Phpbr\AppBundle\Entity\Event $event
+     */
+    public function removeEvent(\Phpbr\AppBundle\Entity\Event $event)
+    {
+        $this->topics->removeElement($event);
+    }
+
+
+
+    /**
      * Get topic
      *
      * @return \Doctrine\Common\Collections\Collection
@@ -317,5 +349,15 @@ class User extends BaseUser
     public function getTopics()
     {
         return $this->topics;
+    }
+
+    /**
+     * Get event
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

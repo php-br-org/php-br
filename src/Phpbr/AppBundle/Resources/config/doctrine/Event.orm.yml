@@ -11,6 +11,9 @@ Phpbr\AppBundle\Entity\Event:
         title:
             type: string
             length: 255
+        event:
+            type: string
+            length: 255
         description:
             type: text
         location:

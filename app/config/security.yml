@@ -20,14 +20,14 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                csrf_provider: security.csrf.token_manager
+                csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
                 use_referer: true
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"
-                    my_github:             "/login/check-github"
+                    github:             "/login/check-github"
                 login_path:        /login
                 use_forward:       false
                 failure_path:      /login
@@ -51,6 +51,7 @@ security:
 
     access_control:
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, role: ROLE_ADMIN }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/artigos/novo, role: ROLE_USER }
@@ -58,4 +59,3 @@ security:
         - { path: ^/forum/[^/]+/novaMensagem, role: ROLE_USER, methods: [POST] }
         - { path: ^/forum/mensagem/[^/]+, role: ROLE_USER, methods: [POST] }
         - { path: ^/painel/, role: ROLE_ADMIN }
-

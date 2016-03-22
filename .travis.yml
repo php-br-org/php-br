@@ -8,11 +8,11 @@ before_install:
     - composer update
 
 before_script:
-    - mysql -e 'create database phpbr;'
+    - mysql -e 'create database phpbr_en;'
     - composer install -n
 
 script:
-    - bin/phpunit -c app src/Phpbr/Bundle/AppBundle/
+    - bin/phpunit -c app src/Phpbr/AppBundle/
 
 notifications:
     email:

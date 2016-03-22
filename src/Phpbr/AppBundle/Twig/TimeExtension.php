@@ -16,6 +16,8 @@ class TimeExtension extends \Twig_Extension {
     }
 
     public function getTimePassedFilter($timestamp) {
+        $name = '';
+        $count = 0;
         $since = time() - $timestamp;
 
         $chunks = array(
@@ -47,7 +49,7 @@ class TimeExtension extends \Twig_Extension {
     }
 
     public function getName() {
-        return 'time_extension';
+        return 'time_passed';
     }
 }
 

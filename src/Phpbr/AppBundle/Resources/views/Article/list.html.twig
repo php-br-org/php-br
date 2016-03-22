@@ -18,7 +18,7 @@
                         </h4>
 
                         <div style="width:80px; float:left;">
-                            <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|raw }}" class="avatar" />
+                            <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|e }}" class="avatar" />
                         </div>
 
                         <div>
@@ -28,7 +28,7 @@
                             <h5>
                                 <small>
                                     Autor:
-                                    <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|raw }}</a>
+                                    <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|e }}</a>
                                     , {{ article.approvedAt|date('U')|time_passed }} atrás
                                 </small>
                             </h5>

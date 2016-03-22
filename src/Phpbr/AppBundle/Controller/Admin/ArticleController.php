@@ -4,7 +4,7 @@ namespace Phpbr\AppBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Phpbr\AppBundle\Entity\Artigo;
+use Phpbr\AppBundle\Entity\Article;
 
 class ArticleController extends Controller
 {

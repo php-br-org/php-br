@@ -16,12 +16,12 @@
                     <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
                     <h5>
                         <strong>Titulo:</strong> {{ entity.titulo }}
-                        <span class="label success">{{ entity.dataCriacao|date('U')|tempo_passado }} atrás</span>
+                        <span class="label success">{{ entity.dataCriacao|date('U')|time_passed }} atrás</span>
                     </h5>
                 </h4>
             </div>
             <div class="large-3 columns">
-                <a href="{{ url('cole_novo') }}" class="button success right">
+                <a href="{{ url('paste_novo') }}" class="button success right">
                     Novo código
                 </a>
             </div>
@@ -35,7 +35,7 @@
                 <span class="label alert">Este botão só está disponível agora. Esta é sua única chance de excluir o código! </span>
             {% endif %}
         {% endif %}
-        <div class="panel" style="overflow:auto;">{{ codigo|raw }}</div>
+        <div class="panel" style="overflow:auto;">{{ codigo|e }}</div>
     </div>
 
 </div>

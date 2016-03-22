@@ -47,8 +47,6 @@ class ArticleRepository extends EntityRepository
         $query = $this->createQueryBuilder('Article')
             ->where('Article.published = :flagPublished')
             ->andWhere('Article.approved = :approved')
-            ->orderBy('Article.score', 'DESC')
-            ->addOrderBy('Article.publishedAt', 'DESC')
             ->setParameters(array(
                 'flagPublished' => true,
                 'approved' => true
@@ -68,8 +66,7 @@ class ArticleRepository extends EntityRepository
 
         $query = $this->createQueryBuilder('Article')
             ->where('Article.user = :user')
-            ->orderBy('Article.score', 'DESC')
-            ->addOrderBy('Article.id', 'DESC')
+            ->orderBy('Article.id', 'DESC')
             ->setParameter('user', $user);
 
         $pagerfantaAdapter = new DoctrineORMAdapter($query);
@@ -91,4 +88,3 @@ class ArticleRepository extends EntityRepository
     }
 
 }
-

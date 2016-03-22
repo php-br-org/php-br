@@ -11,7 +11,7 @@
                 <hr />
             </p>
             <p>
-                <img src="{{ user.email|email2gravatar('180') }}" alt="{{ user.name|raw }}" class="th img-gravatar-inicial" />
+                <img src="{{ user.email|email2gravatar('180') }}" alt="{{ user.name|e }}" class="th img-gravatar-inicial" />
             </p>
             {% if (user.linkedin|length > 0) %}
                 <p>Linkedin: <a href="{{ user.linkedin }}" target="_blank">{{ user.linkedin }}</a></p>

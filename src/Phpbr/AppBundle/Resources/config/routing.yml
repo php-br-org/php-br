@@ -1,31 +1,27 @@
+
 phpbr_app_paste:
     resource: "@PhpbrAppBundle/Resources/config/routing/paste.yml"
 
 phpbr_app_url:
     resource: "@PhpbrAppBundle/Resources/config/routing/url.yml"
-    prefix:   /url
-
-phpbr_app_main:
-    resource: "@PhpbrAppBundle/Resources/config/routing/main.yml"
 
 phpbr_app_fos:
     resource: "@PhpbrAppBundle/Resources/config/routing/fos.yml"
 
 phpbr_app_article:
     resource: "@PhpbrAppBundle/Resources/config/routing/article.yml"
-    prefix: /artigos/
 
 phpbr_app_my_articles:
     resource: "@PhpbrAppBundle/Resources/config/routing/my_articles.yml"
-    prefix: /meus-artigos/
 
 phpbr_app_forum:
     resource: "@PhpbrAppBundle/Resources/config/routing/forum.yml"
-    prefix: /forum
 
 phpbr_api:
     resource: "@PhpbrAppBundle/Resources/config/routing/api.yml"
-    prefix: /api
 
 phpbr_event:
     resource: "@PhpbrAppBundle/Resources/config/routing/event.yml"
+
+phpbr_app_main:
+    resource: "@PhpbrAppBundle/Resources/config/routing/main.yml"

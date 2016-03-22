@@ -6,17 +6,17 @@
 <div class="row main-div-background">
     <div class="large-11 large-centered columns">
         <div class="large-8 columns">
-            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ categoria.nome }} </h3>
+            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ category.name }} </h3>
         </div>
 
         <div class="large-3 columns">
-            <a href="{{ url('forum_novo_topico') }}" class="button secondary right">
+            <a href="{{ url('forum_new_topic') }}" class="button secondary right">
                 {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </a>
         </div>
         <hr />
         <div class="panel radius">
-            {{ categoria.descricao }}
+            {{ category.description }}
         </div>
     </div>
 
@@ -41,24 +41,24 @@
                         <tr>
                             <td>
                                 <p>
-                                    <a href="{{ url('forum_ver_mensagem', {'slug_categoria': topico.categoria.slug, 'slug': topico.slug}) }}">
-                                        {{ topico.assunto }}
+                                    <a href="{{ url('forum_view_message', {'slug_category': topic.category.slug, 'slug': topic.slug}) }}">
+                                        {{ topic.subject }}
                                     </a>
                                 </p>
                             </td>
                             <td class="text-center">
-                                <strong>{{ (topico.id|topico2quantidade_mensagens) + 1 }}</strong>
+                                <strong>{{ (topic.id|topicMessagesCount) + 1 }}</strong>
                             </td>
                             <td>
-                                <a href="{{ url('phpbr_app_verusuario', {'usuario': topico.user.username} ) }}">
-                                    <img src="{{ topico.user.email|email2gravatar('40') }}" alt="{{ topico.user.name|raw }}" class="avatar" />
+                                <a href="{{ url('phpbr_app_viewuser', {'user': topic.user.username} ) }}">
+                                    <img src="{{ topic.user.email|email2gravatar('40') }}" alt="{{ topic.user.name|e }}" class="avatar" />
                                     &nbsp;
-                                    {{ topico.user.name }}
+                                    {{ topic.user.name }}
                                 </a>
 
                                 <br>
                                 &nbsp;
-                                {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                                {{ topic.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                             </td>
                         </tr>
                     {% endfor %}

@@ -1,44 +1,31 @@
 forum_index:
-    path:     /
+    path:     /forum
     defaults: { _controller: "PhpbrAppBundle:Forum\Category:index" }
-    host:     %website%
 
 forum_view_category:
-    path:     /categoria/{slug}
+    path:     /forum/category/{slug}
     defaults: { _controller: "PhpbrAppBundle:Forum\Category:viewCategory" }
-    host:     %website%
 
 forum_view_topic:
-    path:     /topico/{id}
+    path:     /forum/topic/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Topic:ViewTopic" }
-    host:     %website%
 
 forum_view_message:
-    path:     /{slug_categoria}/{slug}
+    path:     /forum/view-message/{slug_category}/{slug}
     defaults: { _controller: "PhpbrAppBundle:Forum\Message:viewMessage" }
-    host:     %website%
 
 forum_new_topic:
-    path:     /novo
+    path:     /forum/new
     defaults: { _controller: "PhpbrAppBundle:Forum\Topic:new" }
-    host:     %website%
-
-forum_delete:
-    path:     /deletar/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:delete" }
-    host:     %website%
 
 forum_new_message:
-    path:     /{topico_id}/novaMensagem
+    path:     /forum/message/newMessage/{topic_id}/
     defaults: { _controller: "PhpbrAppBundle:Forum\Message:newMessage" }
-    host:     %website%
+    
+forum_delete_topic:
+    path:     /forum/topic/delete/{id}
+    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:delete" }
 
 forum_delete_message:
-    path:     /deletar-mensagem/{id}
+    path:     /forum/message/delete/{id}
     defaults: { _controller: "PhpbrAppBundle:Forum\Message:deleteMessage" }
-    host:     %website%
-
-forum_delete_topic:
-    path:     /deletar-topico/{id}
-    defaults: { _controller: "PhpbrAppBundle:Forum\Topic:deleteTopic" }
-    host:     %website%

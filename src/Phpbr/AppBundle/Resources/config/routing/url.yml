@@ -1,30 +1,37 @@
 url:
     path:     /
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:index" }
 
 url_show:
     path:     /{id}/show
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:show" }
 
 url_new:
     path:     /new
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:new" }
 
 url_create:
     path:     /create
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:create" }
     requirements: { _method: post }
 
 url_edit:
     path:     /{id}/edit
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:edit" }
 
 url_update:
     path:     /{id}/update
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:update" }
     requirements: { _method: post|put }
 
 url_delete:
     path:     /{id}/delete
+    host:     url.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Url:delete" }
     requirements: { _method: post|delete }

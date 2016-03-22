@@ -18,14 +18,14 @@
                 <div class="large-3 columns">
                     <h5 class="right">
                     <span class="label">
-                        {% if entity.dataCriacao %}{{ entity.dataCriacao|date('U')|tempo_passado }} atrás{% endif %}
+                        {% if entity.dataCriacao %}{{ entity.dataCriacao|date('U')|time_passed }} atrás{% endif %}
                     </span>
                         <small>{% if entity.dataCriacao %}{{ entity.dataCriacao|date('d/m/y H:i') }}{% endif %}</small>
                     </h5>
                 </div>
                 <div class="large-8 columns">
                     <h5>
-                        <a href="{{ path('cole_ver', { 'id': entity.id }) }}">{{ entity.titulo }}</a>
+                        <a href="{{ path('paste_ver', { 'id': entity.id }) }}">{{ entity.titulo }}</a>
                     </h5>
                 </div>
             </div>

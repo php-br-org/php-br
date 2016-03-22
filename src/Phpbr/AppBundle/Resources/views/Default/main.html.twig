@@ -11,7 +11,7 @@
                     </a>
                 </h5>
                 <div style="width:80px; float:left;">
-                    <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|raw }}" class="avatar2" />
+                    <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|e }}" class="avatar2" />
                 </div>
 
                 <div>
@@ -21,7 +21,7 @@
                     <h5>
                         <small>
                         Autor: 
-                        <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|raw }}</a>
+                        <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|e }}</a>
                         , {{ article.approvedAt|date('U')|time_passed }} atrás.
                             <span id="comentarios_{{ article.slug }}" class="secondary radius label"></span>
                         </small>
@@ -41,8 +41,8 @@
 
                 {% for message in forumMessages %}
                     <div class="forumMensagem">
-                        <a href="{{ path('forum_view_message', {'slug_category': message.topico.categoria.slug, 'slug': message.topico.slug}) }}">
-                            <b>{{ message.topico.assunto }}</b>
+                        <a href="{{ path('forum_view_message', {'slug_category': message.topic.category.slug, 'slug': message.topic.slug}) }}">
+                            <b>{{ message.topic.subject }}</b>
                         </a>
                         - {{ message.user.username }}
                     </div>

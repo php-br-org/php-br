@@ -25,26 +25,26 @@
             </div>
             <hr />
 
-            {% for categoria in categorias %}
+            {% for category in categories %}
             <div class="row">
                 <div class="large-5 columns">
                     <strong>
-                        <a href="{{ url('forum_ver_categoria', {'slug': categoria.slug}) }}">{{ categoria.nome|upper }}</a>
+                        <a href="{{ url('forum_view_category', {'slug': category.slug}) }}">{{ category.name|upper }}</a>
                     </strong>
                     <br />
-                    {{ categoria.descricao }}
+                    {{ category.description }}
                 </div>
                 <div class="large-2 columns text-center">
-                    {{ categoria.id|quantidade_topicos }}
+                    {{ category.id|qty_topics }}
                 </div>
                 <div class="large-2 columns text-center">
-                    {{ (categoria.id|quantidade_mensagens + categoria.id|quantidade_topicos) }}
+                    {{ (category.id|topicMessagesCount + category.id|qty_topics) }}
                 </div>
                 <div class="large-2 columns text-center">
-                    {{ categoria.id|categoria2ultima_mensagem|date('d/m/Y')  }}
+                    {{ category.id|categoryLastMessage|date('d/m/Y')  }}
                         <br />
                     <small>
-                        {{ categoria.id|categoria2ultima_mensagem|date('U')|tempo_passado }}
+                        {{ category.id|categoryLastMessage|date('U')|time_passed }}
                         {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </small>
                 </div>

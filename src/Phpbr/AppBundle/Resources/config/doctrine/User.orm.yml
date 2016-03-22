@@ -43,3 +43,7 @@ Phpbr\AppBundle\Entity\User:
         topics:
             targetEntity: Phpbr\AppBundle\Entity\Forum\Topic
             mappedBy: user
+        events:
+            targetEntity: Phpbr\AppBundle\Entity\Event
+            mappedBy: user
+

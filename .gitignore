@@ -15,9 +15,8 @@ app/config/config_prod.yml
 /bin/*
 !bin/console
 !bin/symfony_requirements
-!bin/phpunit
 /vendor/
-!src/Phpbr/Bundle/AppBundle/Resources/public/assets/js/vendor/
+!src/Phpbr/AppBundle/Resources/public/assets/js/vendor/
 
 # Assets and user uploads
 /web/bundles/*
@@ -43,5 +42,5 @@ app/config/config_prod.yml
 /.vagrant/
 /.idea
 /node_modules/
-dump.sql
-dump.tar.gz
+.revision
+

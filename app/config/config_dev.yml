@@ -55,6 +55,34 @@ white_october_pagerfanta:
 gregwar_captcha:
     width: 200
     height: 50
-    length: 6
+    length: 4
 
+
+nelmio_api_doc: ~
+
+snc_redis:
+    clients:
+        default:
+            type: phpredis
+            alias: default
+            dsn: redis://localhost
+            logging: %kernel.debug%
+        cache:
+            type: phpredis
+            alias: cache
+            dsn: redis://localhost/1
+            logging: true
+            options:
+                profile: 2.4
+                connection_timeout: 10
+                connection_persistent: true
+                read_write_timeout: 30
+                iterable_multibulk: false
+                throw_errors: true
+                cluster: Snc\RedisBundle\Client\Predis\Connection\PredisCluster
+                replication: false
+    session:
+        client: default
+        prefix: phpbr
+        use_as_default: true
 

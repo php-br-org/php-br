@@ -46,7 +46,7 @@ class GravatarExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'gravatar_extension';
+        return 'email2gravatar';
     }
 
 }

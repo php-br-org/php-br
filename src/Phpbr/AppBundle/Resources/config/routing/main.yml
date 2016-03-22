@@ -1,26 +1,19 @@
 phpbr_app_main:
     path:     /
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'main' }
-    host:     %website%
 
 phpbr_app_whoweare:
-    path:     /quem-somos
+    path:     /about
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'whoweare' }
-    host:     %website%
 
 phpbr_app_contact:
-    path:     /contato
+    path:     /contact
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'contact' }
-    host:     %website%
 
 phpbr_app_webchat:
     path:   /webchat
     defaults: { _controller: PhpbrAppBundle:Default:page, page: 'webchat' }
-    host:     %website%
 
 phpbr_app_viewuser:
-    path:   /usuario/{user}
+    path:   /user/{user}
     defaults: { _controller: PhpbrAppBundle:Default:viewUser }
-    host:     %website%
-
-

@@ -8,7 +8,7 @@
         <div class="large-8 columns">
             <h3>
                 <a href="{{ path('forum_index') }}">Forum</a> |
-                <a href="{{ path('forum_ver_categoria', {'slug': topico.categoria.slug }) }}">{{ topico.categoria.nome }}</a> |
+                <a href="{{ path('forum_ver_categoria', {'slug': topic.category.slug }) }}">{{ topic.category.nome }}</a> |
                 {{ topico.assunto }}
             </h3>
         </div>
@@ -35,11 +35,11 @@
                     <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name }}" class="avatar" />
                 </div>
                 <div class="">
-                    {{ topico.user.name }}
+                    {{ topic.user.name }}
                 </div>
             </a>
             <p>
-                {{ topico.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                {{ topic.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
             </p>
         </div>
         <div class="large-9 columns">
@@ -60,26 +60,26 @@
             <div class="row">
                 <div class="large-2 columns">
 
-                    <a href="{{ path('phpbr_app_verusuario', { 'usuario': mensagem.user.username }) }}">
+                    <a href="{{ path('phpbr_app_viewuser', { 'user': mensagem.user.username }) }}">
                         <div class="sidebar-item-block">
-                            <img src="{{ mensagem.user.email|email2gravatar('80') }}" alt="{{ mensagem.user.name }}" class="avatar" />
+                            <img src="{{ mensage.user.email|email2gravatar('80') }}" alt="{{ mensage.user.name }}" class="avatar" />
                         </div>
                         <div class="">
-                            {{ mensagem.user.name }}
+                            {{ mensage.user.name }}
                         </div>
                     </a>
                     <p>
-                        {{ mensagem.dataCriacao|date('U')|tempo_passado }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                        {{ mensage.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </p>
                 </div>
                 <div class="large-9 columns">
-                    {% if (mensagem.user == usuario) %}
-                        <a href="{{ path('forum_deletar_mensagem', {'id': mensagem.id}) }}" class="tiny button">
+                    {% if (mensage.user == user) %}
+                        <a href="{{ path('forum_delete_message', {'id': mensage.id}) }}" class="tiny button">
                             {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
                         </a>
                         <br />
                     {% endif %}
-                    {{ mensagem.mensagem|markdown }}
+                    {{ mensage.mensage|markdown }}
                 </div>
                 <hr />
             </div>

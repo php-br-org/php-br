@@ -11,7 +11,7 @@
 
     {% for entity in entities|reverse %}
         {{ entity.createdAt|date('d/m/Y - H:i') }} - 
-        <a href='http://url.php-br.org/{{ entity.id }}'>{{ entity.descricao }}</a>
+        <a href='http://url.php-br.org/{{ entity.id }}'>{{ entity.description }}</a>
         <a href="{{ path('url_edit', { 'id': entity.id }) }}"> - Editar</a>
         <br />
     {% endfor %}

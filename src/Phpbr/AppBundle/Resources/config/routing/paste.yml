@@ -3,30 +3,30 @@ paste:
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:index" }
 
-paste_pagina:
-    path:     /pagina/{pagina}/
+paste_page:
+    path:     /page/{page}/
     host:     cole.php-br.org
-    defaults: { _controller: "PhpbrAppBundle:Paste:index", pagina:1 }
+    defaults: { _controller: "PhpbrAppBundle:Paste:index", page:1 }
 
-paste_ver:
+paste_view:
     path:     /{id}
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:view" }
     requirements:
         id: \d+
 
-paste_verRaw:
-    path:     /{id}/ver-raw
+paste_viewRaw:
+    path:     /{id}/view-raw
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:viewRaw" }
 
-paste_novo:
-    path:     /novo
+paste_new:
+    path:     /new
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:new" }
 
 paste_create:
-    path:     /criar
+    path:     /create
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:create" }
     methods:  POST
@@ -42,8 +42,8 @@ paste_update:
     defaults: { _controller: "PhpbrAppBundle:Paste:update" }
     methods:  [POST, PUT]
 
-paste_deletar:
-    path:     /{id}/deletar 
+paste_delete:
+    path:     /{id}/delete
     host:     cole.php-br.org
     defaults: { _controller: "PhpbrAppBundle:Paste:delete" }
     methods:  [POST, DELETE]

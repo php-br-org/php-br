@@ -78,6 +78,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -172,7 +173,7 @@ doctrine_migrations:
     table_name: migration_versions
     name: Application Migrations
 
-# Temporary solution for conflict between sf / fosuserbundle: https://github.com/FriendsOfSymfony/FOSUserBundle/issues/2048
 services:
     fos_user.doctrine_registry:
         alias: doctrine
+

@@ -23,6 +23,11 @@ class Event
     /**
      * @var string
      */
+    private $event;
+
+    /**
+     * @var string
+     */
     private $slug;
 
     /**
@@ -64,6 +69,30 @@ class Event
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * Set event
+     *
+     * @param string $event
+     *
+     * @return Event
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return string
+     */
+    public function getEvent()
+    {
+        return $this->event;
     }
 
     /**

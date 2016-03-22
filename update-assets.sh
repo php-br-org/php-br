@@ -1,12 +1,12 @@
 #!/bin/sh
 ###################################################################
 #
-# src/Phpbr/Bundle/AppBundle/Resources/public/assets
+# src/Phpbr/AppBundle/Resources/public/assets
 #
 ###################################################################
 
 echo 'Compiling SCSS';
-cd src/Phpbr/Bundle/AppBundle/Resources/public/assets
+cd src/Phpbr/AppBundle/Resources/public/assets
 grunt build
 
 cd ../../../../../../..

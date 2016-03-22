@@ -1,11 +1,9 @@
 home_admin:
-    path: /
+    path: /admin
     defaults: { _controller: "PhpbrAppBundle:Admin\Admin:index" }
 
 admin_articles:
     resource: "@PhpbrAppBundle/Resources/config/routing/admin/article.yml"
-    prefix: /artigos
 
 admin_forum:
     resource: "@PhpbrAppBundle/Resources/config/routing/admin/forum.yml"
-    prefix: /forum

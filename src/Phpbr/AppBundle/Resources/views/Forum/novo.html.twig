@@ -7,7 +7,7 @@
         <div class="large-11 large-centered columns">
             <h3>
                 <a href="{{ url('forum_index') }}">Forum</a> |
-                <a href="{{ url('forum_ver_topico', {'id': categoria.id}) }}">{{ categoria.nome }}</a>
+                <a href="{{ url('forum_view_topic', {'id': category.id}) }}">{{ category.name }}</a>
                 | {{ 'phpbr.forum.new_topic'|trans({}, 'forum') }}
             </h3>
 
