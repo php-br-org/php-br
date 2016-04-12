@@ -6,7 +6,7 @@
 <div class="row main-div-background">
     <div class="large-11 large-centered columns">
         <div class="large-8 columns">
-            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ category.name }} </h3>
+            <h3><a href="{{ url('forum_index') }}">Forum</a> | {{ category.name|e }} </h3>
         </div>
 
         <div class="large-3 columns">
@@ -16,7 +16,7 @@
         </div>
         <hr />
         <div class="panel radius">
-            {{ category.description }}
+            {{ category.description|e }}
         </div>
     </div>
 
@@ -26,23 +26,23 @@
                 <thead>
                     <tr>
                         <th scope="column">
-                            <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper }}</strong>
+                            <strong>{{ 'phpbr.forum.subject'|trans({}, 'forum')|upper|e }}</strong>
                         </th>
                         <th scope="column" class="text-center" width="80">
-                            <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper }}</strong>
+                            <strong>{{ 'phpbr.forum.messages'|trans({}, 'forum')|upper|e }}</strong>
                         </th>
                         <th scope="column" class="text-center" width="220">
-                            <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper }}</strong>
+                            <strong>{{ 'phpbr.forum.author'|trans({}, 'forum')|upper|e }}</strong>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for topico in topicos %}
+                    {% for topic in topics %}
                         <tr>
                             <td>
                                 <p>
                                     <a href="{{ url('forum_view_message', {'slug_category': topic.category.slug, 'slug': topic.slug}) }}">
-                                        {{ topic.subject }}
+                                        {{ topic.subject|e }}
                                     </a>
                                 </p>
                             </td>
@@ -50,15 +50,15 @@
                                 <strong>{{ (topic.id|topicMessagesCount) + 1 }}</strong>
                             </td>
                             <td>
-                                <a href="{{ url('phpbr_app_viewuser', {'user': topic.user.username} ) }}">
+                                <a href="{{ url('phpbr_app_viewuser', {'user': topic.user.username|e} ) }}">
                                     <img src="{{ topic.user.email|email2gravatar('40') }}" alt="{{ topic.user.name|e }}" class="avatar" />
                                     &nbsp;
-                                    {{ topic.user.name }}
+                                    {{ topic.user.name|e }}
                                 </a>
 
                                 <br>
                                 &nbsp;
-                                {{ topic.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                                {{ topic.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                             </td>
                         </tr>
                     {% endfor %}

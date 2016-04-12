@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $topics = $category->getTopics();
         $session->set('forumCategory', $category->getId());
 
-        return $this->render('@PhpbrApp/Forum/view.html.twig', array(
+        return $this->render('PhpbrAppBundle:Forum:view.html.twig', array(
             'category' => $category,
             'topics'   => $topics
         ));

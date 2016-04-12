@@ -14,7 +14,7 @@ parameters:
     locale:            pt_BR
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ~
+    secret:            'php-br.org'
 
     debug_toolbar:          false
     debug_redirects:        false

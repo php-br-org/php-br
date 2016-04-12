@@ -8,13 +8,13 @@
         <div class="large-8 columns">
             <h3>
                 <a href="{{ path('forum_index') }}">Forum</a> |
-                <a href="{{ path('forum_ver_categoria', {'slug': topic.category.slug }) }}">{{ topic.category.nome }}</a> |
-                {{ topico.assunto }}
+                <a href="{{ path('forum_view_category', {'slug': topic.category.slug|escape }) }}">{{ topic.category.name|escape }}</a> |
+                {{ topic.subject|escape }}
             </h3>
         </div>
 
         <div class="large-3 columns">
-            <a href="#formMensagem" class="button success right">
+            <a href="#formmessage" class="button success right">
                 {{ 'phpbr.forum.new_message'|trans({}, 'forum') }}
             </a>
         </div>
@@ -30,56 +30,56 @@
 
     <div class="large-11 large-centered columns">
         <div class="large-2 columns">
-            <a href="{{ path('phpbr_app_verusuario', { 'usuario': topico.user.username }) }}">
+            <a href="{{ path('phpbr_app_viewuser', { 'user': topic.user.username|escape }) }}">
                 <div class="sidebar-item-block">
-                    <img src="{{ topico.user.email|email2gravatar('120') }}" alt="{{ topico.user.name }}" class="avatar" />
+                    <img src="{{ topic.user.email|email2gravatar('120') }}" alt="{{ topic.user.name|escape }}" class="avatar" />
                 </div>
                 <div class="">
-                    {{ topic.user.name }}
+                    {{ topic.user.name|escape }}
                 </div>
             </a>
             <p>
-                {{ topic.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                {{ topic.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
             </p>
         </div>
         <div class="large-9 columns">
-            {% if (topico.user == usuario) %}
-                <a href="{{ path('forum_deletar_topico', {'id': topico.id}) }}" class="tiny button">
+            {% if (topic.user == user) %}
+                <a href="{{ path('forum_delete_topic', {'id': topic.id}) }}" class="tiny button">
                     {{ 'phpbr.forum.delete_topic'|trans({}, 'forum') }}
                 </a>
                 <br />
             {% endif %}
-            <strong>{{ topico.assunto }}</strong>
+            <strong>{{ topic.subject }}</strong>
             <p>
-                {{ topico.mensagem|markdown }}
+                {{ topic.message|markdown|escape }}
             </p>
         </div>
         <hr />
 
-        {% for mensagem in mensagens %}
+        {% for message in messages %}
             <div class="row">
                 <div class="large-2 columns">
 
-                    <a href="{{ path('phpbr_app_viewuser', { 'user': mensagem.user.username }) }}">
+                    <a href="{{ path('phpbr_app_viewuser', { 'user': message.user.username }) }}">
                         <div class="sidebar-item-block">
-                            <img src="{{ mensage.user.email|email2gravatar('80') }}" alt="{{ mensage.user.name }}" class="avatar" />
+                            <img src="{{ message.user.email|email2gravatar('80') }}" alt="{{ message.user.name|escape }}" class="avatar" />
                         </div>
                         <div class="">
-                            {{ mensage.user.name }}
+                            {{ message.user.name|escape }}
                         </div>
                     </a>
                     <p>
-                        {{ mensage.dataCriacao|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
+                        {{ message.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}
                     </p>
                 </div>
                 <div class="large-9 columns">
-                    {% if (mensage.user == user) %}
-                        <a href="{{ path('forum_delete_message', {'id': mensage.id}) }}" class="tiny button">
+                    {% if (message.user == user) %}
+                        <a href="{{ path('forum_delete_message', {'id': message.id}) }}" class="tiny button">
                             {{ 'phpbr.forum.delete_message'|trans({}, 'forum') }}
                         </a>
                         <br />
                     {% endif %}
-                    {{ mensage.mensage|markdown }}
+                    {{ message.message|markdown|escape }}
                 </div>
                 <hr />
             </div>
@@ -93,7 +93,7 @@
                     {{ 'phpbr.forum.login'|trans({}, 'forum') }}
                 </a>
             {% endif %}
-            <a id="formMensagem"></a>
+            <a id="formmessage"></a>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
