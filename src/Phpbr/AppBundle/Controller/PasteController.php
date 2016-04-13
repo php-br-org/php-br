@@ -36,7 +36,7 @@ class PasteController extends Controller
 
             $session->set('deleteKey', $entity->getDeleteKey());
 
-            return $this->redirect($this->generateUrl('cole_ver',
+            return $this->redirect($this->generateUrl('paste_see',
                 array(
                     'id' => $entity->getId(),
                 )
@@ -76,7 +76,7 @@ class PasteController extends Controller
 
             $session->set('deleteKey', $entity->getDeleteKey());
 
-            return $this->redirect($this->generateUrl('cole_ver', 
+            return $this->redirect($this->generateUrl('paste_see', 
                 array(
                     'id' => $entity->getId(),
                 )
@@ -99,7 +99,7 @@ class PasteController extends Controller
     private function createCreateForm(Paste $entity)
     {
         $form = $this->createForm(new PasteType(), $entity, array(
-            'action' => $this->generateUrl('cole_create'),
+            'action' => $this->generateUrl('paste_create'),
             'method' => 'POST',
         ));
 
@@ -203,7 +203,7 @@ class PasteController extends Controller
     private function createEditForm(Paste $entity)
     {
         $form = $this->createForm(new PasteType(), $entity, array(
-            'action' => $this->generateUrl('cole_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('paste_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -231,7 +231,7 @@ class PasteController extends Controller
         if ($editForm->isValid()) {
             $this->getPasteService()->insert($entity);
 
-            return $this->redirect($this->generateUrl('cole_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('paste_edit', array('id' => $id)));
         }
 
         return $this->render('PhpbrAppBundle:Paste:edit.html.twig', array(
@@ -266,7 +266,7 @@ class PasteController extends Controller
             $pasteService->em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cole'));
+        return $this->redirect($this->generateUrl('paste'));
     }
 
     /**
@@ -279,7 +279,7 @@ class PasteController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cole_deletar', array('id' => $id)))
+            ->setAction($this->generateUrl('paste_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
