@@ -86,24 +86,24 @@ var phpbr = phpbr || {
         ;
     },
 
-    getComentarios: function (slug) {
+    getComments: function (slug) {
         $.ajax({
             type: 'GET',
             url: '/api/v1/quantity-of-comments/' + slug,
             success: function (data, status) {
                 var quantity = parseInt(data);
                 var comment = 'comment';
-                var retorno = '<strong>' + data + '</strong> ' + comment;
+                var dataReturn = '<strong>' + data + '</strong> ' + comment;
 
                 if (quantity > 0) {
-                    if (1 == quantidade) {
-                        var retornoFinal = retorno;
+                    if (1 == quantity) {
+                        var finalReturn = dataReturn;
                     } else {
-                        var retornoFinal = retorno + 's';
+                        var finalReturn = dataReturn + 's';
                     }
-                    $('#comentarios_' + slug).append(retornoFinal);
+                    $('#comments_' + slug).append(finalReturn);
                 } else {
-                    $('#comentarios_' + slug).append('Comment!');
+                    $('#comments_' + slug).append('Comment!');
                 }
 
             }
