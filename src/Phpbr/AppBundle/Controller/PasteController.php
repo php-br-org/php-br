@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Phpbr\AppBundle\Entity\Paste;
-use Phpbr\AppBundle\Form\PasteType;
+use Phpbr\AppBundle\Form\Type\PasteType;
 use Pagerfanta\Pagerfanta;
 use Phpbr\AppBundle\Services\PasteService;
 
