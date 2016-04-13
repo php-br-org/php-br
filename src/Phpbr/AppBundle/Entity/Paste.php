@@ -43,8 +43,8 @@ class Paste implements PasteInterface
 
     public function __construct()
     {
-        $this->setDataCriacao(new \DateTime());
-        $this->setChaveDeletar(uniqid());
+        $this->setCreatedAt(new \DateTime());
+        $this->setDeleteKey(uniqid());
     }
 
     /**
