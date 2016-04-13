@@ -1,5 +1,5 @@
 phpbr_api_get_article:
-    path: /v1/artigo/{id}
+    path: /api/v1/artigo/{id}
     defaults: { _controller: "PhpbrAppBundle:ArticleApi:getArticle" }
     requirements:
         _method: GET
@@ -7,21 +7,21 @@ phpbr_api_get_article:
 
 
 phpbr_api_put_irc:
-    path: /v1/irc/{api_key}/{nicks}
+    path: /api/v1/irc/{api_key}/{nicks}
     defaults: { _controller: "PhpbrAppBundle:IrcApi:putIrc" }
     requirements:
         _method: PUT
 
 
 phpbr_api_get_irc:
-    path: /v1/irc
+    path: /api/v1/irc
     defaults: { _controller: "PhpbrAppBundle:IrcApi:getNicks" }
     requirements:
         _method: GET
 
 
 phpbr_api_get_no_comments_article:
-    path: /v1/quantity-of-comments/{slug}
+    path: /api/v1/quantity-of-comments/{slug}
     defaults: { _controller: "PhpbrAppBundle:ArticleApi:getNoComments" }
     requirements:
         _method: GET

@@ -89,13 +89,13 @@ var phpbr = phpbr || {
     getComentarios: function (slug) {
         $.ajax({
             type: 'GET',
-            url: '/api/v1/qtd-comentarios/' + slug,
+            url: '/api/v1/quantity-of-comments/' + slug,
             success: function (data, status) {
-                var quantidade = parseInt(data);
-                var comentario = 'comentário';
-                var retorno = '<strong>' + data + '</strong> ' + comentario;
+                var quantity = parseInt(data);
+                var comment = 'comment';
+                var retorno = '<strong>' + data + '</strong> ' + comment;
 
-                if (quantidade > 0) {
+                if (quantity > 0) {
                     if (1 == quantidade) {
                         var retornoFinal = retorno;
                     } else {
@@ -103,7 +103,7 @@ var phpbr = phpbr || {
                     }
                     $('#comentarios_' + slug).append(retornoFinal);
                 } else {
-                    $('#comentarios_' + slug).append('Comente!');
+                    $('#comentarios_' + slug).append('Comment!');
                 }
 
             }
