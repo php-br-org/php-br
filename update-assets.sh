@@ -9,7 +9,7 @@ echo 'Compiling SCSS';
 cd src/Phpbr/AppBundle/Resources/public/assets
 grunt build
 
-cd ../../../../../../..
+cd ../../../../../..
 
 
 echo 'Removing css and js';
