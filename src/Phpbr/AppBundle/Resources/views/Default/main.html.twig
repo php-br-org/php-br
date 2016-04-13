@@ -23,11 +23,11 @@
                         Autor: 
                         <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|e }}</a>
                         , {{ article.approvedAt|date('U')|time_passed }} atrás.
-                            <span id="comentarios_{{ article.slug }}" class="secondary radius label"></span>
+                            <span id="comments_{{ article.slug }}" class="secondary radius label"></span>
                         </small>
                     </h5>
                     <script>
-                        phpbr.getComentarios('{{ article.slug }}');
+                        phpbr.getComments('{{ article.slug }}');
                     </script>
                 </div>
 
