@@ -4,7 +4,6 @@ phpbr_api_get_article:
     requirements:
         _method: GET
         id: "\d+"
-    host: %website%
 
 
 phpbr_api_put_irc:
@@ -12,7 +11,6 @@ phpbr_api_put_irc:
     defaults: { _controller: "PhpbrAppBundle:IrcApi:putIrc" }
     requirements:
         _method: PUT
-    host: %website%
 
 
 phpbr_api_get_irc:
@@ -20,14 +18,10 @@ phpbr_api_get_irc:
     defaults: { _controller: "PhpbrAppBundle:IrcApi:getNicks" }
     requirements:
         _method: GET
-    host: %website%
 
 
 phpbr_api_get_no_comments_article:
-    path: /v1/qtd-comentarios/{slug}
+    path: /v1/quantity-of-comments/{slug}
     defaults: { _controller: "PhpbrAppBundle:ArticleApi:getNoComments" }
     requirements:
         _method: GET
-    host: %website%
-
-

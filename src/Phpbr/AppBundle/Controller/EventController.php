@@ -28,7 +28,7 @@ class EventController extends Controller
         $form->handleRequest($request);
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        if (!$this->container->get('security.token_storage')->isGranted('IS_AUTHENTICATED_FULLY') ){
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
             return new RedirectResponse($this->generateUrl('fos_user_security_login'));
         }
 
@@ -36,7 +36,7 @@ class EventController extends Controller
             $event->setUser($user);
 
             $data = $request->request->all();
-            $day = $data['phpbr_bundle_appbundle_event']['day'];
+            $day = $data['phpbr_appbundle_event']['day'];
 
             $date = new \DateTime(\DateTime::createFromFormat('d/m/Y', $day)->format('Y-m-d'));
 
@@ -44,6 +44,7 @@ class EventController extends Controller
                 throw new \Exception('Invalid Date');
             }
 
+            $event->setEvent($data['phpbr_addbundle_event']['title']);
             $event->setDay($date);
             $event->setCreatedAt(new \DateTime());
 
