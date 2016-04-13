@@ -25,7 +25,7 @@ parameters:
     knp_disqus.lorem.shortname: "php-br.org"
 
     articles_per_page: 10
-    coles_por_pagina: 5
+    pastes_per_page: 5
 
     website: "www.php-br.org"
 
