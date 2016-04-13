@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Mallanna);
+@import url(https://fonts.googleapis.com/css?family=Mallanna);
 @import "settings";
 @import "foundation";
 @import "meltdown";
@@ -8,11 +8,11 @@
     ******************************
 */
 
-$cor-fundo: #f9f9f9;
+$cor-fundo: #F9F9F9;
 $cor-borda: #757FAE;
 $cor-fonte-top: #333;
 $cor-fonte-top-link: #999;
-$cor-fundo-header: #586397;
+$cor-fundo-header: #4F5B93;
 $branco: #FFFFFF;
 
 $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
@@ -30,7 +30,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 }
 
 .sidebar-item-block {
-    border-bottom: 2px solid #F9F9F9;
+    border-bottom: 2px solid $cor-fundo;
     padding: 2px;
 }
 
