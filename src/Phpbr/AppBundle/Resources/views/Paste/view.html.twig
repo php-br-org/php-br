@@ -13,16 +13,16 @@
             <div class="large-8 columns">
                 <h4>
                     http://cole.php-br.org/{{ entity.id }}
-                    <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
+                    <a href="{{ url('paste_viewRaw', {'id': entity.id}) }}" target="_blank" class="label info">[raw]</a>
                     <h5>
                         <strong>Titulo:</strong> {{ entity.title }}
-                        <span class="label success">{{ entity.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'main') }}</span>
+                        <span class="label success">{{ entity.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}</span>
                     </h5>
                 </h4>
             </div>
             <div class="large-3 columns">
                 <a href="{{ url('paste_new') }}" class="button success right">
-                    {{ 'phpbr.paste.new_paste'|trans({}, 'main') }}
+                    {{ 'phpbr.paste.new_paste'|trans({}, 'paste') }}
                 </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <span class="label alert">{{ 'phpbr.paste.delete_button_message'|trans({}, 'main') }}</span>
             {% endif %}
         {% endif %}
-        <div class="panel" style="overflow:auto;">{{ code|e }}</div>
+        <div class="panel" style="overflow:auto;">{{ code }}</div>
     </div>
 
 </div>
