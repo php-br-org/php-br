@@ -3,25 +3,33 @@ phpbr_app_paste:
     resource: "@PhpbrAppBundle/Resources/config/routing/paste.yml"
 
 phpbr_app_url:
+    host: "url.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/url.yml"
 
 phpbr_app_fos:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/fos.yml"
 
 phpbr_app_article:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/article.yml"
 
 phpbr_app_my_articles:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/my_articles.yml"
 
 phpbr_app_forum:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/forum.yml"
 
 phpbr_api:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/api.yml"
 
 phpbr_event:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/event.yml"
 
 phpbr_app_main:
+    host: "www.php-br.org"
     resource: "@PhpbrAppBundle/Resources/config/routing/main.yml"
