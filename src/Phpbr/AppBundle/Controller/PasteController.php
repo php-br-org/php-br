@@ -36,7 +36,7 @@ class PasteController extends Controller
 
             $session->set('deleteKey', $entity->getDeleteKey());
 
-            return $this->redirect($this->generateUrl('paste_see',
+            return $this->redirect($this->generateUrl('paste_view',
                 array(
                     'id' => $entity->getId(),
                 )
@@ -49,7 +49,7 @@ class PasteController extends Controller
         $pastes = new Pagerfanta($pasteRepo);
         $pastes->setMaxPerPage($this->container->getParameter('pastes_per_page'));
 
-        $page = $request->get('pagina', 1);
+        $page = $request->get('page', 1);
         $pastes->setCurrentPage($page);
 
         return $this->render('PhpbrAppBundle:Paste:index.html.twig', array(
@@ -76,7 +76,7 @@ class PasteController extends Controller
 
             $session->set('deleteKey', $entity->getDeleteKey());
 
-            return $this->redirect($this->generateUrl('paste_see', 
+            return $this->redirect($this->generateUrl('paste_view', 
                 array(
                     'id' => $entity->getId(),
                 )

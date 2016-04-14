@@ -2,13 +2,13 @@
 
 
 {% block title %}
-    http://cole.php-br.org
+    {{ entity.title }}
 {% endblock %}
 
 {% block content %}
 <div class="row main-div-background">
     <div class="large-11 large-centered columns">
-    <h3>Novo Código</h3>
+    <h3>{{ 'phpbr.main.new_paste'|trans({}, 'main') }}</h3>
         {{ form(form) }}
     </div>
     <hr />
@@ -18,14 +18,14 @@
                 <div class="large-3 columns">
                     <h5 class="right">
                     <span class="label">
-                        {% if entity.dataCriacao %}{{ entity.dataCriacao|date('U')|time_passed }} atrás{% endif %}
+                        {% if entity.createdAt %}{{ entity.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'forum') }}{% endif %}
                     </span>
-                        <small>{% if entity.dataCriacao %}{{ entity.dataCriacao|date('d/m/y H:i') }}{% endif %}</small>
+                        <small>{% if entity.createdAt %}{{ entity.createdAt|date('d/m/y H:i') }}{% endif %}</small>
                     </h5>
                 </div>
                 <div class="large-8 columns">
                     <h5>
-                        <a href="{{ path('paste_ver', { 'id': entity.id }) }}">{{ entity.titulo }}</a>
+                        <a href="{{ path('paste_view', { 'id': entity.id }) }}">{{ entity.title }}</a>
                     </h5>
                 </div>
             </div>
@@ -35,7 +35,7 @@
     {% if entities|length %}
         <div class="row">
             <div class="large-11 large-centered columns text-center">
-                {{ pagerfanta(entities, 'phpbr', {'pageParameter': '[pagina]'}) }}
+                {{ pagerfanta(entities, 'phpbr', {'pageParameter': '[page]'}) }}
             </div>
         </div>
     {% endif %}

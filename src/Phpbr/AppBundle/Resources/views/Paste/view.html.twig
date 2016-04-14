@@ -2,7 +2,7 @@
 {% extends '::layout.html.twig' %}
 
 {% block title %}
-    {{ entity.titulo }}
+    {{ entity.title }}
 {% endblock %}
 {% set queryParams = app.request.query.all %}
 
@@ -15,27 +15,27 @@
                     http://cole.php-br.org/{{ entity.id }}
                     <a href="http://cole.php-br.org/{{ entity.id }}/ver-raw" target="_blank" class="label info">[raw]</a>
                     <h5>
-                        <strong>Titulo:</strong> {{ entity.titulo }}
-                        <span class="label success">{{ entity.dataCriacao|date('U')|time_passed }} atrás</span>
+                        <strong>Titulo:</strong> {{ entity.title }}
+                        <span class="label success">{{ entity.createdAt|date('U')|time_passed }} {{ 'phpbr.forum.ago'|trans({}, 'main') }}</span>
                     </h5>
                 </h4>
             </div>
             <div class="large-3 columns">
-                <a href="{{ url('paste_novo') }}" class="button success right">
-                    Novo código
+                <a href="{{ url('paste_new') }}" class="button success right">
+                    {{ 'phpbr.paste.new_paste'|trans({}, 'main') }}
                 </a>
             </div>
         </div>
     </div>
 
     <div class="row" style="clear: both;">
-        {% if app.session.get('chaveDeletar') is defined %}
-            {% if app.session.get('chaveDeletar') == entity.chaveDeletar %}
+        {% if app.session.get('deleteKey') is defined %}
+            {% if app.session.get('deleteKey') == entity.deleteKey %}
                 {{ form(delete_form) }}
-                <span class="label alert">Este botão só está disponível agora. Esta é sua única chance de excluir o código! </span>
+                <span class="label alert">{{ 'phpbr.paste.delete_button_message'|trans({}, 'main') }}</span>
             {% endif %}
         {% endif %}
-        <div class="panel" style="overflow:auto;">{{ codigo|e }}</div>
+        <div class="panel" style="overflow:auto;">{{ code|e }}</div>
     </div>
 
 </div>

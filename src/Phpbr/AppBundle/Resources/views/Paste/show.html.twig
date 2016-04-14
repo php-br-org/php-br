@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Cole</h1>
+    <h1>{{ 'phpbr.main.paste'|trans({}, 'main') }}</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,24 +10,24 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Titulo</th>
-                <td>{{ entity.titulo }}</td>
+                <th>{{ 'phpbr.main.title'|trans({}, 'main') }}</th>
+                <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>Tipo</th>
-                <td>{{ entity.tipo }}</td>
+                <th>{{ 'phpbr.main.type'|trans({}, 'main') }}</th>
+                <td>{{ entity.type }}</td>
             </tr>
             <tr>
-                <th>Codigo</th>
-                <td>{{ entity.codigo }}</td>
+                <th>{{ 'phpbr.main.code'|trans({}, 'main') }}</th>
+                <td>{{ entity.code }}</td>
             </tr>
             <tr>
-                <th>Datacriacao</th>
-                <td>{{ entity.dataCriacao|date('Y-m-d H:i:s') }}</td>
+                <th>{{ 'phpbr.main.creation_date'|trans({}, 'main') }}</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Chavedeletar</th>
-                <td>{{ entity.chaveDeletar }}</td>
+                <th>{{ 'phpbr.main.deleteKey'|trans({}, 'main') }}</th>
+                <td>{{ entity.deleteKey }}</td>
             </tr>
         </tbody>
     </table>
@@ -35,12 +35,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('cole') }}">
-            Back to the list
+            {{ 'phpbr.main.back_to_the_list'|trans({}, 'main') }}
         </a>
     </li>
     <li>
         <a href="{{ path('cole_edit', { 'id': entity.id }) }}">
-            Edit
+            {{ 'phpbr.main.edit'|trans({}, 'main') }}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
