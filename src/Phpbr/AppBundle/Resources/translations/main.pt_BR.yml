@@ -2,3 +2,6 @@ phpbr:
     main:
         collaborate: 'Colabore'
         collabore_with_us: 'Colabore Conosco'
+        you_can_collaborate: 'Colabore você também!'
+        ago: 'Atrás'
+        contributors: 'Colaboradores'

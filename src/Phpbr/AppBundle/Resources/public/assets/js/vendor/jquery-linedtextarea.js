@@ -62,7 +62,7 @@
 			/* Turn off the wrapping of as we don't want to screw up the line numbers */
 			textarea.attr("wrap", "off");
 			textarea.css({resize:'none'});
-			var originalTextAreaWidth	= textarea.outerWidth();
+			var originalTextAreaWidth	= textarea.outerWidth() - 30;
 
 			/* Wrap the text area in the elements we need */
 			textarea.wrap("<div class='linedtextarea'></div>");

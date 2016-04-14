@@ -22,7 +22,7 @@
                         <small>
                         Autor: 
                         <a href="{{ path('phpbr_app_viewuser', { 'user': article.user }) }}">{{ article.user.name|e }}</a>
-                        , {{ article.approvedAt|date('U')|time_passed }} atrás.
+                        , {{ article.approvedAt|date('U')|time_passed }} {{ 'phpbr.main.ago'|trans({}, 'main') }}.
                             <span id="comments_{{ article.slug }}" class="secondary radius label"></span>
                         </small>
                     </h5>
@@ -116,15 +116,15 @@
             <div class="row sidebar-block">
                 <div class="large-12 columns">
                     <div id="coles-block">
-                        <div class="user-title-box"><h5><small>COLE CÓDIGOS</small></h5></div>
+                        <div class="user-title-box"><h5><small>{{ 'phpbr.paste.paste_codes'|trans({}, 'paste')|upper }}</small></h5></div>
                         {% for paste in pastes %}
                             <a href="{{ url('paste_view', {'id': paste.id}) }}">
                                 <div class="row sidebar-item-block collapse">
                                     <div class="large-3 columns">
-                                        <span class="label">{{ paste.type }}</span>
+                                        <span class="label">{{ paste.type|e }}</span>
                                     </div>
                                     <div class="large-9 columns">
-                                        <h5><small>{{ paste.title|upper }}</small></h5>
+                                        <h5><small>{{ paste.title|e|upper }}</small></h5>
                                     </div>
                                 </div>
                             </a>
@@ -135,11 +135,11 @@
 
             <div class="row sidebar-block">
                 <div class="large-12 columns">
-                    <div class="user-title-box"><h5><small>COLABORADORES</small></h5></div>
+                    <div class="user-title-box"><h5><small>{{ 'phpbr.main.contributors'|trans({}, 'main') }}</small></h5></div>
                     <div id="contributors" class="contributors">
                     <h5>
                         <small>
-                            <a href="https://github.com/php-br-org/php-br" target="_blank">Colabore você também!</a>
+                            <a href="https://github.com/php-br-org/php-br" target="_blank">{{ 'phpbr.main.you_can_collaborate'|trans({}, 'main') }}</a>
                         </small>
                     </h5>
                     </div>

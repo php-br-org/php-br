@@ -9,6 +9,7 @@ phpbr:
         delete_key: 'Chave Deletar'
         back_to_the_list: 'Back to the list'
         edit: 'Edit'
-        delete_button_message: 'Este botão só está disponível agora. Esta é sua única chance de excluir o código! '
+        delete_button_message: 'Este botão só está disponível agora. Esta é sua única chance de excluir o código!'
+        paste_codes: 'Cole Códigos'
 
 
