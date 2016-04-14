@@ -62,7 +62,7 @@
 			/* Turn off the wrapping of as we don't want to screw up the line numbers */
 			textarea.attr("wrap", "off");
 			textarea.css({resize:'none'});
-			var originalTextAreaWidth	= textarea.outerWidth() - 30;
+			var originalTextAreaWidth	= textarea.outerWidth();
 
 			/* Wrap the text area in the elements we need */
 			textarea.wrap("<div class='linedtextarea'></div>");
@@ -92,7 +92,7 @@
 			var sidebarWidth					= linesDiv.outerWidth();
 			var paddingHorizontal 		= parseInt( linedWrapDiv.css("border-left-width") ) + parseInt( linedWrapDiv.css("border-right-width") ) + parseInt( linedWrapDiv.css("padding-left") ) + parseInt( linedWrapDiv.css("padding-right") );
 			var linedWrapDivNewWidth 	= originalTextAreaWidth - paddingHorizontal;
-			var textareaNewWidth			= originalTextAreaWidth - sidebarWidth - paddingHorizontal - 20;
+			var textareaNewWidth			= originalTextAreaWidth - sidebarWidth - paddingHorizontal - 50;
 
 			textarea.width( textareaNewWidth );
 			linedWrapDiv.width( linedWrapDivNewWidth );
