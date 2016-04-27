@@ -1,0 +1,19 @@
+version: '2'
+services:
+    application:
+        build: ./
+        links:
+            - db:mysql
+        ports:
+            - 80:80
+        env_file:
+            - ./config/database.env
+    db:
+        image: mysql:5.6
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: phpbr_en
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root

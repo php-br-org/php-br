@@ -29,62 +29,19 @@ Dúvidas? ##php-br - irc.freenode.net
 1) Instalação:
 ----------------------------------
 
-Instalação por Vagrant:
-
-Necessário:
-
-- Virtualbox
-
-- Vagrant
-
-- rsync (se Windows)
-
-
-Vá até a raiz do projeto e execute:
-
-    vagrant up
-
-Uma vez a VM configurada, execute o seguinte comando para sincronizar os arquivos alterados entre sua maquina e a VM:
-
-    vagrant rsync-auto
-
----
-
-2) Instalação em seu próprio server:
--------------------------
-Se você estiver em uma máquina rodando UBUNTU:
-
-Exemplo de config do apache:
-
-    cd /var/www/html
-
     git clone https://github.com/php-br-org/php-br.git
-
-Edite seu arquivo de configuração do Apache:
-
-    sudo vim /etc/apache2/sites-available/000-default.conf
-
-    <VirtualHost *:80>
-    	ServerAdmin webmaster@localhost
-    	DocumentRoot /var/www/html/php-br/web
-    <Directory /var/www/html/php-br/web>
-        AllowOverride All
-        Order allow,deny
-        Allow from All
-    </Directory>
-    	ErrorLog ${APACHE_LOG_DIR}/error.log
-    	CustomLog ${APACHE_LOG_DIR}/access.log combined
-    </VirtualHost>
-
-    sudo service apache2 restart
-
+    
     cd php-br
-
+    
+    docker-compose up -d
+    
+    docker run --name name_of_my_container -d -p 80:80 bash
+    
     chmod +x install.sh
-
+    
     ./install.sh
 
-3) Front-end:
+2) Front-end:
 ----------------------------------
 Necessario: NodeJS + NPM. 
 
@@ -117,25 +74,3 @@ Para compilar automaticamente ao salvar (A executar na sua maquina):
 
     cd src/Phpbr/AppBundle/Resources/public/assets
     grunt watch
-
-
-4) Observações:
-----------------------------------
-
-Para acessar a VM, execute o seguinte comando na raiz do projeto:
-
-    vagrant ssh
-
-Para limpar o cache da apliacao (a executar diretamente na VM):
-
-    vagrant ssh
-    cd /var/www/php-br
-    php app/console cache:clear
-    # ou
-    sudo rm -rf app/cache/*
-
-Para cada alteracao feita no .gitignore, execute (na raiz do projeto):
-
-    git rm -r --cached .
-    git add .
-    git commit -m "Atualizando .gitignore"
