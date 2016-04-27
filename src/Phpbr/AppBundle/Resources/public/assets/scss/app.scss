@@ -29,6 +29,10 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 //    padding-right: 40px;
 }
 
+.row {
+    max-width: 75rem;
+}
+
 .sidebar-item-block {
     border-bottom: 2px solid $cor-fundo;
     padding: 2px;
@@ -36,6 +40,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
 
 .top-bar {
   background: $cor-fundo-header;
+  max-width: 75rem;
 }
 
 .user-box {
