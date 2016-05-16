@@ -43,8 +43,7 @@ $avatar-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
   max-width: 75rem;
 }
 
-@media only screen and (min-width: 40.063em)
-.contain-to-grid .top-bar {
+@media only screen and (min-width: 40.063em) .contain-to-grid .top-bar {
     max-width: 75rem;
     margin: 0 auto;
     margin-bottom: 0;
