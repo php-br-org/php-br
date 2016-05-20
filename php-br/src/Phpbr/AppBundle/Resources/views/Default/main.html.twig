@@ -10,10 +10,6 @@
                         {{ article.title|e }}
                     </a>
                 </h5>
-                <div style="width:80px; float:left;">
-                    <img src="{{ article.user.email|email2gravatar('60') }}" alt="{{ article.user.name|e }}" class="avatar2" />
-                </div>
-
                 <div>
                     <p class="text-justify">
                         {{ article.excerpt|e }}
